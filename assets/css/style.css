@@ -1255,3 +1255,91 @@ textarea.form-control {
     text-align: center;
   }
 }
+
+/* ==========================================================================
+   ONE-PAGE NAVIGATION & MODAL CASE STUDY VIEWER
+   ========================================================================== */
+section, .section, .hero {
+  scroll-margin-top: 4.5rem;
+}
+
+.project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.project-modal-backdrop.active {
+  display: flex;
+  opacity: 1;
+}
+
+.project-modal-container {
+  background: #ffffff;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid var(--border-color);
+  animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.project-modal-close-btn {
+  position: sticky;
+  top: 1rem;
+  float: right;
+  margin-right: 1rem;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  color: var(--text-muted);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.project-modal-close-btn:hover {
+  background: var(--blue-50);
+  color: var(--blue-600);
+  border-color: var(--blue-200);
+  transform: rotate(90deg);
+}
+
+.project-modal-body {
+  padding: 2.5rem;
+}
+
+@media (max-width: 640px) {
+  .project-modal-body {
+    padding: 1.5rem;
+  }
+}

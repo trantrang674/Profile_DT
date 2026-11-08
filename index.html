@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Content Marketing | Chiến Lược Nội Dung & Tăng Trưởng Doanh Số</title>
+  <title>Dương Trang | Content Marketing Specialist Portfolio</title>
   <meta name="description" content="Portfolio cá nhân chuyên viên Content Marketing: Chiến lược nội dung đa kênh, SEO Inbound, Copywriting và Storytelling chạm cảm xúc, thúc đẩy chuyển đổi.">
   
+  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
+  
+  <!-- Marked.js để parse Markdown -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
@@ -18,7 +22,7 @@
   <!-- ==================== HEADER & NAVIGATION ==================== -->
   <header class="header">
     <div class="container nav-wrapper">
-      <a href="index.html" class="logo">
+      <a href="#home" class="logo">
         <span class="logo-dot"></span>
         <span>CONTENT<span style="color: var(--blue-600);">FOLIO</span></span>
       </a>
@@ -29,12 +33,14 @@
         </svg>
       </button>
 
+      <!-- MENU ĐIỀU HƯỚNG CUỘN SECTION TRÊN 1 TRANG DUY NHẤT -->
       <ul class="nav-menu">
-        <li><a href="index.html" class="nav-link active">Trang Chủ</a></li>
-        <li><a href="projects.html" class="nav-link">Dự Án</a></li>
-        <li><a href="about.html" class="nav-link">Giới Thiệu</a></li>
-        <li><a href="blog.html" class="nav-link">Góc Chia Sẻ</a></li>
-        <li><a href="contact.html" class="nav-link">Liên Hệ</a></li>
+        <li><a href="#home" class="nav-link active">Trang Chủ</a></li>
+        <li><a href="#projects" class="nav-link">Dự Án</a></li>
+        <li><a href="#about" class="nav-link">Giới Thiệu</a></li>
+        <li><a href="#skills" class="nav-link">Kỹ Năng</a></li>
+        <li><a href="#blog" class="nav-link">Góc Chia Sẻ</a></li>
+        <li><a href="#contact" class="nav-link">Liên Hệ</a></li>
       </ul>
 
       <div class="nav-cta">
@@ -47,8 +53,8 @@
   </header>
 
   <main>
-    <!-- ==================== HERO SECTION ==================== -->
-    <section class="hero">
+    <!-- ==================== 1. HERO SECTION (#home) ==================== -->
+    <section id="home" class="hero">
       <div class="container hero-grid">
         <div class="hero-text-col">
           <div class="hero-subtitle">
@@ -69,7 +75,7 @@
 
           <!-- 3 NÚT CTA CHÍNH THEO YÊU CẦU -->
           <div class="hero-actions">
-            <a href="projects.html" class="btn btn-primary btn-lg">
+            <a href="#projects" class="btn btn-primary btn-lg">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
               Xem Dự Án
             </a>
@@ -122,30 +128,174 @@
       </div>
     </section>
 
-    <!-- ==================== 2 DỰ ÁN NỔI BẬT ==================== -->
-    <section class="section section-bg">
+    <!-- ==================== 2. DỰ ÁN & CASE STUDIES (#projects) ==================== -->
+    <section id="projects" class="section section-bg">
       <div class="container">
         <div class="section-header">
-          <span class="section-subtitle">DỰ ÁN TIÊU BIỂU</span>
-          <h2 class="section-title">Case Study Đã Triển Khai</h2>
+          <span class="section-subtitle">DỰ ÁN & CASE STUDIES</span>
+          <h2 class="section-title">Kho Dự Án Đã Triển Khai</h2>
           <p class="section-desc">
-            Dưới đây là 2 dự án nổi bật minh chứng cho khả năng kết hợp giữa sáng tạo nội dung và mục tiêu kinh doanh cụ thể.
+            Dưới đây là các chiến dịch thực tế, số liệu tăng trưởng và phương pháp tư duy nội dung mà tôi đã triển khai qua từng giai đoạn phát triển.
           </p>
         </div>
 
-        <div id="featured-projects-container" class="featured-grid">
+        <!-- 2 Dự án nổi bật (Featured Projects) -->
+        <div style="margin-bottom: 3.5rem;">
+          <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: var(--orange-500);">⭐</span> 2 Dự Án Tiêu Biểu
+          </h3>
+          <div id="featured-projects-container" class="featured-grid">
+            <!-- Nạp tự động từ MarkdownLoader -->
+          </div>
         </div>
 
-        <div style="text-align: center; margin-top: 3.5rem;">
-          <a href="projects.html" class="btn btn-outline btn-lg">
-            Khám Phá Toàn Bộ Kho Dự Án (Case Studies) →
-          </a>
+        <!-- Bộ lọc danh mục & Toàn bộ dự án -->
+        <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+          <div style="text-align: center; margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.4rem; font-weight: 800; color: var(--text-main);">Khám Phá Toàn Bộ Dự Án Theo Chuyên Môn</h3>
+          </div>
+
+          <div id="project-filters" class="filter-bar">
+            <!-- Render danh mục động -->
+          </div>
+
+          <div id="all-projects-container" class="projects-grid">
+            <!-- Danh sách toàn bộ dự án render từ MarkdownLoader -->
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== NĂNG LỰC CỐT LÕI ==================== -->
-    <section class="section">
+    <!-- ==================== 3. GIỚI THIỆU BẢN THÂN (#about) ==================== -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">VỀ BẢN THÂN TÔI</span>
+          <h2 class="section-title">Hành Trình Nghề Nghiệp & Triết Lý</h2>
+          <p class="section-desc">
+            Hiểu rõ hơn về con người, tư duy làm việc và những giá trị tôi mang lại cho tổ chức.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Sidebar: Avatar & Quick Info -->
+          <aside class="about-sidebar">
+            <div class="about-card">
+              <div class="about-card-avatar">
+                <img src="assets/images/hero-avatar.svg" alt="Dương Trang">
+              </div>
+              <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.25rem;">Dương Trang</h3>
+              <p style="font-size: 0.95rem; color: var(--blue-600); font-weight: 600; margin-bottom: 1.25rem;">
+                Content Marketing Specialist
+              </p>
+              
+              <div style="font-size: 0.88rem; color: var(--text-muted); text-align: left; border-top: 1px solid var(--border-color); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
+                <div>📍 <strong>Địa điểm:</strong> Hà Nội / TP.HCM / Remote</div>
+                <div>💼 <strong>Kinh nghiệm:</strong> 3+ năm thực chiến</div>
+                <div>🎯 <strong>Mục tiêu:</strong> Senior Content / Content Lead</div>
+                <div>🎓 <strong>Chuyên ngành:</strong> Marketing & Truyền thông</div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <a href="assets/cv/CV-Content-Marketing.pdf" download class="btn btn-primary btn-sm" style="width: 100%;">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                  Tải CV Bản Đầy Đủ
+                </a>
+                <a href="assets/cv/Portfolio-Content-Marketing.pdf" download class="btn btn-outline btn-sm" style="width: 100%;">
+                  Tải Bản Portfolio (PDF)
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <div class="about-content">
+            <span class="badge badge-orange" style="margin-bottom: 0.75rem;">CÂU CHUYỆN NGHỀ NGHIỆP</span>
+            <h2>"Người kể chuyện bằng cảm xúc, đo lường bằng số liệu."</h2>
+            
+            <p>
+              Chào bạn! Tôi tin rằng trong thời đại bùng nổ thông tin và nội dung do AI tạo ra hàng loạt, thứ giữ chân người đọc không phải là những bài viết chung chung, mà là <strong>sự thấu cảm sâu sắc (empathy)</strong> với nỗi đau của khách hàng cùng một <strong>góc nhìn độc bản (unique perspective)</strong>.
+            </p>
+
+            <p>
+              Với hơn 3 năm gắn bó trong ngành Content Marketing, tôi từng trải nghiệm từ vị trí Content Writer viết bài chuẩn SEO, Social Copywriter cho đến người chịu trách nhiệm lên chiến lược nội dung đa kênh (Content Strategy) cho các sản phẩm B2B công nghệ và B2C tiêu dùng nhanh (FMCG/F&B).
+            </p>
+
+            <div style="background: var(--blue-50); border-left: 4px solid var(--blue-600); padding: 1.5rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: 2rem 0;">
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--blue-900); margin-bottom: 0.5rem;">
+                3 Nguyên tắc cốt lõi trong từng sản phẩm nội dung của tôi:
+              </h3>
+              <ul style="padding-left: 1.25rem; font-size: 0.95rem; color: #1e3a8a;">
+                <li style="margin-bottom: 0.4rem;"><strong>Rõ ràng hơn là cầu kỳ:</strong> Một thông điệp đơn giản, dễ hiểu luôn bán được hàng tốt hơn lời văn hoa mỹ rối rắm.</li>
+                <li style="margin-bottom: 0.4rem;"><strong>Đặt khách hàng vào trung tâm:</strong> Mọi bài viết đều phải giải quyết một khúc mắc, một nỗi sợ hoặc mang lại niềm vui cho người đọc.</li>
+                <li><strong>Theo dõi & Tối ưu:</strong> Không dừng lại khi bài được đăng. Tôi theo dõi lượt click, thời gian trên trang và chuyển đổi để liên tục cải tiến.</li>
+              </ul>
+            </div>
+
+            <h3 style="font-size: 1.6rem; font-weight: 800; margin-top: 3rem; margin-bottom: 1.5rem;">Hành Trình Kinh Nghiệm</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <span class="timeline-date">2023 - HIỆN TẠI</span>
+                <h4 class="timeline-role">Senior Content Marketing Specialist</h4>
+                <div class="timeline-company">Công ty Cổ phần Công nghệ SaaS</div>
+                <p class="timeline-desc">
+                  - Quản trị kênh Content Hub & Blog, thúc đẩy organic traffic tăng từ 7.5k lên 128k sessions/tháng.<br>
+                  - Phối hợp cùng Product Team và Sales Team xây dựng chuỗi email nuôi dưỡng tự động (Lead Nurturing) với tỷ lệ mở 41.5%.<br>
+                  - Định hình Brand Voice và xây dựng kho tài liệu hướng dẫn (Ebook, Whitepaper, Case studies).
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <span class="timeline-date">2022 - 2023</span>
+                <h4 class="timeline-role">Creative Copywriter & Social Specialist</h4>
+                <div class="timeline-company">Digital Marketing & Creative Agency</div>
+                <p class="timeline-desc">
+                  - Lên kế hoạch và trực tiếp sản xuất nội dung cho 5+ nhãn hàng tiêu dùng, mỹ phẩm và F&B.<br>
+                  - Viết kịch bản short video TikTok/Reels, tham gia brief và kiểm duyệt sản phẩm của 20+ Micro-KOCs.<br>
+                  - Triển khai chiến dịch viral đạt 1.45M+ reach tự nhiên cho thương hiệu trà sinh thái EcoTea.
+                </p>
+              </div>
+
+              <div class="timeline-item">
+                <span class="timeline-date">2021 - 2022</span>
+                <h4 class="timeline-role">Content Writer & SEO Intern</h4>
+                <div class="timeline-company">Cổng Thông tin & Thương mại Điện tử</div>
+                <p class="timeline-desc">
+                  - Nghiên cứu từ khóa ngách, viết 150+ bài viết chuẩn SEO On-page.<br>
+                  - Thiết kế ảnh thumbnail bài viết cơ bản với Canva/Figma và quản lý hệ thống CMS WordPress.
+                </p>
+              </div>
+            </div>
+
+            <h3 style="font-size: 1.6rem; font-weight: 800; margin-top: 3rem; margin-bottom: 1.2rem;">Bộ Công Cụ & Kỹ Năng Kỹ Thuật</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem;">
+              <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                <strong style="color: var(--blue-700); display: block; margin-bottom: 0.5rem;">SEO & Nghiên cứu</strong>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Ahrefs, Semrush, Google Search Console, Google Analytics 4 (GA4), KeywordTool.io</p>
+              </div>
+
+              <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                <strong style="color: var(--orange-600); display: block; margin-bottom: 0.5rem;">CMS & Email Tool</strong>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">WordPress, Ghost, Mailchimp, HubSpot, ActiveCampaign, Markdown</p>
+              </div>
+
+              <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                <strong style="color: var(--blue-700); display: block; margin-bottom: 0.5rem;">Thiết kế & Media</strong>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Canva Pro, Figma (cơ bản), CapCut, Photoshop (cơ bản)</p>
+              </div>
+
+              <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+                <strong style="color: var(--orange-600); display: block; margin-bottom: 0.5rem;">Quản trị & AI</strong>
+                <p style="font-size: 0.88rem; color: var(--text-muted);">Notion, Trello, ChatGPT, Claude (Prompt Engineering cho Content)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. KỸ NĂNG & GIÁ TRỊ (#skills) ==================== -->
+    <section id="skills" class="section section-bg">
       <div class="container">
         <div class="section-header">
           <span class="section-subtitle">GIÁ TRỊ MANG LẠI</span>
@@ -196,21 +346,17 @@
             </p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ==================== LÝ DO CHỌN TÔI (CHO HR & CEO) ==================== -->
-    <section class="section section-bg">
-      <div class="container">
-        <div style="background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 3.5rem; box-shadow: var(--shadow-sm);">
+        <!-- Phần dành cho Nhà tuyển dụng / CEO -->
+        <div style="margin-top: 4rem; background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 3rem; box-shadow: var(--shadow-sm);">
           <div style="max-width: 800px; margin: 0 auto; text-align: center;">
             <span class="section-subtitle">DÀNH CHO NHÀ TUYỂN DỤNG & MARKETING LEADER</span>
-            <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.3;">
+            <h3 style="font-size: 2rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.3;">
               Điều gì tạo nên sự khác biệt trong cách làm Content của tôi?
-            </h2>
-            <div style="text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2.5rem 0;">
+            </h3>
+            <div style="text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
               <div>
-                <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--blue-700); margin-bottom: 0.5rem;">
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--blue-700); margin-bottom: 0.5rem;">
                   1. Tư duy định hướng Kết quả (ROI)
                 </h4>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">
@@ -218,32 +364,32 @@
                 </p>
               </div>
               <div>
-                <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--orange-600); margin-bottom: 0.5rem;">
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--orange-600); margin-bottom: 0.5rem;">
                   2. Khả năng thích ứng phong cách đa ngành
                 </h4>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">
-                  Linh hoạt biến hóa từ văn phong chuyên nghiệp, tin cậy của B2B Tech đến ngôn ngữ gần gũi, giàu cảm xúc của F&B và FMCG.
+                  Linh hoạt biến hóa từ văn phong chuyên nghiệp của B2B Tech đến ngôn ngữ gần gũi của F&B và FMCG.
                 </p>
               </div>
               <div>
-                <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--blue-700); margin-bottom: 0.5rem;">
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--blue-700); margin-bottom: 0.5rem;">
                   3. Làm chủ công cụ & AI có chọn lọc
                 </h4>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">
-                  Ứng dụng AI để đẩy nhanh tiến độ nghiên cứu, nhưng luôn giữ trọn chiều sâu tư duy, chất giọng con người và độ độc bản của nội dung.
+                  Ứng dụng AI đẩy nhanh tiến độ, nhưng luôn giữ trọn chiều sâu tư duy, chất giọng con người và độ độc bản của nội dung.
                 </p>
               </div>
               <div>
-                <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--orange-600); margin-bottom: 0.5rem;">
+                <h4 style="font-size: 1.05rem; font-weight: 700; color: var(--orange-600); margin-bottom: 0.5rem;">
                   4. Kỹ năng làm việc nhóm & Briefing
                 </h4>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">
-                  Kinh nghiệm phối hợp chặt chẽ với Designer, Media Buyer, KOCs và Developer để biến ý tưởng thành sản phẩm hoàn chỉnh đúng hạn.
+                  Kinh nghiệm phối hợp chặt chẽ với Designer, Media Buyer, KOCs và Developer để hoàn thành sản phẩm đúng hạn.
                 </p>
               </div>
             </div>
             
-            <a href="contact.html" class="btn btn-secondary">
+            <a href="#contact" class="btn btn-secondary">
               Đặt Lịch Phỏng Vấn / Trao Đổi Công Việc
             </a>
           </div>
@@ -251,7 +397,193 @@
       </div>
     </section>
 
-    <!-- ==================== CALL TO ACTION BANNER ==================== -->
+    <!-- ==================== 5. GÓC CHIA SẺ (#blog) ==================== -->
+    <section id="blog" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">GÓC NHÌN & TƯ DUY</span>
+          <h2 class="section-title">Góc Chia Sẻ Chuyên Môn</h2>
+          <p class="section-desc">
+            Nơi tôi ghi lại những quan sát thực tế trong quá trình làm nghề: từ tâm lý học hành vi người đọc đến cách kết hợp giữa tư duy con người và sức mạnh của AI.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-grid-card">
+            <div class="project-grid-thumb" style="background: linear-gradient(135deg, var(--blue-50), var(--blue-100)); display: flex; align-items: center; justify-content: center; padding: 2rem;">
+              <span style="font-size: 3rem;">🤖 ✍️</span>
+            </div>
+            <div class="project-grid-body">
+              <div class="project-meta" style="margin-bottom: 0.6rem;">
+                <span class="badge badge-orange">Tư duy Content</span>
+                <span style="font-size: 0.8rem; color: var(--text-light);">5 phút đọc</span>
+              </div>
+              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.35;">
+                AI không thay thế người làm Content, AI chỉ thay thế người viết sáo rỗng
+              </h3>
+              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.2rem;">
+                Khi AI có thể tạo ra 1,000 từ trong 10 giây, đâu là giá trị độc bản khiến khách hàng thực sự ghi nhớ và tin tưởng một thương hiệu?
+              </p>
+              <div class="project-grid-footer">
+                <span style="font-size: 0.82rem; color: var(--text-light);">Cập nhật 2024</span>
+                <span style="font-size: 0.88rem; font-weight: 700; color: var(--blue-600);">Quan điểm nghề</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-grid-card">
+            <div class="project-grid-thumb" style="background: linear-gradient(135deg, var(--orange-50), var(--orange-100)); display: flex; align-items: center; justify-content: center; padding: 2rem;">
+              <span style="font-size: 3rem;">🔍 📈</span>
+            </div>
+            <div class="project-grid-body">
+              <div class="project-meta" style="margin-bottom: 0.6rem;">
+                <span class="badge badge-blue">SEO & Inbound</span>
+                <span style="font-size: 0.8rem; color: var(--text-light);">7 phút đọc</span>
+              </div>
+              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.35;">
+                Mô hình Topic Cluster: Tạm biệt kỷ nguyên 'viết bài SEO rác' nhồi từ khóa
+              </h3>
+              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.2rem;">
+                Cách xây dựng mạng lưới nội dung liên kết chặt chẽ giúp Google nhận diện thương hiệu của bạn là chuyên gia số 1 trong ngành.
+              </p>
+              <div class="project-grid-footer">
+                <span style="font-size: 0.82rem; color: var(--text-light);">Cập nhật 2024</span>
+                <span style="font-size: 0.88rem; font-weight: 700; color: var(--blue-600);">SEO Inbound</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-grid-card">
+            <div class="project-grid-thumb" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); display: flex; align-items: center; justify-content: center; padding: 2rem;">
+              <span style="font-size: 3rem;">💡 🎯</span>
+            </div>
+            <div class="project-grid-body">
+              <div class="project-meta" style="margin-bottom: 0.6rem;">
+                <span class="badge badge-gray">Copywriting</span>
+                <span style="font-size: 0.8rem; color: var(--text-light);">4 phút đọc</span>
+              </div>
+              <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.35;">
+                5 Công thức viết Hook 3 giây đầu tiên giữ chân người xem video ngắn
+              </h3>
+              <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.2rem;">
+                Phân tích các mẫu mở đầu kích thích trí tò mò tự nhiên đã được kiểm chứng trên hàng trăm video TikTok và Reels.
+              </p>
+              <div class="project-grid-footer">
+                <span style="font-size: 0.82rem; color: var(--text-light);">Cập nhật 2024</span>
+                <span style="font-size: 0.88rem; font-weight: 700; color: var(--blue-600);">Social Video</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. LIÊN HỆ & HỢP TÁC (#contact) ==================== -->
+    <section id="contact" class="section section-bg">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">SẴN SÀNG KẾT NỐI</span>
+          <h2 class="section-title">Liên Hệ & Hợp Tác</h2>
+          <p class="section-desc">
+            Dù bạn là Nhà tuyển dụng, Trưởng phòng Marketing đang tìm kiếm nhân sự, hay CEO muốn trao đổi về chiến lược nội dung, tôi luôn sẵn lòng lắng nghe!
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-card">
+            <span class="badge badge-orange" style="margin-bottom: 1rem;">THÔNG TIN TRỰC TIẾP</span>
+            <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem;">Hãy cùng tạo nên điều tuyệt vời!</h3>
+            <p style="color: var(--text-muted); font-size: 0.98rem; margin-bottom: 2rem; line-height: 1.7;">
+              Tôi ưu tiên các cơ hội làm việc toàn thời gian (Full-time) hoặc Cố vấn chiến lược nội dung (Consultant) tại các công ty coi trọng giá trị bền vững của Content Marketing.
+            </p>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div>
+                <h4>EMAIL CHÍNH</h4>
+                <a href="mailto:trangduong.content@gmail.com" style="color: var(--blue-600);">trangduong.content@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              </div>
+              <div>
+                <h4>ĐIỆN THOẠI / ZALO</h4>
+                <p>+84 987 654 321</p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg>
+              </div>
+              <div>
+                <h4>MẠNG XÃ HỘI NGHỀ NGHIỆP</h4>
+                <p>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener" style="color: var(--blue-600); margin-right: 1rem;">LinkedIn</a>
+                  <a href="https://facebook.com" target="_blank" rel="noopener" style="color: var(--blue-600);">Facebook</a>
+                </p>
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <a href="assets/cv/CV-Content-Marketing.pdf" download class="btn btn-primary btn-sm">
+                Tải CV Của Tôi
+              </a>
+              <a href="assets/cv/Portfolio-Content-Marketing.pdf" download class="btn btn-secondary btn-sm">
+                Tải Portfolio (PDF)
+              </a>
+            </div>
+          </div>
+
+          <!-- Form gửi lời nhắn -->
+          <div class="contact-form">
+            <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">Gửi Lời Nhắn Nhanh</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem;">
+              Điền thông tin bên dưới, tôi sẽ phản hồi lại bạn qua email trong vòng 24 giờ.
+            </p>
+
+            <form id="portfolio-contact-form" action="https://formspree.io/f/sample" method="POST" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã để lại thông tin! Tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.'); this.reset();">
+              <div class="form-group">
+                <label for="name" class="form-label">Họ và tên của bạn / Công ty *</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Ví dụ: Nguyễn Văn A - HR Manager tại ABC Tech" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label">Địa chỉ Email của bạn *</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="name@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="subject" class="form-label">Chủ đề quan tâm</label>
+                <select id="subject" name="subject" class="form-control">
+                  <option value="recruitment">Cơ hội việc làm Full-time (Content Marketing)</option>
+                  <option value="freelance">Dự án Freelance / Copywriting</option>
+                  <option value="consulting">Cố vấn Chiến lược Nội dung</option>
+                  <option value="networking">Kết nối & Trao đổi chuyên môn</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Nội dung trao đổi *</label>
+                <textarea id="message" name="message" class="form-control" placeholder="Mô tả ngắn gọn về nhu cầu tuyển dụng hoặc dự án của bạn..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                Gửi Lời Nhắn Ngay
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== BANNER KÊU GỌI HÀNH ĐỘNG ==================== -->
     <section class="section" style="padding-top: 1rem;">
       <div class="container">
         <div class="cta-banner">
@@ -260,7 +592,7 @@
             Tôi luôn hào hứng tìm kiếm các thử thách mới và sẵn sàng đóng góp vào sự phát triển của đội ngũ Marketing tại doanh nghiệp của bạn.
           </p>
           <div class="cta-buttons">
-            <a href="contact.html" class="btn btn-primary btn-lg">Liên Hệ Ngay Với Tôi</a>
+            <a href="#contact" class="btn btn-primary btn-lg">Liên Hệ Ngay Với Tôi</a>
             <a href="assets/cv/CV-Content-Marketing.pdf" download class="btn btn-outline" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
               Tải CV (Bản PDF)
             </a>
@@ -270,24 +602,38 @@
     </section>
   </main>
 
+  <!-- ==================== POPUP MODAL ĐỌC CASE STUDY TRÊN CÙNG TRANG ==================== -->
+  <div id="project-modal-backdrop" class="project-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="project-modal-container">
+      <button id="project-modal-close" class="project-modal-close-btn" aria-label="Đóng chi tiết dự án">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div id="project-modal-body" class="project-modal-body">
+        <!-- Nội dung case study Markdown được nạp vào đây -->
+      </div>
+    </div>
+  </div>
+
   <!-- ==================== FOOTER ==================== -->
   <footer class="footer">
     <div class="container footer-content">
       <div>
         <p style="font-weight: 700; color: var(--text-main); font-size: 1rem;">Dương Trang — Content Marketing Specialist</p>
-        <p style="font-size: 0.85rem; margin-top: 0.25rem;">Website lưu trữ dự án cá nhân được xây dựng trên GitHub Pages.</p>
+        <p style="font-size: 0.85rem; margin-top: 0.25rem;">Website portfolio cá nhân xây dựng theo chuẩn Single-Page trên GitHub Pages.</p>
       </div>
 
       <ul class="footer-links">
-        <li><a href="index.html">Trang Chủ</a></li>
-        <li><a href="projects.html">Dự Án</a></li>
-        <li><a href="about.html">Giới Thiệu</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Liên Hệ</a></li>
+        <li><a href="#home">Trang Chủ</a></li>
+        <li><a href="#projects">Dự Án</a></li>
+        <li><a href="#about">Giới Thiệu</a></li>
+        <li><a href="#skills">Kỹ Năng</a></li>
+        <li><a href="#blog">Góc Chia Sẻ</a></li>
+        <li><a href="#contact">Liên Hệ</a></li>
       </ul>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="content/projects-manifest.js"></script>
   <script src="assets/js/markdown-loader.js"></script>
   <script src="assets/js/main.js"></script>
