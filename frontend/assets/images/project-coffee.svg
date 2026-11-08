@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgCoffee" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#451a03" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bgCoffee)" />
+  <circle cx="650" cy="120" r="140" fill="#f97316" opacity="0.15" />
+
+  <g transform="translate(420, 70)">
+    <rect width="300" height="380" rx="20" fill="#fffbeb" filter="drop-shadow(0 15px 30px rgba(0,0,0,0.3))" stroke="#fde68a" stroke-width="2" />
+    <circle cx="150" cy="100" r="40" fill="#78350f" />
+    <circle cx="150" cy="100" r="30" fill="#fffbeb" />
+    <path d="M 140 100 Q 150 70 160 100" fill="#b45309" />
+    
+    <text x="150" y="180" font-family="'Plus Jakarta Sans', serif" font-size="16" font-style="italic" font-weight="700" fill="#451a03" text-anchor="middle">"Một ngụm chậm,</text>
+    <text x="150" y="205" font-family="'Plus Jakarta Sans', serif" font-size="16" font-style="italic" font-weight="700" fill="#451a03" text-anchor="middle">vạn điều an."</text>
+    
+    <line x1="80" y1="230" x2="220" y2="230" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,4" />
+    <rect x="50" y="255" width="200" height="6" rx="3" fill="#d97706" opacity="0.5" />
+    <rect x="70" y="272" width="160" height="6" rx="3" fill="#d97706" opacity="0.4" />
+    <rect x="60" y="289" width="180" height="6" rx="3" fill="#d97706" opacity="0.4" />
+
+    <rect x="80" y="325" width="140" height="30" rx="15" fill="#f97316" />
+    <text x="150" y="344" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">BRAND STORY</text>
+  </g>
+
+  <g transform="translate(60, 140)">
+    <rect width="160" height="30" rx="15" fill="#0284c7" />
+    <text x="80" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">BRAND STORYTELLING</text>
+    
+    <text x="0" y="80" font-family="'Plus Jakarta Sans', sans-serif" font-size="34" font-weight="800" fill="#ffffff">Mộc Cà Phê</text>
+    <text x="0" y="115" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="500" fill="#fde68a">Tái định vị & Copywriting Menu</text>
+    
+    <g transform="translate(0, 150)">
+      <rect width="260" height="68" rx="12" fill="#ffffff" filter="drop-shadow(0 10px 20px rgba(0,0,0,0.2))" />
+      <text x="25" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="800" fill="#ea580c">+35% AOV</text>
+      <text x="25" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#64748b">GIÁ TRỊ ĐƠN TRUNG BÌNH TĂNG</text>
+    </g>
+  </g>
+</svg>

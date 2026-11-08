@@ -1,0 +1,6 @@
+# HƯỚNG DẪN BỎ FILE CV VÀO ĐÂY
+Bạn chỉ cần thay thế các file trong thư mục này bằng file CV và Portfolio thực tế của bạn:
+1. `CV-Content-Marketing.pdf` : File CV ứng tuyển của bạn
+2. `Portfolio-Content-Marketing.pdf` : File Portfolio định dạng PDF (nếu có)
+
+Tất cả các nút "Tải CV" và "Tải portfolio" trên toàn bộ trang web (Trang chủ, Dự án, Giới thiệu, Liên hệ) đều đang liên kết trực tiếp tới 2 file này.

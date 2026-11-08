@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgEco" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bgEco)" />
+  <circle cx="700" cy="100" r="180" fill="#ffffff" opacity="0.05" />
+  <circle cx="100" cy="400" r="140" fill="#f97316" opacity="0.1" />
+
+  <g transform="translate(420, 50)">
+    <rect width="280" height="420" rx="28" fill="#ffffff" filter="drop-shadow(0 15px 30px rgba(0,0,0,0.25))" />
+    <rect x="18" y="20" width="244" height="200" rx="14" fill="#ecfdf5" />
+    <ellipse cx="140" cy="120" rx="45" ry="25" fill="#10b981" opacity="0.8" />
+    <path d="M 95 120 C 95 160, 185 160, 185 120 Z" fill="#059669" />
+    <path d="M 185 125 C 205 125, 205 145, 185 150" fill="none" stroke="#059669" stroke-width="6" stroke-linecap="round" />
+    
+    <circle cx="140" cy="120" r="22" fill="#ffffff" opacity="0.9" />
+    <polygon points="135,110 152,120 135,130" fill="#0284c7" />
+
+    <rect x="20" y="238" width="100" height="12" rx="6" fill="#0284c7" />
+    <rect x="20" y="260" width="220" height="8" rx="4" fill="#94a3b8" />
+    <rect x="20" y="276" width="180" height="8" rx="4" fill="#cbd5e1" />
+
+    <rect x="20" y="305" width="240" height="40" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
+    <text x="35" y="330" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ea580c">❤️ 48.5K</text>
+    <text x="110" y="330" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#0284c7">💬 1.8K</text>
+    <text x="180" y="330" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#64748b">↗️ 5.2K</text>
+  </g>
+
+  <g transform="translate(60, 120)">
+    <rect width="130" height="32" rx="16" fill="#f97316" />
+    <text x="65" y="21" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">SOCIAL VIRAL</text>
+    
+    <text x="0" y="80" font-family="'Plus Jakarta Sans', sans-serif" font-size="34" font-weight="800" fill="#ffffff">EcoTea Vietnam</text>
+    <text x="0" y="115" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="500" fill="#e0f2fe">Chiến Dịch 'Uống Lành - Sống Nhẹ'</text>
+    
+    <g transform="translate(0, 150)">
+      <rect width="280" height="70" rx="14" fill="#ffffff" filter="drop-shadow(0 10px 20px rgba(0,0,0,0.15))" />
+      <text x="25" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="800" fill="#ea580c">1.45M+</text>
+      <text x="25" y="54" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#64748b">ORGANIC REACH TOÀN CHIẾN DỊCH</text>
+    </g>
+  </g>
+</svg>
