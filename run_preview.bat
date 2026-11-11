@@ -5,5 +5,5 @@ echo   KHOI DONG WEBSITE PORTFOLIO CONTENT MARKETING
 echo   Server dang chay tai: http://localhost:5500/
 echo ========================================================
 start http://localhost:5500/index.html
-python -m http.server 5500
+python -m http.server 5500 --directory frontend
 pause
