@@ -363,10 +363,10 @@ body.landing {
 
 /* Quick Metrics Bar */
 .lp-hero-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
   justify-content: start;
-  gap: 2.2rem;
   padding-top: 1.35rem;
   border-top: 1px solid var(--border-color);
 }
@@ -442,16 +442,23 @@ body.landing {
 }
 
 .lp-badge-float.b1 {
-  top: 10%;
-  left: -5%;
+  top: 8%;
+  left: -8%;
   color: var(--blue-700);
 }
 
 .lp-badge-float.b2 {
-  bottom: 12%;
-  right: -5%;
+  top: 45%;
+  right: -10%;
   color: var(--orange-600);
-  animation-delay: -2s;
+  animation-delay: -1.4s;
+}
+
+.lp-badge-float.b3 {
+  bottom: 4%;
+  left: -4%;
+  color: #0d9488;
+  animation-delay: -2.8s;
 }
 
 @keyframes floatSimple {
