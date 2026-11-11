@@ -1,0 +1,891 @@
+/* ==========================================================================
+   SECTION: KINH NGHIỆM LÀM VIỆC (VM STYLE - FASHION CONTENT MARKETING)
+   Tech Stack: Vanilla HTML5 + CSS3 Variables + ES6 JavaScript
+   Đồng bộ bảng màu: Trắng (#ffffff, #f8fafc) / Xanh Biển (#0284c7) / Cam (#f97316)
+   Font chữ: Plus Jakarta Sans
+   ========================================================================== */
+
+:root {
+  /* CSS Variables riêng cho section Kinh Nghiệm (kế thừa từ hệ thống gốc) */
+  --vm-bg-section: var(--bg-primary, #ffffff);
+  --vm-bg-subtle: var(--bg-secondary, #f8fafc);
+  --vm-bg-card: #ffffff;
+  --vm-bg-placeholder: #f1f5f9;
+
+  --vm-text-main: var(--text-main, #0f172a);
+  --vm-text-muted: var(--text-muted, #475569);
+  --vm-text-light: var(--text-light, #64748b);
+
+  --vm-primary: var(--blue-600, #0284c7);
+  --vm-primary-dark: var(--blue-700, #0369a1);
+  --vm-primary-soft: var(--blue-50, #f0f9ff);
+  --vm-primary-border: var(--blue-100, #e0f2fe);
+
+  --vm-accent: var(--orange-500, #f97316);
+  --vm-accent-dark: var(--orange-600, #ea580c);
+  --vm-accent-soft: var(--orange-50, #fff7ed);
+  --vm-accent-border: var(--orange-100, #ffedd5);
+
+  --vm-border: var(--border-color, #e2e8f0);
+  --vm-radius-sm: 8px;
+  --vm-radius-md: 14px;
+  --vm-radius-lg: 20px;
+  --vm-shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --vm-shadow-md: 0 10px 28px rgba(15, 23, 42, 0.06);
+  --vm-shadow-hover: 0 16px 36px rgba(2, 132, 199, 0.12);
+  --vm-transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Khung Section Chính ---------- */
+.vm-exp-section {
+  padding: 5.5rem 0;
+  background-color: var(--vm-bg-section);
+  position: relative;
+  border-top: 1px solid var(--vm-border);
+  border-bottom: 1px solid var(--vm-border);
+}
+
+.vm-exp-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+
+.vm-exp-header {
+  max-width: 720px;
+  margin-bottom: 3rem;
+}
+
+.vm-exp-header .vm-sublead {
+  margin-top: 0.75rem;
+  color: var(--vm-text-muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+/* ---------- 1. THÔNG TIN CHUNG (Brand Header Card) ---------- */
+.vm-brand-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2.25rem;
+  align-items: center;
+  background: linear-gradient(135deg, #ffffff 0%, var(--vm-bg-subtle) 100%);
+  border: 1px solid var(--vm-border);
+  border-radius: var(--vm-radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--vm-shadow-md);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2.25rem;
+}
+
+/* Điểm nhấn viền trang trí thanh lịch bên trái */
+.vm-brand-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  background: linear-gradient(180deg, var(--vm-primary), var(--vm-accent));
+}
+
+/* Khung Logo bên trái */
+.vm-logo-box {
+  width: 200px;
+  height: 155px;
+  border-radius: var(--vm-radius-md);
+  background: #ffffff;
+  border: 1.5px dashed var(--vm-primary-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--vm-transition);
+  box-shadow: var(--vm-shadow-sm);
+}
+
+.vm-logo-box:hover {
+  border-color: var(--vm-primary);
+  transform: translateY(-2px);
+}
+
+.vm-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.vm-logo-note {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--vm-text-light);
+  background: rgba(248, 250, 252, 0.92);
+  padding: 2px 8px;
+  border-radius: 99px;
+  white-space: nowrap;
+  border: 1px solid var(--vm-border);
+}
+
+/* Khối Thông tin bên phải */
+.vm-brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.vm-brand-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.vm-brand-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.vm-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.vm-pill-blue {
+  background: var(--vm-primary-soft);
+  color: var(--vm-primary-dark);
+  border: 1px solid var(--vm-primary-border);
+}
+
+.vm-pill-orange {
+  background: var(--vm-accent-soft);
+  color: var(--vm-accent-dark);
+  border: 1px solid var(--vm-accent-border);
+}
+
+.vm-brand-name {
+  font-size: clamp(1.65rem, 2.8vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--vm-text-main);
+  line-height: 1.2;
+}
+
+.vm-brand-summary {
+  color: var(--vm-text-muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
+  max-width: 68ch;
+}
+
+/* Lưới 4 thông tin chuẩn theo yêu cầu */
+.vm-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 1rem;
+  margin-top: 0.25rem;
+  border-top: 1px solid var(--vm-border);
+}
+
+.vm-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.vm-meta-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--vm-text-light);
+}
+
+.vm-meta-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--vm-text-main);
+}
+
+.vm-meta-value.highlight {
+  color: var(--vm-primary-dark);
+}
+
+/* ---------- 2. NỘI DUNG TỔNG QUAN (3 Mini-cards) ---------- */
+.vm-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.vm-overview-card {
+  background: var(--vm-bg-card);
+  border: 1px solid var(--vm-border);
+  border-radius: var(--vm-radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: var(--vm-shadow-sm);
+  transition: var(--vm-transition);
+}
+
+.vm-overview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--vm-shadow-hover);
+  border-color: var(--vm-primary-border);
+}
+
+.vm-overview-head {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.vm-overview-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--vm-primary-soft);
+  color: var(--vm-primary);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.vm-overview-card:nth-child(2) .vm-overview-icon {
+  background: var(--vm-accent-soft);
+  color: var(--vm-accent);
+}
+
+.vm-overview-card:nth-child(3) .vm-overview-icon {
+  background: var(--vm-primary-soft);
+  color: var(--vm-primary-dark);
+}
+
+.vm-overview-title {
+  font-size: 1.12rem;
+  font-weight: 800;
+  color: var(--vm-text-main);
+}
+
+.vm-overview-sub {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--vm-text-light);
+}
+
+.vm-overview-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  color: var(--vm-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.vm-overview-list li {
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.vm-overview-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--vm-primary);
+}
+
+.vm-overview-card:nth-child(2) .vm-overview-list li::before {
+  background: var(--vm-accent);
+}
+
+/* Lưới Counter / Số lượng đã làm trong Card 3 */
+.vm-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  margin-top: auto;
+}
+
+.vm-stat-box {
+  background: var(--vm-bg-subtle);
+  border: 1px solid var(--vm-border);
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  transition: var(--vm-transition);
+}
+
+.vm-stat-box:hover {
+  background: var(--vm-primary-soft);
+  border-color: var(--vm-primary-border);
+}
+
+.vm-stat-number {
+  display: block;
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--vm-primary-dark);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.vm-stat-box.accent .vm-stat-number {
+  color: var(--vm-accent);
+}
+
+.vm-stat-label {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--vm-text-muted);
+  line-height: 1.35;
+}
+
+/* ---------- 3. HẠNG MỤC CÔNG VIỆC (Tabs + Gallery) ---------- */
+.vm-work-wrapper {
+  background: var(--vm-bg-subtle);
+  border: 1px solid var(--vm-border);
+  border-radius: var(--vm-radius-lg);
+  padding: 2.25rem;
+}
+
+.vm-work-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--vm-border);
+}
+
+.vm-work-heading h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--vm-text-main);
+  letter-spacing: -0.02em;
+}
+
+.vm-work-heading p {
+  font-size: 0.9rem;
+  color: var(--vm-text-muted);
+  margin-top: 0.3rem;
+}
+
+/* Thanh chuyển Tab 3 nhóm công việc */
+.vm-tabs-nav {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  background: #ffffff;
+  padding: 0.35rem;
+  border-radius: 12px;
+  border: 1px solid var(--vm-border);
+  box-shadow: var(--vm-shadow-sm);
+}
+
+.vm-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.15rem;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  color: var(--vm-text-muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--vm-transition);
+}
+
+.vm-tab-btn:hover {
+  color: var(--vm-primary-dark);
+  background: var(--vm-primary-soft);
+}
+
+.vm-tab-btn.active {
+  background: var(--vm-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+.vm-tab-btn .vm-tab-count {
+  font-size: 0.72rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 99px;
+  background: rgba(15, 23, 42, 0.07);
+  color: inherit;
+}
+
+.vm-tab-btn.active .vm-tab-count {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+/* Nội dung từng Tab Panel */
+.vm-tab-panel {
+  display: none;
+  animation: vmFadeIn 0.32s ease forwards;
+}
+
+.vm-tab-panel.active {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+@keyframes vmFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Khối mục con (Ví dụ: Facebook, Instagram, Định kỳ hằng tháng...) */
+.vm-subcat-block {
+  background: #ffffff;
+  border: 1px solid var(--vm-border);
+  border-radius: var(--vm-radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--vm-shadow-sm);
+}
+
+.vm-subcat-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.35rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--vm-border);
+}
+
+.vm-subcat-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.vm-subcat-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--vm-primary-soft);
+  color: var(--vm-primary-dark);
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.vm-subcat-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--vm-text-main);
+}
+
+.vm-subcat-desc {
+  font-size: 0.86rem;
+  color: var(--vm-text-muted);
+}
+
+.vm-subcat-hint {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--vm-accent-dark);
+  background: var(--vm-accent-soft);
+  border: 1px solid var(--vm-accent-border);
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Lưới ảnh 3 cột (Grid Gallery) */
+.vm-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.vm-gallery-item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--vm-bg-subtle);
+  border: 1px solid var(--vm-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--vm-transition);
+}
+
+.vm-gallery-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--vm-primary);
+  box-shadow: var(--vm-shadow-hover);
+}
+
+.vm-img-trigger {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--vm-bg-placeholder);
+  border: none;
+  padding: 0;
+  cursor: zoom-in;
+  overflow: hidden;
+  display: block;
+}
+
+.vm-img-trigger img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vm-gallery-item:hover .vm-img-trigger img {
+  transform: scale(1.04);
+}
+
+/* Lớp phủ khi hover vào ảnh */
+.vm-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.vm-gallery-item:hover .vm-img-overlay,
+.vm-img-trigger:focus-visible .vm-img-overlay {
+  opacity: 1;
+}
+
+.vm-zoom-pill {
+  background: #ffffff;
+  color: var(--vm-text-main);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.45rem 0.9rem;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  transform: translateY(6px);
+  transition: transform 0.25s ease;
+}
+
+.vm-gallery-item:hover .vm-zoom-pill {
+  transform: translateY(0);
+}
+
+/* Caption dưới mỗi ảnh */
+.vm-img-caption {
+  padding: 0.85rem 1rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--vm-text-main);
+  line-height: 1.45;
+  background: #ffffff;
+  border-top: 1px solid var(--vm-border);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.vm-img-caption span {
+  display: block;
+}
+
+/* ---------- 4. LIGHTBOX MODAL PHÓNG TO ẢNH CHI TIẾT ---------- */
+.vm-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.vm-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.vm-lightbox-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #ffffff;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.vm-lightbox-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.vm-lightbox-counter {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.25rem 0.7rem;
+  border-radius: 99px;
+  font-variant-numeric: tabular-nums;
+}
+
+.vm-lightbox-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vm-lb-btn {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: background 0.2s ease;
+}
+
+.vm-lb-btn:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.vm-lb-close {
+  background: var(--vm-accent);
+  border-color: var(--vm-accent);
+}
+
+.vm-lb-close:hover {
+  background: var(--vm-accent-dark);
+}
+
+.vm-lightbox-stage {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  my: 0.75rem;
+  max-height: calc(100vh - 150px);
+}
+
+.vm-lightbox-img-wrap {
+  transition: transform 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 92vw;
+  max-height: 78vh;
+}
+
+.vm-lightbox-img-wrap.is-zoomed {
+  transform: scale(1.55);
+  cursor: zoom-out;
+}
+
+.vm-lightbox-img {
+  max-width: 100%;
+  max-height: 78vh;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  background: #ffffff;
+  cursor: zoom-in;
+}
+
+.vm-lightbox-img-wrap.is-zoomed .vm-lightbox-img {
+  cursor: zoom-out;
+}
+
+.vm-lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 3;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.vm-lb-nav:hover {
+  background: var(--vm-primary);
+  border-color: var(--vm-primary);
+}
+
+.vm-lb-prev {
+  left: 1rem;
+}
+
+.vm-lb-next {
+  right: 1rem;
+}
+
+.vm-lightbox-bottom {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  background: rgba(15, 23, 42, 0.65);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+/* ---------- Hiệu ứng Fade-in khi cuộn ---------- */
+.vm-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.vm-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- RESPONSIVE (Desktop / Tablet / Mobile) ---------- */
+@media (max-width: 992px) {
+  .vm-meta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .vm-overview-grid {
+    grid-template-columns: 1fr;
+  }
+  .vm-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .vm-exp-section {
+    padding: 4rem 0;
+  }
+  /* Mobile: Logo xếp trên, thông tin xếp dưới theo đúng yêu cầu */
+  .vm-brand-card {
+    grid-template-columns: 1fr;
+    padding: 1.65rem;
+    gap: 1.5rem;
+    text-align: left;
+  }
+  .vm-logo-box {
+    width: 100%;
+    max-width: 220px;
+    height: 130px;
+  }
+  .vm-work-wrapper {
+    padding: 1.35rem;
+  }
+  .vm-tabs-nav {
+    width: 100%;
+    display: flex;
+  }
+  .vm-tab-btn {
+    flex: 1 1 auto;
+    justify-content: center;
+    font-size: 0.82rem;
+    padding: 0.55rem 0.75rem;
+  }
+  .vm-subcat-block {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .vm-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .vm-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .vm-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .vm-lb-nav {
+    width: 38px;
+    height: 38px;
+  }
+}
