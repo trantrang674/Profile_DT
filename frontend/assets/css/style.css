@@ -6,46 +6,62 @@
    ========================================================================== */
 
 :root {
-  /* Màu sắc chủ đạo */
+  /* Bảng màu Tương Phản Cao: Midnight Cobalt / Electric Royal Blue / Periwinkle / Crisp White */
   --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
+  --bg-secondary: #f4f7fe;
+  --bg-tertiary: #e9effd;
   --bg-card: #ffffff;
-  
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --text-light: #94a3b8;
-  
-  /* Xanh biển (Primary / Brand) */
-  --blue-50: #f0f9ff;
-  --blue-100: #e0f2fe;
-  --blue-500: #0ea5e9;
-  --blue-600: #0284c7;
-  --blue-700: #0369a1;
-  --blue-900: #0c4a6e;
-  
-  /* Cam (Accent / CTA) */
-  --orange-50: #fff7ed;
-  --orange-100: #ffedd5;
-  --orange-500: #f97316;
-  --orange-600: #ea580c;
-  --orange-700: #c2410c;
+
+  --midnight-950: #04081c;
+  --midnight-900: #070d2d;
+  --midnight-800: #0c1747;
+  --royal-700: #10249e;
+  --royal-600: #1631c9;
+  --royal-500: #2b4eff;
+  --periwinkle-400: #5574f7;
+  --periwinkle-300: #82a0e3;
+  --periwinkle-200: #b8ccf5;
+  --periwinkle-100: #e3ebfc;
+  --periwinkle-50: #f2f6ff;
+
+  --text-main: #070c22;
+  --text-muted: #4b5878;
+  --text-light: #7e8ca8;
+
+  /* Giữ biến tương thích với các trang phụ & quy chuẩn */
+  --blue-50: #f0f5ff;
+  --blue-100: #dce7fe;
+  --blue-200: #b8ccf5;
+  --blue-300: #82a0e3;
+  --blue-400: #5574f7;
+  --blue-500: #2b4eff;
+  --blue-600: #1631c9;
+  --blue-700: #10249e;
+  --blue-900: #070d2d;
+
+  /* Điểm nhấn phụ (Periwinkle / Indigo sáng thay cho cam gắt để đồng nhất 2 ảnh mẫu) */
+  --orange-50: #eef2ff;
+  --orange-100: #e0e7ff;
+  --orange-200: #c7d2fe;
+  --orange-500: #4f6ef7;
+  --orange-600: #2b4eff;
+  --orange-700: #1631c9;
 
   /* Đường viền & Đổ bóng */
-  --border-color: #e2e8f0;
-  --border-subtle: #f1f5f9;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.05);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
-  --shadow-hover: 0 20px 25px -5px rgb(2 132 199 / 0.12), 0 8px 10px -6px rgb(2 132 199 / 0.08);
+  --border-color: #dde5f4;
+  --border-subtle: #edf2fc;
+  --shadow-sm: 0 2px 6px 0 rgba(7, 13, 45, 0.04);
+  --shadow-md: 0 8px 20px -4px rgba(7, 13, 45, 0.08);
+  --shadow-lg: 0 18px 38px -8px rgba(16, 36, 158, 0.14);
+  --shadow-hover: 0 24px 48px -10px rgba(22, 49, 201, 0.22);
 
   /* Radius & Transitions */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
   --radius-full: 9999px;
-  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  --max-width: 1160px;
+  --transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  --max-width: 1200px;
 }
 
 /* Reset cơ bản */

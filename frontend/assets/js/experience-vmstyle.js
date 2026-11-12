@@ -18,9 +18,9 @@
    * vào thuộc tính `src` bên dưới là hệ thống tự nhận.
    */
   function createPlaceholderSVG(title, subtitle, tag, themeColor) {
-    const primary = themeColor === 'orange' ? '#f97316' : '#0284c7';
-    const softBg = themeColor === 'orange' ? '#fff7ed' : '#f0f9ff';
-    const borderCol = themeColor === 'orange' ? '#fed7aa' : '#bae6fd';
+    const primary = themeColor === 'orange' ? '#4f6ef7' : '#1631c9';
+    const softBg = themeColor === 'orange' ? '#eef2ff' : '#f0f5ff';
+    const borderCol = themeColor === 'orange' ? '#c7d2fe' : '#b8ccf5';
 
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600">
       <defs>
@@ -34,8 +34,8 @@
       
       <!-- Header giả lập giao diện tài liệu / bài post -->
       <rect x="64" y="64" width="832" height="56" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
-      <circle cx="96" cy="92" r="8" fill="#f97316"/>
-      <circle cx="122" cy="92" r="8" fill="#0284c7"/>
+      <circle cx="96" cy="92" r="8" fill="#1631c9"/>
+      <circle cx="122" cy="92" r="8" fill="#4f6ef7"/>
       <circle cx="148" cy="92" r="8" fill="#cbd5e1"/>
       <text x="180" y="98" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="700" fill="#334155">${tag}</text>
       <rect x="720" y="76" width="156" height="32" rx="16" fill="${softBg}"/>
@@ -50,8 +50,8 @@
       <rect x="476" y="152" width="180" height="24" rx="6" fill="${softBg}"/>
       <text x="488" y="169" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="${primary}">THAY ẢNH TẠI ĐÂY</text>
       
-      <text x="476" y="216" font-family="Plus Jakarta Sans, sans-serif" font-size="26" font-weight="800" fill="#0f172a">${title}</text>
-      <text x="476" y="252" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="500" fill="#475569">${subtitle}</text>
+      <text x="476" y="216" font-family="Plus Jakarta Sans, sans-serif" font-size="26" font-weight="800" fill="#070c22">${title}</text>
+      <text x="476" y="252" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="500" fill="#4b5878">${subtitle}</text>
 
       <rect x="476" y="284" width="390" height="12" rx="6" fill="#e2e8f0"/>
       <rect x="476" y="310" width="320" height="12" rx="6" fill="#e2e8f0"/>
@@ -59,7 +59,7 @@
 
       <!-- Chỉ số minh họa bên dưới -->
       <rect x="476" y="368" width="120" height="46" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
-      <text x="536" y="396" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" fill="#0f172a">100% Real Data</text>
+      <text x="536" y="396" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" fill="#070c22">100% Real Data</text>
 
       <rect x="610" y="368" width="140" height="46" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
       <text x="680" y="396" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" fill="${primary}">Click phóng to</text>
@@ -79,11 +79,11 @@
   function createLogoPlaceholderSVG() {
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" width="320" height="220">
       <rect width="320" height="220" rx="16" fill="#ffffff"/>
-      <rect x="16" y="16" width="288" height="188" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6 4"/>
-      <text x="160" y="98" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="34" font-weight="800" letter-spacing="4" fill="#0f172a">VM STYLE</text>
-      <line x1="95" y1="114" x2="225" y2="114" stroke="#0284c7" stroke-width="2.5"/>
-      <text x="160" y="138" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" letter-spacing="3" fill="#0284c7">FASHION &amp; LIFESTYLE</text>
-      <text x="160" y="176" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="#94a3b8">[ Thay Logo tại đây ]</text>
+      <rect x="16" y="16" width="288" height="188" rx="12" fill="#f4f7fe" stroke="#c7d7fe" stroke-width="1.5" stroke-dasharray="6 4"/>
+      <text x="160" y="98" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="34" font-weight="800" letter-spacing="4" fill="#070c22">VM STYLE</text>
+      <line x1="95" y1="114" x2="225" y2="114" stroke="#1631c9" stroke-width="2.5"/>
+      <text x="160" y="138" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" letter-spacing="3" fill="#1631c9">FASHION &amp; LIFESTYLE</text>
+      <text x="160" y="176" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="600" fill="#7281a3">[ Thay Logo tại đây ]</text>
     </svg>`;
     return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
   }

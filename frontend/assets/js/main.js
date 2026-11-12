@@ -190,10 +190,12 @@ function createFeaturedCardHTML(project) {
         
         ${metricsHTML}
 
-        <div style="margin-top: 1rem;">
-          <button type="button" class="btn btn-secondary btn-sm open-case-study" data-project-id="${project.id}">
+        <div class="scalix-card-foot" style="margin-top: 1.25rem;">
+          <button type="button" class="scalix-pill-cta dark open-case-study" data-project-id="${project.id}" style="border:none; cursor:pointer;">
             Xem Case Study Chi Tiết
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </button>
+          <button type="button" class="scalix-circle-cta dark open-case-study" data-project-id="${project.id}" style="border:none; cursor:pointer;" aria-label="Mở Case Study">
+            ↗
           </button>
         </div>
       </div>
