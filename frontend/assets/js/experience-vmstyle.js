@@ -18,6 +18,9 @@
    * vào thuộc tính `src` bên dưới là hệ thống tự nhận.
    */
   function createPlaceholderSVG(title, subtitle, tag, themeColor) {
+    // Escape ký tự đặc biệt (&, <, >) để SVG không bị lỗi và mất ảnh
+    const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    title = esc(title); subtitle = esc(subtitle); tag = esc(tag);
     const primary = themeColor === 'orange' ? '#4f6ef7' : '#1631c9';
     const softBg = themeColor === 'orange' ? '#eef2ff' : '#f0f5ff';
     const borderCol = themeColor === 'orange' ? '#c7d2fe' : '#b8ccf5';
@@ -196,7 +199,7 @@
             id: 'sm-instagram',
             name: 'Instagram',
             badge: 'IG',
-            summary: 'Chăm sóc bố cục lưới ảnh (Feed Aesthetic), kịch bản корот Reels biến hình OOTD và chuỗi Story tương tác mỗi ngày.',
+            summary: 'Chăm sóc bố cục lưới ảnh (Feed Aesthetic), kịch bản Reels ngắn biến hình OOTD và chuỗi Story tương tác mỗi ngày.',
             images: [
               {
                 src: createPlaceholderSVG('Bố cục Feed Instagram Đồng Bộ', 'Quy hoạch tone màu trang nhã, tôn dáng trang phục và thẩm mỹ thương hiệu', 'SOCIAL MEDIA • INSTAGRAM', 'orange'),
