@@ -716,6 +716,19 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
               })
               .join('');
 
+            const totalPostsCount = postsList.length;
+            const carouselControlsHTML = totalPostsCount > 1 ? `
+              <div class="vm-slider-controls">
+                <span class="vm-slider-counter"><strong class="vm-slider-current">1</strong> / ${totalPostsCount}</span>
+                <button type="button" class="vm-slider-btn vm-slider-prev" aria-label="Bài trước" disabled>
+                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button type="button" class="vm-slider-btn vm-slider-next" aria-label="Bài tiếp theo">
+                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            ` : '';
+
             return `
               <div class="vm-subcat-block">
                 <div class="vm-subcat-header">
@@ -726,17 +739,30 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
                       <p class="vm-subcat-desc">${sub.summary}</p>
                     </div>
                   </div>
-                  <span class="vm-subcat-hint">
-                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                    </svg>
-                    Click vào ảnh để phóng to
-                  </span>
+                  <div class="vm-subcat-actions">
+                    <span class="vm-subcat-hint">
+                      <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                      </svg>
+                      Click vào ảnh để phóng to
+                    </span>
+                    ${carouselControlsHTML}
+                  </div>
                 </div>
 
-                <div class="vm-posts-list vm-gallery-grid">
-                  ${postsHTML}
+                <!-- CAROUSEL LƯỚT NGANG: Hiển thị 1 bài mỗi lần trượt -->
+                <div class="vm-carousel-container" data-posts-count="${totalPostsCount}">
+                  <div class="vm-posts-list vm-posts-slider">
+                    ${postsHTML}
+                  </div>
+                  ${totalPostsCount > 1 ? `
+                    <div class="vm-carousel-dots" role="tablist" aria-label="Chọn bài viết">
+                      ${postsList.map((_, pIdx) => `
+                        <button type="button" class="vm-carousel-dot ${pIdx === 0 ? 'is-active' : ''}" data-index="${pIdx}" aria-label="Xem bài viết ${pIdx + 1}"></button>
+                      `).join('')}
+                    </div>
+                  ` : ''}
                 </div>
               </div>
             `;
@@ -894,14 +920,155 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
       </div>
     `;
 
-    // Khởi tạo tương tác Tabs, Hiệu ứng cuộn, Counter và Lightbox
+    // Khởi tạo tương tác Tabs, Slider lướt ngang, Hiệu ứng cuộn, Counter và Lightbox
     initTabs(root);
+    initCarousels(root);
     initScrollRevealAndCounters(root);
     initLightbox(root, lightboxItems);
   }
 
   /* ==========================================================================
-     3. LOGIC CHUYỂN TAB HẠNG MỤC CÔNG VIỆC
+     3. LOGIC SLIDER LƯỚT NGANG BÀI VIẾT (CAROUSEL / HORIZONTAL SCROLL)
+     ========================================================================== */
+  function initCarousels(root) {
+    const subcatBlocks = Array.from(root.querySelectorAll('.vm-subcat-block'));
+
+    subcatBlocks.forEach((block) => {
+      const slider = block.querySelector('.vm-posts-slider');
+      const prevBtn = block.querySelector('.vm-slider-prev');
+      const nextBtn = block.querySelector('.vm-slider-next');
+      const counterEl = block.querySelector('.vm-slider-current');
+      const dots = Array.from(block.querySelectorAll('.vm-carousel-dot'));
+      const cards = Array.from(block.querySelectorAll('.vm-post-card'));
+
+      if (!slider || cards.length <= 1) return;
+
+      const total = cards.length;
+
+      // Cập nhật trạng thái nút và số trang theo vị trí cuộn
+      function updateSliderState() {
+        const scrollLeft = slider.scrollLeft;
+        const cardWidth = cards[0].offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(slider).gap) || 24;
+        const itemFullWidth = cardWidth + gap;
+
+        // Tính chỉ số card hiện tại
+        const currentIndex = Math.min(
+          total - 1,
+          Math.max(0, Math.round(scrollLeft / itemFullWidth))
+        );
+
+        if (counterEl) {
+          counterEl.textContent = currentIndex + 1;
+        }
+
+        if (prevBtn) {
+          prevBtn.disabled = currentIndex <= 0;
+        }
+        if (nextBtn) {
+          nextBtn.disabled = currentIndex >= total - 1;
+        }
+
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('is-active', idx === currentIndex);
+        });
+      }
+
+      function scrollToIndex(idx) {
+        const targetIndex = Math.max(0, Math.min(total - 1, idx));
+        const card = cards[targetIndex];
+        if (!card) return;
+        
+        slider.scrollTo({
+          left: card.offsetLeft - slider.offsetLeft,
+          behavior: 'smooth'
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          const cardWidth = cards[0].offsetWidth;
+          const gap = parseFloat(window.getComputedStyle(slider).gap) || 24;
+          const currentIndex = Math.round(slider.scrollLeft / (cardWidth + gap));
+          scrollToIndex(currentIndex - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          const cardWidth = cards[0].offsetWidth;
+          const gap = parseFloat(window.getComputedStyle(slider).gap) || 24;
+          const currentIndex = Math.round(slider.scrollLeft / (cardWidth + gap));
+          scrollToIndex(currentIndex + 1);
+        });
+      }
+
+      dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+          const idx = parseInt(dot.getAttribute('data-index') || '0', 10);
+          scrollToIndex(idx);
+        });
+      });
+
+      // Lắng nghe scroll với debounce nhẹ
+      let scrollTimeout;
+      slider.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateSliderState, 60);
+      }, { passive: true });
+
+      // Hỗ trợ kéo chuột trên máy tính (Drag to scroll)
+      let isDown = false;
+      let startX;
+      let scrollLeftPos;
+      let hasDragged = false;
+
+      slider.addEventListener('mousedown', (e) => {
+        // Không bắt drag nếu click vào nút zoom ảnh hoặc link
+        if (e.target.closest('button, a')) return;
+        isDown = true;
+        slider.classList.add('is-dragging');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeftPos = slider.scrollLeft;
+        hasDragged = false;
+      });
+
+      slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('is-dragging');
+      });
+
+      slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('is-dragging');
+      });
+
+      slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        if (Math.abs(walk) > 5) hasDragged = true;
+        slider.scrollLeft = scrollLeftPos - walk;
+      });
+
+      // Ngăn click nhầm khi đang drag
+      slider.addEventListener('click', (e) => {
+        if (hasDragged) {
+          e.preventDefault();
+          e.stopPropagation();
+          hasDragged = false;
+        }
+      }, true);
+
+      // Cập nhật lại khi resize
+      window.addEventListener('resize', updateSliderState, { passive: true });
+      updateSliderState();
+    });
+  }
+
+  /* ==========================================================================
+     4. LOGIC CHUYỂN TAB HẠNG MỤC CÔNG VIỆC
      ========================================================================== */
   function initTabs(root) {
     const tabBtns = Array.from(root.querySelectorAll('.vm-tab-btn'));

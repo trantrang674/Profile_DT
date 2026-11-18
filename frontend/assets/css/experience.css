@@ -539,18 +539,118 @@
   gap: 0.35rem;
 }
 
-/* ==========================================================================
-   DANH SÁCH BÀI VIẾT CHI TIẾT (Bố cục 2 phần: Trái là Ảnh, Phải là Caption)
-   ========================================================================== */
-.vm-posts-list,
-.vm-gallery-grid {
+.vm-subcat-actions {
   display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
+  align-items: center;
+  gap: 1rem;
 }
 
-.vm-post-card,
-.vm-gallery-item {
+/* Thanh điều hướng Prev / Next và bộ đếm slider */
+.vm-slider-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f1f5f9;
+  padding: 0.25rem 0.4rem;
+  border-radius: 99px;
+  border: 1px solid var(--vm-border);
+}
+
+.vm-slider-counter {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--vm-text-muted);
+  padding: 0 0.4rem;
+  user-select: none;
+}
+
+.vm-slider-counter strong {
+  color: var(--vm-primary-dark);
+}
+
+.vm-slider-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--vm-border);
+  background: #ffffff;
+  color: var(--vm-text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.vm-slider-btn:hover:not(:disabled) {
+  background: var(--vm-primary);
+  color: #ffffff;
+  border-color: var(--vm-primary);
+  transform: scale(1.05);
+}
+
+.vm-slider-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==========================================================================
+   CAROUSEL LƯỚT NGANG BÀI VIẾT (Horizontal Slider)
+   ========================================================================== */
+.vm-carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+.vm-posts-list.vm-posts-slider {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 1.5rem;
+  padding: 0.25rem 0.25rem 0.75rem 0.25rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+  cursor: grab;
+}
+
+.vm-posts-list.vm-posts-slider.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  user-select: none;
+}
+
+/* Thanh cuộn mảnh, trang nhã */
+.vm-posts-list.vm-posts-slider::-webkit-scrollbar {
+  height: 6px;
+}
+
+.vm-posts-list.vm-posts-slider::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 99px;
+}
+
+.vm-posts-list.vm-posts-slider::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 99px;
+}
+
+.vm-posts-list.vm-posts-slider::-webkit-scrollbar-thumb:hover {
+  background: var(--vm-primary);
+}
+
+/* Mỗi thẻ bài viết chiếm trọn 1 slide (hoặc 1 bài chính) */
+.vm-posts-list.vm-posts-slider .vm-post-card {
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   margin: 0;
   display: grid;
   grid-template-columns: minmax(0, 4.4fr) minmax(0, 5.6fr);
@@ -562,13 +662,42 @@
   box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   align-items: stretch;
+  box-sizing: border-box;
 }
 
-.vm-post-card:hover,
-.vm-gallery-item:hover {
+.vm-posts-list.vm-posts-slider .vm-post-card:hover {
   border-color: var(--vm-primary);
   box-shadow: 0 12px 32px rgba(2, 132, 199, 0.12);
   transform: translateY(-2px);
+}
+
+/* Chấm tròn chỉ thị các bài viết (Dots) */
+.vm-carousel-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.vm-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.vm-carousel-dot:hover {
+  background: var(--vm-primary-light);
+}
+
+.vm-carousel-dot.is-active {
+  width: 28px;
+  background: var(--vm-primary);
 }
 
 /* PHẦN TRÁI: KHUNG ẢNH BÀI POST */
@@ -1010,6 +1139,15 @@
   }
   .vm-subcat-block {
     padding: 1.25rem;
+  }
+  .vm-subcat-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .vm-subcat-actions {
+    width: 100%;
+    justify-content: space-between;
   }
 }
 
