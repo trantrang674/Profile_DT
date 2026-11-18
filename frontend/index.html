@@ -3,623 +3,324 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dương Trang | Content Marketing Specialist Portfolio</title>
-  <meta name="description" content="Portfolio cá nhân chuyên viên Content Marketing: Chiến lược nội dung đa kênh, SEO Inbound, Copywriting và Storytelling chạm cảm xúc, thúc đẩy chuyển đổi.">
-  <script>document.documentElement.classList.add('js');</script>
+  <title>Dương Trang | Content Marketing Specialist</title>
+  <meta name="description" content="Portfolio của Dương Trang, Content Marketing Specialist tại TP. Hồ Chí Minh: chiến lược nội dung đa kênh, SEO, copywriting và đo lường hiệu quả bằng số liệu thật.">
+  <script>
+    // Bật câu chuyện cuộn ở hero chỉ trên màn hình đủ lớn và khi người xem không tắt chuyển động
+    (function (d) {
+      d.classList.add('js');
+      var ok = window.matchMedia('(min-width: 900px) and (min-height: 620px)').matches &&
+               !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (ok) d.classList.add('hero-scrub');
+    })(document.documentElement);
+  </script>
 
-  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/landing.css">
   <link rel="stylesheet" href="assets/css/experience.css">
-  <link rel="stylesheet" href="assets/css/scroll-effects.css">
+  <link rel="stylesheet" href="assets/css/site.css">
 
-  <!-- Marked.js để parse Markdown Case Studies -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 </head>
-<body class="landing">
-  <div class="lp-progress" aria-hidden="true"></div>
+<body>
+  <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
 
-  <!-- ==================== HEADER & NAVIGATION ==================== -->
-  <header class="lp-header">
-    <div class="lp-wrap lp-nav-row">
-      <a href="#home" class="logo">
-        <span class="logo-dot"></span>
-        <span>CONTENT<span class="logo-accent">FOLIO</span></span>
-      </a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a href="#home" class="wordmark" aria-label="Dương Trang, về đầu trang">Dương Trang</a>
 
-      <ul class="nav-menu">
-        <li><a href="#home" class="nav-link active">Trang Chủ</a></li>
-        <li><a href="#about" class="nav-link">About Me</a></li>
-        <li><a href="#experience" class="nav-link">Kinh Nghiệm</a></li>
-        <li><a href="#projects" class="nav-link">Dự Án</a></li>
-        <li><a href="#contact" class="nav-link">Liên Hệ</a></li>
-      </ul>
+      <nav aria-label="Điều hướng chính">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#about" class="nav-link">Năng lực</a></li>
+          <li><a href="#experience" class="nav-link">Kinh nghiệm</a></li>
+          <li><a href="#projects" class="nav-link">Dự án</a></li>
+          <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+        </ul>
+      </nav>
 
-      <div class="nav-cta">
-        <a href="assets/cv/CV-Content-Marketing.pdf" download class="btn btn-pill-glow btn-sm">
-          <span>Tải CV</span>
-          <span class="btn-circle-icon">↓</span>
-        </a>
-        <button class="mobile-toggle" aria-label="Mở menu điều hướng">
-          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+      <div class="header-actions">
+        <a href="assets/cv/CV-Content-Marketing.pdf" download class="btn btn-accent btn-sm">Tải CV</a>
+        <button class="mobile-toggle" aria-label="Mở menu" aria-controls="nav-menu" aria-expanded="false">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
       </div>
     </div>
   </header>
 
-  <main>
-    <!-- ==================== 1. HERO SECTION (AirLume Cobalt Stage + Fluted Columns) ==================== -->
-    <section id="home" class="lp-hero">
-      <!-- Hiệu ứng cột ánh sáng dọc & glow giống ảnh mẫu AirLume -->
-      <div class="hero-fluted-bg" aria-hidden="true"></div>
-      <div class="hero-glow-orb orb-1" aria-hidden="true"></div>
-      <div class="hero-glow-orb orb-2" aria-hidden="true"></div>
+  <main id="main">
+    <!-- ========== HERO ========== -->
+    <section id="home" class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="hero-status"><span class="status-dot" aria-hidden="true"></span>Đang tìm vị trí Content Marketing mới</p>
 
-      <div class="lp-wrap lp-hero-stage">
-        <!-- Khối Tiêu Đề Trung Tâm Tương Phản Cao -->
-        <div class="lp-hero-center" data-reveal="up">
-          <div class="lp-hero-tags">
-            <span class="badge-glass-pill">
-              <span class="dot"></span> Sẵn sàng cho cơ hội mới • <strong style="color: #93b4ff;">Content Marketing</strong>
-            </span>
-          </div>
-
-          <h1 class="lp-hero-title">
-            Biến ngôn từ thành <span class="highlight-ice">chuyển đổi</span><br>
-            &amp; tăng trưởng <span class="highlight-periwinkle">thương hiệu</span>
+          <h1 class="hero-title">
+            Tôi viết nội dung để khách hàng
+            <span class="edit-mark"><del>đọc<span class="strike" aria-hidden="true"></span></del><ins>mua</ins></span>.
           </h1>
 
-          <div class="lp-hero-desc">
-            <p>
-              Xin chào, tôi là <strong>Dương Trang</strong> — Chuyên viên <strong>Content Marketing</strong> lấy sự sáng tạo làm kim chỉ nam và sự chỉn chu trong quy trình làm thước đo hiệu quả. Đồng hành cùng doanh nghiệp xây dựng nội dung chạm cảm xúc, bứt phá chỉ số và tạo doanh thu thực.
-            </p>
-          </div>
-
-          <!-- CÁC NÚT TÍNH NĂNG CHÍNH (Pill Button + Circle Arrow chuẩn mẫu AirLume) -->
-          <div class="lp-hero-actions">
-            <a href="#experience" class="btn-airlume-primary">
-              <span>Khám Phá Hành Trình</span>
-              <span class="circle-arrow">→</span>
-            </a>
-            <a href="assets/cv/CV-Content-Marketing.pdf" download class="btn-airlume-glass">
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-              <span>Tải CV (PDF)</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Bento Showcase 3 Cột Nổi Bật (Trái: White KPI Card | Giữa: Center Portrait Card | Phải: Frosted Cobalt Card) -->
-        <div class="lp-hero-bento" data-count-wrap>
-          <!-- Card Trái: White Floating Card (giống mẫu AirLume Points Card) -->
-          <div class="hero-bento-left" data-reveal="left" style="--d: 0.12s;">
-            <div class="bento-white-card">
-              <div class="bento-card-top">
-                <div>
-                  <span class="bento-eyebrow">Hiệu suất thực chiến</span>
-                  <div class="bento-big-metric">
-                    <strong class="count" data-to="4.1" data-dec="1" data-suffix="M+">4.1M+</strong>
-                    <span class="bento-pill-tag">Organic Reach</span>
-                  </div>
-                  <p class="bento-subtext">Tổng lượt tiếp cận tự nhiên đa kênh trong 6 tháng triển khai</p>
-                </div>
-                <span class="bento-sparkle" aria-hidden="true">✦</span>
-              </div>
-              <div class="bento-card-BottomRow">
-                <span class="bento-mini-badge">📈 +65% Engagement</span>
-                <a href="#projects" class="bento-circle-btn" aria-label="Xem dự án">→</a>
-              </div>
-            </div>
-
-            <div class="bento-pill-strip">
-              <span class="strip-dot cobalt"></span>
-              <div class="strip-lines">
-                <strong>2+ Năm Kinh Nghiệm Thực Chiến</strong>
-                <span>Social Media • Content Plan • SEO Inbound</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card Giữa: Center Showcase Card (Avatar + Trạng thái) -->
-          <div class="hero-bento-center" data-reveal="scale" style="--d: 0.05s;">
-            <div class="bento-center-card">
-              <div class="bento-center-pill">Dương Trang • Portfolio</div>
-              <div class="bento-center-head">
-                <span>Chiến lược <strong style="color: var(--royal-600);">360° Content</strong></span>
-                <p>Từ Insight khách hàng đến Doanh số</p>
-              </div>
-              <div class="bento-stat-ring-row">
-                <div class="ring-badge"><span>100%</span></div>
-                <p>Bám sát dữ liệu thật từ <strong>Meta Suite, GA4 &amp; Search Console</strong> để tối ưu chuyển đổi</p>
-              </div>
-              <div class="bento-avatar-stage">
-                <img src="assets/images/hero-avatar.svg" alt="Dương Trang - Content Marketing Specialist">
-                <div class="bento-floating-chip">
-                  <span class="chip-avatar-dot"></span>
-                  <div>
-                    <strong>Content Marketing Specialist</strong>
-                    <span>TP. Hồ Chí Minh • Full-time / Freelance</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card Phải: Frosted Glass Glowing Card (giống mẫu Best Deal Card bên phải AirLume) -->
-          <div class="hero-bento-right" data-reveal="right" style="--d: 0.18s;">
-            <div class="bento-glass-card">
-              <div class="glass-pill-tag">★ Thế mạnh cốt lõi</div>
-              <span class="glass-label">Hệ sinh thái kỹ năng</span>
-              <h3 class="glass-title">Storytelling → Conversion</h3>
-              <p class="glass-sub">Kết hợp tư duy sáng tạo, thẩm mỹ thời trang và ứng dụng AI tối ưu hiệu suất</p>
-              <div class="glass-tags-row">
-                <span>📱 Social Media</span>
-                <span>🔍 SEO</span>
-                <span>🤖 AI Tools</span>
-              </div>
-              <div class="glass-card-footer">
-                <a href="#about" class="glass-circle-btn" aria-label="Khám phá kỹ năng">→</a>
-                <div class="glass-dashed-orbit" aria-hidden="true"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Đường cắt vát chuyển sang nền sáng giống mẫu AirLume -->
-      <div class="hero-bottom-wedge" aria-hidden="true"></div>
-    </section>
-
-    <!-- ==================== 2. ABOUT ME & BỘ CÔNG CỤ CHUYÊN MÔN (#about - Light Canvas + Royal Spotlight Card) ==================== -->
-    <section id="about" class="lp-section lp-light-stage">
-      <div class="lp-wrap">
-        <!-- Header căn giữa chuẩn mẫu AirLume Features -->
-        <div class="section-center-head reveal reveal--up" data-reveal="up" data-stagger="90">
-          <span class="pill-eyebrow reveal reveal--up">About Me &amp; Capabilities</span>
-          <h2 class="lp-h2 reveal reveal--up">Tư Duy Nội Dung Phục Vụ<br><em>Tăng Trưởng Bền Vững</em></h2>
-          <p class="lp-lead reveal reveal--up">
-            Trong thời đại AI có thể sản xuất hàng loạt nội dung chỉ sau vài giây, tôi tập trung tối ưu quy trình làm việc, kết nối truyền thông thương hiệu với doanh số thực qua sự thấu cảm sâu sắc khách hàng.
+          <p class="hero-lead">
+            Tôi là <strong>Dương Trang</strong>, Content Marketing Specialist tại TP. Hồ Chí Minh. Hơn 2 năm lên kế hoạch, viết và đo lường nội dung cho thương hiệu thời trang, F&amp;B và công nghệ, dựa trên số liệu thật từ Meta Business Suite, GA4 và Search Console.
           </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">Xem dự án</a>
+            <a href="assets/cv/Portfolio-Content-Marketing.pdf" download class="btn btn-ghost">Tải portfolio (PDF)</a>
+          </div>
         </div>
 
-        <!-- ==================== CỤM 3 THẺ BENTO: TRIẾT LÝ LÀM NGHỀ + HARD SKILLS + SOFT SKILLS (CHUẨN ẢNH 1) ==================== -->
-        <div class="airlume-bento-grid" data-stagger="110">
-          <!-- Thẻ 1: Triết Lý Làm Nghề (Royal Cobalt Spotlight) -->
-          <article class="airlume-card is-royal-active reveal reveal--up" data-reveal="up" style="--d: 0.05s;">
-            <div class="airlume-card-icon">
-              <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-            </div>
-            <span class="airlume-badge">TRIẾT LÝ LÀM NGHỀ</span>
-            <h3>Thấu Cảm Khách Hàng &amp; Tối Ưu Chuyển Đổi</h3>
-            <p>
-              Mọi bài viết, kịch bản Reels hay chiến dịch BST đều bắt đầu từ nỗi đau và mong muốn thực sự của khách hàng mục tiêu, biến sự chú ý thành hành động mua hàng.
-            </p>
-            <div class="airlume-meta-list">
-              <div><span>📍 Địa điểm:</span> <strong>TP. Hồ Chí Minh</strong></div>
-              <div><span>🎯 Định hướng:</span> <strong>Content Lead / Brand Manager</strong></div>
-            </div>
-            <a href="#experience" class="airlume-card-link">Xem kinh nghiệm thực tế <span>→</span></a>
-          </article>
+        <aside class="hero-facts" aria-label="Thông tin nhanh">
+          <dl>
+            <div><dt>Vị trí mong muốn</dt><dd>Content Marketing Executive, hướng tới Content Lead</dd></div>
+            <div><dt>Kinh nghiệm</dt><dd>2+ năm, gần nhất tại thương hiệu thời trang VM Style</dd></div>
+            <div><dt>Thế mạnh</dt><dd>Social Media, Content Plan, SEO Inbound, ứng dụng AI vào quy trình</dd></div>
+            <div><dt>Hình thức</dt><dd>Full-time hoặc Freelance, TP. Hồ Chí Minh</dd></div>
+          </dl>
+        </aside>
+      </div>
 
-          <!-- Thẻ 2: HARD SKILLS - Năng Lực Chuyên Môn (Chuẩn Ảnh 1) -->
-          <article class="airlume-card reveal reveal--up" data-reveal="up" style="--d: 0.12s;">
-            <div class="airlume-card-icon">
-              <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            </div>
-            <span class="airlume-badge">HARD SKILLS</span>
-            <h3>Năng Lực Chuyên Môn</h3>
-            <p>
-              Làm chủ toàn diện quy trình từ lập kế hoạch chiến lược đến sản xuất và đo lường số liệu.
-            </p>
-            <div class="skills-tags-wrap" data-stagger="80">
-              <span class="skill-tag royal reveal reveal--scale">🎯 Chiến lược Content</span>
-              <span class="skill-tag royal reveal reveal--scale">✍️ Sáng tạo nội dung</span>
-              <span class="skill-tag royal reveal reveal--scale">🤖 Ứng dụng AI Tools</span>
-              <span class="skill-tag royal reveal reveal--scale">📝 Copywriting</span>
-              <span class="skill-tag royal reveal reveal--scale">📊 Phân tích số liệu</span>
-              <span class="skill-tag royal reveal reveal--scale">🔍 SEO Inbound</span>
-              <span class="skill-tag royal reveal reveal--scale">🎨 Thiết kế đồ họa</span>
-            </div>
-          </article>
+      <div class="wrap">
+        <ul class="hero-results" aria-label="Kết quả nổi bật">
+          <li><strong data-to="4.1" data-dec="1" data-suffix="M+">4.1M+</strong><span>lượt tiếp cận tự nhiên đa kênh trong 6 tháng</span></li>
+          <li><strong data-to="65" data-prefix="+" data-suffix="%">+65%</strong><span>tương tác và tin nhắn tự nhiên tại VM Style</span></li>
+          <li><strong data-to="360" data-suffix="+">360+</strong><span>bài viết và Reels đã lên kế hoạch, viết và xuất bản</span></li>
+        </ul>
+      </div>
 
-          <!-- Thẻ 3: SOFT SKILLS - Kỹ Năng Mềm & Phối Hợp (Chuẩn Ảnh 1) -->
-          <article class="airlume-card reveal reveal--up" data-reveal="up" style="--d: 0.2s;">
-            <div class="airlume-card-icon">
-              <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            </div>
-            <span class="airlume-badge">SOFT SKILLS</span>
-            <h3>Kỹ Năng Mềm &amp; Phối Hợp</h3>
+      <!-- Chỉ báo 4 bước của câu chuyện cuộn đầu trang (chỉ hiện khi hiệu ứng cuộn chạy) -->
+      <ol class="hero-scenes" aria-hidden="true">
+        <li class="is-active">Bản nháp</li>
+        <li>Biên tập</li>
+        <li>Kết quả</li>
+        <li>Hồ sơ</li>
+      </ol>
+    </section>
+
+    <!-- ========== NĂNG LỰC ========== -->
+    <section id="about" class="section">
+      <div class="wrap">
+        <div class="split">
+          <div class="split-head">
+            <h2 class="h2">Nội dung tốt bắt đầu từ khách hàng, không phải từ bàn phím</h2>
+          </div>
+          <div class="split-body prose">
             <p>
-              Linh hoạt thích nghi xu hướng mới, phối hợp nhịp nhàng cùng đội ngũ Media, Design và Sales.
+              Mỗi bài viết, kịch bản Reels hay chiến dịch ra mắt bộ sưu tập đều bắt đầu từ nỗi lo và mong muốn thật của khách hàng mục tiêu. Khi AI có thể viết hàng trăm bài trong vài giây, giá trị của người làm nội dung nằm ở chỗ hiểu đúng người đọc và biết đo xem bài nào thật sự bán được hàng.
             </p>
-            <div class="skills-tags-wrap" data-stagger="80">
-              <span class="skill-tag periwinkle reveal reveal--scale">⏱️ Quản lý thời gian</span>
-              <span class="skill-tag periwinkle reveal reveal--scale">🧩 Giải quyết vấn đề</span>
-              <span class="skill-tag periwinkle reveal reveal--scale">👁️ Tư duy thẩm mỹ</span>
-              <span class="skill-tag periwinkle reveal reveal--scale">💬 Giao tiếp tốt</span>
-              <span class="skill-tag periwinkle reveal reveal--scale">🚀 Bắt nhịp xu hướng</span>
-              <span class="skill-tag periwinkle reveal reveal--scale">👥 Quản lý đội nhóm</span>
-            </div>
-          </article>
+            <p>
+              Tôi dùng AI để rút ngắn khâu sản xuất, và dành thời gian tiết kiệm được cho nghiên cứu insight, kiểm duyệt chất lượng và đọc số liệu.
+            </p>
+          </div>
         </div>
 
-        <!-- ==================== BỘ CÔNG CỤ CHUYÊN MÔN (MARQUEE + BENTO) ==================== -->
-        <div id="skills" class="tools-ecosystem-box reveal reveal--up" data-reveal="up" style="--d: 0.12s;">
-          <div class="tools-ecosystem-head reveal reveal--up">
-            <h3 class="tools-ecosystem-title">Bộ Công Cụ <em>Chuyên Môn</em></h3>
+        <div class="skills">
+          <div class="skill-group">
+            <h3 class="h4">Chuyên môn</h3>
+            <ul class="skill-list">
+              <li>Chiến lược nội dung và Content Plan theo tháng</li>
+              <li>Copywriting cho social, website và email</li>
+              <li>Kịch bản video ngắn, Reels, TikTok</li>
+              <li>SEO Inbound và nghiên cứu từ khóa</li>
+              <li>Phân tích số liệu và báo cáo hiệu quả</li>
+              <li>Thiết kế ấn phẩm cơ bản với Canva, Illustrator</li>
+              <li>Ứng dụng AI vào quy trình sản xuất nội dung</li>
+            </ul>
           </div>
-          <div class="tools-marquee" aria-hidden="true">
-            <div class="tools-marquee-track">
-<span class="tool-chip" style="--c:#0467DF"><img src="assets/images/logos/meta.svg" alt="" width="22" height="22" loading="lazy"><span>Meta Business</span></span>
-<span class="tool-chip" style="--c:#111827"><img src="assets/images/logos/tiktok.svg" alt="" width="22" height="22" loading="lazy"><span>TikTok</span></span>
-<span class="tool-chip" style="--c:#0068FF"><img src="assets/images/logos/zalo.svg" alt="" width="22" height="22" loading="lazy"><span>Zalo OA</span></span>
-<span class="tool-chip" style="--c:#0A66C2"><img src="assets/images/logos/linkedin.svg" alt="" width="22" height="22" loading="lazy"><span>LinkedIn</span></span>
-<span class="tool-chip" style="--c:#458CF5"><img src="assets/images/logos/googlesearchconsole.svg" alt="" width="22" height="22" loading="lazy"><span>Search Console</span></span>
-<span class="tool-chip" style="--c:#FF642D"><img src="assets/images/logos/semrush.svg" alt="" width="22" height="22" loading="lazy"><span>Semrush</span></span>
-<span class="tool-chip" style="--c:#21759B"><img src="assets/images/logos/wordpress.svg" alt="" width="22" height="22" loading="lazy"><span>WordPress</span></span>
-<span class="tool-chip" style="--c:#2684FC"><img src="assets/images/logos/googledrive.svg" alt="" width="22" height="22" loading="lazy"><span>Google Drive</span></span>
-<span class="tool-chip" style="--c:#0467DF"><img src="assets/images/logos/meta.svg" alt="" width="22" height="22" loading="lazy"><span>Meta Business</span></span>
-<span class="tool-chip" style="--c:#111827"><img src="assets/images/logos/tiktok.svg" alt="" width="22" height="22" loading="lazy"><span>TikTok</span></span>
-<span class="tool-chip" style="--c:#0068FF"><img src="assets/images/logos/zalo.svg" alt="" width="22" height="22" loading="lazy"><span>Zalo OA</span></span>
-<span class="tool-chip" style="--c:#0A66C2"><img src="assets/images/logos/linkedin.svg" alt="" width="22" height="22" loading="lazy"><span>LinkedIn</span></span>
-<span class="tool-chip" style="--c:#458CF5"><img src="assets/images/logos/googlesearchconsole.svg" alt="" width="22" height="22" loading="lazy"><span>Search Console</span></span>
-<span class="tool-chip" style="--c:#FF642D"><img src="assets/images/logos/semrush.svg" alt="" width="22" height="22" loading="lazy"><span>Semrush</span></span>
-<span class="tool-chip" style="--c:#21759B"><img src="assets/images/logos/wordpress.svg" alt="" width="22" height="22" loading="lazy"><span>WordPress</span></span>
-<span class="tool-chip" style="--c:#2684FC"><img src="assets/images/logos/googledrive.svg" alt="" width="22" height="22" loading="lazy"><span>Google Drive</span></span>
-            </div>
-            <div class="tools-marquee-track reverse">
-<span class="tool-chip" style="--c:#00C4CC"><img src="assets/images/logos/canva.svg" alt="" width="22" height="22" loading="lazy"><span>Canva</span></span>
-<span class="tool-chip" style="--c:#FF9A00"><img src="assets/images/logos/adobeillustrator.svg" alt="" width="22" height="22" loading="lazy"><span>Illustrator</span></span>
-<span class="tool-chip" style="--c:#111827"><img src="assets/images/logos/capcut.svg" alt="" width="22" height="22" loading="lazy"><span>CapCut</span></span>
-<span class="tool-chip" style="--c:#6B7BFF"><img src="assets/images/logos/googlegemini.svg" alt="" width="22" height="22" loading="lazy"><span>Gemini</span></span>
-<span class="tool-chip" style="--c:#D97757"><img src="assets/images/logos/claude.svg" alt="" width="22" height="22" loading="lazy"><span>Claude</span></span>
-<span class="tool-chip" style="--c:#10A37F"><img src="assets/images/logos/openai.svg" alt="" width="22" height="22" loading="lazy"><span>ChatGPT</span></span>
-<span class="tool-chip" style="--c:#0467DF"><img src="assets/images/logos/meta.svg" alt="" width="22" height="22" loading="lazy"><span>Meta Business</span></span>
-<span class="tool-chip" style="--c:#111827"><img src="assets/images/logos/tiktok.svg" alt="" width="22" height="22" loading="lazy"><span>TikTok</span></span>
-<span class="tool-chip" style="--c:#0068FF"><img src="assets/images/logos/zalo.svg" alt="" width="22" height="22" loading="lazy"><span>Zalo OA</span></span>
-<span class="tool-chip" style="--c:#0A66C2"><img src="assets/images/logos/linkedin.svg" alt="" width="22" height="22" loading="lazy"><span>LinkedIn</span></span>
-<span class="tool-chip" style="--c:#458CF5"><img src="assets/images/logos/googlesearchconsole.svg" alt="" width="22" height="22" loading="lazy"><span>Search Console</span></span>
-<span class="tool-chip" style="--c:#FF642D"><img src="assets/images/logos/semrush.svg" alt="" width="22" height="22" loading="lazy"><span>Semrush</span></span>
-<span class="tool-chip" style="--c:#21759B"><img src="assets/images/logos/wordpress.svg" alt="" width="22" height="22" loading="lazy"><span>WordPress</span></span>
-<span class="tool-chip" style="--c:#2684FC"><img src="assets/images/logos/googledrive.svg" alt="" width="22" height="22" loading="lazy"><span>Google Drive</span></span>
-<span class="tool-chip" style="--c:#00C4CC"><img src="assets/images/logos/canva.svg" alt="" width="22" height="22" loading="lazy"><span>Canva</span></span>
-<span class="tool-chip" style="--c:#FF9A00"><img src="assets/images/logos/adobeillustrator.svg" alt="" width="22" height="22" loading="lazy"><span>Illustrator</span></span>
-<span class="tool-chip" style="--c:#111827"><img src="assets/images/logos/capcut.svg" alt="" width="22" height="22" loading="lazy"><span>CapCut</span></span>
-<span class="tool-chip" style="--c:#6B7BFF"><img src="assets/images/logos/googlegemini.svg" alt="" width="22" height="22" loading="lazy"><span>Gemini</span></span>
-<span class="tool-chip" style="--c:#D97757"><img src="assets/images/logos/claude.svg" alt="" width="22" height="22" loading="lazy"><span>Claude</span></span>
-<span class="tool-chip" style="--c:#10A37F"><img src="assets/images/logos/openai.svg" alt="" width="22" height="22" loading="lazy"><span>ChatGPT</span></span>
-<span class="tool-chip" style="--c:#0467DF"><img src="assets/images/logos/meta.svg" alt="" width="22" height="22" loading="lazy"><span>Meta Business</span></span>
-<span class="tool-chip" style="--c:#111827"><img src="assets/images/logos/tiktok.svg" alt="" width="22" height="22" loading="lazy"><span>TikTok</span></span>
-<span class="tool-chip" style="--c:#0068FF"><img src="assets/images/logos/zalo.svg" alt="" width="22" height="22" loading="lazy"><span>Zalo OA</span></span>
-<span class="tool-chip" style="--c:#0A66C2"><img src="assets/images/logos/linkedin.svg" alt="" width="22" height="22" loading="lazy"><span>LinkedIn</span></span>
-<span class="tool-chip" style="--c:#458CF5"><img src="assets/images/logos/googlesearchconsole.svg" alt="" width="22" height="22" loading="lazy"><span>Search Console</span></span>
-<span class="tool-chip" style="--c:#FF642D"><img src="assets/images/logos/semrush.svg" alt="" width="22" height="22" loading="lazy"><span>Semrush</span></span>
-<span class="tool-chip" style="--c:#21759B"><img src="assets/images/logos/wordpress.svg" alt="" width="22" height="22" loading="lazy"><span>WordPress</span></span>
-<span class="tool-chip" style="--c:#2684FC"><img src="assets/images/logos/googledrive.svg" alt="" width="22" height="22" loading="lazy"><span>Google Drive</span></span>
-            </div>
+          <div class="skill-group">
+            <h3 class="h4">Cách làm việc</h3>
+            <ul class="skill-list">
+              <li>Quản lý thời gian và deadline nhiều kênh cùng lúc</li>
+              <li>Phối hợp với Media, Design và Sales</li>
+              <li>Giải quyết vấn đề dựa trên dữ liệu</li>
+              <li>Nắm bắt xu hướng nhanh</li>
+              <li>Con mắt thẩm mỹ, đặc biệt với thời trang</li>
+              <li>Hướng dẫn và điều phối nhóm nhỏ</li>
+            </ul>
           </div>
-          <div class="tools-ecosystem-grid" data-stagger="100">
-            <div class="tool-category-card reveal reveal--up">
-              <div class="tool-cat-head"><span class="tool-cat-dot blue"></span><h4>MẠNG XÃ HỘI</h4></div>
-              <div class="tool-items-list">
-                <div class="tool-pill-item" style="--c:#0467DF"><span class="tool-ico"><img src="assets/images/logos/meta.svg" alt="Logo Meta Business" width="28" height="28" loading="lazy"></span><span class="tool-name">Meta Business</span></div>
-                <div class="tool-pill-item" style="--c:#111827"><span class="tool-ico"><img src="assets/images/logos/tiktok.svg" alt="Logo TikTok" width="28" height="28" loading="lazy"></span><span class="tool-name">TikTok</span></div>
-                <div class="tool-pill-item" style="--c:#0068FF"><span class="tool-ico"><img src="assets/images/logos/zalo.svg" alt="Logo Zalo OA" width="28" height="28" loading="lazy"></span><span class="tool-name">Zalo OA</span></div>
-                <div class="tool-pill-item" style="--c:#0A66C2"><span class="tool-ico"><img src="assets/images/logos/linkedin.svg" alt="Logo LinkedIn" width="28" height="28" loading="lazy"></span><span class="tool-name">LinkedIn</span></div>
-              </div>
+        </div>
+
+        <div id="skills" class="tools">
+          <h3 class="h4">Công cụ dùng hằng ngày</h3>
+          <!-- Dải logo trượt: site.js tự tạo từ danh sách công cụ bên dưới -->
+          <div class="tools-marquee" aria-hidden="true"></div>
+          <div class="tools-grid">
+            <div class="tool-group">
+              <h4 class="tool-group-name">Mạng xã hội</h4>
+              <ul>
+                <li><img src="assets/images/logos/meta.svg" alt="" width="20" height="20" loading="lazy">Meta Business Suite</li>
+                <li><img src="assets/images/logos/tiktok.svg" alt="" width="20" height="20" loading="lazy">TikTok</li>
+                <li><img src="assets/images/logos/zalo.svg" alt="" width="20" height="20" loading="lazy">Zalo OA</li>
+                <li><img src="assets/images/logos/linkedin.svg" alt="" width="20" height="20" loading="lazy">LinkedIn</li>
+              </ul>
             </div>
-            <div class="tool-category-card reveal reveal--up">
-              <div class="tool-cat-head"><span class="tool-cat-dot indigo"></span><h4>WEBSITE &amp; SEO</h4></div>
-              <div class="tool-items-list">
-                <div class="tool-pill-item" style="--c:#458CF5"><span class="tool-ico"><img src="assets/images/logos/googlesearchconsole.svg" alt="Logo Search Console" width="28" height="28" loading="lazy"></span><span class="tool-name">Search Console</span></div>
-                <div class="tool-pill-item" style="--c:#FF642D"><span class="tool-ico"><img src="assets/images/logos/semrush.svg" alt="Logo Semrush" width="28" height="28" loading="lazy"></span><span class="tool-name">Semrush</span></div>
-                <div class="tool-pill-item" style="--c:#21759B"><span class="tool-ico"><img src="assets/images/logos/wordpress.svg" alt="Logo WordPress" width="28" height="28" loading="lazy"></span><span class="tool-name">WordPress</span></div>
-                <div class="tool-pill-item" style="--c:#4285F4"><span class="tool-ico"><img src="assets/images/logos/googletrends.svg" alt="Logo Google Trends" width="28" height="28" loading="lazy"></span><span class="tool-name">Google Trends</span></div>
-              </div>
+            <div class="tool-group">
+              <h4 class="tool-group-name">Website và SEO</h4>
+              <ul>
+                <li><img src="assets/images/logos/googlesearchconsole.svg" alt="" width="20" height="20" loading="lazy">Search Console</li>
+                <li><img src="assets/images/logos/semrush.svg" alt="" width="20" height="20" loading="lazy">Semrush</li>
+                <li><img src="assets/images/logos/wordpress.svg" alt="" width="20" height="20" loading="lazy">WordPress</li>
+                <li><img src="assets/images/logos/googletrends.svg" alt="" width="20" height="20" loading="lazy">Google Trends</li>
+              </ul>
             </div>
-            <div class="tool-category-card reveal reveal--up">
-              <div class="tool-cat-head"><span class="tool-cat-dot purple"></span><h4>CÔNG CỤ SÁNG TẠO</h4></div>
-              <div class="tool-items-list">
-                <div class="tool-pill-item" style="--c:#2684FC"><span class="tool-ico"><img src="assets/images/logos/googledrive.svg" alt="Logo Google Drive" width="28" height="28" loading="lazy"></span><span class="tool-name">Google Drive</span></div>
-                <div class="tool-pill-item" style="--c:#00C4CC"><span class="tool-ico"><img src="assets/images/logos/canva.svg" alt="Logo Canva" width="28" height="28" loading="lazy"></span><span class="tool-name">Canva</span></div>
-                <div class="tool-pill-item" style="--c:#FF9A00"><span class="tool-ico"><img src="assets/images/logos/adobeillustrator.svg" alt="Logo Illustrator" width="28" height="28" loading="lazy"></span><span class="tool-name">Illustrator</span></div>
-                <div class="tool-pill-item" style="--c:#111827"><span class="tool-ico"><img src="assets/images/logos/capcut.svg" alt="Logo CapCut" width="28" height="28" loading="lazy"></span><span class="tool-name">CapCut</span></div>
-              </div>
+            <div class="tool-group">
+              <h4 class="tool-group-name">Sáng tạo</h4>
+              <ul>
+                <li><img src="assets/images/logos/canva.svg" alt="" width="20" height="20" loading="lazy">Canva</li>
+                <li><img src="assets/images/logos/adobeillustrator.svg" alt="" width="20" height="20" loading="lazy">Illustrator</li>
+                <li><img src="assets/images/logos/capcut.svg" alt="" width="20" height="20" loading="lazy">CapCut</li>
+                <li><img src="assets/images/logos/googledrive.svg" alt="" width="20" height="20" loading="lazy">Google Drive</li>
+              </ul>
             </div>
-            <div class="tool-category-card tool-category-card--wide reveal reveal--up">
-              <div class="tool-cat-head"><span class="tool-cat-dot sky"></span><h4>ỨNG DỤNG AI</h4></div>
-              <div class="tool-items-list">
-                <div class="tool-pill-item" style="--c:#6B7BFF"><span class="tool-ico"><img src="assets/images/logos/googlegemini.svg" alt="Logo Gemini" width="28" height="28" loading="lazy"></span><span class="tool-name">Gemini</span></div>
-                <div class="tool-pill-item" style="--c:#D97757"><span class="tool-ico"><img src="assets/images/logos/claude.svg" alt="Logo Claude" width="28" height="28" loading="lazy"></span><span class="tool-name">Claude</span></div>
-                <div class="tool-pill-item" style="--c:#10A37F"><span class="tool-ico"><img src="assets/images/logos/openai.svg" alt="Logo ChatGPT" width="28" height="28" loading="lazy"></span><span class="tool-name">ChatGPT</span></div>
-                <div class="tool-pill-item" style="--c:#111827"><span class="tool-ico"><img src="assets/images/logos/notion.svg" alt="Logo Notion" width="28" height="28" loading="lazy"></span><span class="tool-name">Notion</span></div>
-                <div class="tool-pill-item" style="--c:#181717"><span class="tool-ico"><img src="assets/images/logos/github.svg" alt="Logo GitHub" width="28" height="28" loading="lazy"></span><span class="tool-name">GitHub</span></div>
-                <div class="tool-pill-item" style="--c:#3FCF8E"><span class="tool-ico"><img src="assets/images/logos/supabase.svg" alt="Logo Supabase" width="28" height="28" loading="lazy"></span><span class="tool-name">Supabase</span></div>
-                <div class="tool-pill-item" style="--c:#4285F4"><span class="tool-ico"><img src="assets/images/logos/googlecloud.svg" alt="Logo Google API" width="28" height="28" loading="lazy"></span><span class="tool-name">Google API</span></div>
-                <div class="tool-pill-item" style="--c:#111827"><span class="tool-ico"><img src="assets/images/logos/mcp.svg" alt="Logo MCP" width="28" height="28" loading="lazy"></span><span class="tool-name">MCP</span></div>
-              </div>
+            <div class="tool-group">
+              <h4 class="tool-group-name">AI và tự động hóa</h4>
+              <ul>
+                <li><img src="assets/images/logos/openai.svg" alt="" width="20" height="20" loading="lazy">ChatGPT</li>
+                <li><img src="assets/images/logos/claude.svg" alt="" width="20" height="20" loading="lazy">Claude</li>
+                <li><img src="assets/images/logos/googlegemini.svg" alt="" width="20" height="20" loading="lazy">Gemini</li>
+                <li><img src="assets/images/logos/notion.svg" alt="" width="20" height="20" loading="lazy">Notion</li>
+                <li><img src="assets/images/logos/github.svg" alt="" width="20" height="20" loading="lazy">GitHub</li>
+                <li><img src="assets/images/logos/supabase.svg" alt="" width="20" height="20" loading="lazy">Supabase</li>
+                <li><img src="assets/images/logos/googlecloud.svg" alt="" width="20" height="20" loading="lazy">Google API</li>
+                <li><img src="assets/images/logos/mcp.svg" alt="" width="20" height="20" loading="lazy">MCP</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 3. QUY TRÌNH 3 BƯỚC (Scalix Top Royal Blue Stage + White vs Periwinkle Cards) ==================== -->
-    <section id="process" class="lp-section scalix-royal-stage">
-      <div class="lp-wrap">
-        <!-- Bố cục Header Bất Đối Xứng chuẩn ảnh mẫu Scalix ("SERVICES - Unleashing The Potential Of Your Brand") -->
-        <div class="scalix-split-header" data-reveal="up">
-          <div class="scalix-split-left reveal reveal--left">
-            <span class="scalix-kicker">WORKFLOW &amp; STRATEGY</span>
-            <h2 class="scalix-display-title">
-              Quy Trình Nội Dung<br>
-              Từ Insight Đến Doanh Số
-            </h2>
-          </div>
-          <div class="scalix-split-right reveal reveal--right">
-            <p>
-              Từ chiến lược nghiên cứu thị trường đến sản xuất nội dung đa kênh, tôi xây dựng giải pháp truyền thông thu hút sự chú ý, chạm cảm xúc và để lại dấu ấn chuyển đổi thực tế.
-            </p>
-            <div class="scalix-nav-arrows" aria-hidden="true">
-              <a href="#experience" class="scalix-arrow-btn ghost" title="Xem Kinh Nghiệm">←</a>
-              <a href="#projects" class="scalix-arrow-btn solid" title="Xem Dự Án">→</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3 Thẻ Tương Phản (Card 1: Trắng Tinh Khôi | Card 2 & 3: Xanh Periwinkle chuẩn mẫu Scalix) -->
-        <div class="scalix-cards-grid" data-stagger="110">
-          <article class="scalix-card card-white reveal reveal--up" data-reveal="up" style="--d: 0.05s;">
-            <div class="scalix-card-body">
-              <span class="scalix-step-tag">BƯỚC 01</span>
-              <h3>Nghiên Cứu &amp; Tìm Insight</h3>
-              <p>
-                Đào sâu chân dung khách hàng mục tiêu, phân tích Search Intent và nghiên cứu đối thủ cạnh tranh để tìm ra khoảng trống nội dung độc bản, đánh trúng tâm lý người mua.
-              </p>
-            </div>
-            <div class="scalix-card-foot">
-              <a href="#projects" class="scalix-pill-cta dark">Khám phá quy trình</a>
-              <a href="#projects" class="scalix-circle-cta dark" aria-label="Xem chi tiết">↗</a>
-            </div>
-          </article>
-
-          <article class="scalix-card card-periwinkle reveal reveal--up" data-reveal="up" style="--d: 0.15s;">
-            <div class="scalix-card-body">
-              <span class="scalix-step-tag">BƯỚC 02</span>
-              <h3>Chiến Lược &amp; Sản Xuất</h3>
-              <p>
-                Quy hoạch Content Pillar, xây dựng khung bài viết &amp; kịch bản Reels thu hút 3 giây đầu, truyền tải câu chuyện thương hiệu giàu cảm xúc kèm CTA tự nhiên.
-              </p>
-            </div>
-            <div class="scalix-card-foot">
-              <a href="#experience" class="scalix-pill-cta light">Xem thực chiến</a>
-              <a href="#experience" class="scalix-circle-cta light" aria-label="Xem thực chiến">→</a>
-            </div>
-          </article>
-
-          <article class="scalix-card card-periwinkle reveal reveal--up" data-reveal="up" style="--d: 0.25s;">
-            <div class="scalix-card-body">
-              <span class="scalix-step-tag">BƯỚC 03</span>
-              <h3>Đo Lường &amp; Tối Ưu Hóa</h3>
-              <p>
-                Theo dõi sát các chỉ số quan trọng (Reach, CTR, Inbox, Organic Traffic) qua Meta Business Suite, GA4 và GSC để liên tục nhân rộng định dạng thắng lợi.
-              </p>
-            </div>
-            <div class="scalix-card-foot">
-              <a href="#contact" class="scalix-pill-cta light">Đồng hành ngay</a>
-              <a href="#contact" class="scalix-circle-cta light" aria-label="Liên hệ ngay">→</a>
-            </div>
-          </article>
-        </div>
+    <!-- ========== QUY TRÌNH ========== -->
+    <section id="process" class="section section-mist">
+      <div class="wrap">
+        <h2 class="h2 section-title">Một chiến dịch nội dung đi qua ba bước</h2>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-num" aria-hidden="true">1</span>
+            <h3 class="h3">Nghiên cứu và tìm insight</h3>
+            <p>Đào sâu chân dung khách hàng, phân tích search intent và nội dung của đối thủ để tìm khoảng trống mà thương hiệu có thể chiếm lĩnh.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">2</span>
+            <h3 class="h3">Lên chiến lược và sản xuất</h3>
+            <p>Quy hoạch content pillar, viết khung bài và kịch bản Reels giữ chân người xem trong 3 giây đầu, kể câu chuyện thương hiệu kèm lời kêu gọi tự nhiên.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">3</span>
+            <h3 class="h3">Đo lường và tối ưu</h3>
+            <p>Theo dõi Reach, CTR, tin nhắn và organic traffic qua Meta Business Suite, GA4 và Search Console, rồi nhân rộng định dạng hiệu quả nhất.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- ==================== 4. KINH NGHIỆM LÀM VIỆC: VM STYLE (#experience - Crisp Light Stage) ==================== -->
-    <section id="experience" class="vm-exp-section">
-      <div class="vm-exp-container">
-        <div class="vm-exp-header reveal reveal--up" data-reveal="up" data-stagger="90">
-          <span class="pill-eyebrow reveal reveal--up">Hành trình thực chiến</span>
-          <h2 class="lp-h2 reveal reveal--up">Kinh Nghiệm <em>Làm Việc</em></h2>
-          <p class="vm-sublead reveal reveal--up">
-            Chi tiết vai trò, quy trình triển khai và các hạng mục nội dung thực tế tôi đã đảm nhiệm tại thương hiệu thời trang <strong>VM Style</strong>.
-          </p>
+    <!-- ========== KINH NGHIỆM ========== -->
+    <section id="experience" class="section vm-exp-section">
+      <div class="wrap">
+        <div class="section-intro">
+          <h2 class="h2">Kinh nghiệm làm việc</h2>
+          <p class="lead">Vai trò, cách triển khai và sản phẩm nội dung thực tế tại thương hiệu thời trang <strong>VM Style</strong>.</p>
         </div>
-
-        <!-- Khung mount tự động render từ dữ liệu trong assets/js/experience-vmstyle.js -->
         <div id="vm-experience-mount"></div>
       </div>
     </section>
 
-    <!-- ==================== 5. DỰ ÁN & CASE STUDIES (#projects - Scalix Deep Midnight Showcase) ==================== -->
-    <section id="projects" class="lp-section scalix-midnight-stage lp-projects">
-      <div class="lp-wrap">
-        <!-- Header lấy cảm hứng từ phần giữa của ảnh mẫu Scalix (Starburst + Bold Editorial Title) -->
-        <div class="scalix-midnight-header" data-reveal="up">
-          <div class="scalix-kicker-col reveal reveal--left">
-            <span class="scalix-kicker">CASE STUDIES</span>
-            <div class="scalix-starburst-badge">
-              <svg width="42" height="42" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                <path d="M24 2V46M2 24H46M8.4 8.4L39.6 39.6M39.6 8.4L8.4 39.6M15.5 4.2L32.5 43.8M4.2 15.5L43.8 32.5M4.2 32.5L43.8 15.5M15.5 43.8L32.5 4.2" stroke="url(#starGrad)" stroke-width="1.8" stroke-linecap="round"/>
-                <circle cx="24" cy="24" r="4" fill="#93b4ff"/>
-                <defs>
-                  <linearGradient id="starGrad" x1="2" y1="2" x2="46" y2="46" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#ffffff"/>
-                    <stop offset="0.5" stop-color="#60a5fa"/>
-                    <stop offset="1" stop-color="#1d4ed8"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-              <span>Data-Driven Content</span>
-            </div>
-          </div>
-
-          <div class="scalix-title-col reveal reveal--right">
-            <h2 class="scalix-midnight-title">
-              Nội Dung Không Chỉ Để Đọc —<br>
-              <em>Mà Để Tạo Ra Chuyển Đổi</em>
-            </h2>
-            <p class="scalix-midnight-lead">
-              Các chiến dịch thực tế, số liệu tăng trưởng minh bạch và phương pháp tư duy nội dung đã được chứng minh qua từng dự án.
-            </p>
-          </div>
+    <!-- ========== DỰ ÁN ========== -->
+    <section id="projects" class="section section-mist">
+      <div class="wrap">
+        <div class="section-intro">
+          <h2 class="h2">Dự án và case study</h2>
+          <p class="lead">Mỗi dự án ghi rõ bối cảnh, cách làm và con số đo được. Bấm vào dự án để đọc case study đầy đủ.</p>
         </div>
 
-        <!-- 2 Dự án Tiêu biểu (Nạp tự động từ Markdown) -->
-        <div id="featured-projects-container" class="featured-grid" data-stagger="115">
-          <!-- MarkdownLoader tự render -->
+        <div id="featured-projects-container" class="featured-list"></div>
+
+        <div class="filter-wrap">
+          <h3 class="h3">Tất cả dự án</h3>
+          <div id="project-filters" class="filter-bar" role="group" aria-label="Lọc dự án theo lĩnh vực"></div>
         </div>
 
-        <!-- Bộ lọc và toàn bộ dự án -->
-        <div class="lp-filter-wrap reveal reveal--up" data-reveal="up">
-          <h3 class="filter-heading">Khám Phá Toàn Bộ Dự Án Theo Chuyên Môn</h3>
-          <div id="project-filters" class="filter-bar"></div>
-        </div>
-
-        <div id="all-projects-container" class="projects-grid" data-stagger="95">
-          <!-- MarkdownLoader tự render -->
-        </div>
+        <div id="all-projects-container" class="projects-grid"></div>
       </div>
     </section>
 
-    <!-- ==================== 6. LIÊN HỆ & KẾT NỐI (#contact - Scalix Navy-to-White Fade + Floating Form Card) ==================== -->
-    <section id="contact" class="lp-section scalix-contact-stage">
-      <div class="lp-wrap">
-        <div class="scalix-contact-grid">
-          <!-- Cột Trái: Nền Tối Chữ Trắng Tương Phản Cao giống ảnh mẫu Scalix ("Are You Ready To Start? Submit Your Request") -->
-          <div class="scalix-contact-left reveal reveal--left" data-reveal="left">
-            <span class="scalix-kicker">CONTACT</span>
-            <h2 class="scalix-contact-title">
-              Sẵn Sàng Bứt Phá?<br>
-              Kết Nối Cùng Tôi Ngay
-            </h2>
-            <p class="scalix-contact-desc">
-              Để lại thông tin của Quý Công ty, tôi sẽ phản hồi sớm nhất để trao đổi sâu hơn về mục tiêu nội dung, định hướng thương hiệu và cơ hội đồng hành.
-            </p>
+    <!-- ========== LIÊN HỆ ========== -->
+    <section id="contact" class="section contact">
+      <div class="wrap contact-grid">
+        <div class="contact-info">
+          <h2 class="h2">Bạn đang tuyển người làm nội dung?</h2>
+          <p class="lead">Gửi tôi vài dòng về vị trí hoặc dự án, kèm mục tiêu nội dung bạn đang hướng tới. Tôi sẽ phản hồi qua email hoặc Zalo.</p>
 
-            <div class="scalix-contact-cta-row">
-              <a href="assets/cv/CV-Content-Marketing.pdf" download class="scalix-white-pill-btn">
-                Tải CV Của Tôi
-              </a>
-              <a href="assets/cv/Portfolio-Content-Marketing.pdf" download class="scalix-glass-pill-btn">
-                Tải Portfolio PDF ↗
-              </a>
-            </div>
+          <dl class="contact-list">
+            <div><dt>Email</dt><dd><a href="mailto:trantrang674@gmail.com">trantrang674@gmail.com</a></dd></div>
+            <div><dt>Điện thoại và Zalo</dt><dd><a href="tel:0706055657">070 605 5657</a></dd></div>
+            <div><dt>Facebook</dt><dd><a href="https://www.facebook.com/trangduong16082002" target="_blank" rel="noopener">facebook.com/trangduong16082002</a></dd></div>
+          </dl>
 
-            <!-- Danh sách phương thức liên hệ trực tiếp -->
-            <div class="scalix-direct-methods">
-              <div class="direct-item">
-                <span class="direct-label">EMAIL</span>
-                <a href="mailto:trantrang674@gmail.com">trantrang674@gmail.com</a>
-              </div>
-              <div class="direct-item">
-                <span class="direct-label">ĐIỆN THOẠI / ZALO</span>
-                <a href="tel:0706055657">070 605 5657</a>
-              </div>
-              <div class="direct-item">
-                <span class="direct-label">MẠNG XÃ HỘI</span>
-                <div class="direct-links">
-                  <a href="https://www.facebook.com/trangduong16082002" target="_blank" rel="noopener">Facebook ↗</a>
-                  <span>LinkedIn (Đang cập nhật)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Cột Phải: Thẻ Form Trắng Nổi Bật chuẩn mẫu Scalix ("Let's start your growth today") -->
-          <div class="scalix-contact-right reveal reveal--right" data-reveal="right" style="--d: 0.12s;">
-            <div class="scalix-form-card">
-              <h3 class="scalix-form-heading">
-                Bắt đầu hành trình <span>tăng trưởng ngay hôm nay</span>
-              </h3>
-
-              <form id="portfolio-contact-form" data-stagger="95" action="https://formspree.io/f/sample" method="POST" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã để lại thông tin! Tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.'); this.reset();">
-                <div class="scalix-input-group reveal reveal--up">
-                  <label for="contact-info" class="sr-only">Thông tin liên hệ của bạn</label>
-                  <input type="text" id="contact-info" name="contact_info" class="scalix-pill-input" placeholder="Tên của bạn - Công ty - Email liên hệ *" required>
-                </div>
-
-                <div class="scalix-input-group reveal reveal--up">
-                  <label for="work-type" class="sr-only">Hình thức hợp tác</label>
-                  <select id="work-type" name="work_type" class="scalix-pill-input">
-                    <option value="Full-time">Hình thức: Tuyển dụng Full-time</option>
-                    <option value="Freelancer">Hình thức: Dự án Freelancer / Cộng tác</option>
-                  </select>
-                </div>
-
-                <div class="scalix-input-group reveal reveal--up">
-                  <label for="message" class="sr-only">Nội dung trao đổi</label>
-                  <textarea id="message" name="message" class="scalix-pill-input scalix-textarea" placeholder="Mô tả ngắn gọn về vị trí tuyển dụng hoặc bài toán nội dung của bạn... *" required></textarea>
-                </div>
-
-                <button type="submit" class="scalix-dark-submit-btn reveal reveal--up">
-                  Gửi lời nhắn ngay
-                </button>
-              </form>
-            </div>
+          <div class="contact-downloads">
+            <a href="assets/cv/CV-Content-Marketing.pdf" download class="btn btn-primary">Tải CV</a>
+            <a href="assets/cv/Portfolio-Content-Marketing.pdf" download class="btn btn-ghost">Tải portfolio</a>
           </div>
         </div>
+
+        <form id="portfolio-contact-form" class="contact-form" novalidate>
+          <div class="field">
+            <label for="contact-name">Họ tên và công ty</label>
+            <input type="text" id="contact-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="contact-email">Email của bạn</label>
+            <input type="email" id="contact-email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="work-type">Hình thức hợp tác</label>
+            <select id="work-type" name="work_type">
+              <option value="Tuyển dụng full-time">Tuyển dụng full-time</option>
+              <option value="Dự án freelance">Dự án freelance</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Nội dung</label>
+            <textarea id="message" name="message" rows="5" placeholder="Vị trí, mục tiêu nội dung hoặc thời gian bạn cần" required></textarea>
+          </div>
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+          <button type="submit" class="btn btn-accent btn-block">Soạn email gửi tôi</button>
+          <p class="form-note">Nút này mở ứng dụng email trên máy bạn với nội dung đã điền sẵn.</p>
+        </form>
       </div>
     </section>
   </main>
 
-  <!-- ==================== POPUP MODAL ĐỌC CASE STUDY ==================== -->
-  <div id="project-modal-backdrop" class="project-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+  <!-- ========== MODAL CASE STUDY ========== -->
+  <div id="project-modal-backdrop" class="project-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Chi tiết dự án">
     <div class="project-modal-container">
       <button id="project-modal-close" class="project-modal-close-btn" aria-label="Đóng chi tiết dự án">
-        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
       <div id="project-modal-body" class="project-modal-body"></div>
     </div>
   </div>
 
-  <!-- ==================== FOOTER (Scalix Monumental Watermark + Pill Nav) ==================== -->
-  <footer class="lp-footer scalix-footer">
-    <!-- Chữ Watermark Khổng Lồ Chìm Phía Sau giống chữ SCALIX ở chân ảnh mẫu 1 -->
-    <div class="scalix-watermark" aria-hidden="true">CONTENTFOLIO</div>
-
-    <div class="lp-wrap">
-      <div class="scalix-footer-bar">
-        <!-- Cụm Nút Pill Điều Hướng Trái -->
-        <div class="scalix-footer-pills">
-          <a href="#about">ABOUT</a>
-          <a href="#experience">EXPERIENCE</a>
-          <a href="#projects">CASES</a>
-          <a href="#process">PROCESS</a>
-          <a href="#contact">CONTACT</a>
-        </div>
-
-        <!-- Cụm Thông Tin Giữa -->
-        <div class="scalix-footer-center">
-          <p>Dương Trang — TP. Hồ Chí Minh, Việt Nam</p>
-          <a href="mailto:trantrang674@gmail.com">trantrang674@gmail.com</a>
-          <a href="tel:0706055657">+84 70 605 5657</a>
-        </div>
-
-        <!-- Cụm Liên Kết Phải -->
-        <div class="scalix-footer-socials">
-          <a href="https://www.facebook.com/trangduong16082002" target="_blank" rel="noopener">Facebook</a>
-          <a href="blog.html">Blog</a>
-          <a href="assets/cv/CV-Content-Marketing.pdf" download>CV PDF</a>
-          <a href="assets/cv/Portfolio-Content-Marketing.pdf" download>Portfolio</a>
-        </div>
-      </div>
-
-      <p class="lp-copy">© 2026 Dương Trang. Content Marketing Specialist Portfolio.</p>
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p class="footer-name">Dương Trang, Content Marketing Specialist</p>
+      <ul class="footer-links">
+        <li><a href="mailto:trantrang674@gmail.com">Email</a></li>
+        <li><a href="https://www.facebook.com/trangduong16082002" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="assets/cv/CV-Content-Marketing.pdf" download>CV</a></li>
+      </ul>
+      <p class="footer-copy">© <span id="year">2026</span> Dương Trang</p>
     </div>
   </footer>
 
-  <button class="lp-top" aria-label="Lên đầu trang">↑</button>
-
-  <!-- Scripts -->
   <script src="content/projects-manifest.js"></script>
   <script src="assets/js/markdown-loader.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/landing.js"></script>
   <script src="assets/js/experience-vmstyle.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script><script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script><script src="assets/js/scroll-effects.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="assets/js/site.js"></script>
 </body>
 </html>

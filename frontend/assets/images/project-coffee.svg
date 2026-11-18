@@ -32,7 +32,7 @@
     <text x="80" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">BRAND STORYTELLING</text>
     
     <text x="0" y="80" font-family="'Plus Jakarta Sans', sans-serif" font-size="34" font-weight="800" fill="#ffffff">Mộc Cà Phê</text>
-    <text x="0" y="115" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="500" fill="#fde68a">Tái định vị & Copywriting Menu</text>
+    <text x="0" y="115" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="500" fill="#fde68a">Tái định vị &amp; Copywriting Menu</text>
     
     <g transform="translate(0, 150)">
       <rect width="260" height="68" rx="12" fill="#ffffff" filter="drop-shadow(0 10px 20px rgba(0,0,0,0.2))" />

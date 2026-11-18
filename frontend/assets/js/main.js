@@ -24,7 +24,7 @@ function initMobileNav() {
     toggleBtn.addEventListener('click', () => {
       navMenu.classList.toggle('open');
       const isExpanded = navMenu.classList.contains('open');
-      toggleBtn.setAttribute('aria-expanded', isExpanded);
+      toggleBtn.setAttribute('aria-expanded', String(isExpanded));
     });
 
     // Đóng khi click ra ngoài hoặc click vào link
@@ -190,14 +190,9 @@ function createFeaturedCardHTML(project) {
         
         ${metricsHTML}
 
-        <div class="scalix-card-foot" style="margin-top: 1.25rem;">
-          <button type="button" class="scalix-pill-cta dark open-case-study" data-project-id="${project.id}" style="border:none; cursor:pointer;">
-            Xem Case Study Chi Tiết
-          </button>
-          <button type="button" class="scalix-circle-cta dark open-case-study" data-project-id="${project.id}" style="border:none; cursor:pointer;" aria-label="Mở Case Study">
-            ↗
-          </button>
-        </div>
+        <button type="button" class="btn btn-primary open-case-study" data-project-id="${project.id}">
+          Đọc case study
+        </button>
       </div>
     </article>
   `;
@@ -224,21 +219,18 @@ function renderProjectGrid(projects, category) {
         </a>
       </div>
       <div class="project-grid-body">
-        <div class="project-meta" style="margin-bottom: 0.6rem;">
+        <div class="project-meta">
           <span class="badge badge-blue">${p.category || 'Content'}</span>
-          <span style="font-size: 0.8rem; color: var(--text-light);">${p.date || ''}</span>
+          <span class="project-date">${p.date || ''}</span>
         </div>
-        <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.35;">
+        <h4 class="project-grid-title">
           <a href="javascript:void(0)" class="open-case-study" data-project-id="${p.id}">${p.title}</a>
         </h4>
-        <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.2rem;">
-          ${(p.summary || '').length > 130 ? (p.summary || '').substring(0, 130) + '...' : p.summary}
+        <p class="project-grid-excerpt">
+          ${(p.summary || '').length > 140 ? (p.summary || '').substring(0, 140).trim() + '…' : (p.summary || '')}
         </p>
         <div class="project-grid-footer">
-          <span style="font-size: 0.82rem; font-weight: 600; color: var(--orange-600);">${p.client || ''}</span>
-          <button type="button" class="open-case-study" data-project-id="${p.id}" style="background: none; border: none; font-size: 0.88rem; font-weight: 700; color: var(--blue-600); cursor: pointer; display: inline-flex; align-items: center; gap: 0.3rem;">
-            Đọc tiếp →
-          </button>
+          <span class="project-client">${p.client || ''}</span>
         </div>
       </div>
     </article>
@@ -297,7 +289,7 @@ function bindModalTriggers(projects) {
       let kpiHtml = '';
       if (project.metrics && Array.isArray(project.metrics)) {
         kpiHtml = `
-          <div class="kpi-callout" style="margin-top: 1.5rem; margin-bottom: 2rem;">
+          <div class="kpi-callout">
             ${project.metrics.map(m => `
               <div>
                 <div class="kpi-num">${m.value || ''}</div>
@@ -309,39 +301,26 @@ function bindModalTriggers(projects) {
       }
 
       modalBody.innerHTML = `
-        <div>
-          <span class="badge badge-orange" style="margin-bottom: 0.75rem;">${project.category || 'Content Marketing'}</span>
-          <h2 style="font-size: 2rem; font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: var(--text-main);">
-            ${project.title}
-          </h2>
-          <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
-            ${project.summary || ''}
-          </p>
+        <div class="case">
+          <span class="badge badge-orange">${project.category || 'Content Marketing'}</span>
+          <h2 class="case-title">${project.title}</h2>
+          <p class="case-summary">${project.summary || ''}</p>
 
-          <div class="project-overview-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 2rem; background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <div>
-              <span style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-light); font-weight: 600;">Khách hàng / Brand</span>
-              <strong style="display: block; font-size: 0.95rem; color: var(--text-main); margin-top: 0.2rem;">${project.client || ''}</strong>
-            </div>
-            <div>
-              <span style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-light); font-weight: 600;">Vai trò</span>
-              <strong style="display: block; font-size: 0.95rem; color: var(--text-main); margin-top: 0.2rem;">${project.role || ''}</strong>
-            </div>
-            <div>
-              <span style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-light); font-weight: 600;">Thời gian</span>
-              <strong style="display: block; font-size: 0.95rem; color: var(--text-main); margin-top: 0.2rem;">${project.date || ''}</strong>
-            </div>
-          </div>
+          <dl class="case-facts">
+            <div><dt>Khách hàng</dt><dd>${project.client || ''}</dd></div>
+            <div><dt>Vai trò</dt><dd>${project.role || ''}</dd></div>
+            <div><dt>Thời gian</dt><dd>${project.date || ''}</dd></div>
+          </dl>
 
           ${kpiHtml}
 
-          <div class="markdown-container" style="margin: 0; max-width: 100%;">
+          <div class="markdown-container">
             ${project.htmlContent || ''}
           </div>
 
-          <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
+          <div class="case-cta">
             <a href="#contact" class="btn btn-primary" onclick="document.getElementById('project-modal-backdrop').classList.remove('active'); document.body.style.overflow='';">
-              Liên Hệ Thảo Luận Về Dự Án Tương Tự
+              Trao đổi về một dự án tương tự
             </a>
           </div>
         </div>
