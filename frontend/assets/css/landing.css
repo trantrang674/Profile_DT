@@ -2953,3 +2953,15 @@ html.js [data-reveal].is-visible {
 .tool-items-list { flex: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; }
 .tool-pill-item { min-height: 112px; justify-content: flex-start; }
 .tool-name { min-height: 2.5em; display: flex; align-items: center; justify-content: center; }
+
+/* v2.2 — thẻ ỨNG DỤNG AI rộng gấp đôi, 4 cột x 2 hàng để cao bằng các thẻ khác */
+.tools-ecosystem-grid { grid-template-columns: 1fr 1fr 1fr 2fr; }
+.tool-category-card--wide .tool-items-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1024px) {
+  .tools-ecosystem-grid { grid-template-columns: repeat(2, 1fr); }
+  .tool-category-card--wide { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .tools-ecosystem-grid { grid-template-columns: 1fr; }
+  .tool-category-card--wide .tool-items-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
