@@ -2,10 +2,23 @@
  * ============================================================================
  * DỮ LIỆU & LOGIC HIỂN THỊ SECTION KINH NGHIỆM LÀM VIỆC: VM STYLE
  * ----------------------------------------------------------------------------
- * HƯỚNG DẪN CHỈNH SỬA NHANH CHO BẠN:
- * 1. Thay Logo: Đổi đường dẫn tại `VM_STYLE_DATA.company.logoUrl`
- * 2. Sửa số liệu / nội dung tổng quan: Chỉnh trong `VM_STYLE_DATA.overview`
- * 3. Thay ảnh từng hạng mục: Đổi `src` và `caption` trong `VM_STYLE_DATA.categories`
+ * HƯỚNG DẪN BẠN INPUT DỮ LIỆU BÀI VIẾT:
+ * Mỗi bài viết được chia làm 2 phần rõ rệt:
+ * - Phần TRÁI: Bạn input đường dẫn ảnh vào `src` (Hỗ trợ JPG, PNG, WebP)
+ * - Phần PHẢI: Bạn input nội dung caption bài post vào `caption` và tiêu đề vào `title`
+ *
+ * Cấu trúc 1 bài chi tiết:
+ * {
+ *   title: 'Tiêu đề bài viết',
+ *   tag: 'Facebook Post', // hoặc 'Instagram', 'Lookbook', 'Reels', 'BST'...
+ *   date: 'Tháng 10/2024',
+ *   src: 'assets/images/posts/bai-viet-1.jpg', // << INPUT ẢNH PHẦN TRÁI VÀO ĐÂY
+ *   alt: 'Mô tả ảnh bài post',
+ *   caption: `Nội dung caption bài post của bạn... (Hỗ trợ xuống dòng tự nhiên, emoji, hashtag)`, // << INPUT CAPTION PHẦN PHẢI VÀO ĐÂY
+ *   metrics: [ // Tùy chọn số liệu đo lường
+ *     { label: 'Tương tác', value: '+180%' }
+ *   ]
+ * }
  * ============================================================================
  */
 
@@ -13,68 +26,77 @@
   'use strict';
 
   /**
-   * Hàm tạo ảnh Placeholder SVG sắc nét (có ghi chú "Thay ảnh tại đây")
-   * Khi bạn có ảnh thật, chỉ cần thay đường dẫn file ảnh (VD: 'assets/images/fb-post-1.jpg')
-   * vào thuộc tính `src` bên dưới là hệ thống tự nhận.
+   * Escape an toàn ký tự HTML
    */
-  function createPlaceholderSVG(title, subtitle, tag, themeColor) {
-    // Escape ký tự đặc biệt (&, <, >) để SVG không bị lỗi và mất ảnh
-    const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    title = esc(title); subtitle = esc(subtitle); tag = esc(tag);
-    const primary = themeColor === 'orange' ? '#4f6ef7' : '#1631c9';
-    const softBg = themeColor === 'orange' ? '#eef2ff' : '#f0f5ff';
-    const borderCol = themeColor === 'orange' ? '#c7d2fe' : '#b8ccf5';
+  function escapeHTML(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
 
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600">
+  /**
+   * Format caption bài post: giữ nguyên xuống dòng và khoảng cách
+   */
+  function formatCaptionHTML(caption) {
+    if (!caption) return '';
+    if (/<[a-z][\s\S]*>/i.test(caption)) {
+      return caption;
+    }
+    return escapeHTML(caption).replace(/\n/g, '<br>');
+  }
+
+  /**
+   * Hàm tạo ảnh Placeholder cho khung ảnh bài post (phần TRÁI)
+   * Khi bạn có ảnh thật, chỉ cần thay đường dẫn file ảnh vào `src`.
+   */
+  function createPostImagePlaceholder(label, tag, themeColor) {
+    const esc = (s) => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    label = esc(label);
+    tag = esc(tag);
+    const primary = themeColor === 'orange' ? '#ea580c' : '#0284c7';
+    const softBg = themeColor === 'orange' ? '#fff7ed' : '#f0f9ff';
+    const borderCol = themeColor === 'orange' ? '#fed7aa' : '#bae6fd';
+
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" width="700" height="520">
       <defs>
-        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient id="bg-${Math.abs(label.length + (themeColor || '').length)}" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#ffffff"/>
           <stop offset="100%" stop-color="${softBg}"/>
         </linearGradient>
       </defs>
-      <rect width="960" height="600" fill="url(#bg)"/>
-      <rect x="28" y="28" width="904" height="544" rx="20" fill="#ffffff" stroke="${borderCol}" stroke-width="2.5" stroke-dasharray="10 6"/>
+      <rect width="700" height="520" rx="16" fill="url(#bg-${Math.abs(label.length + (themeColor || '').length)})"/>
+      <rect x="24" y="24" width="652" height="472" rx="12" fill="#ffffff" stroke="${borderCol}" stroke-width="2" stroke-dasharray="8 6"/>
       
-      <!-- Header giả lập giao diện tài liệu / bài post -->
-      <rect x="64" y="64" width="832" height="56" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
-      <circle cx="96" cy="92" r="8" fill="#1631c9"/>
-      <circle cx="122" cy="92" r="8" fill="#4f6ef7"/>
-      <circle cx="148" cy="92" r="8" fill="#cbd5e1"/>
-      <text x="180" y="98" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="700" fill="#334155">${tag}</text>
-      <rect x="720" y="76" width="156" height="32" rx="16" fill="${softBg}"/>
-      <text x="798" y="97" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="${primary}">VM STYLE • 2024–2025</text>
+      <!-- Tag kênh phía trên -->
+      <rect x="44" y="44" width="170" height="32" rx="16" fill="${softBg}"/>
+      <text x="129" y="65" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="${primary}">${tag || 'ẢNH BÀI POST'}</text>
 
-      <!-- Khung minh họa nội dung -->
-      <rect x="64" y="144" width="380" height="270" rx="14" fill="${softBg}" stroke="${borderCol}"/>
-      <path d="M214 250 L254 210 L294 250 M254 210 L254 300" stroke="${primary}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <rect x="190" y="315" width="128" height="8" rx="4" fill="${primary}" opacity="0.4"/>
+      <!-- Biểu tượng máy ảnh / Lookbook -->
+      <g transform="translate(350, 205)">
+        <circle cx="0" cy="0" r="52" fill="${softBg}" stroke="${borderCol}" stroke-width="2"/>
+        <path d="M-22 -10 L-12 -22 L12 -22 L22 -10 L26 -10 C30 -10 32 -7 32 -4 L32 22 C32 25 30 28 26 28 L-26 28 C-30 28 -32 25 -32 22 L-32 -4 C-32 -7 -30 -10 -26 -10 Z" fill="none" stroke="${primary}" stroke-width="3" stroke-linejoin="round"/>
+        <circle cx="0" cy="9" r="11" fill="none" stroke="${primary}" stroke-width="3"/>
+      </g>
 
-      <!-- Các dòng mô phỏng dữ liệu / kế hoạch / báo cáo -->
-      <rect x="476" y="152" width="180" height="24" rx="6" fill="${softBg}"/>
-      <text x="488" y="169" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="${primary}">THAY ẢNH TẠI ĐÂY</text>
-      
-      <text x="476" y="216" font-family="Plus Jakarta Sans, sans-serif" font-size="26" font-weight="800" fill="#070c22">${title}</text>
-      <text x="476" y="252" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="500" fill="#4b5878">${subtitle}</text>
+      <!-- Tiêu đề & Hướng dẫn input ảnh -->
+      <text x="350" y="300" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="20" font-weight="800" fill="#0f172a">${label || 'Ảnh Bài Post Thực Tế'}</text>
+      <text x="350" y="332" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#64748b">📌 BẠN INPUT ẢNH TẠI ĐÂY (thay giá trị src)</text>
+      <text x="350" y="356" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">Hỗ trợ JPG, PNG, WebP — Tự động căn chỉnh vừa khung</text>
 
-      <rect x="476" y="284" width="390" height="12" rx="6" fill="#e2e8f0"/>
-      <rect x="476" y="310" width="320" height="12" rx="6" fill="#e2e8f0"/>
-      <rect x="476" y="336" width="350" height="12" rx="6" fill="#f1f5f9"/>
-
-      <!-- Chỉ số minh họa bên dưới -->
-      <rect x="476" y="368" width="120" height="46" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
-      <text x="536" y="396" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" fill="#070c22">100% Real Data</text>
-
-      <rect x="610" y="368" width="140" height="46" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
-      <text x="680" y="396" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="700" fill="${primary}">Click phóng to</text>
-
-      <!-- Thanh chú thích chân ảnh -->
-      <rect x="64" y="446" width="832" height="88" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
-      <text x="480" y="484" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="16" font-weight="700" fill="${primary}">📌 PLACEHOLDER HÌNH ẢNH — THAY ẢNH THẬT CỦA BẠN TẠI ĐÂY</text>
-      <text x="480" y="512" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="500" fill="#64748b">Đổi đường dẫn ảnh trong file: assets/js/experience-vmstyle.js (Hỗ trợ JPG, PNG, WebP)</text>
+      <!-- Pill xem chi tiết -->
+      <rect x="250" y="400" width="200" height="38" rx="19" fill="${softBg}" stroke="${borderCol}"/>
+      <text x="350" y="424" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="${primary}">🔍 Bấm để phóng to xem ảnh</text>
     </svg>`;
 
     return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
   }
+
+  // Giữ alias cho tương thích ngược
+  const createPlaceholderSVG = createPostImagePlaceholder;
 
   /**
    * Tạo Logo Placeholder cho thương hiệu thời trang VM Style
@@ -158,7 +180,7 @@
       }
     },
 
-    // --- PHẦN 3: HẠNG MỤC CÔNG VIỆC (3 NHÓM & CÁC MỤC CON KÈM ẢNH) ---
+    // --- PHẦN 3: HẠNG MỤC CÔNG VIỆC (MỖI BÀI CHIA 2 PHẦN: TRÁI LÀ ẢNH, PHẢI LÀ CAPTION) ---
     categories: [
       {
         id: 'social-media',
@@ -170,21 +192,64 @@
             name: 'Facebook',
             badge: 'FB',
             summary: 'Tuyến bài giới thiệu sản phẩm mới, gợi ý phối đồ ứng dụng hằng ngày, minigame và bài viết chuyển đổi đơn hàng.',
-            images: [
+            posts: [
               {
-                src: createPlaceholderSVG('Bài viết Lookbook Sản Phẩm Mới', 'Caption kể chuyện & gợi ý phối đồ dạo phố thu hút bình luận hỏi giá', 'SOCIAL MEDIA • FACEBOOK', 'blue'),
+                title: 'Bài viết Lookbook Sản Phẩm Mới: "Nàng Thơ Dạo Phố"',
+                tag: 'Facebook Post',
+                date: 'BST Thu – Đông 2024',
+                src: createPostImagePlaceholder('Lookbook BST Thu – Đông', 'FACEBOOK POST', 'blue'),
                 alt: 'Minh họa bài viết Facebook Lookbook thời trang VM Style',
-                caption: 'Tuyến bài ra mắt sản phẩm mới kèm gợi ý Mix & Match tăng tỷ lệ khách nhắn tin hỏi mua.'
+                caption: `🌸 GỢI Ý PHỐI ĐỒ DẠO PHỐ CUỐI TUẦN CÙNG VM STYLE
+Cuối tuần này nàng đã có hẹn dạo phố cùng hội bạn thân chưa? Đừng bỏ lỡ công thức Mix & Match siêu xinh này nhé!
+
+✨ Điểm nhấn của set đồ:
+- Chất liệu linen cao cấp, thoáng mát tuyệt đối dưới nắng hè.
+- Form váy chữ A tôn dáng, che khuyết điểm tinh tế.
+- Tone màu pastel nhã nhặn, chụp hình góc nào cũng xinh lung linh.
+
+👉 Nhanh tay INBOX cho VM Style để nhận ngay ưu đãi 10% và được tư vấn size chuẩn xác nhất nàng nhé!
+#VMStyle #FashionLookbook #OOTD #MixAndMatch #ThoiTrangNu`,
+                metrics: [
+                  { label: 'Tương tác', value: '+180%' },
+                  { label: 'Hỏi giá / Inbox', value: '45+ tin nhắn' }
+                ]
               },
               {
-                src: createPlaceholderSVG('Bài viết Bắt Trend & Tương Tác', 'Nội dung đồng cảm tâm lý chọn đồ của phái nữ, kéo tương tác tự nhiên', 'SOCIAL MEDIA • FACEBOOK', 'blue'),
+                title: 'Bài viết Bắt Trend & Tương Tác: "Nỗi Niềm Chọn Đồ Mỗi Sáng"',
+                tag: 'Facebook Engagement',
+                date: 'Tháng 11/2024',
+                src: createPostImagePlaceholder('Bài Viết Bắt Trend & Tương Tác', 'FACEBOOK POST', 'blue'),
                 alt: 'Minh họa bài đăng Facebook bắt trend thời trang VM Style',
-                caption: 'Bài đăng bắt trend thời trang kết hợp câu hỏi mở giúp tăng lượt chia sẻ và bình luận tự nhiên.'
+                caption: `"Tủ đồ thì chật ních nhưng mỗi sáng thức dậy vẫn thấy mình không có gì để mặc?" 🥲
+Nếu nàng cũng từng đứng trước gương thở dài thì bình luận số 1 cho VM Style biết nàng không cô đơn nhé!
+
+💡 Tip nhỏ cho nàng: Chỉ với 3 món đồ basic từ BST mới của VM Style, nàng có thể biến hóa linh hoạt thành 5 outfit thanh lịch suốt tuần mà không mất quá 3 phút chuẩn bị. Nàng thích phong cách năng động hay nữ tính? Chia sẻ cùng VM Style nha!
+#VMStyle #FashionTips #OOTDCongSo #DongCamPhaiDep`,
+                metrics: [
+                  { label: 'Bình luận', value: '250+ comments' },
+                  { label: 'Lượt chia sẻ', value: '85 shares' }
+                ]
               },
               {
-                src: createPlaceholderSVG('Bài viết Chương Trình Ưu Đãi / Sale', 'Cấu trúc copywriting nhấn mạnh ưu đãi giới hạn và kêu gọi hành động rõ ràng', 'SOCIAL MEDIA • FACEBOOK', 'orange'),
+                title: 'Bài viết Flash Sale Cuối Tuần: "Ưu Đãi Độc Quyền Giờ Vàng"',
+                tag: 'Chiến Dịch Chuyển Đổi',
+                date: 'Tháng 12/2024',
+                src: createPostImagePlaceholder('Chiến Dịch Flash Sale Cuối Tuần', 'FLASH SALE', 'orange'),
                 alt: 'Minh họa bài viết Facebook khuyến mãi chốt đơn VM Style',
-                caption: 'Bài viết truyền thông chiến dịch Flash Sale cuối tuần tối ưu tỷ lệ click vào album ảnh.'
+                caption: `⚡ FLASH SALE 3 NGÀY DUY NHẤT: GIẢM ĐẾN 40% TOÀN BỘ ĐẦM THIẾT KẾ!
+Cơ hội săn ngay những thiết kế best-seller của VM Style với mức giá chưa từng có:
+
+✔ Đầm xòe hoa nhí: Chỉ từ 249K (Giá gốc 420K)
+✔ Áo blazer phong cách Hàn Quốc: Giảm trực tiếp 35%
+✔ Tặng kèm scrunchies xinh xắn cho đơn hàng từ 499K
+✔ FREESHIP toàn quốc khi mua từ 2 sản phẩm!
+
+⏳ Số lượng có hạn theo từng size. Chương trình kết thúc lúc 23h59 Chủ Nhật. Comment dấu "." hoặc Inbox để giữ ưu đãi ngay!
+#VMStyleSale #FlashSale #SaleCuoiTuan #UuDaiDocQuyen`,
+                metrics: [
+                  { label: 'Tỷ lệ CTR', value: '4.2%' },
+                  { label: 'Đơn hàng phát sinh', value: '135+ đơn' }
+                ]
               }
             ]
           },
@@ -193,21 +258,64 @@
             name: 'Instagram',
             badge: 'IG',
             summary: 'Chăm sóc bố cục lưới ảnh (Feed Aesthetic), kịch bản Reels ngắn biến hình OOTD và chuỗi Story tương tác mỗi ngày.',
-            images: [
+            posts: [
               {
-                src: createPlaceholderSVG('Bố cục Feed Instagram Đồng Bộ', 'Quy hoạch tone màu trang nhã, tôn dáng trang phục và thẩm mỹ thương hiệu', 'SOCIAL MEDIA • INSTAGRAM', 'orange'),
+                title: 'Quy Hoạch Lưới Feed Instagram: Tone Màu Sang Trọng & Nhất Quán',
+                tag: 'Instagram Feed',
+                date: '2024',
+                src: createPostImagePlaceholder('Bố Cục Lưới Feed Instagram', 'INSTAGRAM FEED', 'orange'),
                 alt: 'Minh họa giao diện lưới ảnh Feed Instagram VM Style',
-                caption: 'Quy hoạch lưới ảnh Instagram Feed đồng nhất tone màu theo từng Concept bộ sưu tập.'
+                caption: `📸 FEED AESTHETIC — NÂNG TẦM HÌNH ẢNH THƯƠNG HIỆU
+Quy hoạch màu sắc và nhịp điệu bài đăng trên Instagram Feed theo tỷ lệ vàng xen kẽ: Ảnh Lookbook người mẫu - Ảnh cận chất liệu sản phẩm - Quote truyền cảm hứng thời trang.
+
+Mục tiêu:
+- Tạo ấn tượng thị giác chuyên nghiệp ngay trong 3 giây đầu tiên khi khách ghé thăm trang cá nhân.
+- Tăng tỷ lệ chuyển đổi từ người lướt xem thành Follower trung thành.
+#VMStyleAesthetic #InstagramFeed #FashionPalette #OOTD`,
+                metrics: [
+                  { label: 'Follower tăng trưởng', value: '+35%' },
+                  { label: 'Lượt ghé trang', value: '12K visits/tháng' }
+                ]
               },
               {
-                src: createPlaceholderSVG('Reels Phối Đồ (OOTD / Mix & Match)', 'Kịch bản video ngắn 15–30s: 1 chân váy phối 3 phong cách đi làm, đi chơi', 'SOCIAL MEDIA • INSTAGRAM', 'blue'),
+                title: 'Series Reels "1 Item – 3 Cách Phối": Kịch Bản Video Biến Hình OOTD',
+                tag: 'Instagram Reels',
+                date: '2024',
+                src: createPostImagePlaceholder('Series Video Reels Phối Đồ', 'REELS VIDEO', 'blue'),
                 alt: 'Minh họa video Instagram Reels phối đồ thời trang VM Style',
-                caption: 'Series Reels "1 Item – 3 Cách Phối" giữ chân người xem và thu hút lượt lưu bài viết (Saves).'
+                caption: `🎬 KỊCH BẢN REELS 20S: 1 CHIẾC CHÂN VÁY — 3 PHONG CÁCH BIẾN HÓA
+Chuỗi nội dung video ngắn tận dụng âm nhạc thịnh hành (Trending Audio) kết hợp hiệu ứng chuyển cảnh mượt mà:
+
+- Look 1: Thanh lịch công sở (Mix cùng Sơ mi lụa)
+- Look 2: Năng động dạo phố (Mix cùng Croptop & Sneaker)
+- Look 3: Duyên dáng tiệc tối (Mix cùng Áo kiểu trễ vai)
+
+Hiệu quả: Tối ưu thời lượng giữ chân người xem trung bình > 85%, kích thích hành vi Lưu bài viết (Saves) để tham khảo khi phối đồ.
+#VMStyleReels #MixAndMatch #ReelsFashion #BienHinhOOTD`,
+                metrics: [
+                  { label: 'Lượt xem Reels', value: '45K+ views' },
+                  { label: 'Lượt lưu (Saves)', value: '1.2K saves' }
+                ]
               },
               {
-                src: createPlaceholderSVG('Chuỗi Instagram Story Tương Tác', 'Sử dụng Poll, Q&A và gắn Sticker sản phẩm điều hướng khách về tin nhắn', 'SOCIAL MEDIA • INSTAGRAM', 'orange'),
+                title: 'Chuỗi Story Tương Tác Hằng Ngày: Poll & Q&A Điều Hướng Mua Hàng',
+                tag: 'Instagram Story',
+                date: 'Hằng ngày',
+                src: createPostImagePlaceholder('Chuỗi Story Tương Tác Khách Hàng', 'DAILY STORY', 'orange'),
                 alt: 'Minh họa chuỗi Story Instagram tương tác khách hàng VM Style',
-                caption: 'Chuỗi Story tương tác bình chọn mẫu đồ yêu thích kết hợp điều hướng tư vấn trực tiếp.'
+                caption: `📱 CHIẾN LƯỢC STORYTELLING & GIỮ CHÂN KHÁCH HÀNG MỖI NGÀY
+Ứng dụng các tính năng tương tác trực tiếp của Instagram Story:
+
+- Khung giờ 8h sáng: Cuộc bình chọn (Poll) "Nàng thích tone Be hay tone Pastel?"
+- Khung giờ 12h trưa: Sticker "Hỏi đáp (Q&A)" giải đáp tư vấn size số cho khách
+- Khung giờ 20h tối: Gắn Link Sticker / Direct điều hướng mua hàng kèm mã giảm giá bí mật trong Story
+
+Kết quả: Giữ nhịp tương tác hai chiều liên tục, biến kênh Story thành nguồn kéo tin nhắn chốt đơn tự nhiên mỗi ngày.
+#VMStyleStory #DailyInteraction #StorySelling`,
+                metrics: [
+                  { label: 'Tỷ lệ phản hồi', value: '8.4%' },
+                  { label: 'Tin nhắn trực tiếp', value: '30+ DM/ngày' }
+                ]
               }
             ]
           }
@@ -223,21 +331,67 @@
             name: 'Định kỳ hằng tháng',
             badge: 'PLAN',
             summary: 'Phân bổ tỷ lệ tuyến bài (Pillar), lịch đăng bài chi tiết theo ngày/tuần và định hướng hình ảnh cho đội ngũ sản xuất.',
-            images: [
+            posts: [
               {
-                src: createPlaceholderSVG('Ma Trận Content Pillar Hằng Tháng', 'Phân bổ tỷ lệ: 40% Sản phẩm/Lookbook - 30% Phối đồ/Tips - 20% Trend - 10% Sale', 'CONTENT PLAN • ĐỊNH KỲ THÁNG', 'blue'),
+                title: 'Ma Trận Content Pillar Định Kỳ: Quy Hoạch Tỷ Lệ Tuyến Bài',
+                tag: 'Content Pillar',
+                date: 'Kế hoạch tháng',
+                src: createPostImagePlaceholder('Ma Trận Content Pillar Tháng', 'CONTENT PILLAR', 'blue'),
                 alt: 'Bảng phân bổ Content Pillar định kỳ hằng tháng tại VM Style',
-                caption: 'Bảng quy hoạch tỷ lệ các nhóm nội dung (Content Pillar) bám sát mục tiêu kinh doanh từng tháng.'
+                caption: `📊 MA TRẬN PHÂN BỔ TUYẾN NỘI DUNG THEO MỤC TIÊU MARKETING
+Xây dựng tỷ lệ cân đối giữa các nhóm bài đăng nhằm vừa giữ chân tương tác vừa đạt KPI doanh số:
+
+- 40% Tuyến bài Sản phẩm & Lookbook: Giới thiệu mẫu mới, chất liệu, giá bán.
+- 30% Tuyến bài Giá trị & Tips phối đồ: Hướng dẫn mix đồ, bảo quản trang phục, bắt trend.
+- 20% Tuyến bài Tương tác & Thương hiệu: Minigame, feedback khách hàng, câu chuyện thời trang.
+- 10% Tuyến bài Chuyển đổi & Khuyến mãi: Flash Sale, voucher độc quyền, ưu đãi tháng.
+
+Giúp fanpage duy trì chất lượng bài viết ổn định, không bị cảm giác "quá thương mại" làm giảm tương tác.
+#ContentPillar #ContentStrategy #MarketingMatrix`,
+                metrics: [
+                  { label: 'Tỷ lệ duy trì', value: '4 tuần/tháng' },
+                  { label: 'Mục tiêu phủ sóng', value: '100% KPI' }
+                ]
               },
               {
-                src: createPlaceholderSVG('Lịch Đăng Bài Chi Tiết (Content Calendar)', 'Quản lý trạng thái bài viết, deadline hình ảnh, khung giờ vàng và kênh đăng tải', 'CONTENT PLAN • ĐỊNH KỲ THÁNG', 'blue'),
+                title: 'Content Calendar Chi Tiết: Quản Trị Tiến Độ & Khung Giờ Đăng',
+                tag: 'Content Calendar',
+                date: 'Lịch đăng tuần',
+                src: createPostImagePlaceholder('Lịch Đăng Bài Content Calendar', 'CONTENT CALENDAR', 'blue'),
                 alt: 'Bảng lịch đăng bài Content Calendar hằng tháng của VM Style',
-                caption: 'Content Calendar chi tiết theo từng tuần: chủ đề, định dạng (Ảnh/Reels), thông điệp chính và tiến độ.'
+                caption: `📅 QUẢN TRỊ NỘI DUNG TOÀN DIỆN VỚI CONTENT CALENDAR
+Bảng biểu quản lý chi tiết từ ý tưởng đến khi xuất bản:
+
+- Cột mốc thời gian: Khung giờ vàng (11h30 trưa & 19h30 tối) tối ưu theo tệp khách hàng văn phòng và sinh viên.
+- Phân loại kênh đăng tải: Fanpage Facebook, Instagram Feed, Reels, TikTok.
+- Quản lý trạng thái: Draft → Đã duyệt kịch bản → Chờ ảnh chụp → Lên lịch hẹn giờ.
+- Tiêu đề & Thông điệp chính: Đính kèm link bài viết và thông số theo dõi sau đăng.
+#ContentCalendar #Workflow #KeHoachDangBai`,
+                metrics: [
+                  { label: 'Tần suất xuất bản', value: '1-2 bài/ngày' },
+                  { label: 'Đúng hạn tiến độ', value: '98%' }
+                ]
               },
               {
-                src: createPlaceholderSVG('Brief Hình Ảnh & Kịch Bản Quay Chụp', 'Tài liệu định hướng góc máy, moodboard trang phục và kịch bản chi tiết cho Media', 'CONTENT PLAN • ĐỊNH KỲ THÁNG', 'orange'),
+                title: 'Tài Liệu Brief Quay Chụp: Chuẩn Hóa Kịch Bản Cho Đội Ngũ Media',
+                tag: 'Media Brief',
+                date: 'Sản xuất hình ảnh',
+                src: createPostImagePlaceholder('Brief Quay Chụp & Kịch Bản', 'MEDIA BRIEF', 'orange'),
                 alt: 'Tài liệu Brief chụp ảnh và quay dựng nội dung tháng VM Style',
-                caption: 'Bảng Brief ý tưởng hình ảnh và kịch bản chi tiết giúp buổi chụp thực tế diễn ra nhanh gọn.'
+                caption: `📋 BẢNG BRIEF HÌNH ẢNH & KỊCH BẢN SHOOTING CHI TIẾT
+Tài liệu định hướng phối hợp giữa Content Specialist và Team Media/Design:
+
+- Moodboard & Tone màu: Phong cách ánh sáng tự nhiên, background tối giản tôn đồ.
+- Danh sách trang phục (Outfit List): Thứ tự phối đồ, phụ kiện đi kèm theo từng set.
+- Shot list & Góc máy: Phân cảnh toàn - trung - cận chi tiết đường kim mũi chỉ.
+- Kịch bản Reels/TikTok: Lời thoại, hành động của người mẫu, nhạc nền gợi ý.
+
+Giúp buổi quay chụp thực tế tiết kiệm 30% thời gian, đảm bảo ấn phẩm đầu ra đúng tinh thần chiến dịch.
+#MediaBrief #ShootingPlan #ProductionWorkflow`,
+                metrics: [
+                  { label: 'Tiết kiệm thời gian', value: '30%' },
+                  { label: 'Sản phẩm hoàn thành', value: '100% đúng brief' }
+                ]
               }
             ]
           },
@@ -246,21 +400,61 @@
             name: 'Chiến dịch ra mắt BST (Bộ sưu tập)',
             badge: 'BST',
             summary: 'Xây dựng Big Idea, câu chuyện chủ đạo (Concept Storytelling) và lộ trình truyền thông 3 giai đoạn: Teasing – Launching – Sustaining.',
-            images: [
+            posts: [
               {
-                src: createPlaceholderSVG('Master Plan Ra Mắt Bộ Sưu Tập Mới', 'Lộ trình 3 giai đoạn: Gợi mở tò mò (Teasing) → Bùng nổ (Launch) → Duy trì nhiệt (Sustain)', 'CONTENT PLAN • CHIẾN DỊCH BST', 'orange'),
+                title: 'Master Plan Ra Mắt Bộ Sưu Tập Mới: Lộ Trình Truyền Thông 3 Giai Đoạn',
+                tag: 'Campaign Plan',
+                date: 'Chiến dịch mùa',
+                src: createPostImagePlaceholder('Master Plan Ra Mắt BST Mới', 'CAMPAIGN MASTER PLAN', 'orange'),
                 alt: 'Kế hoạch tổng thể Master Plan ra mắt Bộ sưu tập thời trang VM Style',
-                caption: 'Kế hoạch truyền thông tổng thể 3 giai đoạn cho chiến dịch ra mắt Bộ sưu tập theo mùa.'
+                caption: `🚀 CHIẾN DỊCH TRUYỀN THÔNG TỔNG THỂ CHO BỘ SƯU TẬP THEO MÙA
+Kế hoạch triển khai bài bản qua 3 giai đoạn chính:
+
+1. Giai đoạn 1 - Teasing (7 ngày trước mở bán): Gợi mở sự tò mò qua hình ảnh hậu trường (Behind The Scenes), bật mí chất liệu vải và mở cổng đăng ký VIP Early Bird.
+2. Giai đoạn 2 - Launching (Ngày D-Day & tuần đầu): Ra mắt chính thức Lookbook, phát hành video Fashion Film, kích hoạt Flash Offer độc quyền 48h đầu.
+3. Giai đoạn 3 - Sustaining (Duy trì sau mở bán): Tuyến bài Mix & Match từ khách hàng thật, feedback người nổi tiếng (KOL/KOC), tổng hợp các mẫu bán chạy nhất.
+#MasterPlan #FashionCampaign #ProductLaunch`,
+                metrics: [
+                  { label: 'Thời gian chiến dịch', value: '21 ngày' },
+                  { label: 'KOLs hợp tác', value: '8 bạn' }
+                ]
               },
               {
-                src: createPlaceholderSVG('Moodboard & Concept Storytelling BST', 'Định hình thông điệp chủ đạo, bảng màu cảm hứng và giọng văn xuyên suốt chiến dịch', 'CONTENT PLAN • CHIẾN DỊCH BST', 'blue'),
+                title: 'Concept & Storytelling Cho BST: Kết Nối Cảm Xúc Khách Hàng',
+                tag: 'Storytelling',
+                date: 'Concept BST',
+                src: createPostImagePlaceholder('Concept & Storytelling BST', 'STORYTELLING', 'blue'),
                 alt: 'Moodboard và Concept câu chuyện bộ sưu tập thời trang VM Style',
-                caption: 'Xây dựng Concept & câu chuyện truyền cảm hứng cho BST, kết nối cảm xúc với khách hàng mục tiêu.'
+                caption: `📖 THỔI HỒN CÂU CHUYỆN VÀO TỪNG THIẾT KẾ THỜI TRANG
+Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái nữ:
+
+- Big Idea: "Dịu Dàng Trong Từng Bước Chuyển" — Tôn vinh vẻ đẹp tự tin, mềm mại của người phụ nữ hiện đại giữa nhịp sống đô thị bận rộn.
+- Giọng văn (Tone of Voice): Tinh tế, ấm áp, đồng điệu, truyền cảm hứng sống tích cực.
+- Thiết kế hình ảnh: Tone màu beige - kem ấm áp, kết hợp ánh nắng ban mai nhẹ nhàng tạo cảm giác thư thái, dễ chịu.
+#Storytelling #BrandVoice #ThoiTrangCamXuc`,
+                metrics: [
+                  { label: 'Độ lan tỏa', value: '+60%' },
+                  { label: 'Cảm nhận tích cực', value: '95%' }
+                ]
               },
               {
-                src: createPlaceholderSVG('Checklist Đa Kênh Phối Hợp Ra Mắt BST', 'Đồng bộ nội dung từ Fanpage, Instagram, Website đến ấn phẩm trưng bày tại cửa hàng', 'CONTENT PLAN • CHIẾN DỊCH BST', 'orange'),
+                title: 'Checklist Phối Hợp Đa Kênh: Đồng Bộ Trải Nghiệm Mua Sắm',
+                tag: 'Omnichannel',
+                date: 'Checklist đa kênh',
+                src: createPostImagePlaceholder('Checklist Phối Hợp Đa Kênh', 'OMNICHANNEL CHECKLIST', 'orange'),
                 alt: 'Bảng phân bổ điểm chạm đa kênh trong chiến dịch ra mắt BST VM Style',
-                caption: 'Kế hoạch đồng bộ thông điệp và hình ảnh BST trên toàn bộ các điểm chạm trực tuyến.'
+                caption: `🔗 ĐỒNG BỘ THÔNG ĐIỆP XUYÊN SUỐT CÁC ĐIỂM CHẠM KHÁCH HÀNG
+Đảm bảo khách hàng nhận được thông điệp nhất quán trên mọi phương tiện:
+
+- Kênh Social: Đổi Avatar/Cover đồng bộ, phát hành tuyến bài theo lịch đã duyệt.
+- Kênh Website/Landing Page: Banner trang chủ, danh mục riêng cho BST, gắn nhãn NEW ARRIVAL.
+- Kênh Chatbot/Inbox: Kịch bản trả lời tự động gửi ảnh Lookbook và bảng size chỉ trong 3 giây.
+- Kênh Offline (Tại hệ thống cửa hàng): Standee, bảng giá và ấn phẩm truyền thông đồng nhất hình ảnh.
+#Omnichannel #CustomerJourney #MarketingChecklist`,
+                metrics: [
+                  { label: 'Điểm chạm đồng bộ', value: '100%' },
+                  { label: 'Tốc độ phản hồi bot', value: '< 3s' }
+                ]
               }
             ]
           }
@@ -276,21 +470,62 @@
             name: 'Facebook',
             badge: 'FB',
             summary: 'Đo lường lượt tiếp cận (Reach), tương tác (Engagement), tin nhắn mới (Messaging) và phân tích nhóm bài viết mang lại chuyển đổi cao.',
-            images: [
+            posts: [
               {
-                src: createPlaceholderSVG('Báo Cáo Tăng Trưởng Reach & Engagement FB', 'Tổng hợp chỉ số tiếp cận tự nhiên, lượt tương tác và tốc độ tăng trưởng Fanpage', 'BÁO CÁO ĐO LƯỜNG • FACEBOOK', 'blue'),
+                title: 'Báo Cáo Tăng Trưởng Reach & Engagement: Phân Tích Hiệu Suất Fanpage',
+                tag: 'Báo Cáo Facebook',
+                date: 'Báo cáo tháng',
+                src: createPostImagePlaceholder('Báo Cáo Tăng Trưởng Reach & ER', 'FACEBOOK REPORT', 'blue'),
                 alt: 'Báo cáo đo lường chỉ số Reach và Engagement kênh Facebook VM Style',
-                caption: 'Báo cáo tổng hợp lượng tiếp cận (Reach) và tỷ lệ tương tác (ER) kênh Facebook theo tháng.'
+                caption: `📈 ĐO LƯỜNG TĂNG TRƯỞNG LƯỢNG TIẾP CẬN TỰ NHIÊN (ORGANIC REACH)
+Theo dõi và đánh giá hiệu quả của các tuyến nội dung trên Fanpage:
+
+- Lượng tài khoản tiếp cận (Reach): Đạt hơn 180.000 lượt/tháng, trong đó tỷ lệ tiếp cận tự nhiên không trả phí chiếm 65%.
+- Tỷ lệ tương tác trung bình (ER): Đạt 5.8%, vượt mức trung bình ngành thời trang nữ (3.5% - 4.2%).
+- Nhóm nội dung dẫn đầu tương tác: Tuyến bài Tips phối đồ và Reels biến hình mang lại lượng tương tác thảo luận cao nhất.
+#AnalyticsReport #OrganicReach #EngagementRate #DataDriven`,
+                metrics: [
+                  { label: 'Lượt tiếp cận/tháng', value: '180K+ Reach' },
+                  { label: 'Tỷ lệ tương tác (ER)', value: '5.8%' }
+                ]
               },
               {
-                src: createPlaceholderSVG('Phân Tích Top Bài Viết Hiệu Quả Nhất', 'Đánh giá lý do thành công của các bài post đạt tương tác và lượng inbox vượt trội', 'BÁO CÁO ĐO LƯỜNG • FACEBOOK', 'orange'),
+                title: 'Phân Tích Top Bài Viết Hiệu Quả Nhất: Đúc Kết Công Thức Thành Công',
+                tag: 'Báo Cáo Nội Dung',
+                date: 'Báo cáo định kỳ',
+                src: createPostImagePlaceholder('Phân Tích Top Bài Viết Hiệu Quả', 'TOP POST ANALYSIS', 'orange'),
                 alt: 'Bảng phân tích các bài viết Facebook hiệu quả cao nhất tại VM Style',
-                caption: 'Thống kê Top bài viết có lượng bình luận và tin nhắn hỏi mua cao nhất để nhân rộng công thức.'
+                caption: `🔍 BÓC TÁCH CÔNG THỨC VIRAL CỦA CÁC BÀI VIẾT NỔI BẬT
+Phân tích lý do giúp Top 5 bài viết đạt lượng tương tác và hỏi giá vượt trội:
+
+- Tiêu đề mở đầu (Hook): Sử dụng câu hỏi đồng cảm hoặc lời khen chân thành đánh trúng tâm lý tự ti về dáng người.
+- Bố cục hình ảnh: Ảnh Lookbook thật người mẫu chụp góc rộng tôn dáng, ảnh zoom cận chi tiết cúc áo và đường chỉ.
+- Kêu gọi hành động (CTA): Rõ ràng, dễ thực hiện (Ví dụ: "Chấm (.) nhận giá", "Inbox nhận bảng size").
+
+Đề xuất nhân rộng công thức này vào các kế hoạch nội dung của tháng tiếp theo.
+#ContentOptimization #ViralFormula #ActionableInsights`,
+                metrics: [
+                  { label: 'Tăng trưởng Inbox', value: '+45%' },
+                  { label: 'Tỷ lệ giữ chân', value: '82%' }
+                ]
               },
               {
-                src: createPlaceholderSVG('Đánh Giá Chuyển Đổi Tin Nhắn & Đề Xuất', 'Theo dõi tỷ lệ khách nhắn tin từ bài viết tự nhiên và đề xuất tối ưu nội dung tháng tới', 'BÁO CÁO ĐO LƯỜNG • FACEBOOK', 'blue'),
+                title: 'Đánh Giá Chuyển Đổi Tin Nhắn: Tối Ưu Nội Dung Thúc Đẩy Mua Hàng',
+                tag: 'Báo Cáo Chuyển Đổi',
+                date: 'Báo cáo tháng',
+                src: createPostImagePlaceholder('Đánh Giá Chuyển Đổi Tin Nhắn', 'CONVERSION REPORT', 'blue'),
                 alt: 'Báo cáo tỷ lệ tin nhắn và đề xuất tối ưu nội dung Facebook VM Style',
-                caption: 'Báo cáo hiệu quả thu hút khách hàng tiềm năng qua tin nhắn và kế hoạch cải thiện nội dung.'
+                caption: `💬 THEO DÕI HÀNH VI TỪ ĐỌC BÀI VIẾT ĐẾN NHẮN TIN TƯ VẤN
+Đo lường mức độ hiệu quả của nội dung trong việc hỗ trợ đội ngũ Sales chốt đơn:
+
+- Nguồn gốc tin nhắn: 68% khách hàng nhắn tin hỏi mua xuất phát từ các bài viết Lookbook sản phẩm có gắn giá công khai.
+- Khung giờ phát sinh nhiều tin nhắn nhất: 12h00 – 13h30 trưa và 20h00 – 22h00 tối.
+- Đề xuất cải thiện: Cung cấp trước các thông tin kích thước và số đo cơ thể chuẩn trong phần bình luận ghim để đẩy nhanh quyết định mua hàng của khách.
+#ConversionRate #MessageAds #InboundMarketing`,
+                metrics: [
+                  { label: 'Tin nhắn hỏi giá', value: '450+ mess/tháng' },
+                  { label: 'Tỷ lệ chốt đơn', value: '28.5%' }
+                ]
               }
             ]
           },
@@ -299,21 +534,59 @@
             name: 'Instagram',
             badge: 'IG',
             summary: 'Phân tích lượt xem Reels, lượt lưu bài viết (Saves), lượt chia sẻ (Shares), lượng truy cập hồ sơ (Profile Visits) và tăng trưởng Follower.',
-            images: [
+            posts: [
               {
-                src: createPlaceholderSVG('Báo Cáo Hiệu Suất Instagram Insights', 'Theo dõi Accounts Reached, Profile Visits và tốc độ tăng trưởng người theo dõi thật', 'BÁO CÁO ĐO LƯỜNG • INSTAGRAM', 'orange'),
+                title: 'Báo Cáo Instagram Insights Tổng Quan: Tăng Trưởng Tài Khoản Thật',
+                tag: 'Instagram Insights',
+                date: 'Báo cáo quý',
+                src: createPostImagePlaceholder('Báo Cáo Instagram Insights', 'INSTAGRAM INSIGHTS', 'orange'),
                 alt: 'Báo cáo tổng quan Instagram Insights của thương hiệu VM Style',
-                caption: 'Báo cáo tăng trưởng lượng tài khoản tiếp cận và lượt ghé thăm trang cá nhân (Profile Visits).'
+                caption: `📊 ĐÁNH GIÁ CHỈ SỐ TĂNG TRƯỞNG TRÊN KÊNH HÌNH ẢNH INSTAGRAM
+Đo lường mức độ mở rộng thương hiệu trên tệp khách hàng trẻ:
+
+- Lượng tài khoản tiếp cận (Accounts Reached): Tăng 42% sau khi triển khai đều đặn 3 Reels/tuần.
+- Lượt ghé thăm hồ sơ (Profile Visits): Đạt hơn 15.000 lượt, tăng tỷ lệ bấm vào Link Bio đặt hàng lên 3.8%.
+- Tỷ lệ người theo dõi mới: Tăng trưởng đều đặn 800 - 1.200 Follower thật/tháng nhờ vào nội dung hữu ích.
+#InstagramGrowth #ProfileVisits #AudienceInsights`,
+                metrics: [
+                  { label: 'Tiếp cận Reels', value: '+42%' },
+                  { label: 'Follower mới/tháng', value: '1.000+' }
+                ]
               },
               {
-                src: createPlaceholderSVG('Phân Tích Chỉ Số Reels & Lượt Lưu (Saves)', 'Đo lường thời lượng xem trung bình, lượt Save và Share của các video phối đồ', 'BÁO CÁO ĐO LƯỜNG • INSTAGRAM', 'blue'),
+                title: 'Đo Lường Hiệu Suất Video Reels: Phân Tích Lượt Xem & Lưu Bài Viết',
+                tag: 'Reels Analytics',
+                date: 'Báo cáo tuần',
+                src: createPostImagePlaceholder('Đo Lường Hiệu Suất Reels', 'REELS METRICS', 'blue'),
                 alt: 'Báo cáo hiệu quả video Instagram Reels và lượt lưu bài viết VM Style',
-                caption: 'Đánh giá hiệu suất chuỗi video Reels qua chỉ số lượt xem, lượt lưu (Saves) và chia sẻ.'
+                caption: `🎥 CHỈ SỐ TIẾP CẬN VÀ LƯỢT LƯU (SAVES) CỦA SHORT-FORM VIDEO
+So sánh hiệu quả giữa các định dạng video ngắn:
+
+- Video phối đồ (Mix & Match): Đạt lượng Lưu (Saves) cao nhất (trung bình 350 saves/video), minh chứng cho giá trị tham khảo lâu dài của nội dung.
+- Video biến hình (Transitions): Đạt lượng Xem (Views) và Chia sẻ (Shares) cao nhất, giúp kênh được thuật toán Instagram đề xuất trên tab Khám Phá.
+#ReelsAnalytics #SavesRate #VideoPerformance`,
+                metrics: [
+                  { label: 'Lượt xem trung bình', value: '25K views' },
+                  { label: 'Tỷ lệ chia sẻ', value: '4.8%' }
+                ]
               },
               {
-                src: createPlaceholderSVG('Nhân Khẩu Học & Khung Giờ Hoạt Động', 'Phân tích độ tuổi, khu vực và khung giờ online của Follower để tối ưu lịch đăng', 'BÁO CÁO ĐO LƯỜNG • INSTAGRAM', 'orange'),
+                title: 'Phân Tích Nhân Khẩu Học & Khung Giờ: Định Hình Lịch Đăng Chuẩn Xác',
+                tag: 'Audience Demographics',
+                date: 'Phân tích tệp khách',
+                src: createPostImagePlaceholder('Nhân Khẩu Học & Khung Giờ', 'AUDIENCE DEMOGRAPHICS', 'orange'),
                 alt: 'Báo cáo phân tích tệp người theo dõi và khung giờ đăng bài Instagram VM Style',
-                caption: 'Phân tích hành vi và khung giờ hoạt động của tệp khách hàng trên Instagram để tối ưu giờ đăng.'
+                caption: `🎯 HIỂU SÂU VỀ KHÁCH HÀNG MỤC TIÊU ĐỂ TỐI ƯU CHIẾN LƯỢC NỘI DUNG
+Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
+
+- Độ tuổi chủ đạo: 18 - 24 tuổi (48%) và 25 - 34 tuổi (36%), phần lớn là sinh viên năm cuối và nhân viên văn phòng trẻ.
+- Khu vực địa lý tập trung: TP. Hồ Chí Minh (55%), Hà Nội (22%), Đà Nẵng (10%).
+- Khung giờ hoạt động tích cực nhất: 11h30 – 13h00 và 20h30 – 22h30. Điều chỉnh lịch đăng bài rơi trúng các khung giờ này đã giúp tương tác 1 giờ đầu tăng 35%.
+#TargetAudience #Demographics #OptimalTiming`,
+                metrics: [
+                  { label: 'Khách hàng nữ', value: '92%' },
+                  { label: 'Tương tác giờ vàng', value: '+35%' }
+                ]
               }
             ]
           }
@@ -331,13 +604,16 @@
 
     const { company, overview, categories } = VM_STYLE_DATA;
 
-    // Danh sách phẳng tất cả ảnh để phục vụ điều hướng Lightbox (Trước / Sau)
+    // Danh sách phẳng tất cả bài viết để phục vụ điều hướng Lightbox (Trước / Sau)
     const lightboxItems = [];
 
     // Tạo HTML cho 3 Tab nút bấm
     const tabsNavHTML = categories
       .map((cat, idx) => {
-        const totalImgs = cat.subcategories.reduce((acc, sub) => acc + sub.images.length, 0);
+        const totalPosts = cat.subcategories.reduce(
+          (acc, sub) => acc + (sub.posts || sub.images || []).length,
+          0
+        );
         return `
           <button
             type="button"
@@ -349,7 +625,7 @@
             data-tab-target="${cat.id}"
           >
             <span>${cat.tabTitle}</span>
-            <span class="vm-tab-count">${totalImgs} ảnh</span>
+            <span class="vm-tab-count">${totalPosts} bài viết</span>
           </button>
         `;
       })
@@ -360,38 +636,82 @@
       .map((cat, idx) => {
         const subcatsHTML = cat.subcategories
           .map((sub) => {
-            const galleryHTML = sub.images
-              .map((img) => {
+            const postsList = sub.posts || sub.images || [];
+            const postsHTML = postsList
+              .map((post) => {
                 const lbIndex = lightboxItems.length;
                 lightboxItems.push({
-                  src: img.src,
-                  alt: img.alt,
-                  caption: img.caption,
+                  src: post.src,
+                  alt: post.alt || post.title || 'Ảnh bài post',
+                  title: post.title || '',
+                  caption: post.caption || '',
                   groupTitle: `${cat.tabTitle.replace(/^\d+\.\s*/, '')} — ${sub.name}`
                 });
 
+                const metricsHTML =
+                  post.metrics && post.metrics.length
+                    ? `
+                      <div class="vm-post-metrics">
+                        ${post.metrics
+                          .map(
+                            (m) => `
+                          <span class="vm-post-metric-pill">
+                            <span>${escapeHTML(m.label)}:</span>
+                            <strong>${escapeHTML(m.value)}</strong>
+                          </span>
+                        `
+                          )
+                          .join('')}
+                      </div>
+                    `
+                    : '';
+
                 return `
-                  <figure class="vm-gallery-item">
-                    <button
-                      type="button"
-                      class="vm-img-trigger"
-                      data-lb-index="${lbIndex}"
-                      aria-label="Phóng to ảnh: ${img.caption}"
-                    >
-                      <img src="${img.src}" alt="${img.alt}" loading="lazy" decoding="async">
-                      <span class="vm-img-overlay" aria-hidden="true">
-                        <span class="vm-zoom-pill">
-                          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
-                          </svg>
-                          Phóng to xem chi tiết
+                  <article class="vm-post-card">
+                    <!-- PHẦN TRÁI: ẢNH BÀI POST (User input vào) -->
+                    <div class="vm-post-media">
+                      <button
+                        type="button"
+                        class="vm-post-img-trigger vm-img-trigger"
+                        data-lb-index="${lbIndex}"
+                        aria-label="Phóng to ảnh: ${escapeHTML(post.title || post.caption)}"
+                      >
+                        <img src="${post.src}" alt="${escapeHTML(post.alt || post.title || 'Ảnh bài post')}" loading="lazy" decoding="async">
+                        <span class="vm-post-overlay vm-img-overlay" aria-hidden="true">
+                          <span class="vm-post-zoom-pill vm-zoom-pill">
+                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+                            </svg>
+                            Phóng to ảnh
+                          </span>
                         </span>
-                      </span>
-                    </button>
-                    <figcaption class="vm-img-caption">
-                      <span>${img.caption}</span>
-                    </figcaption>
-                  </figure>
+                      </button>
+                    </div>
+
+                    <!-- PHẦN PHẢI: CAPTION TƯƠNG ỨNG BÀI POST (User input vào) -->
+                    <div class="vm-post-content">
+                      <div>
+                        <div class="vm-post-meta">
+                          <span class="vm-post-tag">${escapeHTML(post.tag || sub.name)}</span>
+                          ${post.date ? `<span class="vm-post-date">${escapeHTML(post.date)}</span>` : ''}
+                        </div>
+
+                        ${post.title ? `<h4 class="vm-post-title">${escapeHTML(post.title)}</h4>` : ''}
+                      </div>
+
+                      <div class="vm-post-caption-box">
+                        <div class="vm-post-caption-label">
+                          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                          </svg>
+                          Nội dung / Caption bài viết:
+                        </div>
+                        <div class="vm-post-caption-text">${formatCaptionHTML(post.caption)}</div>
+                      </div>
+
+                      ${metricsHTML}
+                    </div>
+                  </article>
                 `;
               })
               .join('');
@@ -415,8 +735,8 @@
                   </span>
                 </div>
 
-                <div class="vm-gallery-grid">
-                  ${galleryHTML}
+                <div class="vm-posts-list vm-gallery-grid">
+                  ${postsHTML}
                 </div>
               </div>
             `;
@@ -745,8 +1065,11 @@
 
       setZoom(false);
       imgEl.src = item.src;
-      imgEl.alt = item.alt;
-      captionEl.textContent = item.caption;
+      imgEl.alt = item.alt || item.title || 'Ảnh bài post';
+      captionEl.innerHTML = `
+        <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; color: #ffffff;">${escapeHTML(item.title || item.groupTitle)}</div>
+        <div style="font-size: 0.85rem; opacity: 0.92; line-height: 1.5; color: #f1f5f9; max-height: 100px; overflow-y: auto;">${formatCaptionHTML(item.caption)}</div>
+      `;
       counterEl.textContent = `${currentIndex + 1} / ${items.length}`;
       groupEl.textContent = item.groupTitle;
     }
@@ -767,7 +1090,7 @@
 
     // Gắn sự kiện mở Lightbox cho tất cả ảnh trong Section
     root.addEventListener('click', (e) => {
-      const trigger = e.target.closest('.vm-img-trigger');
+      const trigger = e.target.closest('.vm-img-trigger, .vm-post-img-trigger');
       if (!trigger) return;
       const idx = parseInt(trigger.getAttribute('data-lb-index') || '0', 10);
       openLightbox(idx);
