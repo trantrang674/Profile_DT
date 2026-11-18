@@ -191,64 +191,114 @@
             id: 'sm-facebook',
             name: 'Facebook',
             badge: 'FB',
-            summary: 'Tuyến bài giới thiệu sản phẩm mới, gợi ý phối đồ ứng dụng hằng ngày, minigame và bài viết chuyển đổi đơn hàng.',
+            summary: 'Tuyến bài quảng bá sản phẩm kèm gợi ý Mix & Match tăng tỷ lệ khách quan tâm mua hàng, thúc đẩy inbox và chuyển đổi.',
             posts: [
               {
-                title: 'Bài viết Lookbook Sản Phẩm Mới: "Nàng Thơ Dạo Phố"',
-                tag: 'Facebook Post',
-                date: 'BST Thu – Đông 2024',
-                src: createPostImagePlaceholder('Lookbook BST Thu – Đông', 'FACEBOOK POST', 'blue'),
-                alt: 'Minh họa bài viết Facebook Lookbook thời trang VM Style',
-                caption: `🌸 GỢI Ý PHỐI ĐỒ DẠO PHỐ CUỐI TUẦN CÙNG VM STYLE
-Cuối tuần này nàng đã có hẹn dạo phố cùng hội bạn thân chưa? Đừng bỏ lỡ công thức Mix & Match siêu xinh này nhé!
-
-✨ Điểm nhấn của set đồ:
-- Chất liệu linen cao cấp, thoáng mát tuyệt đối dưới nắng hè.
-- Form váy chữ A tôn dáng, che khuyết điểm tinh tế.
-- Tone màu pastel nhã nhặn, chụp hình góc nào cũng xinh lung linh.
-
-👉 Nhanh tay INBOX cho VM Style để nhận ngay ưu đãi 10% và được tư vấn size chuẩn xác nhất nàng nhé!
-#VMStyle #FashionLookbook #OOTD #MixAndMatch #ThoiTrangNu`,
+                title: '[𝐇𝐎̂𝐌 𝐍𝐀𝐘 𝐌𝐀̣̆𝐂 𝐆𝐈̀?] — Gợi Ý Mix & Match Diện Lễ',
+                tag: 'Mix & Match',
+                date: 'Bài đăng Facebook',
+                src: 'assets/images/posts/Screenshot_1.png',
+                alt: 'Hôm Nay Mặc Gì - Tuyến bài gợi ý Mix & Match thời trang VM Style',
+                caption: `[𝐇𝐎̂𝐌 𝐍𝐀𝐘 𝐌𝐀̣̆𝐂 𝐆𝐈̀?] 🧐🧐
+💫Gợi ý Mix & match cho các bestie thân yêu của VMStyle! Đa dạng từ kiểu dáng đến phong cách cho nàng lựa chọn diện mùa lễ sắp tới 
+💖Ghé store hoặc kênh shopping online của VM để được tư vấn mua sắm nha✨
+__________
+VM STYLE | CONTACT US VIA:
+Shopee: https://vn.shp.ee/GaQjsxg
+TikTok: https://www.tiktok.com/@vmstyle.vn`,
                 metrics: [
-                  { label: 'Tương tác', value: '+180%' },
-                  { label: 'Hỏi giá / Inbox', value: '45+ tin nhắn' }
+                  { label: 'Tương tác', value: '+185%' },
+                  { label: 'Inbox tư vấn', value: '50+ mess' }
                 ]
               },
               {
-                title: 'Bài viết Bắt Trend & Tương Tác: "Nỗi Niềm Chọn Đồ Mỗi Sáng"',
-                tag: 'Facebook Engagement',
-                date: 'Tháng 11/2024',
-                src: createPostImagePlaceholder('Bài Viết Bắt Trend & Tương Tác', 'FACEBOOK POST', 'blue'),
-                alt: 'Minh họa bài đăng Facebook bắt trend thời trang VM Style',
-                caption: `"Tủ đồ thì chật ních nhưng mỗi sáng thức dậy vẫn thấy mình không có gì để mặc?" 🥲
-Nếu nàng cũng từng đứng trước gương thở dài thì bình luận số 1 cho VM Style biết nàng không cô đơn nhé!
-
-💡 Tip nhỏ cho nàng: Chỉ với 3 món đồ basic từ BST mới của VM Style, nàng có thể biến hóa linh hoạt thành 5 outfit thanh lịch suốt tuần mà không mất quá 3 phút chuẩn bị. Nàng thích phong cách năng động hay nữ tính? Chia sẻ cùng VM Style nha!
-#VMStyle #FashionTips #OOTDCongSo #DongCamPhaiDep`,
+                title: '𝐆𝐥𝐚𝐦𝐨𝐮𝐫 𝐠𝐫𝐚𝐲 — Bộ Sưu Tập Tinh Tế & Thanh Lịch',
+                tag: 'Lookbook BST',
+                date: 'Bộ sưu tập',
+                src: 'assets/images/posts/Screenshot_2.png',
+                alt: 'Glamour Gray - BST thời trang nữ màu xám tinh tế VM Style',
+                caption: `𝐆𝐥𝐚𝐦𝐨𝐮𝐫 𝐠𝐫𝐚𝐲 💕👠
+Khám phá bộ sưu tập thời trang nữ đầy ấn tượng với những thiết kế màu xám tinh tế từ VM Style. 
+✨Mỗi trang phục không chỉ tôn vinh vẻ đẹp tự tin, mạnh mẽ của phái nữ, mà còn là sự kết hợp hoàn hảo giữa sự thanh lịch và hiện đại. Những bộ cánh này luôn sẵn sàng là lựa chọn lý tưởng, giúp phái đẹp tỏa sáng trong mọi hoàn cảnh.
+__________
+VM STYLE | CONTACT US VIA:
+Shopee: https://s.shopee.vn/5AZSmV4JtM
+TikTok: https://www.tiktok.com/@vmstyle.vn`,
                 metrics: [
-                  { label: 'Bình luận', value: '250+ comments' },
-                  { label: 'Lượt chia sẻ', value: '85 shares' }
+                  { label: 'Lượt tiếp cận', value: '38K+ reach' },
+                  { label: 'Lượt lưu mẫu', value: '420+ saves' }
                 ]
               },
               {
-                title: 'Bài viết Flash Sale Cuối Tuần: "Ưu Đãi Độc Quyền Giờ Vàng"',
-                tag: 'Chiến Dịch Chuyển Đổi',
-                date: 'Tháng 12/2024',
-                src: createPostImagePlaceholder('Chiến Dịch Flash Sale Cuối Tuần', 'FLASH SALE', 'orange'),
-                alt: 'Minh họa bài viết Facebook khuyến mãi chốt đơn VM Style',
-                caption: `⚡ FLASH SALE 3 NGÀY DUY NHẤT: GIẢM ĐẾN 40% TOÀN BỘ ĐẦM THIẾT KẾ!
-Cơ hội săn ngay những thiết kế best-seller của VM Style với mức giá chưa từng có:
-
-✔ Đầm xòe hoa nhí: Chỉ từ 249K (Giá gốc 420K)
-✔ Áo blazer phong cách Hàn Quốc: Giảm trực tiếp 35%
-✔ Tặng kèm scrunchies xinh xắn cho đơn hàng từ 499K
-✔ FREESHIP toàn quốc khi mua từ 2 sản phẩm!
-
-⏳ Số lượng có hạn theo từng size. Chương trình kết thúc lúc 23h59 Chủ Nhật. Comment dấu "." hoặc Inbox để giữ ưu đãi ngay!
-#VMStyleSale #FlashSale #SaleCuoiTuan #UuDaiDocQuyen`,
+                title: '𝐏𝐨𝐥𝐨 𝐃𝐫𝐞𝐬𝐬 | 𝐓𝐡𝐢𝐬 𝐨𝐫 𝐭𝐡𝐚𝐭? — Chiếc Đầm Đa Năng Cho Nàng',
+                tag: 'Sản Phẩm Mới',
+                date: 'Bài tương tác & chốt đơn',
+                src: 'assets/images/posts/Screenshot_3.png',
+                alt: 'Polo Dress This or that - Đầm polo cao cấp VM Style',
+                caption: `𝐏𝐨𝐥𝐨 𝐃𝐫𝐞𝐬𝐬 | 𝐓𝐡𝐢𝐬 𝐨𝐫 𝐭𝐡𝐚𝐭?✨💓
+Nàng thích xám thanh lịch hay đen tối giản? Chiếc đầm polo thiết kế cao cấp nhà VMStyle là lựa chọn nên có trong tủ đồ của mọi cô nàng. Từ dạo phố thoải mái, đến công sở thanh lịch đều "cân tất". Item "must-have" là đây chứ đâu!💋
+📍Khó suy nghĩ quá thì pick luôn hai màu vì màu nào cũng xinh, màu nào cũng dễ mix&match!
+__________
+VM STYLE | CONTACT US VIA:
+Shopee: https://vn.shp.ee/GaQjsxg
+TikTok: https://www.tiktok.com/@vmstyle.vn`,
                 metrics: [
-                  { label: 'Tỷ lệ CTR', value: '4.2%' },
-                  { label: 'Đơn hàng phát sinh', value: '135+ đơn' }
+                  { label: 'Tỷ lệ CTR', value: '4.8%' },
+                  { label: 'Bình luận chọn màu', value: '180+ cmt' }
+                ]
+              },
+              {
+                title: 'Jeans Item — Thời Trang Mix & Match Sành Điệu Đón Lễ Tết',
+                tag: 'Mix & Match',
+                date: 'Mùa Lễ Tết',
+                src: 'assets/images/posts/Screenshot_4.png',
+                alt: 'Jeans Item - Thời trang phối đồ jeans dạo phố VM Style',
+                caption: `✨Lễ Tết đến khó suy nghĩ được mua gì đúng không? Item quần jeans chưa bao giờ là out-trend dù là bất kỳ thời điểm nào. Thời trang jeans vừa basic nhưng là item mix & match đa dạng và sành điệu. 
+💖Nhanh tay tranh thủ Tết Dương Lịch đến gần rồi, ra VMStyle mua sắm ngay đi, đồ mới về chờ bạn đến thôi đó!💫
+__________
+VM STYLE | CONTACT US VIA:
+Shopee: https://vn.shp.ee/GaQjsxg
+TikTok: https://www.tiktok.com/@vmstyle.vn`,
+                metrics: [
+                  { label: 'Quan tâm sản phẩm', value: '+65%' },
+                  { label: 'Lượt ghé Store', value: 'Tăng 30%' }
+                ]
+              },
+              {
+                title: '𝐃𝐞𝐧𝐢𝐦 𝐭𝐫𝐨𝐮𝐬𝐞𝐫𝐬 — Item Năng Động Không Thể Thiếu',
+                tag: 'Tư Vấn Phối Đồ',
+                date: 'Dòng sản phẩm Denim',
+                src: 'assets/images/posts/Screenshot_5.png',
+                alt: 'Denim Trousers - Item creates personality VM Style',
+                caption: `𝐃𝐞𝐧𝐢𝐦 𝐭𝐫𝐨𝐮𝐬𝐞𝐫𝐬🎀👠
+Item quần jeans luôn không thể thiếu trong tủ đồ của mỗi bạn nữ. Với sự đa dạng về kiểu dáng và phong cách, không chỉ mang lại sự thoải mái mà còn giúp bạn dễ dàng kết hợp với nhiều trang phục khác nhau. Lựa chọn quần dáng dài ống rộng hay quần dáng lửng đều phù hợp cho đời thường đến những buổi dạo phố.💓
+__________
+VM STYLE | CONTACT US VIA:
+Shopee: https://s.shopee.vn/5AZSmV4JtM
+TikTok: https://www.tiktok.com/@vmstyle.vn`,
+                metrics: [
+                  { label: 'Lượt chia sẻ', value: '95+ shares' },
+                  { label: 'Inbox hỏi size', value: '60+ mess' }
+                ]
+              },
+              {
+                title: '𝐆𝐢𝐫𝐥𝐲 𝐆𝐥𝐚𝐦 — Áo Trễ Vai Quốc Dân Năng Động & Ngọt Ngào',
+                tag: 'Lookbook Hot Trend',
+                date: 'Hot Item',
+                src: 'assets/images/posts/Screenshot_6.png',
+                alt: 'Girly Glam - Áo trễ vai điệu đà tôn dáng VM Style',
+                caption: `𝐆𝐢𝐫𝐥𝐲 𝐆𝐥𝐚𝐦💕
+Mê mẩn ngay từ cái nhìn đầu tiên với chiếc áo trễ vai này! ✨  
+---------------
+Áo trễ vai - item quốc dân cho nàng nào muốn vừa năng động lại vừa ngọt ngào. Thiết kế trễ vai khoe trọn xương quai xanh quyến rũ, kết hợp cùng chiếc nơ điệu đà, đảm bảo bạn sẽ trở thành tâm điểm mọi ánh nhìn. 
+Mix & match với quần jeans, chân váy hay thậm chí là quần short đều cực kỳ ăn ý, giúp bạn tự tin thể hiện phong cách thời trang đa dạng.
+__________
+VM STYLE | CONTACT US VIA:
+Shopee: https://s.shopee.vn/5AZSmV4JtM
+TikTok: https://www.tiktok.com/@vmstyle.vn`,
+                metrics: [
+                  { label: 'Đơn hàng phát sinh', value: '80+ đơn' },
+                  { label: 'Tương tác tự nhiên', value: '+210%' }
                 ]
               }
             ]
