@@ -2945,3 +2945,11 @@ html.js [data-reveal].is-visible {
 @media (prefers-reduced-motion: reduce) {
   .tools-marquee-track, .tool-cat-dot { animation: none; }
 }
+
+/* v2.1 — khung đều nhau */
+.tools-ecosystem-head { margin-bottom: 1.6rem; }
+.tools-ecosystem-grid { align-items: stretch; }
+.tool-category-card { display: flex; flex-direction: column; }
+.tool-items-list { flex: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; }
+.tool-pill-item { min-height: 112px; justify-content: flex-start; }
+.tool-name { min-height: 2.5em; display: flex; align-items: center; justify-content: center; }
