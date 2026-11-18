@@ -597,8 +597,129 @@
 }
 
 /* ==========================================================================
+   TAB CHỌN PHỤ (TOPICS / TUYẾN BÀI)
+   ========================================================================== */
+.vm-topics-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+}
+
+.vm-topic-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f8fafc;
+  color: var(--vm-text-muted);
+  border: 1px solid var(--vm-border);
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.vm-topic-pill-btn:hover {
+  background: var(--vm-primary-soft);
+  color: var(--vm-primary-dark);
+  border-color: #bae6fd;
+}
+
+.vm-topic-pill-btn.is-active {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+}
+
+.vm-topic-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 99px;
+  background: rgba(2, 132, 199, 0.12);
+  color: #0284c7;
+}
+
+.vm-topic-pill-btn.is-active .vm-topic-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.vm-topic-badge.empty {
+  background: #e2e8f0;
+  color: #64748b;
+}
+
+.vm-topic-pill-btn.is-active .vm-topic-badge.empty {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.vm-topic-panel {
+  display: none;
+}
+
+.vm-topic-panel.is-active {
+  display: block;
+  animation: vmFadeIn 0.3s ease;
+}
+
+@keyframes vmFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Khung hiển thị khi topic chưa có bài đăng */
+.vm-empty-topic {
+  background: #f8fafc;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 16px;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  color: var(--vm-text-muted);
+  margin: 0.5rem 0;
+}
+
+.vm-empty-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.vm-empty-topic h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--vm-text-main);
+  margin-bottom: 0.4rem;
+}
+
+.vm-empty-topic p {
+  font-size: 0.9rem;
+  color: var(--vm-text-muted);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Top bar chứa thanh điều khiển slider */
+.vm-carousel-top-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.85rem;
+}
+
+/* ==========================================================================
    CAROUSEL LƯỚT NGANG BÀI VIẾT (Horizontal Slider)
    ========================================================================== */
+.vm-carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .vm-carousel-container {
   position: relative;
   width: 100%;

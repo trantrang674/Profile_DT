@@ -191,103 +191,86 @@
             id: 'sm-facebook',
             name: 'Facebook',
             badge: 'FB',
-            summary: 'Tuyến bài quảng bá sản phẩm kèm gợi ý Mix & Match tăng tỷ lệ khách quan tâm mua hàng, thúc đẩy inbox và chuyển đổi.',
-            posts: [
+            topics: [
               {
-                title: '[𝐇𝐎̂𝐌 𝐍𝐀𝐘 𝐌𝐀̣̆𝐂 𝐆𝐈̀?] — Gợi Ý Mix & Match Diện Lễ',
-                tag: 'Mix & Match',
-                date: 'Bài đăng Facebook',
-                src: 'assets/images/posts/Screenshot_1.png',
-                alt: 'Hôm Nay Mặc Gì - Tuyến bài gợi ý Mix & Match thời trang VM Style',
-                caption: `[𝐇𝐎̂𝐌 𝐍𝐀𝐘 𝐌𝐀̣̆𝐂 𝐆𝐈̀?] 🧐🧐
+                id: 'fb-mixmatch',
+                title: 'Tuyến bài quảng bá sản phẩm kèm gợi ý Mix & Match tăng tỷ lệ khách quan tâm mua hàng',
+                posts: [
+                  {
+                    title: '[𝐇𝐎̂𝐌 𝐍𝐀𝐘 𝐌𝐀̣̆𝐂 𝐆𝐈̀?] — Gợi Ý Mix & Match Diện Lễ',
+                    tag: 'Mix & Match',
+                    date: 'Bài đăng Facebook',
+                    src: 'assets/images/posts/Screenshot_1.png',
+                    alt: 'Hôm Nay Mặc Gì - Tuyến bài gợi ý Mix & Match thời trang VM Style',
+                    caption: `[𝐇𝐎̂𝐌 𝐍𝐀𝐘 𝐌𝐀̣̆𝐂 𝐆𝐈̀?] 🧐🧐
 💫Gợi ý Mix & match cho các bestie thân yêu của VMStyle! Đa dạng từ kiểu dáng đến phong cách cho nàng lựa chọn diện mùa lễ sắp tới 
 💖Ghé store hoặc kênh shopping online của VM để được tư vấn mua sắm nha✨
 __________
 VM STYLE | CONTACT US VIA:
 Shopee: https://vn.shp.ee/GaQjsxg
-TikTok: https://www.tiktok.com/@vmstyle.vn`,
-                metrics: [
-                  { label: 'Tương tác', value: '+185%' },
-                  { label: 'Inbox tư vấn', value: '50+ mess' }
-                ]
-              },
-              {
-                title: '𝐆𝐥𝐚𝐦𝐨𝐮𝐫 𝐠𝐫𝐚𝐲 — Bộ Sưu Tập Tinh Tế & Thanh Lịch',
-                tag: 'Lookbook BST',
-                date: 'Bộ sưu tập',
-                src: 'assets/images/posts/Screenshot_2.png',
-                alt: 'Glamour Gray - BST thời trang nữ màu xám tinh tế VM Style',
-                caption: `𝐆𝐥𝐚𝐦𝐨𝐮𝐫 𝐠𝐫𝐚𝐲 💕👠
+TikTok: https://www.tiktok.com/@vmstyle.vn`
+                  },
+                  {
+                    title: '𝐆𝐥𝐚𝐦𝐨𝐮𝐫 𝐠𝐫𝐚𝐲 — Bộ Sưu Tập Tinh Tế & Thanh Lịch',
+                    tag: 'Lookbook BST',
+                    date: 'Bộ sưu tập',
+                    src: 'assets/images/posts/Screenshot_2.png',
+                    alt: 'Glamour Gray - BST thời trang nữ màu xám tinh tế VM Style',
+                    caption: `𝐆𝐥𝐚𝐦𝐨𝐮𝐫 𝐠𝐫𝐚𝐲 💕👠
 Khám phá bộ sưu tập thời trang nữ đầy ấn tượng với những thiết kế màu xám tinh tế từ VM Style. 
 ✨Mỗi trang phục không chỉ tôn vinh vẻ đẹp tự tin, mạnh mẽ của phái nữ, mà còn là sự kết hợp hoàn hảo giữa sự thanh lịch và hiện đại. Những bộ cánh này luôn sẵn sàng là lựa chọn lý tưởng, giúp phái đẹp tỏa sáng trong mọi hoàn cảnh.
 __________
 VM STYLE | CONTACT US VIA:
 Shopee: https://s.shopee.vn/5AZSmV4JtM
-TikTok: https://www.tiktok.com/@vmstyle.vn`,
-                metrics: [
-                  { label: 'Lượt tiếp cận', value: '38K+ reach' },
-                  { label: 'Lượt lưu mẫu', value: '420+ saves' }
-                ]
-              },
-              {
-                title: '𝐏𝐨𝐥𝐨 𝐃𝐫𝐞𝐬𝐬 | 𝐓𝐡𝐢𝐬 𝐨𝐫 𝐭𝐡𝐚𝐭? — Chiếc Đầm Đa Năng Cho Nàng',
-                tag: 'Sản Phẩm Mới',
-                date: 'Bài tương tác & chốt đơn',
-                src: 'assets/images/posts/Screenshot_3.png',
-                alt: 'Polo Dress This or that - Đầm polo cao cấp VM Style',
-                caption: `𝐏𝐨𝐥𝐨 𝐃𝐫𝐞𝐬𝐬 | 𝐓𝐡𝐢𝐬 𝐨𝐫 𝐭𝐡𝐚𝐭?✨💓
+TikTok: https://www.tiktok.com/@vmstyle.vn`
+                  },
+                  {
+                    title: '𝐏𝐨𝐥𝐨 𝐃𝐫𝐞𝐬𝐬 | 𝐓𝐡𝐢𝐬 𝐨𝐫 𝐭𝐡𝐚𝐭? — Chiếc Đầm Đa Năng Cho Nàng',
+                    tag: 'Sản Phẩm Mới',
+                    date: 'Bài tương tác & chốt đơn',
+                    src: 'assets/images/posts/Screenshot_3.png',
+                    alt: 'Polo Dress This or that - Đầm polo cao cấp VM Style',
+                    caption: `𝐏𝐨𝐥𝐨 𝐃𝐫𝐞𝐬𝐬 | 𝐓𝐡𝐢𝐬 𝐨𝐫 𝐭𝐡𝐚𝐭?✨💓
 Nàng thích xám thanh lịch hay đen tối giản? Chiếc đầm polo thiết kế cao cấp nhà VMStyle là lựa chọn nên có trong tủ đồ của mọi cô nàng. Từ dạo phố thoải mái, đến công sở thanh lịch đều "cân tất". Item "must-have" là đây chứ đâu!💋
 📍Khó suy nghĩ quá thì pick luôn hai màu vì màu nào cũng xinh, màu nào cũng dễ mix&match!
 __________
 VM STYLE | CONTACT US VIA:
 Shopee: https://vn.shp.ee/GaQjsxg
-TikTok: https://www.tiktok.com/@vmstyle.vn`,
-                metrics: [
-                  { label: 'Tỷ lệ CTR', value: '4.8%' },
-                  { label: 'Bình luận chọn màu', value: '180+ cmt' }
-                ]
-              },
-              {
-                title: 'Jeans Item — Thời Trang Mix & Match Sành Điệu Đón Lễ Tết',
-                tag: 'Mix & Match',
-                date: 'Mùa Lễ Tết',
-                src: 'assets/images/posts/Screenshot_4.png',
-                alt: 'Jeans Item - Thời trang phối đồ jeans dạo phố VM Style',
-                caption: `✨Lễ Tết đến khó suy nghĩ được mua gì đúng không? Item quần jeans chưa bao giờ là out-trend dù là bất kỳ thời điểm nào. Thời trang jeans vừa basic nhưng là item mix & match đa dạng và sành điệu. 
+TikTok: https://www.tiktok.com/@vmstyle.vn`
+                  },
+                  {
+                    title: 'Jeans Item — Thời Trang Mix & Match Sành Điệu Đón Lễ Tết',
+                    tag: 'Mix & Match',
+                    date: 'Mùa Lễ Tết',
+                    src: 'assets/images/posts/Screenshot_4.png',
+                    alt: 'Jeans Item - Thời trang phối đồ jeans dạo phố VM Style',
+                    caption: `✨Lễ Tết đến khó suy nghĩ được mua gì đúng không? Item quần jeans chưa bao giờ là out-trend dù là bất kỳ thời điểm nào. Thời trang jeans vừa basic nhưng là item mix & match đa dạng và sành điệu. 
 💖Nhanh tay tranh thủ Tết Dương Lịch đến gần rồi, ra VMStyle mua sắm ngay đi, đồ mới về chờ bạn đến thôi đó!💫
 __________
 VM STYLE | CONTACT US VIA:
 Shopee: https://vn.shp.ee/GaQjsxg
-TikTok: https://www.tiktok.com/@vmstyle.vn`,
-                metrics: [
-                  { label: 'Quan tâm sản phẩm', value: '+65%' },
-                  { label: 'Lượt ghé Store', value: 'Tăng 30%' }
-                ]
-              },
-              {
-                title: '𝐃𝐞𝐧𝐢𝐦 𝐭𝐫𝐨𝐮𝐬𝐞𝐫𝐬 — Item Năng Động Không Thể Thiếu',
-                tag: 'Tư Vấn Phối Đồ',
-                date: 'Dòng sản phẩm Denim',
-                src: 'assets/images/posts/Screenshot_5.png',
-                alt: 'Denim Trousers - Item creates personality VM Style',
-                caption: `𝐃𝐞𝐧𝐢𝐦 𝐭𝐫𝐨𝐮𝐬𝐞𝐫𝐬🎀👠
+TikTok: https://www.tiktok.com/@vmstyle.vn`
+                  },
+                  {
+                    title: '𝐃𝐞𝐧𝐢𝐦 𝐭𝐫𝐨𝐮𝐬𝐞𝐫𝐬 — Item Năng Động Không Thể Thiếu',
+                    tag: 'Tư Vấn Phối Đồ',
+                    date: 'Dòng sản phẩm Denim',
+                    src: 'assets/images/posts/Screenshot_5.png',
+                    alt: 'Denim Trousers - Item creates personality VM Style',
+                    caption: `𝐃𝐞𝐧𝐢𝐦 𝐭𝐫𝐨𝐮𝐬𝐞𝐫𝐬🎀👠
 Item quần jeans luôn không thể thiếu trong tủ đồ của mỗi bạn nữ. Với sự đa dạng về kiểu dáng và phong cách, không chỉ mang lại sự thoải mái mà còn giúp bạn dễ dàng kết hợp với nhiều trang phục khác nhau. Lựa chọn quần dáng dài ống rộng hay quần dáng lửng đều phù hợp cho đời thường đến những buổi dạo phố.💓
 __________
 VM STYLE | CONTACT US VIA:
 Shopee: https://s.shopee.vn/5AZSmV4JtM
-TikTok: https://www.tiktok.com/@vmstyle.vn`,
-                metrics: [
-                  { label: 'Lượt chia sẻ', value: '95+ shares' },
-                  { label: 'Inbox hỏi size', value: '60+ mess' }
-                ]
-              },
-              {
-                title: '𝐆𝐢𝐫𝐥𝐲 𝐆𝐥𝐚𝐦 — Áo Trễ Vai Quốc Dân Năng Động & Ngọt Ngào',
-                tag: 'Lookbook Hot Trend',
-                date: 'Hot Item',
-                src: 'assets/images/posts/Screenshot_6.png',
-                alt: 'Girly Glam - Áo trễ vai điệu đà tôn dáng VM Style',
-                caption: `𝐆𝐢𝐫𝐥𝐲 𝐆𝐥𝐚𝐦💕
+TikTok: https://www.tiktok.com/@vmstyle.vn`
+                  },
+                  {
+                    title: '𝐆𝐢𝐫𝐥𝐲 𝐆𝐥𝐚𝐦 — Áo Trễ Vai Quốc Dân Năng Động & Ngọt Ngào',
+                    tag: 'Lookbook Hot Trend',
+                    date: 'Hot Item',
+                    src: 'assets/images/posts/Screenshot_6.png',
+                    alt: 'Girly Glam - Áo trễ vai điệu đà tôn dáng VM Style',
+                    caption: `𝐆𝐢𝐫𝐥𝐲 𝐆𝐥𝐚𝐦💕
 Mê mẩn ngay từ cái nhìn đầu tiên với chiếc áo trễ vai này! ✨  
 ---------------
 Áo trễ vai - item quốc dân cho nàng nào muốn vừa năng động lại vừa ngọt ngào. Thiết kế trễ vai khoe trọn xương quai xanh quyến rũ, kết hợp cùng chiếc nơ điệu đà, đảm bảo bạn sẽ trở thành tâm điểm mọi ánh nhìn. 
@@ -295,11 +278,19 @@ Mix & match với quần jeans, chân váy hay thậm chí là quần short đ�
 __________
 VM STYLE | CONTACT US VIA:
 Shopee: https://s.shopee.vn/5AZSmV4JtM
-TikTok: https://www.tiktok.com/@vmstyle.vn`,
-                metrics: [
-                  { label: 'Đơn hàng phát sinh', value: '80+ đơn' },
-                  { label: 'Tương tác tự nhiên', value: '+210%' }
+TikTok: https://www.tiktok.com/@vmstyle.vn`
+                  }
                 ]
+              },
+              {
+                id: 'fb-topic-2',
+                title: 'Tuyến bài bắt trend & Tương tác cộng đồng (Đang cập nhật)',
+                posts: []
+              },
+              {
+                id: 'fb-topic-3',
+                title: 'Tuyến bài Minigame & Chiến dịch Flash Sale (Đang cập nhật)',
+                posts: []
               }
             ]
           },
@@ -660,10 +651,12 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
     // Tạo HTML cho 3 Tab nút bấm
     const tabsNavHTML = categories
       .map((cat, idx) => {
-        const totalPosts = cat.subcategories.reduce(
-          (acc, sub) => acc + (sub.posts || sub.images || []).length,
-          0
-        );
+        const totalPosts = cat.subcategories.reduce((acc, sub) => {
+          if (sub.topics && sub.topics.length) {
+            return acc + sub.topics.reduce((tAcc, t) => tAcc + (t.posts || []).length, 0);
+          }
+          return acc + (sub.posts || sub.images || []).length;
+        }, 0);
         return `
           <button
             type="button"
@@ -681,139 +674,180 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
       })
       .join('');
 
+    // Hàm render 1 card bài viết (Trái: Ảnh - Phải: Caption)
+    function renderSinglePostCard(post, groupTitle) {
+      const lbIndex = lightboxItems.length;
+      lightboxItems.push({
+        src: post.src,
+        alt: post.alt || post.title || 'Ảnh bài post',
+        title: post.title || '',
+        caption: post.caption || '',
+        groupTitle: groupTitle
+      });
+
+      return `
+        <article class="vm-post-card">
+          <!-- PHẦN TRÁI: ẢNH BÀI POST (User input vào) -->
+          <div class="vm-post-media">
+            <button
+              type="button"
+              class="vm-post-img-trigger vm-img-trigger"
+              data-lb-index="${lbIndex}"
+              aria-label="Phóng to ảnh: ${escapeHTML(post.title || post.caption)}"
+            >
+              <img src="${post.src}" alt="${escapeHTML(post.alt || post.title || 'Ảnh bài post')}" loading="lazy" decoding="async">
+              <span class="vm-post-overlay vm-img-overlay" aria-hidden="true">
+                <span class="vm-post-zoom-pill vm-zoom-pill">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+                  </svg>
+                  Phóng to ảnh
+                </span>
+              </span>
+            </button>
+          </div>
+
+          <!-- PHẦN PHẢI: CAPTION TƯƠNG ỨNG BÀI POST (User input vào) -->
+          <div class="vm-post-content">
+            <div class="vm-post-caption-box">
+              <div class="vm-post-caption-label">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
+                </svg>
+                Nội dung / Caption bài viết:
+              </div>
+              <div class="vm-post-caption-text">${formatCaptionHTML(post.caption)}</div>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    // Hàm tạo khối carousel lướt ngang cho 1 danh sách bài viết
+    function renderPostsCarousel(postsList, groupTitle) {
+      if (!postsList || postsList.length === 0) {
+        return `
+          <div class="vm-empty-topic">
+            <div class="vm-empty-icon">📝</div>
+            <h4>Chủ đề đang được cập nhật</h4>
+            <p>Nội dung và hình ảnh bài viết cho tuyến bài này sẽ sớm được bổ sung.</p>
+          </div>
+        `;
+      }
+
+      const totalPostsCount = postsList.length;
+      const carouselControlsHTML = totalPostsCount > 1 ? `
+        <div class="vm-slider-controls">
+          <span class="vm-slider-counter"><strong class="vm-slider-current">1</strong> / ${totalPostsCount}</span>
+          <button type="button" class="vm-slider-btn vm-slider-prev" aria-label="Bài trước" disabled>
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button type="button" class="vm-slider-btn vm-slider-next" aria-label="Bài tiếp theo">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      ` : '';
+
+      const postsHTML = postsList.map(p => renderSinglePostCard(p, groupTitle)).join('');
+
+      return `
+        <div class="vm-carousel-wrapper">
+          <div class="vm-carousel-top-bar">
+            ${carouselControlsHTML}
+          </div>
+          <div class="vm-carousel-container" data-posts-count="${totalPostsCount}">
+            <div class="vm-posts-list vm-posts-slider">
+              ${postsHTML}
+            </div>
+            ${totalPostsCount > 1 ? `
+              <div class="vm-carousel-dots" role="tablist" aria-label="Chọn bài viết">
+                ${postsList.map((_, pIdx) => `
+                  <button type="button" class="vm-carousel-dot ${pIdx === 0 ? 'is-active' : ''}" data-index="${pIdx}" aria-label="Xem bài viết ${pIdx + 1}"></button>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+    }
+
     // Tạo HTML cho từng Tab Panel và các mục con bên trong
     const tabsPanelsHTML = categories
       .map((cat, idx) => {
         const subcatsHTML = cat.subcategories
           .map((sub) => {
-            const postsList = sub.posts || sub.images || [];
-            const postsHTML = postsList
-              .map((post) => {
-                const lbIndex = lightboxItems.length;
-                lightboxItems.push({
-                  src: post.src,
-                  alt: post.alt || post.title || 'Ảnh bài post',
-                  title: post.title || '',
-                  caption: post.caption || '',
-                  groupTitle: `${cat.tabTitle.replace(/^\d+\.\s*/, '')} — ${sub.name}`
-                });
+            const hasTopics = sub.topics && Array.isArray(sub.topics) && sub.topics.length > 0;
 
-                const metricsHTML =
-                  post.metrics && post.metrics.length
-                    ? `
-                      <div class="vm-post-metrics">
-                        ${post.metrics
-                          .map(
-                            (m) => `
-                          <span class="vm-post-metric-pill">
-                            <span>${escapeHTML(m.label)}:</span>
-                            <strong>${escapeHTML(m.value)}</strong>
-                          </span>
-                        `
-                          )
-                          .join('')}
-                      </div>
-                    `
-                    : '';
-
+            if (hasTopics) {
+              const topicTabsHTML = sub.topics.map((topic, tIdx) => {
+                const count = (topic.posts || []).length;
                 return `
-                  <article class="vm-post-card">
-                    <!-- PHẦN TRÁI: ẢNH BÀI POST (User input vào) -->
-                    <div class="vm-post-media">
-                      <button
-                        type="button"
-                        class="vm-post-img-trigger vm-img-trigger"
-                        data-lb-index="${lbIndex}"
-                        aria-label="Phóng to ảnh: ${escapeHTML(post.title || post.caption)}"
-                      >
-                        <img src="${post.src}" alt="${escapeHTML(post.alt || post.title || 'Ảnh bài post')}" loading="lazy" decoding="async">
-                        <span class="vm-post-overlay vm-img-overlay" aria-hidden="true">
-                          <span class="vm-post-zoom-pill vm-zoom-pill">
-                            <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
-                            </svg>
-                            Phóng to ảnh
-                          </span>
-                        </span>
-                      </button>
-                    </div>
-
-                    <!-- PHẦN PHẢI: CAPTION TƯƠNG ỨNG BÀI POST (User input vào) -->
-                    <div class="vm-post-content">
-                      <div>
-                        <div class="vm-post-meta">
-                          <span class="vm-post-tag">${escapeHTML(post.tag || sub.name)}</span>
-                          ${post.date ? `<span class="vm-post-date">${escapeHTML(post.date)}</span>` : ''}
-                        </div>
-
-                        ${post.title ? `<h4 class="vm-post-title">${escapeHTML(post.title)}</h4>` : ''}
-                      </div>
-
-                      <div class="vm-post-caption-box">
-                        <div class="vm-post-caption-label">
-                          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/>
-                          </svg>
-                          Nội dung / Caption bài viết:
-                        </div>
-                        <div class="vm-post-caption-text">${formatCaptionHTML(post.caption)}</div>
-                      </div>
-
-                      ${metricsHTML}
-                    </div>
-                  </article>
+                  <button
+                    type="button"
+                    class="vm-topic-pill-btn ${tIdx === 0 ? 'is-active' : ''}"
+                    role="tab"
+                    aria-selected="${tIdx === 0 ? 'true' : 'false'}"
+                    data-topic-id="${topic.id}"
+                  >
+                    <span>${escapeHTML(topic.title)}</span>
+                    ${count > 0 ? `<span class="vm-topic-badge">${count} bài</span>` : `<span class="vm-topic-badge empty">Trống</span>`}
+                  </button>
                 `;
-              })
-              .join('');
+              }).join('');
 
-            const totalPostsCount = postsList.length;
-            const carouselControlsHTML = totalPostsCount > 1 ? `
-              <div class="vm-slider-controls">
-                <span class="vm-slider-counter"><strong class="vm-slider-current">1</strong> / ${totalPostsCount}</span>
-                <button type="button" class="vm-slider-btn vm-slider-prev" aria-label="Bài trước" disabled>
-                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
-                </button>
-                <button type="button" class="vm-slider-btn vm-slider-next" aria-label="Bài tiếp theo">
-                  <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-                </button>
-              </div>
-            ` : '';
+              const topicPanelsHTML = sub.topics.map((topic, tIdx) => {
+                const carouselHTML = renderPostsCarousel(
+                  topic.posts || [],
+                  `${cat.tabTitle.replace(/^\d+\.\s*/, '')} — ${sub.name} (${topic.title})`
+                );
+                return `
+                  <div
+                    class="vm-topic-panel ${tIdx === 0 ? 'is-active' : ''}"
+                    id="panel-${topic.id}"
+                    data-topic-panel="${topic.id}"
+                  >
+                    ${carouselHTML}
+                  </div>
+                `;
+              }).join('');
+
+              return `
+                <div class="vm-subcat-block">
+                  <div class="vm-subcat-header">
+                    <div class="vm-subcat-title-wrap">
+                      <span class="vm-subcat-badge">${sub.badge}</span>
+                      <h4 class="vm-subcat-title">${sub.name}</h4>
+                    </div>
+                  </div>
+
+                  <!-- TAB CHỌN PHỤ (TOPICS) -->
+                  <div class="vm-topics-nav" role="tablist" aria-label="Chủ đề bài đăng ${sub.name}">
+                    ${topicTabsHTML}
+                  </div>
+
+                  <div class="vm-topics-container">
+                    ${topicPanelsHTML}
+                  </div>
+                </div>
+              `;
+            }
+
+            // Trường hợp subcategory thông thường (không có topics)
+            const postsList = sub.posts || sub.images || [];
+            const carouselHTML = renderPostsCarousel(
+              postsList,
+              `${cat.tabTitle.replace(/^\d+\.\s*/, '')} — ${sub.name}`
+            );
 
             return `
               <div class="vm-subcat-block">
                 <div class="vm-subcat-header">
                   <div class="vm-subcat-title-wrap">
                     <span class="vm-subcat-badge">${sub.badge}</span>
-                    <div>
-                      <h4 class="vm-subcat-title">${sub.name}</h4>
-                      <p class="vm-subcat-desc">${sub.summary}</p>
-                    </div>
-                  </div>
-                  <div class="vm-subcat-actions">
-                    <span class="vm-subcat-hint">
-                      <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-                      </svg>
-                      Click vào ảnh để phóng to
-                    </span>
-                    ${carouselControlsHTML}
+                    <h4 class="vm-subcat-title">${sub.name}</h4>
                   </div>
                 </div>
-
-                <!-- CAROUSEL LƯỚT NGANG: Hiển thị 1 bài mỗi lần trượt -->
-                <div class="vm-carousel-container" data-posts-count="${totalPostsCount}">
-                  <div class="vm-posts-list vm-posts-slider">
-                    ${postsHTML}
-                  </div>
-                  ${totalPostsCount > 1 ? `
-                    <div class="vm-carousel-dots" role="tablist" aria-label="Chọn bài viết">
-                      ${postsList.map((_, pIdx) => `
-                        <button type="button" class="vm-carousel-dot ${pIdx === 0 ? 'is-active' : ''}" data-index="${pIdx}" aria-label="Xem bài viết ${pIdx + 1}"></button>
-                      `).join('')}
-                    </div>
-                  ` : ''}
-                </div>
+                ${carouselHTML}
               </div>
             `;
           })
@@ -981,15 +1015,15 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
      3. LOGIC SLIDER LƯỚT NGANG BÀI VIẾT (CAROUSEL / HORIZONTAL SCROLL)
      ========================================================================== */
   function initCarousels(root) {
-    const subcatBlocks = Array.from(root.querySelectorAll('.vm-subcat-block'));
+    const carouselContainers = Array.from(root.querySelectorAll('.vm-carousel-wrapper, .vm-carousel-container'));
 
-    subcatBlocks.forEach((block) => {
-      const slider = block.querySelector('.vm-posts-slider');
-      const prevBtn = block.querySelector('.vm-slider-prev');
-      const nextBtn = block.querySelector('.vm-slider-next');
-      const counterEl = block.querySelector('.vm-slider-current');
-      const dots = Array.from(block.querySelectorAll('.vm-carousel-dot'));
-      const cards = Array.from(block.querySelectorAll('.vm-post-card'));
+    carouselContainers.forEach((container) => {
+      const slider = container.querySelector('.vm-posts-slider');
+      const prevBtn = container.querySelector('.vm-slider-prev') || container.parentElement.querySelector('.vm-slider-prev');
+      const nextBtn = container.querySelector('.vm-slider-next') || container.parentElement.querySelector('.vm-slider-next');
+      const counterEl = container.querySelector('.vm-slider-current') || container.parentElement.querySelector('.vm-slider-current');
+      const dots = Array.from(container.querySelectorAll('.vm-carousel-dot'));
+      const cards = Array.from(container.querySelectorAll('.vm-post-card'));
 
       if (!slider || cards.length <= 1) return;
 
@@ -1118,7 +1152,7 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
   }
 
   /* ==========================================================================
-     4. LOGIC CHUYỂN TAB HẠNG MỤC CÔNG VIỆC
+     4. LOGIC CHUYỂN TAB HẠNG MỤC CÔNG VIỆC & TAB TOPIC PHỤ
      ========================================================================== */
   function initTabs(root) {
     const tabBtns = Array.from(root.querySelectorAll('.vm-tab-btn'));
@@ -1137,6 +1171,32 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
         tabPanels.forEach((panel) => {
           const isMatch = panel.getAttribute('data-tab-panel') === targetId;
           panel.classList.toggle('active', isMatch);
+        });
+      });
+    });
+
+    // Xử lý chuyển đổi các Tab Topic phụ (ví dụ trong Facebook)
+    const topicNavs = Array.from(root.querySelectorAll('.vm-topics-nav'));
+    topicNavs.forEach((nav) => {
+      const topicBtns = Array.from(nav.querySelectorAll('.vm-topic-pill-btn'));
+      const block = nav.closest('.vm-subcat-block');
+      if (!block) return;
+      const topicPanels = Array.from(block.querySelectorAll('.vm-topic-panel'));
+
+      topicBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const topicId = btn.getAttribute('data-topic-id');
+
+          topicBtns.forEach((b) => {
+            const isCur = b === btn;
+            b.classList.toggle('is-active', isCur);
+            b.setAttribute('aria-selected', isCur ? 'true' : 'false');
+          });
+
+          topicPanels.forEach((panel) => {
+            const isMatch = panel.getAttribute('data-topic-panel') === topicId;
+            panel.classList.toggle('is-active', isMatch);
+          });
         });
       });
     });
