@@ -162,8 +162,11 @@
         </p>
       </div>
 
-      <!-- Thay src bằng ảnh PNG đã tách nền của bạn, ví dụ assets/images/duong-trang.png -->
-      <img class="showcase-portrait" src="assets/images/portrait-placeholder.svg" alt="Chân dung Dương Trang" width="800" height="1000">
+      <!-- Ảnh chân dung đã tách nền (WebP, dự phòng PNG). Thay ảnh nét hơn: ghi đè 2 file duong-trang.* -->
+      <picture>
+        <source srcset="assets/images/duong-trang.webp" type="image/webp">
+        <img class="showcase-portrait" src="assets/images/duong-trang.png" alt="Chân dung Dương Trang trong tà áo dài, tay cầm nón lá" width="504" height="670">
+      </picture>
 
       <div class="wrap showcase-bottom">
         <div class="showcase-intro">
