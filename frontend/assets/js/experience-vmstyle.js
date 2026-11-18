@@ -97,14 +97,14 @@
   const VM_STYLE_DATA = {
     // --- PHẦN 1: THÔNG TIN CHUNG ---
     company: {
-      logoUrl: createLogoPlaceholderSVG(), // Đổi thành: 'assets/images/logo-vmstyle.png'
+      logoUrl: 'assets/images/logo-vmstyle.jpg',
       logoAlt: 'Logo thương hiệu thời trang VM Style',
       brandName: 'VM Style',
-      industry: 'Thời trang',
+      industry: 'Thời trang nữ',
       period: '2024 – 2025',
       role: 'Content Marketing Executive',
       summary:
-        'Phụ trách chiến lược và sản xuất nội dung đa kênh cho thương hiệu thời trang trẻ VM Style. Kết hợp ngôn từ bắt nhịp xu hướng (trend-catching), hình ảnh Lookbook thẩm mỹ và tư duy tối ưu theo dữ liệu để gia tăng nhận diện thương hiệu lẫn tỷ lệ chuyển đổi đơn hàng.'
+        'Phụ trách chiến lược và sản xuất nội dung đa kênh cho thương hiệu thời trang nữ. Phối hợp team sản xuất hình ảnh lookbook, shooting, video. Tư duy tối ưu theo dữ liệu để gia tăng nhận diện thương hiệu lẫn tỷ lệ chuyển đổi.'
     },
 
     // --- PHẦN 2: NỘI DUNG TỔNG QUAN (3 CỘT) ---
@@ -114,10 +114,10 @@
         title: 'Phụ trách',
         subtitle: 'Vai trò & phạm vi công việc',
         items: [
-          'Quản trị & sáng tạo nội dung trên hệ thống Social Media chính (Facebook Fanpage & Instagram).',
+          'Quản trị & sáng tạo nội dung trên hệ thống Social Media chính (Facebook & Instagram).',
           'Xây dựng Content Plan định kỳ hằng tháng và kế hoạch truyền thông tổng thể cho các đợt ra mắt BST mới.',
-          'Phối hợp cùng đội ngũ Media/Design thực hiện chụp Lookbook, quay Reels phối đồ (Mix & Match) và kiểm duyệt ấn phẩm.',
-          'Theo dõi chỉ số (Reach, Engagement, Inbox, Conversion) và lập báo cáo đo lường định kỳ.'
+          'Phối hợp cùng đội ngũ Media/Design thực hiện chụp Lookbook, quay Reels phối đồ (Mix & Match).',
+          'Theo dõi chỉ số và lập báo cáo đo lường định kỳ.'
         ]
       },
       // Cột 2: Đã làm như thế nào
@@ -125,10 +125,9 @@
         title: 'Đã làm như thế nào',
         subtitle: 'Cách triển khai & quy trình',
         items: [
-          'Nghiên cứu xu hướng thời trang & tâm lý mua sắm của tệp khách hàng nữ trẻ (18–28 tuổi) theo từng mùa vụ.',
-          'Chuẩn hóa tuyến bài theo phễu: Bắt trend thu hút tương tác → Gợi ý OOTD/Lookbook → Thúc đẩy ưu đãi chốt đơn.',
-          'Ứng dụng công thức Hook 3s đầu cho Reels và cấu trúc caption kích thích bình luận/nhắn tin tư vấn size.',
-          'Đọc dữ liệu Meta Business Suite hàng tuần để nhân rộng định dạng bài viết có hiệu suất cao nhất.'
+          'Duy trì bài đăng hàng ngày để giữ chân người theo dõi, củng cố hình ảnh thương hiệu.',
+          'Xây dựng nội dung đa dạng phù hợp ngành như: chia sẻ tips, feedback, mix & match, collection,...',
+          'Nghiên cứu xu hướng thời trang & tâm lý mua sắm của tệp khách hàng nữ trẻ theo thời điểm.'
         ]
       },
       // Cột 3: Số lượng đã làm (Counter nổi bật)
@@ -137,28 +136,22 @@
         subtitle: 'Kết quả & đầu việc cụ thể',
         stats: [
           {
-            value: 360,
+            value: 80,
             suffix: '+',
-            label: 'Bài viết & Reels trên Facebook, Instagram',
+            label: 'Bài đăng / tháng',
             isAccent: false
           },
           {
-            value: 12,
+            value: 5,
             suffix: '+',
-            label: 'Kế hoạch Content tháng & Chiến dịch BST',
-            isAccent: true
-          },
-          {
-            value: 24,
-            suffix: '+',
-            label: 'Báo cáo đo lường & tối ưu hiệu suất kênh',
+            label: 'Kế hoạch ra mắt bộ sưu tập',
             isAccent: false
           },
           {
-            value: 65,
+            value: 75,
+            prefix: '↑ ',
             suffix: '%',
-            prefix: '+',
-            label: 'Tăng trưởng lượng tương tác & tin nhắn tự nhiên',
+            label: 'Tăng lượt xem sau 4 tháng',
             isAccent: true
           }
         ]
@@ -455,7 +448,7 @@
             class="vm-logo-img"
             loading="lazy"
           >
-          <span class="vm-logo-note">Logo thương hiệu</span>
+          ${company.logoUrl && company.logoUrl.startsWith('data:') ? '<span class="vm-logo-note">Logo thương hiệu</span>' : ''}
         </div>
 
         <div class="vm-brand-info">
