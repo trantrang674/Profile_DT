@@ -91,16 +91,15 @@
 
 /* Khung Logo bên trái */
 .vm-logo-box {
-  width: 200px;
-  height: 155px;
+  width: 175px;
+  height: 135px;
   border-radius: var(--vm-radius-md);
   background: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0.85rem;
+  padding: 0.65rem;
   position: relative;
   overflow: hidden;
   transition: var(--vm-transition);
@@ -113,11 +112,13 @@
 }
 
 .vm-logo-img {
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   max-height: 100%;
-  width: auto;
-  height: auto;
   object-fit: contain;
+  object-position: center;
+  display: block;
 }
 
 .vm-logo-note {
