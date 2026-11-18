@@ -27,27 +27,28 @@
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var name = form.elements.name.value.trim();
-      var email = form.elements.email.value.trim();
-      var type = form.elements.work_type.value;
+      // Form gốc: 1 ô "Tên - Công ty - Email", ô hình thức hợp tác và ô nội dung
+      var info = form.elements.contact_info.value.trim();
+      var typeSel = form.elements.work_type;
+      var type = typeSel.options[typeSel.selectedIndex].text.replace(/^Hình thức:\s*/, '');
       var message = form.elements.message.value.trim();
 
       var missing = [];
-      if (!name) missing.push('họ tên');
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) missing.push('email hợp lệ');
+      if (!info) missing.push('tên, công ty, email');
       if (!message) missing.push('nội dung');
 
       if (missing.length) {
-        errorEl.textContent = 'Vui lòng điền ' + missing.join(', ') + ' trước khi gửi.';
-        errorEl.hidden = false;
-        var first = !name ? form.elements.name : (missing.indexOf('email hợp lệ') > -1 ? form.elements.email : form.elements.message);
-        first.focus();
+        if (errorEl) {
+          errorEl.textContent = 'Vui lòng điền ' + missing.join(' và ') + ' trước khi gửi.';
+          errorEl.hidden = false;
+        }
+        (!info ? form.elements.contact_info : form.elements.message).focus();
         return;
       }
-      errorEl.hidden = true;
+      if (errorEl) errorEl.hidden = true;
 
-      var subject = type + ' - ' + name;
-      var body = message + '\n\n---\n' + name + '\n' + email;
+      var subject = type + ' - ' + info;
+      var body = message + '\n\n---\n' + info;
       window.location.href = 'mailto:' + CONTACT_EMAIL +
         '?subject=' + encodeURIComponent(subject) +
         '&body=' + encodeURIComponent(body);
