@@ -3,7 +3,7 @@
    Trích nguyên từ landing.css (commit 95d1d55). Không sửa tay ở đây nếu
    không cần; các section khác dùng site.css.
    ========================================================================== */
-.legacy .lp-wrap, .scalix-contact-stage .lp-wrap { width: 100%; max-width: 1220px; margin: 0 auto; padding: 0 1.75rem; position: relative; z-index: 2; }
+.legacy .lp-wrap, .scalix-contact-stage .lp-wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); position: relative; z-index: 2; }
 .lp-section.legacy { padding: 6.5rem 0; position: relative; }
 
 .airlume-card {

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <!-- ẢNH CHÂN DUNG TẠM: thay bằng ảnh PNG đã tách nền của bạn
+       (đổi src của .showcase-portrait trong index.html) -->
+  <defs>
+    <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c9d7ff"/>
+      <stop offset="1" stop-color="#8fa8f2"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b2a6b"/>
+      <stop offset="1" stop-color="#0a1240"/>
+    </linearGradient>
+    <linearGradient id="blazer" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5574f7"/>
+      <stop offset="0.55" stop-color="#2b4eff"/>
+      <stop offset="1" stop-color="#10249e"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dfe7ff"/>
+    </linearGradient>
+    <radialGradient id="rim" cx="0.5" cy="0.35" r="0.6">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Tóc phía sau -->
+  <path d="M250 330 C 230 170 330 90 410 92 C 520 95 590 180 575 330 C 600 460 610 560 640 640 L 200 640 C 230 560 240 450 250 330 Z" fill="url(#hair)"/>
+  <!-- Cổ -->
+  <path d="M355 470 L 445 470 L 455 600 L 345 600 Z" fill="url(#skin)"/>
+  <!-- Mặt -->
+  <ellipse cx="405" cy="330" rx="125" ry="160" fill="url(#skin)"/>
+  <ellipse cx="405" cy="300" rx="110" ry="120" fill="url(#rim)"/>
+  <!-- Tóc mái -->
+  <path d="M282 300 C 290 190 360 150 430 160 C 500 170 540 220 532 300 C 500 230 440 210 380 220 C 330 228 300 260 282 300 Z" fill="url(#hair)"/>
+  <!-- Áo trong -->
+  <path d="M330 600 L 470 600 L 500 1000 L 300 1000 Z" fill="url(#shirt)"/>
+  <!-- Blazer -->
+  <path d="M120 1000 C 130 780 190 660 330 600 L 360 760 L 300 1000 Z" fill="url(#blazer)"/>
+  <path d="M680 1000 C 670 780 610 660 470 600 L 440 760 L 500 1000 Z" fill="url(#blazer)"/>
+  <path d="M330 600 L 400 700 L 360 760 Z" fill="#1d3fe0"/>
+  <path d="M470 600 L 400 700 L 440 760 Z" fill="#1d3fe0"/>
+
+  <!-- Nhãn hướng dẫn -->
+  <rect x="250" y="880" width="300" height="56" rx="28" fill="#04081c" fill-opacity="0.55" stroke="#93b4ff" stroke-opacity="0.5"/>
+  <text x="400" y="915" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="20" font-weight="700" fill="#ffffff">Ảnh tạm, thay ảnh tách nền</text>
+</svg>

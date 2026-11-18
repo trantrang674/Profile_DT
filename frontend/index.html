@@ -17,7 +17,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Playfair+Display:ital,wght@0,500;1,500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/experience.css">
   <link rel="stylesheet" href="assets/css/site.css">
@@ -149,6 +149,40 @@
       <div class="hero-progress" aria-hidden="true"><span></span></div>
     </section>
 
+    <!-- ========== CHÂN DUNG 3D: ảnh chân dung + vòng ảnh dự án xoay 3D (Three.js) ========== -->
+    <section id="showcase" class="showcase on-dark" aria-labelledby="showcase-title">
+      <canvas class="showcase-3d" aria-hidden="true"></canvas>
+      <div class="showcase-vignette" aria-hidden="true"></div>
+
+      <div class="wrap showcase-top">
+        <p class="showcase-chip"><span class="status-dot" aria-hidden="true"></span>Đang tìm vị trí <strong>Content Marketing</strong></p>
+        <p class="showcase-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          Sống tại <strong>TP. Hồ Chí Minh</strong>
+        </p>
+      </div>
+
+      <!-- Thay src bằng ảnh PNG đã tách nền của bạn, ví dụ assets/images/duong-trang.png -->
+      <img class="showcase-portrait" src="assets/images/portrait-placeholder.svg" alt="Chân dung Dương Trang" width="800" height="1000">
+
+      <div class="wrap showcase-bottom">
+        <div class="showcase-intro">
+          <p class="showcase-hi">Xin chào, tôi là Dương Trang</p>
+          <h2 id="showcase-title" class="showcase-title">Content Marketing<br>Specialist</h2>
+          <a href="#contact" class="showcase-cta">
+            <span class="showcase-cta-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+            Bắt đầu dự án
+          </a>
+        </div>
+        <figure class="showcase-quote">
+          <blockquote>“Tôi giúp thương hiệu kể đúng câu chuyện cho đúng người, để nội dung <strong>tạo ra doanh số</strong> chứ không chỉ thêm lượt xem.”</blockquote>
+          <figcaption class="showcase-sign">Dương Trang</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <!-- ========== NĂNG LỰC ========== -->
     <section id="about" class="section">
       <div class="wrap">
@@ -219,49 +253,50 @@
 
 
         <div id="skills" class="tools">
-          <h3 class="h4">Công cụ dùng hằng ngày</h3>
-          <!-- Dải logo trượt: site.js tự tạo từ danh sách công cụ bên dưới -->
+          <!-- Dải logo trượt: site.js tự tạo từ danh sách công cụ trong khung bên dưới -->
           <div class="tools-marquee" aria-hidden="true"></div>
-          <div class="tools-grid">
-            <div class="tool-group">
-              <h4 class="tool-group-name">Mạng xã hội</h4>
-              <ul>
-                <li><img src="assets/images/logos/meta.svg" alt="" width="20" height="20" loading="lazy">Meta Business Suite</li>
-                <li><img src="assets/images/logos/tiktok.svg" alt="" width="20" height="20" loading="lazy">TikTok</li>
-                <li><img src="assets/images/logos/zalo.svg" alt="" width="20" height="20" loading="lazy">Zalo OA</li>
-                <li><img src="assets/images/logos/linkedin.svg" alt="" width="20" height="20" loading="lazy">LinkedIn</li>
-              </ul>
-            </div>
-            <div class="tool-group">
-              <h4 class="tool-group-name">Website và SEO</h4>
-              <ul>
-                <li><img src="assets/images/logos/googlesearchconsole.svg" alt="" width="20" height="20" loading="lazy">Search Console</li>
-                <li><img src="assets/images/logos/semrush.svg" alt="" width="20" height="20" loading="lazy">Semrush</li>
-                <li><img src="assets/images/logos/wordpress.svg" alt="" width="20" height="20" loading="lazy">WordPress</li>
-                <li><img src="assets/images/logos/googletrends.svg" alt="" width="20" height="20" loading="lazy">Google Trends</li>
-              </ul>
-            </div>
-            <div class="tool-group">
-              <h4 class="tool-group-name">Sáng tạo</h4>
-              <ul>
-                <li><img src="assets/images/logos/canva.svg" alt="" width="20" height="20" loading="lazy">Canva</li>
-                <li><img src="assets/images/logos/adobeillustrator.svg" alt="" width="20" height="20" loading="lazy">Illustrator</li>
-                <li><img src="assets/images/logos/capcut.svg" alt="" width="20" height="20" loading="lazy">CapCut</li>
-                <li><img src="assets/images/logos/googledrive.svg" alt="" width="20" height="20" loading="lazy">Google Drive</li>
-              </ul>
-            </div>
-            <div class="tool-group">
-              <h4 class="tool-group-name">AI và tự động hóa</h4>
-              <ul>
-                <li><img src="assets/images/logos/openai.svg" alt="" width="20" height="20" loading="lazy">ChatGPT</li>
-                <li><img src="assets/images/logos/claude.svg" alt="" width="20" height="20" loading="lazy">Claude</li>
-                <li><img src="assets/images/logos/googlegemini.svg" alt="" width="20" height="20" loading="lazy">Gemini</li>
-                <li><img src="assets/images/logos/notion.svg" alt="" width="20" height="20" loading="lazy">Notion</li>
-                <li><img src="assets/images/logos/github.svg" alt="" width="20" height="20" loading="lazy">GitHub</li>
-                <li><img src="assets/images/logos/supabase.svg" alt="" width="20" height="20" loading="lazy">Supabase</li>
-                <li><img src="assets/images/logos/googlecloud.svg" alt="" width="20" height="20" loading="lazy">Google API</li>
-                <li><img src="assets/images/logos/mcp.svg" alt="" width="20" height="20" loading="lazy">MCP</li>
-              </ul>
+
+          <!-- ========== KHUNG BỘ CÔNG CỤ 3D: vật thể 3D (Three.js) trôi ra ngoài khung ========== -->
+          <div class="store" data-store>
+            <canvas class="store-3d" aria-hidden="true"></canvas>
+            <div class="store-card">
+              <div class="store-hero">
+                <p class="store-kicker">Bộ công cụ chuyên môn</p>
+                <p class="store-big" aria-hidden="true">Mạng xã hội</p>
+                <p class="store-count"><strong>4</strong> công cụ dùng hằng ngày</p>
+              </div>
+              <div class="store-list">
+                <h3 class="store-title">Công cụ dùng hằng ngày</h3>
+                <div class="store-head" aria-hidden="true"><span>Công cụ</span><span>Dùng để</span></div>
+                <ul class="store-rows" aria-live="polite">
+                <li class="store-row" data-group="social"><span class="store-ico"><img src="assets/images/logos/meta.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Meta Business Suite</span><span class="store-use">Đăng bài, đọc số liệu Facebook và Instagram</span></li>
+                <li class="store-row" data-group="social"><span class="store-ico"><img src="assets/images/logos/tiktok.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">TikTok</span><span class="store-use">Video ngắn, bắt trend</span></li>
+                <li class="store-row" data-group="social"><span class="store-ico"><img src="assets/images/logos/zalo.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Zalo OA</span><span class="store-use">Chăm sóc và nhắn tin khách hàng</span></li>
+                <li class="store-row" data-group="social"><span class="store-ico"><img src="assets/images/logos/linkedin.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">LinkedIn</span><span class="store-use">Xây thương hiệu cá nhân</span></li>
+                <li class="store-row" data-group="seo" hidden><span class="store-ico"><img src="assets/images/logos/googlesearchconsole.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Search Console</span><span class="store-use">Theo dõi từ khóa và traffic</span></li>
+                <li class="store-row" data-group="seo" hidden><span class="store-ico"><img src="assets/images/logos/semrush.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Semrush</span><span class="store-use">Nghiên cứu từ khóa, đối thủ</span></li>
+                <li class="store-row" data-group="seo" hidden><span class="store-ico"><img src="assets/images/logos/wordpress.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">WordPress</span><span class="store-use">Đăng bài chuẩn SEO</span></li>
+                <li class="store-row" data-group="seo" hidden><span class="store-ico"><img src="assets/images/logos/googletrends.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Google Trends</span><span class="store-use">Bắt xu hướng tìm kiếm</span></li>
+                <li class="store-row" data-group="creative" hidden><span class="store-ico"><img src="assets/images/logos/canva.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Canva</span><span class="store-use">Thiết kế ấn phẩm nhanh</span></li>
+                <li class="store-row" data-group="creative" hidden><span class="store-ico"><img src="assets/images/logos/adobeillustrator.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Illustrator</span><span class="store-use">Thiết kế đồ họa</span></li>
+                <li class="store-row" data-group="creative" hidden><span class="store-ico"><img src="assets/images/logos/capcut.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">CapCut</span><span class="store-use">Dựng video Reels, TikTok</span></li>
+                <li class="store-row" data-group="creative" hidden><span class="store-ico"><img src="assets/images/logos/googledrive.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Google Drive</span><span class="store-use">Lưu trữ và cộng tác</span></li>
+                <li class="store-row" data-group="ai" hidden><span class="store-ico"><img src="assets/images/logos/openai.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">ChatGPT</span><span class="store-use">Lên ý tưởng, viết nháp</span></li>
+                <li class="store-row" data-group="ai" hidden><span class="store-ico"><img src="assets/images/logos/claude.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Claude</span><span class="store-use">Biên tập, tóm tắt tài liệu</span></li>
+                <li class="store-row" data-group="ai" hidden><span class="store-ico"><img src="assets/images/logos/googlegemini.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Gemini</span><span class="store-use">Nghiên cứu nhanh</span></li>
+                <li class="store-row" data-group="ai" hidden><span class="store-ico"><img src="assets/images/logos/notion.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Notion</span><span class="store-use">Quản lý content plan</span></li>
+                <li class="store-row" data-group="ai" hidden><span class="store-ico"><img src="assets/images/logos/github.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">GitHub</span><span class="store-use">Lưu trữ website portfolio</span></li>
+                <li class="store-row" data-group="ai" hidden><span class="store-ico"><img src="assets/images/logos/supabase.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Supabase</span><span class="store-use">Dữ liệu cho công cụ tự động</span></li>
+                <li class="store-row" data-group="ai" hidden><span class="store-ico"><img src="assets/images/logos/googlecloud.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Google API</span><span class="store-use">Tự động hóa báo cáo</span></li>
+                <li class="store-row" data-group="ai" hidden><span class="store-ico"><img src="assets/images/logos/mcp.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">MCP</span><span class="store-use">Kết nối AI với công cụ</span></li>
+                </ul>
+              </div>
+              <div class="store-dock" role="tablist" aria-label="Nhóm công cụ">
+            <button type="button" class="store-tab is-active" role="tab" aria-selected="true" data-group="social" data-label="Mạng xã hội" data-count="4">Mạng xã hội</button>
+            <button type="button" class="store-tab" role="tab" aria-selected="false" data-group="seo" data-label="Website và SEO" data-count="4">Website và SEO</button>
+            <button type="button" class="store-tab" role="tab" aria-selected="false" data-group="creative" data-label="Sáng tạo" data-count="4">Sáng tạo</button>
+            <button type="button" class="store-tab" role="tab" aria-selected="false" data-group="ai" data-label="AI và tự động hóa" data-count="8">AI và tự động hóa</button>
+              </div>
             </div>
           </div>
         </div>
@@ -453,5 +488,15 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="assets/js/site.js"></script>
+  <!-- Three.js cho 2 section 3D (chân dung + bộ công cụ) -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="assets/js/three-scenes.js"></script>
 </body>
 </html>

@@ -59,9 +59,10 @@
   // Tạo từ danh sách .tool-group để chỉ phải sửa công cụ ở một chỗ trong HTML
   var marquee = document.querySelector('.tools-marquee');
   if (marquee) {
-    var tools = Array.prototype.map.call(document.querySelectorAll('.tool-group li'), function (li) {
+    var tools = Array.prototype.map.call(document.querySelectorAll('.store-row'), function (li) {
       var img = li.querySelector('img');
-      return { src: img ? img.getAttribute('src') : '', name: li.textContent.trim() };
+      var name = li.querySelector('.store-name');
+      return { src: img ? img.getAttribute('src') : '', name: (name || li).textContent.trim() };
     });
     if (tools.length) {
       var half = Math.ceil(tools.length / 2);
@@ -74,6 +75,43 @@
         return '<div class="marquee-row' + (i % 2 ? ' is-reverse' : '') + '">' + chips + chips + chips + chips + '</div>';
       }).join('');
     }
+  }
+
+  // ---------- Khung Bộ công cụ: chuyển nhóm bằng thanh dock ----------
+  var store = document.querySelector('[data-store]');
+  if (store) {
+    var tabsEls = store.querySelectorAll('.store-tab');
+    var rowsEls = store.querySelectorAll('.store-row');
+    var big = store.querySelector('.store-big');
+    var count = store.querySelector('.store-count strong');
+    var selectGroup = function (tab) {
+      var group = tab.dataset.group;
+      tabsEls.forEach(function (t) {
+        var on = t === tab;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      var i = 0;
+      rowsEls.forEach(function (r) {
+        var show = r.dataset.group === group;
+        r.hidden = !show;
+        if (show) { r.style.setProperty('--i', i++); r.classList.remove('is-in'); void r.offsetWidth; r.classList.add('is-in'); }
+      });
+      if (big) { big.textContent = tab.dataset.label; big.classList.remove('is-in'); void big.offsetWidth; big.classList.add('is-in'); }
+      if (count) count.textContent = tab.dataset.count;
+      // Báo cho cảnh 3D để các vật thể xoay/nảy theo nhóm mới
+      store.dispatchEvent(new CustomEvent('store:change', { detail: { group: group, index: Array.prototype.indexOf.call(tabsEls, tab) } }));
+    };
+    tabsEls.forEach(function (t) { t.addEventListener('click', function () { selectGroup(t); }); });
+    // Phím mũi tên trái/phải để chuyển nhóm
+    store.querySelector('.store-dock').addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var list = Array.prototype.slice.call(tabsEls);
+      var idx = list.indexOf(document.activeElement);
+      if (idx < 0) return;
+      var next = list[(idx + (e.key === 'ArrowRight' ? 1 : list.length - 1)) % list.length];
+      next.focus(); selectGroup(next);
+    });
   }
 
   // ---------- Câu chuyện cuộn ở hero (GSAP + ScrollTrigger) ----------
