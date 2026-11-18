@@ -849,7 +849,12 @@ html.hero-scrub .hero {
   .showcase { min-height: 760px; }
   .showcase-top { top: 88px; gap: .5rem 1rem; }
   .showcase-chip + .showcase-chip { padding-left: 0; border-left: 0; }
-  .showcase-portrait { height: 47vh; max-width: 92vw; bottom: 235px; }
+  .showcase-portrait {
+    height: 47vh; max-width: 92vw; bottom: 235px;
+    /* ảnh lơ lửng trên phần chữ nên làm mờ dần mép dưới */
+    -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
+            mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
+  }
   .showcase-bottom { flex-direction: column; align-items: flex-start; gap: 1.25rem; bottom: 1.5rem; }
   .showcase-quote { display: none; }
 }
@@ -860,7 +865,7 @@ html.hero-scrub .hero {
    ========================================================================== */
 .store { position: relative; margin-top: 3rem; padding: 3.5rem 0 1rem; }
 .store-3d {
-  position: absolute; left: -9%; top: -6%; width: 118%; height: 112%;
+  position: absolute; left: -16%; top: -22%; width: 132%; height: 144%;
   z-index: 3; pointer-events: none; display: block;
 }
 .store-card {
@@ -935,6 +940,7 @@ html.hero-scrub .hero {
 @keyframes storeRow { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
 
 @media (max-width: 900px) {
+  .store { padding: 4rem 0 4.5rem; }
   .store-card { grid-template-columns: 1fr; padding-bottom: 5.5rem; border-radius: 28px; }
   .store-hero { margin: 0; padding: 2rem 1.5rem 2.5rem; border-radius: 28px 28px 50% 50% / 28px 28px 18% 18%; }
   .store-list { padding: 1.75rem 1.25rem 0; }

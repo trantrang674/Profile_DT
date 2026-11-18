@@ -197,7 +197,8 @@ async function initShowcase() {
 function initStore() {
   const store = document.querySelector('[data-store]');
   const canvas = store && store.querySelector('.store-3d');
-  if (!canvas) return;
+  const card = store && store.querySelector('.store-card');
+  if (!canvas || !card) return;
   const renderer = makeRenderer(canvas);
   if (!renderer) return;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -208,90 +209,181 @@ function initStore() {
   scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
 
   const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
-  camera.position.set(0, 0, 14);
-
-  const key = new THREE.DirectionalLight(0xffffff, 1.6);
+  camera.position.set(0, 0, 18);
+  const key = new THREE.DirectionalLight(0xffffff, 1.4);
   key.position.set(4, 6, 8);
   scene.add(key);
 
-  // Bảng màu cobalt của trang
-  const palette = [0x1631c9, 0x5574f7, 0x93b4ff, 0xffffff, 0x2b4eff, 0xc7d2fe];
-  const glossy = (color, opts = {}) => new THREE.MeshPhysicalMaterial({
-    color, roughness: 0.18, metalness: 0.05, clearcoat: 1, clearcoatRoughness: 0.08, ...opts,
-  });
+  /* ---------- Vật liệu ---------- */
+  const glossy = (color, o = {}) => new THREE.MeshPhysicalMaterial({ color, roughness: 0.25, metalness: 0, clearcoat: 0.8, clearcoatRoughness: 0.15, ...o });
+  const M = {
+    cobalt: glossy(0x2b4eff), royal: glossy(0x1631c9), peri: glossy(0x5574f7), ice: glossy(0xc7d2fe),
+    white: glossy(0xf7f9ff), red: glossy(0xff4d6d), yellow: glossy(0xffc83d, { roughness: 0.4 }),
+    wood: glossy(0xe8c39e, { roughness: 0.7, clearcoat: 0 }), graphite: glossy(0x2a2f3a, { roughness: 0.5 }),
+    pink: glossy(0xff9bb3, { roughness: 0.6, clearcoat: 0.2 }),
+    metal: new THREE.MeshStandardMaterial({ color: 0xd9dee8, metalness: 1, roughness: 0.25 }),
+    glass: new THREE.MeshPhysicalMaterial({ color: 0xffffff, transmission: 1, thickness: 0.4, roughness: 0.05, ior: 1.4, transparent: true, opacity: 0.6 }),
+    green: glossy(0x22c55e),
+  };
+  const mesh = (geo, mat, x = 0, y = 0, z = 0) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); return m; };
 
-  // Mỗi vật thể: hình, vị trí (theo tỉ lệ khung: -1..1), kích thước, độ sâu
+  /* ---------- Đồ vật gắn với nghề content (mỗi món cao khoảng 2 đơn vị) ---------- */
+  function pencil() {
+    const g = new THREE.Group();
+    g.add(mesh(new THREE.CylinderGeometry(0.28, 0.28, 2.2, 6), M.yellow));
+    g.add(mesh(new THREE.ConeGeometry(0.28, 0.6, 6), M.wood, 0, -1.4));
+    g.add(mesh(new THREE.ConeGeometry(0.09, 0.2, 12), M.graphite, 0, -1.62));
+    g.add(mesh(new THREE.CylinderGeometry(0.3, 0.3, 0.3, 24), M.metal, 0, 1.25));
+    g.add(mesh(new THREE.CapsuleGeometry(0.27, 0.15, 8, 24), M.pink, 0, 1.55));
+    g.rotation.z = -0.7;
+    return g;
+  }
+  function megaphone() {
+    const g = new THREE.Group();
+    const horn = mesh(new THREE.CylinderGeometry(0.95, 0.32, 1.7, 40, 1, true), M.cobalt);
+    horn.material = M.cobalt.clone(); horn.material.side = THREE.DoubleSide;
+    horn.rotation.z = Math.PI / 2; g.add(horn);
+    const rim = mesh(new THREE.TorusGeometry(0.95, 0.08, 16, 48), M.white, -0.85, 0); rim.rotation.y = Math.PI / 2; g.add(rim);
+    g.add(mesh(new THREE.CylinderGeometry(0.34, 0.34, 0.5, 32), M.white, 1.05, 0).rotateZ(Math.PI / 2));
+    g.add(mesh(new RoundedBoxGeometry(0.32, 0.9, 0.32, 4, 0.12), M.royal, 0.55, -0.7));
+    g.rotation.set(0.2, 0.5, 0.25);
+    return g;
+  }
+  function magnifier() {
+    const g = new THREE.Group();
+    g.add(mesh(new THREE.TorusGeometry(0.75, 0.13, 20, 64), M.royal));
+    g.add(mesh(new THREE.CylinderGeometry(0.72, 0.72, 0.06, 48), M.glass).rotateX(Math.PI / 2));
+    const handle = mesh(new THREE.CapsuleGeometry(0.17, 1.0, 8, 24), M.graphite, 0.9, -0.9); handle.rotation.z = Math.PI / 4; g.add(handle);
+    g.rotation.set(0.25, -0.4, 0);
+    return g;
+  }
+  function chatBubble() {
+    const g = new THREE.Group();
+    g.add(mesh(new RoundedBoxGeometry(2.1, 1.35, 0.5, 6, 0.4), M.white));
+    const tail = mesh(new THREE.ConeGeometry(0.28, 0.6, 24), M.white, -0.55, -0.8); tail.rotation.z = -0.5; g.add(tail);
+    [-0.55, 0, 0.55].forEach((x) => g.add(mesh(new THREE.SphereGeometry(0.16, 24, 24), M.cobalt, x, 0, 0.27)));
+    g.rotation.set(0.15, 0.35, 0.05);
+    return g;
+  }
+  function heart() {
+    const s = new THREE.Shape();
+    s.moveTo(0, -0.9);
+    s.bezierCurveTo(-0.1, -0.75, -1.1, -0.15, -1.0, 0.35);
+    s.bezierCurveTo(-0.92, 0.8, -0.35, 1.0, 0, 0.55);
+    s.bezierCurveTo(0.35, 1.0, 0.92, 0.8, 1.0, 0.35);
+    s.bezierCurveTo(1.1, -0.15, 0.1, -0.75, 0, -0.9);
+    const geo = new THREE.ExtrudeGeometry(s, { depth: 0.35, bevelEnabled: true, bevelThickness: 0.18, bevelSize: 0.14, bevelSegments: 8, curveSegments: 32 });
+    geo.center();
+    const g = new THREE.Group(); g.add(new THREE.Mesh(geo, M.red));
+    g.rotation.set(0.1, -0.35, -0.15);
+    return g;
+  }
+  function envelope() {
+    const g = new THREE.Group();
+    g.add(mesh(new RoundedBoxGeometry(2.0, 1.3, 0.22, 4, 0.08), M.ice));
+    const flap = new THREE.Shape(); flap.moveTo(-0.98, 0.63); flap.lineTo(0.98, 0.63); flap.lineTo(0, -0.1); flap.closePath();
+    const fg = new THREE.ExtrudeGeometry(flap, { depth: 0.05, bevelEnabled: false });
+    g.add(mesh(fg, M.peri, 0, 0, 0.11));
+    g.add(mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.06, 32), M.red, 0, 0.0, 0.17).rotateX(Math.PI / 2));
+    g.rotation.set(-0.2, -0.45, 0.15);
+    return g;
+  }
+  function barChart() {
+    const g = new THREE.Group();
+    g.add(mesh(new RoundedBoxGeometry(2.0, 0.18, 0.9, 4, 0.06), M.white, 0, -0.9));
+    [[-0.6, 0.7, M.ice], [0, 1.2, M.peri], [0.6, 1.75, M.cobalt]].forEach(([x, h, m]) => g.add(mesh(new RoundedBoxGeometry(0.42, h, 0.42, 4, 0.08), m, x, -0.8 + h / 2)));
+    const arrow = mesh(new THREE.ConeGeometry(0.2, 0.4, 24), M.green, 0.95, 1.15); arrow.rotation.z = -0.6; g.add(arrow);
+    g.rotation.set(0.2, -0.5, 0);
+    return g;
+  }
+  function videoCard() {
+    const g = new THREE.Group();
+    g.add(mesh(new RoundedBoxGeometry(2.1, 1.35, 0.25, 6, 0.18), M.royal));
+    const tri = new THREE.Shape(); tri.moveTo(-0.25, 0.32); tri.lineTo(0.35, 0); tri.lineTo(-0.25, -0.32); tri.closePath();
+    const tg = new THREE.ExtrudeGeometry(tri, { depth: 0.12, bevelEnabled: true, bevelSize: 0.04, bevelThickness: 0.04, bevelSegments: 4 });
+    g.add(mesh(tg, M.white, 0, 0, 0.12));
+    g.rotation.set(0.1, 0.45, -0.1);
+    return g;
+  }
+
+  /* ---------- Vị trí quanh khung thẻ (tọa độ -1..1 theo cạnh thẻ), tránh vùng chữ ---------- */
+  // at: khi hai bên khung còn rộng | tight: khi khung gần chạm mép màn hình (chỉ dùng viền trên/dưới)
   const specs = [
-    { geo: new THREE.SphereGeometry(1, 48, 48), at: [-0.98, 0.78], s: 0.85, z: 1.5, c: 1 },
-    { geo: new THREE.TorusGeometry(0.85, 0.32, 32, 72), at: [-0.55, -0.62], s: 0.9, z: 2.2, c: 0 },
-    { geo: new RoundedBoxGeometry(1.4, 1.4, 1.4, 6, 0.32), at: [-1.02, -0.2], s: 0.75, z: 0.6, c: 2 },
-    { geo: new THREE.CapsuleGeometry(0.45, 1.1, 12, 32), at: [0.98, 0.72], s: 0.8, z: 1.2, c: 4 },
-    { geo: new THREE.SphereGeometry(1, 48, 48), at: [1.03, -0.55], s: 0.55, z: 2.6, c: 3 },
-    { geo: new THREE.TorusKnotGeometry(0.55, 0.2, 128, 24), at: [-0.22, 0.95], s: 0.75, z: 1.8, c: 5 },
-    { geo: new THREE.ConeGeometry(0.7, 1.3, 48), at: [0.55, -1.02], s: 0.6, z: 1.4, c: 1 },
+    { make: pencil, at: [-1.04, 0.92], tight: [-0.78, 1.12], s: 0.95, z: 1.2 },
+    { make: chatBubble, at: [-0.15, 1.12], tight: [-0.35, 1.13], s: 0.75, z: 0.8 },
+    { make: magnifier, at: [0.98, 0.98], tight: [0.8, 1.1], s: 0.9, z: 1.6 },
+    { make: barChart, at: [1.1, 0.02], tight: [0.56, -1.15], s: 0.85, z: 1.0 },
+    { make: envelope, at: [0.86, -1.12], tight: [0.82, -1.12], s: 0.75, z: 1.4 },
+    { make: videoCard, at: [0.55, 1.12], tight: [0.3, 1.13], s: 0.65, z: 0.4 },
+    { make: heart, at: [-1.1, -0.38], tight: [-0.84, -1.12], s: 0.75, z: 1.8 },
+    { make: megaphone, at: [-0.72, -1.12], tight: [-0.58, -1.14], s: 0.85, z: 1.0 },
   ];
   const objects = specs.map((sp, i) => {
-    const mesh = new THREE.Mesh(sp.geo, glossy(palette[sp.c]));
-    mesh.userData = { ...sp, phase: i * 1.37, spin: new THREE.Vector3(0.25 + (i % 3) * 0.12, 0.35 + (i % 2) * 0.2, 0.1), kick: 0 };
-    mesh.rotation.set(i, i * 0.7, 0);
-    scene.add(mesh);
-    return mesh;
+    const obj = sp.make();
+    obj.userData = { ...sp, phase: i * 1.37, base: obj.rotation.clone(), kick: 0, spin: 0 };
+    scene.add(obj);
+    return obj;
   });
 
-  // Kích thước "khung" trong không gian 3D để đặt vật thể quanh viền khung thật
-  let halfW = 6; let halfH = 3.6; let unit = 1;
+  // Quy đổi vị trí thẻ thật (px) sang tọa độ 3D trên canvas
+  let cx = 0; let cy = 0; let halfW = 6; let halfH = 3.6; let unit = 1;
+  // Tọa độ -1..1 nằm trên khung; phần vượt quá viền (|v| > 1) đo theo cỡ món đồ, không theo cỡ khung
+  const edge = (v, half) => (Math.abs(v) <= 1 ? v * half : Math.sign(v) * (half + (Math.abs(v) - 1) * 3.5 * unit));
   const resize = () => {
-    const w = store.clientWidth; const h = store.clientHeight;
-    const cw = canvas.clientWidth; const ch = canvas.clientHeight;
-    renderer.setSize(cw, ch, false);
-    camera.aspect = cw / ch;
+    const cr = canvas.getBoundingClientRect();
+    const kr = card.getBoundingClientRect();
+    renderer.setSize(cr.width, cr.height, false);
+    camera.aspect = cr.width / cr.height;
     camera.updateProjectionMatrix();
     const visH = 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.position.z;
-    const visW = visH * camera.aspect;
-    halfW = (w / cw) * visW / 2;
-    halfH = (h / ch) * visH / 2;
-    // Kích thước vật thể tỉ lệ với chiều cao khung để không bị quá to
-    unit = halfW * 0.17 * (isSmall() ? 0.8 : 1);
-    objects.forEach((m) => {
-      m.scale.setScalar(m.userData.s * unit);
-      // đặt thẳng vào vị trí (khung tĩnh cho reduced-motion và khung đầu tiên)
-      m.position.set(m.userData.at[0] * halfW, m.userData.at[1] * halfH, m.userData.z);
+    const k = visH / cr.height; // đơn vị 3D trên mỗi pixel
+    cx = ((kr.left + kr.width / 2) - (cr.left + cr.width / 2)) * k;
+    cy = -((kr.top + kr.height / 2) - (cr.top + cr.height / 2)) * k;
+    halfW = (kr.width / 2) * k;
+    halfH = (kr.height / 2) * k;
+    // Món đồ cao khoảng 150px trên desktop, nhỏ hơn trên điện thoại
+    unit = (isSmall() ? 70 : Math.min(150, kr.width * 0.1)) * k / 2;
+    // Hai bên khung không đủ chỗ cho một món đồ thì chuyển sang cách xếp "tight"
+    const sideRoom = Math.min(kr.left, window.innerWidth - kr.right);
+    const tight = sideRoom < 150;
+    objects.forEach((o) => {
+      const t = o.userData.tight;
+      // điện thoại: khung hẹp nên kéo các món vào giữa thêm
+      o.userData.pos = tight ? [t[0] * (isSmall() ? 0.82 : 1), t[1]] : o.userData.at;
+      o.scale.setScalar(o.userData.s * unit);
+      o.position.set(cx + edge(o.userData.pos[0], halfW), cy + edge(o.userData.pos[1], halfH), o.userData.z);
     });
   };
   resize();
   new ResizeObserver(resize).observe(store);
+  window.addEventListener('resize', resize);
 
   const mouse = { x: 0, y: 0 };
   window.addEventListener('pointermove', (e) => {
-    const r = store.getBoundingClientRect();
+    const r = card.getBoundingClientRect();
     mouse.x = THREE.MathUtils.clamp(((e.clientX - r.left) / r.width - 0.5) * 2, -1.5, 1.5);
     mouse.y = THREE.MathUtils.clamp(((e.clientY - r.top) / r.height - 0.5) * 2, -1.5, 1.5);
   }, { passive: true });
 
-  // Đổi nhóm công cụ: vật thể nảy + đổi màu xoay vòng
-  let shift = 0;
-  store.addEventListener('store:change', (e) => {
-    shift = e.detail.index;
-    objects.forEach((m, i) => {
-      m.userData.kick = 1;
-      m.material.color.setHex(palette[(m.userData.c + shift) % palette.length]);
-    });
+  // Đổi nhóm công cụ: các món đồ xoay một vòng và nảy nhẹ
+  store.addEventListener('store:change', () => {
+    objects.forEach((o, i) => { o.userData.kick = 1; o.userData.spinFrom = o.userData.spin; o.userData.delay = i * 0.04; });
   });
 
   loopWhenVisible(store, (dt, t) => {
-    objects.forEach((m) => {
-      const u = m.userData;
-      const bob = Math.sin(t * 0.9 + u.phase) * 0.18;
-      const tx = u.at[0] * halfW + mouse.x * 0.25 * u.z;
-      const ty = u.at[1] * halfH + bob - mouse.y * 0.18 * u.z;
-      m.position.x += (tx - m.position.x) * 0.08;
-      m.position.y += (ty - m.position.y) * 0.08;
-      m.position.z = u.z;
-      u.kick *= 0.92;
-      m.rotation.x += dt * u.spin.x * (1 + u.kick * 10);
-      m.rotation.y += dt * u.spin.y * (1 + u.kick * 10);
-      const s = u.s * unit * (1 + Math.sin(u.kick * Math.PI) * 0.25);
-      m.scale.setScalar(s);
+    objects.forEach((o) => {
+      const u = o.userData;
+      const bob = Math.sin(t * 0.9 + u.phase) * 0.12 * unit * 2;
+      const tx = cx + edge(u.pos[0], halfW) + mouse.x * 0.12 * u.z * unit * 2;
+      const ty = cy + edge(u.pos[1], halfH) + bob - mouse.y * 0.1 * u.z * unit * 2;
+      o.position.x += (tx - o.position.x) * 0.08;
+      o.position.y += (ty - o.position.y) * 0.08;
+      // lắc lư nhẹ quanh góc nghiêng gốc + quay một vòng khi đổi nhóm
+      if (u.kick > 0.001) { u.spin += dt * 9 * u.kick; u.kick *= 0.93; }
+      o.rotation.x = u.base.x + Math.sin(t * 0.7 + u.phase) * 0.12 + mouse.y * 0.15;
+      o.rotation.y = u.base.y + Math.sin(t * 0.5 + u.phase) * 0.2 + mouse.x * 0.2 + u.spin;
+      o.rotation.z = u.base.z + Math.cos(t * 0.6 + u.phase) * 0.06;
+      o.scale.setScalar(u.s * unit * (1 + Math.sin(Math.min(u.kick, 1) * Math.PI) * 0.18));
     });
     renderer.render(scene, camera);
   });
