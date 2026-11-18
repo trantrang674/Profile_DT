@@ -27,23 +27,31 @@
 <body>
   <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
 
-  <header class="site-header">
-    <div class="wrap header-row">
-      <a href="#home" class="wordmark" aria-label="Dương Trang, về đầu trang">Dương Trang</a>
+  <!-- Header giữ theo bản gốc: logo chấm sáng, menu pill kính mờ, nút Tải CV phát sáng -->
+  <header class="site-header lp-header">
+    <div class="wrap lp-nav-row">
+      <a href="#home" class="logo" aria-label="Contentfolio của Dương Trang, về đầu trang">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span>CONTENT<span class="logo-accent">FOLIO</span></span>
+      </a>
 
       <nav aria-label="Điều hướng chính">
         <ul class="nav-menu" id="nav-menu">
-          <li><a href="#about" class="nav-link">Năng lực</a></li>
-          <li><a href="#experience" class="nav-link">Kinh nghiệm</a></li>
-          <li><a href="#projects" class="nav-link">Dự án</a></li>
-          <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+          <li><a href="#home" class="nav-link active">Trang Chủ</a></li>
+          <li><a href="#about" class="nav-link">About Me</a></li>
+          <li><a href="#experience" class="nav-link">Kinh Nghiệm</a></li>
+          <li><a href="#projects" class="nav-link">Dự Án</a></li>
+          <li><a href="#contact" class="nav-link">Liên Hệ</a></li>
         </ul>
       </nav>
 
-      <div class="header-actions">
-        <a href="assets/cv/CV-Content-Marketing.pdf" download class="btn btn-accent btn-sm">Tải CV</a>
-        <button class="mobile-toggle" aria-label="Mở menu" aria-controls="nav-menu" aria-expanded="false">
-          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <div class="nav-cta">
+        <a href="assets/cv/CV-Content-Marketing.pdf" download class="btn-pill-glow">
+          <span>Tải CV</span>
+          <span class="btn-circle-icon" aria-hidden="true">↓</span>
+        </a>
+        <button class="mobile-toggle" aria-label="Mở menu điều hướng" aria-controls="nav-menu" aria-expanded="false">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
         </button>
       </div>
     </div>
@@ -51,7 +59,19 @@
 
   <main id="main">
     <!-- ========== HERO ========== -->
-    <section id="home" class="hero">
+    <section id="home" class="hero on-dark">
+      <!-- Nền cobalt + cột sọc kính dọc (giữ theo bản gốc) -->
+      <div class="hero-bg" aria-hidden="true">
+        <span class="hero-fluted"></span>
+        <span class="hero-orb hero-orb--a"></span>
+        <span class="hero-orb hero-orb--b"></span>
+        <!-- Số cảnh lớn ở nền, đổi theo từng cảnh khi cuộn -->
+        <div class="hero-scene-mark">
+          <span class="hero-scene-num">01</span>
+          <span class="hero-scene-name">Bản nháp</span>
+        </div>
+      </div>
+
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="hero-status"><span class="status-dot" aria-hidden="true"></span>Đang tìm vị trí Content Marketing mới</p>
@@ -66,19 +86,46 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">Xem dự án</a>
-            <a href="assets/cv/Portfolio-Content-Marketing.pdf" download class="btn btn-ghost">Tải portfolio (PDF)</a>
+            <a href="#projects" class="btn btn-light">Xem dự án</a>
+            <a href="assets/cv/Portfolio-Content-Marketing.pdf" download class="btn btn-outline-light">Tải portfolio (PDF)</a>
           </div>
         </div>
 
-        <aside class="hero-facts" aria-label="Thông tin nhanh">
-          <dl>
-            <div><dt>Vị trí mong muốn</dt><dd>Content Marketing Executive, hướng tới Content Lead</dd></div>
-            <div><dt>Kinh nghiệm</dt><dd>2+ năm, gần nhất tại thương hiệu thời trang VM Style</dd></div>
-            <div><dt>Thế mạnh</dt><dd>Social Media, Content Plan, SEO Inbound, ứng dụng AI vào quy trình</dd></div>
-            <div><dt>Hình thức</dt><dd>Full-time hoặc Freelance, TP. Hồ Chí Minh</dd></div>
-          </dl>
-        </aside>
+        <!-- Bảng bên phải: đổi nội dung theo từng cảnh khi cuộn. Không có hiệu ứng cuộn thì chỉ hiện "Thông tin nhanh" -->
+        <div class="hero-deck">
+          <article class="deck-panel deck-note" data-panel="note" aria-hidden="true">
+            <p class="deck-label">Ghi chú biên tập</p>
+            <p class="deck-quote">“Đọc” chưa nói lên mục tiêu. Đọc xong, khách hàng sẽ làm gì?</p>
+            <p class="deck-sub">Gợi ý: đổi động từ thành hành động tạo ra doanh số.</p>
+            <p class="deck-resolved"><span class="resolved-dot"></span>Đã sửa: “đọc” thành “mua”</p>
+          </article>
+
+          <article class="deck-panel" data-panel="insight">
+            <p class="deck-label">Insight từ case EcoTea</p>
+            <blockquote class="deck-quote">Dân văn phòng trẻ kiệt sức vì deadline, trà sữa nhiều đường và stress. Họ muốn được chữa lành nhưng không có nhiều thời gian.</blockquote>
+            <p class="deck-sub">Big idea: “Uống Lành, Sống Nhẹ”, khoảng nghỉ 5 phút giữa ngày bận rộn.</p>
+          </article>
+
+          <article class="deck-panel" data-panel="channels">
+            <p class="deck-label">Kênh đã triển khai</p>
+            <ul class="deck-rows">
+              <li><span>Facebook và Instagram</span><strong>360+ bài viết, Reels</strong></li>
+              <li><span>TikTok và Threads</span><strong>1.45M+ lượt tiếp cận</strong></li>
+              <li><span>Website và SEO</span><strong>128.000+ traffic/tháng</strong></li>
+              <li><span>Email marketing</span><strong>41,5% tỷ lệ mở</strong></li>
+            </ul>
+          </article>
+
+          <aside class="deck-panel hero-facts" data-panel="facts" aria-label="Thông tin nhanh">
+            <p class="deck-label">Thông tin nhanh</p>
+            <dl>
+              <div><dt>Vị trí mong muốn</dt><dd>Content Marketing Executive, hướng tới Content Lead</dd></div>
+              <div><dt>Kinh nghiệm</dt><dd>2+ năm, gần nhất tại thương hiệu thời trang VM Style</dd></div>
+              <div><dt>Thế mạnh</dt><dd>Social Media, Content Plan, SEO Inbound, ứng dụng AI</dd></div>
+              <div><dt>Hình thức</dt><dd>Full-time hoặc Freelance, TP. Hồ Chí Minh</dd></div>
+            </dl>
+          </aside>
+        </div>
       </div>
 
       <div class="wrap">
@@ -89,13 +136,16 @@
         </ul>
       </div>
 
-      <!-- Chỉ báo 4 bước của câu chuyện cuộn đầu trang (chỉ hiện khi hiệu ứng cuộn chạy) -->
+      <!-- Chỉ báo 6 cảnh của câu chuyện cuộn đầu trang (chỉ hiện khi hiệu ứng cuộn chạy) -->
       <ol class="hero-scenes" aria-hidden="true">
         <li class="is-active">Bản nháp</li>
         <li>Biên tập</li>
+        <li>Insight</li>
+        <li>Kênh</li>
         <li>Kết quả</li>
         <li>Hồ sơ</li>
       </ol>
+      <div class="hero-progress" aria-hidden="true"><span></span></div>
     </section>
 
     <!-- ========== NĂNG LỰC ========== -->
@@ -192,7 +242,7 @@
     </section>
 
     <!-- ========== QUY TRÌNH ========== -->
-    <section id="process" class="section section-mist">
+    <section id="process" class="section section-royal on-dark">
       <div class="wrap">
         <h2 class="h2 section-title">Một chiến dịch nội dung đi qua ba bước</h2>
         <ol class="steps">
@@ -227,7 +277,7 @@
     </section>
 
     <!-- ========== DỰ ÁN ========== -->
-    <section id="projects" class="section section-mist">
+    <section id="projects" class="section section-midnight on-dark">
       <div class="wrap">
         <div class="section-intro">
           <h2 class="h2">Dự án và case study</h2>
@@ -246,7 +296,7 @@
     </section>
 
     <!-- ========== LIÊN HỆ ========== -->
-    <section id="contact" class="section contact">
+    <section id="contact" class="section contact section-navy on-dark">
       <div class="wrap contact-grid">
         <div class="contact-info">
           <h2 class="h2">Bạn đang tuyển người làm nội dung?</h2>
@@ -259,8 +309,8 @@
           </dl>
 
           <div class="contact-downloads">
-            <a href="assets/cv/CV-Content-Marketing.pdf" download class="btn btn-primary">Tải CV</a>
-            <a href="assets/cv/Portfolio-Content-Marketing.pdf" download class="btn btn-ghost">Tải portfolio</a>
+            <a href="assets/cv/CV-Content-Marketing.pdf" download class="btn btn-light">Tải CV</a>
+            <a href="assets/cv/Portfolio-Content-Marketing.pdf" download class="btn btn-outline-light">Tải portfolio</a>
           </div>
         </div>
 
@@ -302,16 +352,35 @@
     </div>
   </div>
 
-  <footer class="site-footer">
-    <div class="wrap footer-row">
-      <p class="footer-name">Dương Trang, Content Marketing Specialist</p>
-      <ul class="footer-links">
-        <li><a href="mailto:trantrang674@gmail.com">Email</a></li>
-        <li><a href="https://www.facebook.com/trangduong16082002" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="assets/cv/CV-Content-Marketing.pdf" download>CV</a></li>
-      </ul>
-      <p class="footer-copy">© <span id="year">2026</span> Dương Trang</p>
+  <!-- Footer giữ theo bản gốc: chữ chìm khổng lồ + nút pill điều hướng -->
+  <footer class="site-footer scalix-footer">
+    <div class="scalix-watermark" aria-hidden="true">CONTENTFOLIO</div>
+
+    <div class="wrap">
+      <div class="scalix-footer-bar">
+        <nav class="scalix-footer-pills" aria-label="Điều hướng chân trang">
+          <a href="#about">ABOUT</a>
+          <a href="#process">PROCESS</a>
+          <a href="#experience">EXPERIENCE</a>
+          <a href="#projects">CASES</a>
+          <a href="#contact">CONTACT</a>
+        </nav>
+
+        <div class="scalix-footer-center">
+          <p>Dương Trang, TP. Hồ Chí Minh, Việt Nam</p>
+          <a href="mailto:trantrang674@gmail.com">trantrang674@gmail.com</a>
+          <a href="tel:0706055657">+84 70 605 5657</a>
+        </div>
+
+        <div class="scalix-footer-socials">
+          <a href="https://www.facebook.com/trangduong16082002" target="_blank" rel="noopener">Facebook</a>
+          <a href="blog.html">Blog</a>
+          <a href="assets/cv/CV-Content-Marketing.pdf" download>CV PDF</a>
+          <a href="assets/cv/Portfolio-Content-Marketing.pdf" download>Portfolio</a>
+        </div>
+      </div>
+
+      <p class="lp-copy">© <span id="year">2026</span> Dương Trang. Content Marketing Specialist Portfolio.</p>
     </div>
   </footer>
 
