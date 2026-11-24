@@ -86,6 +86,40 @@
   color: rgba(226, 235, 255, 0.86);
 }
 
+.airlume-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.airlume-bullet-list li {
+  position: relative;
+  padding-left: 1.45rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(226, 235, 255, 0.92);
+}
+
+.airlume-bullet-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #93b4ff;
+  box-shadow: 0 0 8px rgba(147, 180, 255, 0.7);
+}
+
+.airlume-bullet-list li strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
 .airlume-meta-list {
   display: flex;
   flex-direction: column;
