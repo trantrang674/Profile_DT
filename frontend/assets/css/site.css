@@ -878,7 +878,7 @@ html.hero-scrub .hero {
 
 .showcase-portrait {
   position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-  z-index: 2; height: min(84vh, 820px); width: auto; max-width: 70vw; object-fit: contain; object-position: bottom;
+  z-index: 2; height: min(72vh, 670px); width: auto; max-width: 65vw; object-fit: contain; object-position: bottom;
   filter: drop-shadow(0 30px 60px rgba(4, 8, 28, 0.6));
   pointer-events: none; user-select: none;
 }
@@ -902,7 +902,7 @@ html.hero-scrub .hero {
 .showcase-cta-icon { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: #070d2d; color: #ffffff; }
 .showcase-quote {
   margin: 0;
-  max-width: 23rem;
+  max-width: 20.5rem;
   text-align: right;
   display: flex;
   flex-direction: column;
@@ -911,7 +911,7 @@ html.hero-scrub .hero {
 .showcase-quote blockquote {
   margin: 0;
   font-family: var(--font);
-  font-size: 1.025rem;
+  font-size: 0.98rem;
   line-height: 1.6;
   font-weight: 500;
   color: rgba(226, 235, 255, 0.9);
