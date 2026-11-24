@@ -151,6 +151,7 @@
     var resolved = q('.deck-resolved');
     var channelRows = qa('[data-panel="channels"] li');
     var factRows = qa('[data-panel="facts"] dl > div');
+    var scopeRows = qa('[data-panel="insight"] .scope-rows li');
     var orbA = q('.hero-orb--a');
     var orbB = q('.hero-orb--b');
     var fluted = q('.hero-fluted');
@@ -186,12 +187,13 @@
 
     var FOCUS_DIM = 0.32;
 
-    // Trạng thái đầu: tiêu đề nổi bật, bảng Insight hiển thị ban đầu
+    // Trạng thái đầu: tiêu đề nổi bật; bảng Phạm vi mờ trước, các mục sẵn sàng chạy vào
     gsap.set(del, { color: '#ffffff' });
     gsap.set(strike, { scaleX: 0, rotate: -4, transformOrigin: 'left center' });
     gsap.set(ins, { autoAlpha: 0, scale: 1.8, filter: 'blur(10px)', transformOrigin: 'left 70%' });
-    gsap.set(deck, { opacity: 0.9, scale: 1, transformOrigin: 'right center' });
-    if (pInsight) gsap.set(pInsight, { autoAlpha: 1, x: 0, rotateY: 0, filter: 'blur(0px)' });
+    gsap.set(deck, { opacity: 0.7, scale: 0.96, transformOrigin: 'right center' });
+    if (pInsight) gsap.set(pInsight, { autoAlpha: 0.45, x: 50, rotateY: -8, filter: 'blur(6px)' });
+    gsap.set(scopeRows, { autoAlpha: 0, x: 40 });
     gsap.set([pChannels, pFacts], { autoAlpha: 0, x: 90, rotateY: -14, filter: 'blur(8px)' });
     gsap.set(channelRows, { autoAlpha: 0, x: 40 });
     gsap.set(factRows, { autoAlpha: 0, x: 40 });
@@ -236,15 +238,17 @@
 
     // Mỗi cảnh chiếm 20 đơn vị (6 cảnh = 120). Nhãn là điểm dừng khi snap.
     tl.addLabel('s1', 0)
-    // 2. Biên tập: tiêu đề phóng lên, gạch "đọc", "mua" bật ra
+    // 2. Biên tập & Phạm vi: tiêu đề gạch "đọc", "mua" bật ra; Bảng Phạm vi công việc hiện rõ, các mục trượt vào
       .to(title, { scale: 1.06, transformOrigin: 'left center', duration: 6 }, 20)
       .to(del, { color: 'rgba(255,255,255,0.45)', duration: 5 }, 21)
       .to(strike, { scaleX: 1, duration: 7, ease: 'power2.inOut' }, 22)
       .to(ins, { autoAlpha: 1, scale: 1, filter: 'blur(0px)', duration: 7, ease: 'back.out(2)' }, 28)
-      .to(deck, { opacity: 0.95, duration: 5 }, 30)
+      .to(deck, { opacity: 0.95, scale: 1, duration: 5 }, 20)
+      .to(pInsight, { autoAlpha: 1, x: 0, rotateY: 0, filter: 'blur(0px)', duration: 7 }, 20)
+      .to(scopeRows, { autoAlpha: 1, x: 0, stagger: 1.4, duration: 5, ease: 'power2.out' }, 22)
       .to(orbA, { x: 260, y: 60, scale: 1.25, duration: 14, ease: 'sine.inOut' }, 20)
       .addLabel('s2', 36)
-    // 3. Insight: tiêu đề lùi lại, bảng Insight sáng lên
+    // 3. Phạm vi công việc: tiêu đề lùi lại, bảng Phạm vi sáng lên và nổi bật
       .to(title, { scale: 1, duration: 6 }, 40)
       .to(copy, { opacity: FOCUS_DIM, x: -24, duration: 6 }, 40)
       .to(deck, { opacity: 1, scale: 1.06, duration: 7 }, 40)
