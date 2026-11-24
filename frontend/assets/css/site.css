@@ -226,14 +226,15 @@ html.hero-scrub .hero-scenes { display: none !important; }
 .hero-results span { color: var(--ink-2); font-size: .95rem; max-width: 26ch; }
 
 /* ---------- Sections ---------- */
-.section { padding: clamp(4rem, 9vw, 7rem) 0; }
+.section { padding: clamp(2.5rem, 5vw, 4.25rem) 0; }
 .section-mist { background: var(--mist); }
-.section-title { margin-bottom: clamp(2rem, 4vw, 3rem); }
-.section-intro { margin-bottom: clamp(2rem, 4vw, 3rem); }
+.section-title { margin-bottom: clamp(1.5rem, 3vw, 2.25rem); }
+.section-intro { margin-bottom: clamp(1.5rem, 3vw, 2.25rem); }
 .section-intro .lead { margin-top: 1rem; }
 
-/* About */
-.about-title-row { margin-bottom: clamp(2rem, 4vw, 3rem); }
+/* About - thu hẹp khoảng cách với section trước */
+#about.section { padding-top: clamp(1.5rem, 3vw, 2.25rem); }
+.about-title-row { margin-bottom: clamp(1.25rem, 2.5vw, 1.85rem); }
 .about-title-row .section-title { margin-bottom: 0; }
 .split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
 .split-body { padding-top: .4rem; }
@@ -277,10 +278,15 @@ html.hero-scrub .hero-scenes { display: none !important; }
 .step-num { display: block; font-size: 2.75rem; font-weight: 800; line-height: 1; color: var(--blue); letter-spacing: -0.04em; margin-bottom: 1rem; }
 .step .h3 { margin-bottom: .6rem; }
 .step p { color: var(--ink-2); }
+#process.section { padding-bottom: clamp(1.75rem, 3.5vw, 2.5rem); }
 
 /* ---------- Experience (ghi đè experience.css cho đồng bộ) ---------- */
-.vm-exp-section { background: var(--paper); }
-.vm-exp-section .wrap > .section-intro { margin-bottom: clamp(2rem, 4vw, 3rem); }
+.vm-exp-section {
+  background: var(--paper);
+  padding-top: 0 !important;
+  padding-bottom: clamp(2.5rem, 5vw, 3.75rem) !important;
+}
+.vm-exp-section .wrap > .section-intro { margin-bottom: clamp(1.5rem, 3vw, 2.25rem); }
 
 /* ========== DẢI NGANG CHẠY ĐỘNG KINH NGHIỆM (DYNAMIC RUNNING TAPE) ========== */
 .exp-tape-container {
@@ -288,7 +294,7 @@ html.hero-scrub .hero-scenes { display: none !important; }
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding: 3.5rem 0 4.5rem;
+  padding: 1.25rem 0 2.5rem;
   overflow: hidden;
   user-select: none;
 }
@@ -381,7 +387,7 @@ html.hero-scrub .hero-scenes { display: none !important; }
 
 @media (max-width: 640px) {
   .exp-tape-container {
-    padding: 2.2rem 0 3rem;
+    padding: 0.85rem 0 1.85rem;
   }
   .exp-tape-secondary {
     height: 42px;
