@@ -611,6 +611,22 @@ html.hero-scrub .hero-scenes { display: none !important; }
 .deck-rows li:last-child { border-bottom: 0; }
 .deck-rows span { color: var(--ink-2); }
 .deck-rows strong { text-align: right; }
+.scope-rows { list-style: none; margin: 0; padding: 0; }
+.scope-rows li {
+  display: flex; align-items: center; gap: .65rem;
+  padding: .48rem 0; border-bottom: 1px solid var(--line);
+  font-size: .95rem; font-weight: 600; color: #ffffff;
+}
+.scope-rows li:last-child { border-bottom: 0; }
+.scope-rows .scope-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #38bdf8; box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
+  flex-shrink: 0;
+}
+html.hero-scrub .scope-rows li {
+  padding: clamp(.32rem, .65vh, .52rem) 0;
+  font-size: clamp(.85rem, 1.8vh, .98rem);
+}
 .hero-facts dl { border-top: 0; }
 .hero-facts dl > div:last-child { border-bottom: 0; }
 

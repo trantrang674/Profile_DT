@@ -158,7 +158,7 @@
     var bigName = q('.hero-scene-name');
     var bar = q('.hero-progress span');
     var SCENES = scenes.length || 6;
-    var names = ['Insight', 'Biên tập', 'Chiến lược', 'Kênh', 'Kết quả', 'Thông tin nhanh'];
+    var names = ['Phạm vi', 'Biên tập', 'Chiến lược', 'Kênh', 'Kết quả', 'Thông tin nhanh'];
 
     function format(el, p) {
       var to = parseFloat(el.dataset.to);
