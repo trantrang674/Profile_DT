@@ -162,16 +162,16 @@ async function initShowcase() {
   // Danh sách 10 logo thương hiệu đồng hành (ảnh đã được cắt sát viền để phóng to rõ nét)
   if (document.fonts && document.fonts.ready) { try { await document.fonts.ready; } catch (e) { /* bỏ qua */ } }
   const brands = [
-    { src: 'assets/images/brands/tnc.png' },
-    { src: 'assets/images/brands/datbike.png' },
-    { src: 'assets/images/brands/vm-style.png' },
-    { src: 'assets/images/brands/mella.png' },
-    { src: 'assets/images/brands/lalie.png' },
-    { src: 'assets/images/brands/myun.png' },
-    { src: 'assets/images/brands/bylen.png' },
-    { src: 'assets/images/brands/baotin-express.png' },
-    { src: 'assets/images/brands/local-tea.png' },
-    { src: 'assets/images/brands/apollo.png' }
+    { src: 'assets/images/brands/tnc.webp' },
+    { src: 'assets/images/brands/datbike.webp' },
+    { src: 'assets/images/brands/vm-style.webp' },
+    { src: 'assets/images/brands/mella.webp' },
+    { src: 'assets/images/brands/lalie.webp' },
+    { src: 'assets/images/brands/myun.webp' },
+    { src: 'assets/images/brands/bylen.webp' },
+    { src: 'assets/images/brands/baotin-express.webp' },
+    { src: 'assets/images/brands/local-tea.webp' },
+    { src: 'assets/images/brands/apollo.webp' }
   ];
   const brandCanvases = await Promise.all(brands.map(brandLogoCard));
   const set = brandCanvases.filter(Boolean);

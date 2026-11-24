@@ -12,7 +12,7 @@
  *   title: 'Tiêu đề bài viết',
  *   tag: 'Facebook Post', // hoặc 'Instagram', 'Lookbook', 'Reels', 'BST'...
  *   date: 'Tháng 10/2024',
- *   src: 'assets/images/posts/bai-viet-1.jpg', // << INPUT ẢNH PHẦN TRÁI VÀO ĐÂY
+ *   src: 'assets/images/posts/bai-viet-1.webp', // << INPUT ẢNH PHẦN TRÁI VÀO ĐÂY
  *   alt: 'Mô tả ảnh bài post',
  *   caption: `Nội dung caption bài post của bạn... (Hỗ trợ xuống dòng tự nhiên, emoji, hashtag)`, // << INPUT CAPTION PHẦN PHẢI VÀO ĐÂY
  *   metrics: [ // Tùy chọn số liệu đo lường
@@ -119,7 +119,7 @@
   const VM_STYLE_DATA = {
     // --- PHẦN 1: THÔNG TIN CHUNG ---
     company: {
-      logoUrl: 'assets/images/logo-vmstyle.jpg',
+      logoUrl: 'assets/images/logo-vmstyle.webp',
       logoAlt: 'Logo thương hiệu thời trang VM Style',
       brandName: 'VM Style',
       industry: 'Thời trang nữ',
@@ -131,10 +131,9 @@
 
     // --- PHẦN 2: NỘI DUNG TỔNG QUAN (3 CỘT) ---
     overview: {
-      // Cột 1: Phụ trách
+      // Cột 1: Phạm vi công việc
       responsibilities: {
-        title: 'Phụ trách',
-        subtitle: 'Vai trò & phạm vi công việc',
+        title: 'Phạm vi công việc',
         items: [
           'Quản trị & sáng tạo nội dung trên hệ thống Social Media chính (Facebook & Instagram).',
           'Xây dựng Content Plan định kỳ hằng tháng và kế hoạch truyền thông tổng thể cho các đợt ra mắt BST mới.',
@@ -142,20 +141,18 @@
           'Theo dõi chỉ số và lập báo cáo đo lường định kỳ.'
         ]
       },
-      // Cột 2: Đã làm như thế nào
+      // Cột 2: Cách triển khai
       execution: {
-        title: 'Đã làm như thế nào',
-        subtitle: 'Cách triển khai & quy trình',
+        title: 'Cách triển khai',
         items: [
           'Duy trì bài đăng hàng ngày để giữ chân người theo dõi, củng cố hình ảnh thương hiệu.',
           'Xây dựng nội dung đa dạng phù hợp ngành như: chia sẻ tips, feedback, mix & match, collection,...',
           'Nghiên cứu xu hướng thời trang & tâm lý mua sắm của tệp khách hàng nữ trẻ theo thời điểm.'
         ]
       },
-      // Cột 3: Số lượng đã làm (Counter nổi bật)
+      // Cột 3: Số liệu (Counter nổi bật)
       deliverables: {
-        title: 'Số lượng đã làm',
-        subtitle: 'Kết quả & đầu việc cụ thể',
+        title: 'Số liệu',
         stats: [
           {
             value: 80,
@@ -200,7 +197,7 @@
                     title: '[𝐇𝐎̂𝐌 𝐍𝐀𝐘 𝐌𝐀̣̆𝐂 𝐆𝐈̀?] — Gợi Ý Mix & Match Diện Lễ',
                     tag: 'Mix & Match',
                     date: 'Bài đăng Facebook',
-                    src: 'assets/images/posts/Screenshot_1.png',
+                    src: 'assets/images/posts/Screenshot_1.webp',
                     alt: 'Hôm Nay Mặc Gì - Tuyến bài gợi ý Mix & Match thời trang VM Style',
                     caption: `[𝐇𝐎̂𝐌 𝐍𝐀𝐘 𝐌𝐀̣̆𝐂 𝐆𝐈̀?] 🧐🧐
 💫Gợi ý Mix & match cho các bestie thân yêu của VMStyle! Đa dạng từ kiểu dáng đến phong cách cho nàng lựa chọn diện mùa lễ sắp tới 
@@ -214,7 +211,7 @@ TikTok: https://www.tiktok.com/@vmstyle.vn`
                     title: '𝐆𝐥𝐚𝐦𝐨𝐮𝐫 𝐠𝐫𝐚𝐲 — Bộ Sưu Tập Tinh Tế & Thanh Lịch',
                     tag: 'Lookbook BST',
                     date: 'Bộ sưu tập',
-                    src: 'assets/images/posts/Screenshot_2.png',
+                    src: 'assets/images/posts/Screenshot_2.webp',
                     alt: 'Glamour Gray - BST thời trang nữ màu xám tinh tế VM Style',
                     caption: `𝐆𝐥𝐚𝐦𝐨𝐮𝐫 𝐠𝐫𝐚𝐲 💕👠
 Khám phá bộ sưu tập thời trang nữ đầy ấn tượng với những thiết kế màu xám tinh tế từ VM Style. 
@@ -228,7 +225,7 @@ TikTok: https://www.tiktok.com/@vmstyle.vn`
                     title: '𝐏𝐨𝐥𝐨 𝐃𝐫𝐞𝐬𝐬 | 𝐓𝐡𝐢𝐬 𝐨𝐫 𝐭𝐡𝐚𝐭? — Chiếc Đầm Đa Năng Cho Nàng',
                     tag: 'Sản Phẩm Mới',
                     date: 'Bài tương tác & chốt đơn',
-                    src: 'assets/images/posts/Screenshot_3.png',
+                    src: 'assets/images/posts/Screenshot_3.webp',
                     alt: 'Polo Dress This or that - Đầm polo cao cấp VM Style',
                     caption: `𝐏𝐨𝐥𝐨 𝐃𝐫𝐞𝐬𝐬 | 𝐓𝐡𝐢𝐬 𝐨𝐫 𝐭𝐡𝐚𝐭?✨💓
 Nàng thích xám thanh lịch hay đen tối giản? Chiếc đầm polo thiết kế cao cấp nhà VMStyle là lựa chọn nên có trong tủ đồ của mọi cô nàng. Từ dạo phố thoải mái, đến công sở thanh lịch đều "cân tất". Item "must-have" là đây chứ đâu!💋
@@ -242,7 +239,7 @@ TikTok: https://www.tiktok.com/@vmstyle.vn`
                     title: 'Jeans Item — Thời Trang Mix & Match Sành Điệu Đón Lễ Tết',
                     tag: 'Mix & Match',
                     date: 'Mùa Lễ Tết',
-                    src: 'assets/images/posts/Screenshot_4.png',
+                    src: 'assets/images/posts/Screenshot_4.webp',
                     alt: 'Jeans Item - Thời trang phối đồ jeans dạo phố VM Style',
                     caption: `✨Lễ Tết đến khó suy nghĩ được mua gì đúng không? Item quần jeans chưa bao giờ là out-trend dù là bất kỳ thời điểm nào. Thời trang jeans vừa basic nhưng là item mix & match đa dạng và sành điệu. 
 💖Nhanh tay tranh thủ Tết Dương Lịch đến gần rồi, ra VMStyle mua sắm ngay đi, đồ mới về chờ bạn đến thôi đó!💫
@@ -255,7 +252,7 @@ TikTok: https://www.tiktok.com/@vmstyle.vn`
                     title: '𝐃𝐞𝐧𝐢𝐦 𝐭𝐫𝐨𝐮𝐬𝐞𝐫𝐬 — Item Năng Động Không Thể Thiếu',
                     tag: 'Tư Vấn Phối Đồ',
                     date: 'Dòng sản phẩm Denim',
-                    src: 'assets/images/posts/Screenshot_5.png',
+                    src: 'assets/images/posts/Screenshot_5.webp',
                     alt: 'Denim Trousers - Item creates personality VM Style',
                     caption: `𝐃𝐞𝐧𝐢𝐦 𝐭𝐫𝐨𝐮𝐬𝐞𝐫𝐬🎀👠
 Item quần jeans luôn không thể thiếu trong tủ đồ của mỗi bạn nữ. Với sự đa dạng về kiểu dáng và phong cách, không chỉ mang lại sự thoải mái mà còn giúp bạn dễ dàng kết hợp với nhiều trang phục khác nhau. Lựa chọn quần dáng dài ống rộng hay quần dáng lửng đều phù hợp cho đời thường đến những buổi dạo phố.💓
@@ -268,7 +265,7 @@ TikTok: https://www.tiktok.com/@vmstyle.vn`
                     title: '𝐆𝐢𝐫𝐥𝐲 𝐆𝐥𝐚𝐦 — Áo Trễ Vai Quốc Dân Năng Động & Ngọt Ngào',
                     tag: 'Lookbook Hot Trend',
                     date: 'Hot Item',
-                    src: 'assets/images/posts/Screenshot_6.png',
+                    src: 'assets/images/posts/Screenshot_6.webp',
                     alt: 'Girly Glam - Áo trễ vai điệu đà tôn dáng VM Style',
                     caption: `𝐆𝐢𝐫𝐥𝐲 𝐆𝐥𝐚𝐦💕
 Mê mẩn ngay từ cái nhìn đầu tiên với chiếc áo trễ vai này! ✨  
@@ -915,7 +912,7 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
 
       <!-- ==================== 2. NỘI DUNG TỔNG QUAN (3 Mini-Cards) ==================== -->
       <div class="vm-overview-grid" aria-label="Nội dung tổng quan công việc tại VM Style">
-        <!-- Cột 1: Phụ trách -->
+        <!-- Cột 1: Phạm vi công việc -->
         <article class="vm-overview-card vm-reveal">
           <div class="vm-overview-head">
             <div class="vm-overview-icon" aria-hidden="true">
@@ -925,7 +922,6 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
             </div>
             <div>
               <h3 class="vm-overview-title">${overview.responsibilities.title}</h3>
-              <span class="vm-overview-sub">${overview.responsibilities.subtitle}</span>
             </div>
           </div>
           <ul class="vm-overview-list">
@@ -933,7 +929,7 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
           </ul>
         </article>
 
-        <!-- Cột 2: Đã làm như thế nào -->
+        <!-- Cột 2: Cách triển khai -->
         <article class="vm-overview-card vm-reveal">
           <div class="vm-overview-head">
             <div class="vm-overview-icon" aria-hidden="true">
@@ -943,7 +939,6 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
             </div>
             <div>
               <h3 class="vm-overview-title">${overview.execution.title}</h3>
-              <span class="vm-overview-sub">${overview.execution.subtitle}</span>
             </div>
           </div>
           <ul class="vm-overview-list">
@@ -951,7 +946,7 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
           </ul>
         </article>
 
-        <!-- Cột 3: Số lượng đã làm (Counter nổi bật) -->
+        <!-- Cột 3: Số liệu (Counter nổi bật) -->
         <article class="vm-overview-card vm-reveal" id="vm-stats-counter-card">
           <div class="vm-overview-head">
             <div class="vm-overview-icon" aria-hidden="true">
@@ -961,7 +956,6 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
             </div>
             <div>
               <h3 class="vm-overview-title">${overview.deliverables.title}</h3>
-              <span class="vm-overview-sub">${overview.deliverables.subtitle}</span>
             </div>
           </div>
 
@@ -990,7 +984,6 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
         <div class="vm-work-top">
           <div class="vm-work-heading">
             <h3>Hạng mục công việc &amp; Minh chứng thực tế</h3>
-            <p>Chuyển đổi giữa các tab bên dưới và nhấp vào từng hình ảnh để phóng to xem chi tiết kế hoạch, bài đăng hoặc báo cáo.</p>
           </div>
 
           <div class="vm-tabs-nav" role="tablist" aria-label="Các nhóm hạng mục công việc tại VM Style">
