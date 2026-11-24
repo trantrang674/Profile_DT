@@ -281,6 +281,118 @@ html.hero-scrub .hero-scenes { display: none !important; }
 /* ---------- Experience (ghi đè experience.css cho đồng bộ) ---------- */
 .vm-exp-section { background: var(--paper); }
 .vm-exp-section .wrap > .section-intro { margin-bottom: clamp(2rem, 4vw, 3rem); }
+
+/* ========== DẢI NGANG CHẠY ĐỘNG KINH NGHIỆM (DYNAMIC RUNNING TAPE) ========== */
+.exp-tape-container {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 3.2rem 0 4.2rem;
+  overflow: hidden;
+  user-select: none;
+}
+
+.exp-tape {
+  position: relative;
+  width: 115vw;
+  margin-left: -7.5vw;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Dải phụ màu Cam năng động (#f97316 / #ea580c) */
+.exp-tape-secondary {
+  height: 52px;
+  background: linear-gradient(90deg, #ea580c 0%, #f97316 50%, #ea580c 100%);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  transform: rotate(1.6deg);
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.25);
+  z-index: 1;
+  opacity: 0.95;
+}
+
+.exp-tape-secondary .exp-tape-star {
+  color: #ffedd5;
+  margin: 0 1.25rem;
+  font-size: 1.1em;
+  opacity: 0.95;
+}
+
+/* Dải chính màu Xanh biển (#0284c7 / #0369a1) đè chéo lên dải cam */
+.exp-tape-primary {
+  height: 66px;
+  background: linear-gradient(90deg, #0284c7 0%, #0369a1 50%, #0284c7 100%);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: clamp(1.15rem, 2.3vw, 1.45rem);
+  transform: rotate(-2.2deg);
+  margin-top: -18px;
+  box-shadow: 0 14px 34px rgba(2, 132, 199, 0.32);
+  z-index: 2;
+}
+
+.exp-tape-primary .exp-tape-star {
+  color: #f97316;
+  margin: 0 1.35rem;
+  font-size: 1.15em;
+  text-shadow: 0 0 12px rgba(249, 115, 22, 0.6);
+}
+
+.exp-tape-track {
+  display: flex;
+  width: max-content;
+  animation: exp-tape-scroll 24s linear infinite;
+  will-change: transform;
+}
+
+.exp-tape-reverse {
+  animation: exp-tape-scroll-reverse 26s linear infinite;
+}
+
+.exp-tape:hover .exp-tape-track {
+  animation-play-state: paused;
+}
+
+.exp-tape-content {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+@keyframes exp-tape-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes exp-tape-scroll-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@media (max-width: 640px) {
+  .exp-tape-container {
+    padding: 2.2rem 0 3rem;
+  }
+  .exp-tape-secondary {
+    height: 44px;
+    font-size: 0.88rem;
+    transform: rotate(1.2deg);
+  }
+  .exp-tape-primary {
+    height: 54px;
+    font-size: 1rem;
+    margin-top: -12px;
+    transform: rotate(-1.8deg);
+  }
+}
 .vm-brand-card {
   background: var(--paper); color: var(--ink);
   border: 1px solid var(--line); box-shadow: none;
