@@ -107,67 +107,32 @@ function brandLogoCard(brand) {
     const img = new Image();
     img.onload = () => {
       const c = roundedCanvas((ctx) => {
-        // Nền trắng tinh khôi chuẩn giao diện
+        // Nền trắng tinh khôi chuẩn giao diện Light Mode
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, CARD_W, CARD_H);
 
-        // Ánh gradient nhẹ nhàng tạo độ sâu
-        const bgG = ctx.createRadialGradient(CARD_W / 2, CARD_H / 2, 60, CARD_W / 2, CARD_H / 2, 460);
+        // Ánh gradient nhẹ nhàng tạo chiều sâu nổi khối
+        const bgG = ctx.createLinearGradient(0, 0, 0, CARD_H);
         bgG.addColorStop(0, '#ffffff');
-        bgG.addColorStop(1, '#f1f5f9');
+        bgG.addColorStop(1, '#f8fafc');
         ctx.fillStyle = bgG;
         ctx.fillRect(0, 0, CARD_W, CARD_H);
 
         // Viền thẻ bo tròn sang trọng
         ctx.strokeStyle = '#e2e8f0';
-        ctx.lineWidth = 6;
+        ctx.lineWidth = 5;
         ctx.strokeRect(3, 3, CARD_W - 6, CARD_H - 6);
 
-        // Kicker phía trên: Thương hiệu đồng hành
-        ctx.fillStyle = '#f8fafc';
-        ctx.beginPath();
-        const pX = 56, pY = 46, pW = 270, pH = 38, pR = 19;
-        ctx.moveTo(pX + pR, pY);
-        ctx.arcTo(pX + pW, pY, pX + pW, pY + pH, pR);
-        ctx.arcTo(pX + pW, pY + pH, pX, pY + pH, pR);
-        ctx.arcTo(pX, pY + pH, pX, pY, pR);
-        ctx.arcTo(pX, pY, pX + pW, pY, pR);
-        ctx.closePath();
-        ctx.fill();
-        ctx.strokeStyle = '#cbd5e1';
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        ctx.fillStyle = '#0284c7';
-        ctx.beginPath();
-        ctx.arc(pX + 22, pY + 19, 5, 0, Math.PI * 2);
-        ctx.fill();
-
-        ctx.fillStyle = '#0369a1';
-        ctx.font = '700 15px "Plus Jakarta Sans", sans-serif';
-        ctx.fillText('THƯƠNG HIỆU ĐỒNG HÀNH', pX + 38, pY + 25);
-
-        // Vẽ logo căn giữa chuẩn tỉ lệ
-        const maxW = 500;
-        const maxH = 210;
+        // Hiển thị logo to rõ tối đa ra sát khung thẻ (chỉ giữ lề nhỏ tinh tế)
+        const maxW = 710;
+        const maxH = 420;
         const scale = Math.min(maxW / img.width, maxH / img.height);
         const dw = img.width * scale;
         const dh = img.height * scale;
         const dx = (CARD_W - dw) / 2;
-        const dy = 245 - (dh / 2);
+        const dy = (CARD_H - dh) / 2;
 
         ctx.drawImage(img, dx, dy, dw, dh);
-
-        // Tên thương hiệu và lĩnh vực phía dưới
-        ctx.textAlign = 'center';
-        ctx.fillStyle = '#0f172a';
-        ctx.font = '800 28px "Plus Jakarta Sans", sans-serif';
-        ctx.fillText(brand.name, CARD_W / 2, 415);
-
-        ctx.fillStyle = '#64748b';
-        ctx.font = '600 19px "Plus Jakarta Sans", sans-serif';
-        ctx.fillText(brand.tag, CARD_W / 2, 450);
-        ctx.textAlign = 'left';
       });
       resolve(c);
     };
@@ -194,19 +159,19 @@ async function initShowcase() {
   const ring = new THREE.Group();
   scene.add(ring);
 
-  // Danh sách 10 thương hiệu đồng hành
+  // Danh sách 10 logo thương hiệu đồng hành (ảnh đã được cắt sát viền để phóng to rõ nét)
   if (document.fonts && document.fonts.ready) { try { await document.fonts.ready; } catch (e) { /* bỏ qua */ } }
   const brands = [
-    { src: 'assets/images/brands/tnc.png', name: 'Thành Nhân TNC', tag: 'Lĩnh vực ICT & Công nghệ' },
-    { src: 'assets/images/brands/datbike.png', name: 'Dat Bike', tag: 'Xe máy điện thông minh' },
-    { src: 'assets/images/brands/vm-style.png', name: 'VM Style', tag: 'Thương hiệu Thời trang nữ' },
-    { src: 'assets/images/brands/mella.png', name: 'MELLA', tag: 'Thời trang Nữ cao cấp' },
-    { src: 'assets/images/brands/lalie.jpg', name: 'Lalie Pijama', tag: 'Pijama & Homewear' },
-    { src: 'assets/images/brands/myun.jpg', name: 'MYUN Jeans', tag: 'Thời trang Jeans & Denim' },
-    { src: 'assets/images/brands/bylen.png', name: 'Bylen', tag: 'Tiệm Gốm & Lifestyle Decor' },
-    { src: 'assets/images/brands/baotin-express.jpg', name: 'Bảo Tín Express', tag: 'Vận chuyển & Logistics' },
-    { src: 'assets/images/brands/local-tea.jpg', name: 'Local Tea', tag: 'F&B Trà & Đồ uống' },
-    { src: 'assets/images/brands/moc-coffee.svg', name: 'Mộc Cà Phê', tag: 'Chuỗi F&B Cà phê nguyên bản' }
+    { src: 'assets/images/brands/tnc.png' },
+    { src: 'assets/images/brands/datbike.png' },
+    { src: 'assets/images/brands/vm-style.png' },
+    { src: 'assets/images/brands/mella.png' },
+    { src: 'assets/images/brands/lalie.png' },
+    { src: 'assets/images/brands/myun.png' },
+    { src: 'assets/images/brands/bylen.png' },
+    { src: 'assets/images/brands/baotin-express.png' },
+    { src: 'assets/images/brands/local-tea.png' },
+    { src: 'assets/images/brands/apollo.png' }
   ];
   const brandCanvases = await Promise.all(brands.map(brandLogoCard));
   const set = brandCanvases.filter(Boolean);
@@ -214,8 +179,8 @@ async function initShowcase() {
   const cards = isSmall() ? set : set.concat(set);
 
   const N = cards.length;
-  const R = 7.2;
-  const gap = 0.07; // khoảng hở giữa các thẻ (radian)
+  const R = 7.0;
+  const gap = 0.045; // Khoảng hở gọn hơn để thẻ to và liền mạch hơn
   const arc = (Math.PI * 2) / N - gap;
   const height = (arc * R) * (CARD_H / CARD_W);
   cards.forEach((c, i) => {
@@ -228,7 +193,7 @@ async function initShowcase() {
     const mat = new THREE.MeshBasicMaterial({ map: tex, side: THREE.BackSide, transparent: true });
     ring.add(new THREE.Mesh(geo, mat));
   });
-  ring.position.set(0, 1.15, -4.6);
+  ring.position.set(0, 1.25, -4.2);
   ring.rotation.x = 0.06;
 
   // Tương tác: chuột nghiêng vòng, tốc độ cuộn trang làm vòng quay nhanh hơn
