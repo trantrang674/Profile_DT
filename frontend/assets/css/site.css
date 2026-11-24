@@ -288,7 +288,7 @@ html.hero-scrub .hero-scenes { display: none !important; }
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding: 3.2rem 0 4.2rem;
+  padding: 3.5rem 0 4.5rem;
   overflow: hidden;
   user-select: none;
 }
@@ -302,48 +302,30 @@ html.hero-scrub .hero-scenes { display: none !important; }
   overflow: hidden;
   white-space: nowrap;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
-/* Dải phụ màu Cam năng động (#f97316 / #ea580c) */
-.exp-tape-secondary {
-  height: 52px;
-  background: linear-gradient(90deg, #ea580c 0%, #f97316 50%, #ea580c 100%);
-  color: #ffffff;
-  font-weight: 800;
-  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
-  transform: rotate(1.6deg);
-  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.25);
-  z-index: 1;
-  opacity: 0.95;
-}
-
-.exp-tape-secondary .exp-tape-star {
-  color: #ffedd5;
-  margin: 0 1.25rem;
-  font-size: 1.1em;
-  opacity: 0.95;
-}
-
-/* Dải chính màu Xanh biển (#0284c7 / #0369a1) đè chéo lên dải cam */
+/* Dải chính: Dày dặn, gradient xanh như trang hero (#09154a -> #1631c9 -> #2445ea) */
 .exp-tape-primary {
-  height: 66px;
-  background: linear-gradient(90deg, #0284c7 0%, #0369a1 50%, #0284c7 100%);
+  height: 82px;
+  background: linear-gradient(135deg, #09154a 0%, #10249e 35%, #1631c9 68%, #2445ea 100%);
   color: #ffffff;
   font-weight: 800;
-  font-size: clamp(1.15rem, 2.3vw, 1.45rem);
-  transform: rotate(-2.2deg);
-  margin-top: -18px;
-  box-shadow: 0 14px 34px rgba(2, 132, 199, 0.32);
+  font-size: clamp(1.25rem, 2.6vw, 1.68rem);
+  transform: rotate(-2deg);
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 2px solid rgba(4, 8, 28, 0.25);
+  box-shadow: 0 18px 42px rgba(16, 36, 158, 0.28), 0 4px 14px rgba(7, 13, 45, 0.16);
   z-index: 2;
 }
 
+/* Ngôi sao phân cách màu trắng/ice-blue đồng bộ hero (không dùng màu cam) */
 .exp-tape-primary .exp-tape-star {
-  color: #f97316;
-  margin: 0 1.35rem;
+  color: #bae6fd;
+  margin: 0 1.65rem;
   font-size: 1.15em;
-  text-shadow: 0 0 12px rgba(249, 115, 22, 0.6);
+  text-shadow: 0 0 14px rgba(186, 230, 253, 0.85);
 }
 
 .exp-tape-track {
@@ -351,10 +333,6 @@ html.hero-scrub .hero-scenes { display: none !important; }
   width: max-content;
   animation: exp-tape-scroll 24s linear infinite;
   will-change: transform;
-}
-
-.exp-tape-reverse {
-  animation: exp-tape-scroll-reverse 26s linear infinite;
 }
 
 .exp-tape:hover .exp-tape-track {
@@ -372,25 +350,17 @@ html.hero-scrub .hero-scenes { display: none !important; }
   to { transform: translateX(-50%); }
 }
 
-@keyframes exp-tape-scroll-reverse {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
-}
-
 @media (max-width: 640px) {
   .exp-tape-container {
     padding: 2.2rem 0 3rem;
   }
-  .exp-tape-secondary {
-    height: 44px;
-    font-size: 0.88rem;
-    transform: rotate(1.2deg);
-  }
   .exp-tape-primary {
-    height: 54px;
-    font-size: 1rem;
-    margin-top: -12px;
-    transform: rotate(-1.8deg);
+    height: 60px;
+    font-size: 1.05rem;
+    transform: rotate(-1.6deg);
+  }
+  .exp-tape-primary .exp-tape-star {
+    margin: 0 1.1rem;
   }
 }
 .vm-brand-card {
