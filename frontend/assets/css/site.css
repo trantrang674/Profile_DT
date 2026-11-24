@@ -263,7 +263,7 @@ html.hero-scrub .hero-scenes { display: none !important; }
   border: 1px solid var(--line); border-radius: 999px; background: var(--paper);
   font-weight: 600; font-size: .95rem; white-space: nowrap;
 }
-.marquee-chip img { width: 22px; height: 22px; }
+.marquee-chip img { width: 22px; height: 22px; object-fit: contain; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .tools-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; }
 .tool-group-name { font-size: var(--fs-sm); color: var(--ink-3); font-weight: 600; margin-bottom: .75rem; letter-spacing: 0; }
@@ -999,7 +999,7 @@ html.hero-scrub .hero {
   background: linear-gradient(145deg, #ffffff, #eef3ff); border: 1px solid #e3ebfb;
   box-shadow: 0 6px 14px rgba(16, 36, 158, 0.08);
 }
-.store-ico img { width: 24px; height: 24px; }
+.store-ico img { width: 24px; height: 24px; object-fit: contain; }
 .store-name { font-weight: 700; }
 .store-use { color: #4b5878; font-size: .925rem; }
 
