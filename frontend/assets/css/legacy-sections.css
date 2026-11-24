@@ -209,13 +209,13 @@
 }
 
 @keyframes mascotOrbitLeft {
-  0%, 100% { transform: translate(18px, 48px); }
-  50% { transform: translate(18px, 43px); }
+  0%, 100% { transform: translate(14px, 44px); }
+  50% { transform: translate(14px, 39px); }
 }
 
 @keyframes mascotOrbitRight {
-  0%, 100% { transform: translate(152px, 44px); }
-  50% { transform: translate(152px, 49px); }
+  0%, 100% { transform: translate(148px, 40px); }
+  50% { transform: translate(148px, 45px); }
 }
 
 @keyframes flamePulse {

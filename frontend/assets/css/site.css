@@ -194,7 +194,7 @@ html.hero-scrub .hero-status { margin-bottom: 2vh; }
 html.hero-scrub .hero-title { font-size: min(var(--fs-hero), 8.6vh); }
 html.hero-scrub .hero-lead { margin-top: 2.2vh; font-size: clamp(1rem, 2.4vh, var(--fs-md)); }
 html.hero-scrub .hero-actions { margin-top: 2.6vh; }
-html.hero-scrub .hero-facts dl > div { padding: 1.3vh 0; }
+html.hero-scrub .hero-facts dl > div { padding: clamp(0.5rem, 0.95vh, 0.85rem) 0; }
 html.hero-scrub .hero-results { margin-top: 3.5vh; }
 html.hero-scrub .hero-results li { padding-top: 1.8vh; }
 html.hero-scrub .hero-scenes { display: none !important; }
