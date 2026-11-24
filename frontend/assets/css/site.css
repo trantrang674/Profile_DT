@@ -872,13 +872,22 @@ html.hero-scrub .hero {
   position: absolute; top: 100px; left: 0; right: 0; z-index: 3;
   display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
 }
-.showcase-chip { display: inline-flex; align-items: center; gap: .5rem; font-size: .875rem; color: rgba(226, 235, 255, 0.8); }
+.showcase-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  font-size: 1.05rem;
+  color: rgba(226, 235, 255, 0.9);
+  letter-spacing: 0.01em;
+}
 .showcase-chip strong { color: #ffffff; font-weight: 700; }
-.showcase-chip + .showcase-chip { padding-left: 2rem; border-left: 1px solid rgba(147, 180, 255, 0.25); }
+.showcase-chip svg { width: 1.15rem; height: 1.15rem; flex-shrink: 0; }
+.showcase-chip .status-dot { width: 9px; height: 9px; flex-shrink: 0; }
+.showcase-chip + .showcase-chip { padding-left: 2.25rem; border-left: 1px solid rgba(147, 180, 255, 0.3); }
 
 .showcase-portrait {
   position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-  z-index: 2; height: min(72vh, 670px); width: auto; max-width: 65vw; object-fit: contain; object-position: bottom;
+  z-index: 2; height: min(80vh, 750px); width: auto; max-width: 72vw; object-fit: contain; object-position: bottom;
   filter: drop-shadow(0 30px 60px rgba(4, 8, 28, 0.6));
   pointer-events: none; user-select: none;
 }
@@ -931,12 +940,13 @@ html.hero-scrub .hero {
 @media (max-width: 900px) {
   .showcase { min-height: 760px; }
   .showcase-top { top: 88px; gap: .5rem 1rem; }
+  .showcase-chip { font-size: .95rem; }
   .showcase-chip + .showcase-chip { padding-left: 0; border-left: 0; }
   .showcase-portrait {
-    height: 47vh; max-width: 92vw; bottom: 235px;
+    height: 52vh; max-width: 94vw; bottom: 235px;
     /* ảnh lơ lửng trên phần chữ nên làm mờ dần mép dưới */
-    -webkit-mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
-            mask-image: linear-gradient(180deg, #000 78%, transparent 100%);
+    -webkit-mask-image: linear-gradient(180deg, #000 80%, transparent 100%);
+            mask-image: linear-gradient(180deg, #000 80%, transparent 100%);
   }
   .showcase-bottom { flex-direction: column; align-items: flex-start; gap: 1.25rem; bottom: 1.5rem; }
   .showcase-quote { display: none; }

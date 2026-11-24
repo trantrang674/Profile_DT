@@ -152,6 +152,118 @@
   transform: translateX(4px);
 }
 
+/* Điểm nhấn hình hoạt họa cho Airlume Card */
+.airlume-mascot-box {
+  margin: 0.85rem 0 1.15rem;
+  padding: 0.9rem 0.75rem 0.75rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 10px 24px rgba(7, 13, 45, 0.22);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.airlume-mascot-box:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 14px 30px rgba(7, 13, 45, 0.3);
+}
+
+.airlume-mascot-svg {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+}
+
+.airlume-mascot-caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.28rem 0.85rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.airlume-mascot-caption .sparkle {
+  color: #fde047;
+  font-size: 0.85rem;
+}
+
+@keyframes mascotFloat {
+  0%, 100% { transform: translate(120px, 60px); }
+  50% { transform: translate(120px, 53px); }
+}
+
+@keyframes mascotOrbitLeft {
+  0%, 100% { transform: translate(18px, 48px); }
+  50% { transform: translate(18px, 43px); }
+}
+
+@keyframes mascotOrbitRight {
+  0%, 100% { transform: translate(152px, 44px); }
+  50% { transform: translate(152px, 49px); }
+}
+
+@keyframes flamePulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.15, 1.3); opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.anim-mascot-body {
+  animation: mascotFloat 3.2s ease-in-out infinite;
+}
+
+.anim-orbit-left {
+  animation: mascotOrbitLeft 4s ease-in-out infinite;
+}
+
+.anim-orbit-right {
+  animation: mascotOrbitRight 4.5s ease-in-out infinite;
+}
+
+.anim-flame {
+  animation: flamePulse 0.4s ease-in-out infinite alternate;
+  transform-origin: 0 26px;
+}
+
+.anim-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+  transform-origin: 120px 62px;
+}
+
+.anim-star {
+  animation: starTwinkle 2.2s ease-in-out infinite;
+  transform-origin: 38px 39px;
+}
+
+.anim-star-2 {
+  animation: starTwinkle 2.8s ease-in-out infinite 0.7s;
+  transform-origin: 205px 33px;
+}
 
 .scalix-kicker {
   display: inline-block;
