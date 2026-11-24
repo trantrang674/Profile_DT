@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 240" width="100%" height="100%">
+  <!-- Biểu tượng tách cà phê ấm áp -->
+  <g transform="translate(180, 25)">
+    <circle cx="70" cy="55" r="45" fill="#78350f"/>
+    <circle cx="70" cy="55" r="34" fill="#fffbeb"/>
+    <path d="M 58 55 Q 70 26 82 55" fill="#b45309"/>
+    <!-- Quai tách -->
+    <path d="M 115 45 C 130 45, 130 65, 115 65" fill="none" stroke="#78350f" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <!-- Chữ Mộc Cà Phê -->
+  <text x="250" y="165" font-family="'Plus Jakarta Sans', serif, sans-serif" font-size="44" font-weight="800" letter-spacing="3" fill="#451a03" text-anchor="middle">MỘC CÀ PHÊ</text>
+  <text x="250" y="200" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="600" letter-spacing="4" fill="#b45309" text-anchor="middle">SINCE 2018</text>
+</svg>

@@ -102,6 +102,80 @@ function statCard(value, label, tone) {
   });
 }
 
+function brandLogoCard(brand) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const c = roundedCanvas((ctx) => {
+        // Nền trắng tinh khôi chuẩn giao diện
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, CARD_W, CARD_H);
+
+        // Ánh gradient nhẹ nhàng tạo độ sâu
+        const bgG = ctx.createRadialGradient(CARD_W / 2, CARD_H / 2, 60, CARD_W / 2, CARD_H / 2, 460);
+        bgG.addColorStop(0, '#ffffff');
+        bgG.addColorStop(1, '#f1f5f9');
+        ctx.fillStyle = bgG;
+        ctx.fillRect(0, 0, CARD_W, CARD_H);
+
+        // Viền thẻ bo tròn sang trọng
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.lineWidth = 6;
+        ctx.strokeRect(3, 3, CARD_W - 6, CARD_H - 6);
+
+        // Kicker phía trên: Thương hiệu đồng hành
+        ctx.fillStyle = '#f8fafc';
+        ctx.beginPath();
+        const pX = 56, pY = 46, pW = 270, pH = 38, pR = 19;
+        ctx.moveTo(pX + pR, pY);
+        ctx.arcTo(pX + pW, pY, pX + pW, pY + pH, pR);
+        ctx.arcTo(pX + pW, pY + pH, pX, pY + pH, pR);
+        ctx.arcTo(pX, pY + pH, pX, pY, pR);
+        ctx.arcTo(pX, pY, pX + pW, pY, pR);
+        ctx.closePath();
+        ctx.fill();
+        ctx.strokeStyle = '#cbd5e1';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        ctx.fillStyle = '#0284c7';
+        ctx.beginPath();
+        ctx.arc(pX + 22, pY + 19, 5, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = '#0369a1';
+        ctx.font = '700 15px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText('THƯƠNG HIỆU ĐỒNG HÀNH', pX + 38, pY + 25);
+
+        // Vẽ logo căn giữa chuẩn tỉ lệ
+        const maxW = 500;
+        const maxH = 210;
+        const scale = Math.min(maxW / img.width, maxH / img.height);
+        const dw = img.width * scale;
+        const dh = img.height * scale;
+        const dx = (CARD_W - dw) / 2;
+        const dy = 245 - (dh / 2);
+
+        ctx.drawImage(img, dx, dy, dw, dh);
+
+        // Tên thương hiệu và lĩnh vực phía dưới
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#0f172a';
+        ctx.font = '800 28px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText(brand.name, CARD_W / 2, 415);
+
+        ctx.fillStyle = '#64748b';
+        ctx.font = '600 19px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText(brand.tag, CARD_W / 2, 450);
+        ctx.textAlign = 'left';
+      });
+      resolve(c);
+    };
+    img.onerror = () => resolve(null);
+    img.src = brand.src;
+  });
+}
+
 /* ========================================================================
    1. VÒNG ẢNH 3D QUANH CHÂN DUNG
    ======================================================================== */
@@ -120,17 +194,23 @@ async function initShowcase() {
   const ring = new THREE.Group();
   scene.add(ring);
 
-  // Ảnh bìa dự án (lấy từ các file .md) xen kẽ thẻ số liệu thật trên trang
+  // Danh sách 10 thương hiệu đồng hành
   if (document.fonts && document.fonts.ready) { try { await document.fonts.ready; } catch (e) { /* bỏ qua */ } }
-  const covers = ['assets/images/project-ecotea.svg', 'assets/images/project-seo.svg', 'assets/images/project-coffee.svg', 'assets/images/project-email.svg'];
-  const stats = [['4.1M+', 'lượt tiếp cận tự nhiên', 'dark'], ['+65%', 'tương tác tại VM Style', 'light'], ['360+', 'bài viết và Reels', 'dark'], ['41,5%', 'tỷ lệ mở email', 'light']];
-  const coverCanvases = await Promise.all(covers.map(imageCard));
-  const set = [];
-  coverCanvases.forEach((c, i) => {
-    if (c) set.push(c);
-    set.push(statCard(...stats[i]));
-  });
-  // Lặp bộ thẻ 2 lần để vòng dày, thẻ nhỏ gọn như mẫu (ít hơn trên điện thoại)
+  const brands = [
+    { src: 'assets/images/brands/tnc.png', name: 'Thành Nhân TNC', tag: 'Lĩnh vực ICT & Công nghệ' },
+    { src: 'assets/images/brands/datbike.png', name: 'Dat Bike', tag: 'Xe máy điện thông minh' },
+    { src: 'assets/images/brands/vm-style.png', name: 'VM Style', tag: 'Thương hiệu Thời trang nữ' },
+    { src: 'assets/images/brands/mella.png', name: 'MELLA', tag: 'Thời trang Nữ cao cấp' },
+    { src: 'assets/images/brands/lalie.jpg', name: 'Lalie Pijama', tag: 'Pijama & Homewear' },
+    { src: 'assets/images/brands/myun.jpg', name: 'MYUN Jeans', tag: 'Thời trang Jeans & Denim' },
+    { src: 'assets/images/brands/bylen.png', name: 'Bylen', tag: 'Tiệm Gốm & Lifestyle Decor' },
+    { src: 'assets/images/brands/baotin-express.jpg', name: 'Bảo Tín Express', tag: 'Vận chuyển & Logistics' },
+    { src: 'assets/images/brands/local-tea.jpg', name: 'Local Tea', tag: 'F&B Trà & Đồ uống' },
+    { src: 'assets/images/brands/moc-coffee.svg', name: 'Mộc Cà Phê', tag: 'Chuỗi F&B Cà phê nguyên bản' }
+  ];
+  const brandCanvases = await Promise.all(brands.map(brandLogoCard));
+  const set = brandCanvases.filter(Boolean);
+  // Lặp bộ thẻ để vòng quay 3D dày dặn và mượt mà
   const cards = isSmall() ? set : set.concat(set);
 
   const N = cards.length;
