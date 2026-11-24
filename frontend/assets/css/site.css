@@ -183,12 +183,12 @@ html.js:not(.hero-scrub) .edit-mark ins { animation: insert .45s ease-out 1.05s 
 
 /* Chỉ báo 4 bước của câu chuyện cuộn — chỉ hiện khi hero được ghim */
 .hero { position: relative; }
-.hero-scenes { display: none; }
+.hero-scenes { display: none !important; }
 /* Hero được ghim ngay dưới header nên phải vừa khít phần màn hình còn lại */
 html.hero-scrub .hero {
   min-height: calc(100vh - 68px); min-height: calc(100svh - 68px);
   display: flex; flex-direction: column; justify-content: center;
-  padding-top: 1.5vh; padding-bottom: 4rem;
+  padding-top: 1.5vh; padding-bottom: 2rem;
 }
 html.hero-scrub .hero-status { margin-bottom: 2vh; }
 html.hero-scrub .hero-title { font-size: min(var(--fs-hero), 8.6vh); }
@@ -197,11 +197,7 @@ html.hero-scrub .hero-actions { margin-top: 2.6vh; }
 html.hero-scrub .hero-facts dl > div { padding: 1.3vh 0; }
 html.hero-scrub .hero-results { margin-top: 3.5vh; }
 html.hero-scrub .hero-results li { padding-top: 1.8vh; }
-html.hero-scrub .hero-scenes {
-  display: flex; gap: 1.75rem; list-style: none;
-  position: absolute; left: 50%; bottom: 1.5rem; transform: translateX(-50%);
-  counter-reset: scene;
-}
+html.hero-scrub .hero-scenes { display: none !important; }
 .hero-scenes li {
   counter-increment: scene;
   font-size: var(--fs-sm); font-weight: 600; color: var(--ink-3);
@@ -388,6 +384,67 @@ html.hero-scrub .hero-scenes {
 .kpi-num { font-size: 1.75rem; font-weight: 800; color: var(--blue-deep); letter-spacing: -0.03em; line-height: 1.1; }
 .kpi-label { font-size: .85rem; color: var(--ink-2); margin-top: .3rem; line-height: 1.4; }
 .case-cta { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+
+/* ---------- CV Modal Popup ---------- */
+.cv-modal-backdrop {
+  position: fixed; inset: 0; z-index: 350;
+  background: rgba(4, 8, 30, 0.75);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.25rem;
+  opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility .25s ease;
+}
+.cv-modal-backdrop.active { opacity: 1; visibility: visible; }
+.cv-modal-container {
+  position: relative; width: 100%; max-width: 960px; height: 90vh; max-height: 860px;
+  background: #ffffff; border-radius: 20px;
+  box-shadow: 0 25px 60px -15px rgba(2, 44, 98, 0.4), 0 0 0 1px rgba(147, 180, 255, 0.3);
+  display: flex; flex-direction: column; overflow: hidden;
+  transform: scale(0.96) translateY(12px);
+  transition: transform .25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cv-modal-backdrop.active .cv-modal-container { transform: scale(1) translateY(0); }
+.cv-modal-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1rem 1.5rem; background: #ffffff; border-bottom: 1px solid #e2e8f0;
+}
+.cv-modal-title-group { display: flex; flex-direction: column; gap: .2rem; }
+.cv-modal-badge {
+  display: inline-block; font-size: .75rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .08em; color: var(--blue, #0284c7);
+}
+.cv-modal-title { margin: 0; font-size: 1.05rem; font-weight: 700; color: var(--ink, #0f172a); }
+.cv-modal-actions { display: flex; align-items: center; gap: .6rem; }
+.btn-cv-action {
+  display: inline-flex; align-items: center; gap: .4rem;
+  padding: .45rem .85rem; border-radius: 999px; font-size: .85rem; font-weight: 600;
+  text-decoration: none; transition: all .2s ease;
+}
+.btn-cv-download { background: #0284c7; color: #ffffff; border: 1px solid #0284c7; }
+.btn-cv-download:hover { background: #0369a1; border-color: #0369a1; color: #ffffff; transform: translateY(-1px); }
+.btn-cv-external { background: #f1f5f9; color: #334155; border: 1px solid #e2e8f0; }
+.btn-cv-external:hover { background: #e2e8f0; color: #0f172a; }
+.cv-modal-close-btn {
+  width: 38px; height: 38px; border-radius: 50%; border: 1px solid #e2e8f0;
+  background: #f8fafc; color: #475569; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s ease; margin-left: .25rem;
+}
+.cv-modal-close-btn:hover { background: #fee2e2; color: #dc2626; border-color: #fca5a5; transform: rotate(90deg); }
+.cv-modal-body { flex: 1; width: 100%; height: 100%; background: #f8fafc; position: relative; }
+.cv-iframe { width: 100%; height: 100%; border: none; display: block; }
+.cv-fallback {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1rem; padding: 2rem; text-align: center;
+}
+@media (max-width: 640px) {
+  .cv-modal-backdrop { padding: .5rem; }
+  .cv-modal-container { height: 94vh; border-radius: 14px; }
+  .cv-modal-header { padding: .75rem 1rem; }
+  .cv-modal-title { font-size: .95rem; }
+  .btn-cv-action span { display: none; }
+  .btn-cv-action { padding: .45rem; }
+}
 
 .markdown-container { color: var(--ink-2); font-size: 1.02rem; line-height: 1.75; }
 .markdown-container > * + * { margin-top: 1rem; }
@@ -667,11 +724,11 @@ html.hero-scrub .hero-facts dd { font-size: clamp(.875rem, 2vh, 1rem); }
 html.hero-scrub .deck-rows li { padding: 1vh 0; font-size: clamp(.875rem, 2vh, 1rem); }
 html.hero-scrub .hero-results strong { font-size: clamp(1.5rem, 4.4vh, 2.4rem); }
 html.hero-scrub .hero-results span { font-size: clamp(.8rem, 1.8vh, .95rem); }
-html.hero-scrub .hero { padding-bottom: 3.6rem; }
-html.hero-scrub .hero-scenes { bottom: 1rem; }
+html.hero-scrub .hero { padding-bottom: 2rem; }
+html.hero-scrub .hero-scenes { display: none !important; }
 
 /* ---------- Hiệu ứng cuộn hero: làm rõ từng cảnh ---------- */
-.hero-scene-mark, .hero-progress { display: none; }
+.hero-scene-mark, .hero-progress { display: none !important; }
 html.hero-scrub .hero-scene-mark {
   display: flex; flex-direction: column; align-items: flex-end;
   position: absolute; right: 3vw; top: 50%; transform: translateY(-58%);
@@ -683,18 +740,7 @@ html.hero-scrub .hero-scene-mark {
 }
 .hero-scene-name { margin-top: 1.5vh; font-size: 2.4vh; font-weight: 700; color: rgba(147, 180, 255, 0.5); }
 
-html.hero-scrub .hero-progress {
-  display: block; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; z-index: 3;
-  background: rgba(147, 180, 255, 0.15);
-}
-.hero-progress span {
-  display: block; height: 100%; transform-origin: left center; transform: scaleX(0);
-  background: linear-gradient(90deg, #5574f7, #93b4ff, #ffffff);
-  box-shadow: 0 0 14px rgba(147, 180, 255, 0.8);
-}
-
-/* Chỉ báo cảnh: to hơn, cảnh đã qua sáng lên */
-html.hero-scrub .hero-scenes { gap: 1.25rem; }
+html.hero-scrub .hero-progress { display: none !important; }
 html.hero-scrub .hero-scenes li { min-width: 6.5rem; font-size: .9rem; padding-top: .6rem; border-top-width: 3px; }
 .hero-scenes li.is-done { color: rgba(226, 235, 255, 0.85); border-top-color: rgba(147, 180, 255, 0.55); }
 .hero-scenes li.is-active { color: #ffffff; text-shadow: 0 0 12px rgba(147, 180, 255, 0.8); }

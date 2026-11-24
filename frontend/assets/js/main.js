@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initOnePageSmoothScroll();
   initScrollSpy();
   initCaseStudyModal();
+  initCvModal();
 
   // Nạp dữ liệu các dự án từ Markdown
   loadAllPortfolioProjects();
@@ -330,5 +331,51 @@ function bindModalTriggers(projects) {
       backdrop.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     });
+  });
+}
+
+/**
+ * 6. Modal Popup Xem CV Trực Tiếp Trên Trang
+ */
+function initCvModal() {
+  const backdrop = document.getElementById('cv-modal-backdrop');
+  const closeBtn = document.getElementById('cv-modal-close');
+  const triggers = document.querySelectorAll('#open-cv-modal, .open-cv-modal');
+
+  if (!backdrop) return;
+
+  function openModal() {
+    backdrop.classList.add('active');
+    backdrop.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    backdrop.classList.remove('active');
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  triggers.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+  }
+
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && backdrop.classList.contains('active')) {
+      closeModal();
+    }
   });
 }

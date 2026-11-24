@@ -75,10 +75,8 @@
 
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="hero-status"><span class="status-dot" aria-hidden="true"></span>Đang tìm vị trí Content Marketing mới</p>
-
           <h1 class="hero-title">
-            Tôi viết nội dung để khách hàng
+            Tôi triển khai nội dung để khách hàng
             <span class="edit-mark"><del>đọc<span class="strike" aria-hidden="true"></span></del><ins>mua</ins></span>.
           </h1>
 
@@ -87,8 +85,8 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-light">Xem dự án</a>
-            <a href="assets/cv/Portfolio-Content-Marketing.pdf" download class="btn btn-outline-light">Tải portfolio (PDF)</a>
+            <a href="#experience" class="btn btn-light">Xem kinh nghiệm làm việc</a>
+            <button type="button" class="btn btn-outline-light open-cv-modal" id="open-cv-modal" aria-haspopup="dialog" aria-controls="cv-modal-backdrop">Xem CV</button>
           </div>
         </div>
 
@@ -131,22 +129,11 @@
 
       <div class="wrap">
         <ul class="hero-results" aria-label="Kết quả nổi bật">
-          <li><strong data-to="4.1" data-dec="1" data-suffix="M+">4.1M+</strong><span>lượt tiếp cận tự nhiên đa kênh trong 6 tháng</span></li>
-          <li><strong data-to="65" data-prefix="+" data-suffix="%">+65%</strong><span>tương tác và tin nhắn tự nhiên tại VM Style</span></li>
-          <li><strong data-to="360" data-suffix="+">360+</strong><span>bài viết và Reels đã lên kế hoạch, viết và xuất bản</span></li>
+          <li><strong data-to="0.0" data-dec="1" data-suffix="M+">0.0M+</strong><span>lượt xem tự nhiên trong 6 tháng</span></li>
+          <li><strong data-to="0" data-prefix="+" data-suffix="%">+0%</strong><span>tương tác trong 6 tháng</span></li>
+          <li><strong data-to="0">0</strong><span>thương hiệu đồng hành trong vòng 2 năm</span></li>
         </ul>
       </div>
-
-      <!-- Chỉ báo 6 cảnh của câu chuyện cuộn đầu trang (chỉ hiện khi hiệu ứng cuộn chạy) -->
-      <ol class="hero-scenes" aria-hidden="true">
-        <li class="is-active">Bản nháp</li>
-        <li>Biên tập</li>
-        <li>Insight</li>
-        <li>Kênh</li>
-        <li>Kết quả</li>
-        <li>Hồ sơ</li>
-      </ol>
-      <div class="hero-progress" aria-hidden="true"><span></span></div>
     </section>
 
     <!-- ========== CHÂN DUNG 3D: ảnh chân dung + vòng ảnh dự án xoay 3D (Three.js) ========== -->
@@ -438,6 +425,39 @@
         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
       <div id="project-modal-body" class="project-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ========== MODAL XEM CV TRỰC TIẾP ========== -->
+  <div id="cv-modal-backdrop" class="cv-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Curriculum Vitae Dương Trang">
+    <div class="cv-modal-container">
+      <div class="cv-modal-header">
+        <div class="cv-modal-title-group">
+          <span class="cv-modal-badge">Curriculum Vitae</span>
+          <h3 class="cv-modal-title">Dương Trang — Content Marketing Specialist</h3>
+        </div>
+        <div class="cv-modal-actions">
+          <a href="assets/cv/CV-Content-Marketing.pdf" download class="btn-cv-action btn-cv-download" title="Tải file CV PDF">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            <span>Tải PDF</span>
+          </a>
+          <a href="assets/cv/CV-Content-Marketing.pdf" target="_blank" rel="noopener" class="btn-cv-action btn-cv-external" title="Mở file CV trong tab mới">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span>Mở tab mới</span>
+          </a>
+          <button id="cv-modal-close" class="cv-modal-close-btn" aria-label="Đóng CV">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="cv-modal-body">
+        <iframe src="assets/cv/CV-Content-Marketing.pdf#toolbar=1" class="cv-iframe" title="CV Dương Trang">
+          <div class="cv-fallback">
+            <p>Trình duyệt của bạn không hỗ trợ xem trước PDF trực tiếp.</p>
+            <a href="assets/cv/CV-Content-Marketing.pdf" target="_blank" rel="noopener" class="btn btn-primary">Mở CV trong tab mới</a>
+          </div>
+        </iframe>
+      </div>
     </div>
   </div>
 
