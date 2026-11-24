@@ -207,7 +207,7 @@ html.hero-scrub .hero-scenes { display: none !important; }
 .hero-scenes li::before { content: counter(scene) " "; color: inherit; }
 .hero-scenes li.is-active { color: var(--ink); border-top-color: var(--orange); }
 
-.hero-lead { margin-top: 1.75rem; font-size: var(--fs-md); line-height: 1.6; color: var(--ink-2); max-width: 56ch; }
+.hero-lead { margin-top: 1.75rem; font-size: var(--fs-md); line-height: 1.6; color: var(--ink-2); max-width: 68ch; }
 .hero-lead strong { color: var(--ink); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
 

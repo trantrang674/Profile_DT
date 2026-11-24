@@ -158,7 +158,7 @@
     var bigName = q('.hero-scene-name');
     var bar = q('.hero-progress span');
     var SCENES = scenes.length || 6;
-    var names = scenes.length ? Array.prototype.map.call(scenes, function (li) { return li.textContent.trim(); }) : ['Bản nháp', 'Biên tập', 'Insight', 'Kênh', 'Kết quả', 'Hồ sơ'];
+    var names = ['Insight', 'Biên tập', 'Chiến lược', 'Kênh', 'Kết quả', 'Thông tin nhanh'];
 
     function format(el, p) {
       var to = parseFloat(el.dataset.to);
@@ -186,13 +186,13 @@
 
     var FOCUS_DIM = 0.32;
 
-    // Trạng thái đầu: "bản nháp" — tiêu đề nổi bật, bảng bên phải mờ
+    // Trạng thái đầu: tiêu đề nổi bật, bảng Insight hiển thị ban đầu
     gsap.set(del, { color: '#ffffff' });
     gsap.set(strike, { scaleX: 0, rotate: -4, transformOrigin: 'left center' });
     gsap.set(ins, { autoAlpha: 0, scale: 1.8, filter: 'blur(10px)', transformOrigin: 'left 70%' });
-    gsap.set(resolved, { autoAlpha: 0, y: 10 });
-    gsap.set(deck, { opacity: 0.55, scale: 0.94, transformOrigin: 'right center' });
-    gsap.set([pInsight, pChannels, pFacts], { autoAlpha: 0, x: 90, rotateY: -14, filter: 'blur(8px)' });
+    gsap.set(deck, { opacity: 0.9, scale: 1, transformOrigin: 'right center' });
+    if (pInsight) gsap.set(pInsight, { autoAlpha: 1, x: 0, rotateY: 0, filter: 'blur(0px)' });
+    gsap.set([pChannels, pFacts], { autoAlpha: 0, x: 90, rotateY: -14, filter: 'blur(8px)' });
     gsap.set(channelRows, { autoAlpha: 0, x: 40 });
     gsap.set(factRows, { autoAlpha: 0, x: 40 });
     gsap.set(results, { opacity: 0.25 });
@@ -241,17 +241,14 @@
       .to(del, { color: 'rgba(255,255,255,0.45)', duration: 5 }, 21)
       .to(strike, { scaleX: 1, duration: 7, ease: 'power2.inOut' }, 22)
       .to(ins, { autoAlpha: 1, scale: 1, filter: 'blur(0px)', duration: 7, ease: 'back.out(2)' }, 28)
-      .to(deck, { opacity: 0.8, duration: 5 }, 30)
-      .to(resolved, { autoAlpha: 1, y: 0, duration: 4 }, 31)
+      .to(deck, { opacity: 0.95, duration: 5 }, 30)
       .to(orbA, { x: 260, y: 60, scale: 1.25, duration: 14, ease: 'sine.inOut' }, 20)
       .addLabel('s2', 36)
-    // 3. Insight: tiêu đề lùi lại, bảng bên phải phóng to và sáng lên
+    // 3. Insight: tiêu đề lùi lại, bảng Insight sáng lên
       .to(title, { scale: 1, duration: 6 }, 40)
       .to(copy, { opacity: FOCUS_DIM, x: -24, duration: 6 }, 40)
       .to(deck, { opacity: 1, scale: 1.06, duration: 7 }, 40)
       .to(deck, { '--deck-glow': 1, duration: 6 }, 41)
-      .to(pNote, { autoAlpha: 0, x: -90, rotateY: 14, filter: 'blur(8px)', duration: 6 }, 41)
-      .to(pInsight, { autoAlpha: 1, x: 0, rotateY: 0, filter: 'blur(0px)', duration: 8 }, 44)
       .to(orbB, { x: -320, y: -140, scale: 1.3, duration: 16, ease: 'sine.inOut' }, 40)
       .to(fluted, { backgroundPositionX: '-120px', duration: 40, ease: 'none' }, 40)
       .addLabel('s3', 55)
