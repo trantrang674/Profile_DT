@@ -999,7 +999,7 @@ html.hero-scrub .hero {
   background: linear-gradient(145deg, #ffffff, #eef3ff); border: 1px solid #e3ebfb;
   box-shadow: 0 6px 14px rgba(16, 36, 158, 0.08);
 }
-.store-ico img { width: 24px; height: 24px; object-fit: contain; }
+.store-ico img { width: 26px; height: 26px; object-fit: contain; }
 .store-name { font-weight: 700; }
 .store-use { color: #4b5878; font-size: .925rem; }
 
