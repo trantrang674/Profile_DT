@@ -181,7 +181,7 @@
     categories: [
       {
         id: 'social-media',
-        tabTitle: '1. Social Media',
+        tabTitle: 'Social Media',
         description: 'Sáng tạo nội dung thu hút tương tác, xây dựng hình ảnh thương hiệu thời trang trẻ trung và thúc đẩy inbox mua hàng.',
         subcategories: [
           {
@@ -361,7 +361,7 @@ Kết quả: Giữ nhịp tương tác hai chiều liên tục, biến kênh Sto
       },
       {
         id: 'content-plan',
-        tabTitle: '2. Content Plan',
+        tabTitle: 'Content Plan',
         description: 'Hoạch định kế hoạch nội dung bài bản theo tháng và theo chiến dịch, đảm bảo đúng tiến độ sản xuất và mục tiêu doanh số.',
         subcategories: [
           {
@@ -500,7 +500,7 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
       },
       {
         id: 'analytics-report',
-        tabTitle: '3. Báo cáo đo lường',
+        tabTitle: 'Báo cáo đo lường',
         description: 'Theo dõi sát sao số liệu thực tế trên từng nền tảng để đánh giá hiệu quả nội dung và đề xuất phương án tối ưu.',
         subcategories: [
           {
@@ -648,12 +648,6 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
     // Tạo HTML cho 3 Tab nút bấm
     const tabsNavHTML = categories
       .map((cat, idx) => {
-        const totalPosts = cat.subcategories.reduce((acc, sub) => {
-          if (sub.topics && sub.topics.length) {
-            return acc + sub.topics.reduce((tAcc, t) => tAcc + (t.posts || []).length, 0);
-          }
-          return acc + (sub.posts || sub.images || []).length;
-        }, 0);
         return `
           <button
             type="button"
@@ -665,7 +659,6 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
             data-tab-target="${cat.id}"
           >
             <span>${cat.tabTitle}</span>
-            <span class="vm-tab-count">${totalPosts} bài viết</span>
           </button>
         `;
       })
