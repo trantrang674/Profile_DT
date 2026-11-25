@@ -622,3 +622,47 @@
 /* Ô nhập dùng cùng font với trang (bản gốc lấy từ style.css cũ) */
 .scalix-pill-input { font-family: inherit; }
 .legacy a { text-decoration: none; }
+
+/* ==========================================================================
+   RESPONSIVE THEO SKILL FRONTEND-DESIGN cho 2 section bản gốc
+   ========================================================================== */
+/* Focus bàn phím rõ ràng trên ô nhập (bản gốc chỉ có quầng sáng 12%, rất khó thấy) */
+.scalix-pill-input:focus-visible { outline: 3px solid #5574f7; outline-offset: 2px; }
+.scalix-dark-submit-btn:focus-visible, .scalix-white-pill-btn:focus-visible, .scalix-glass-pill-btn:focus-visible,
+.scalix-footer-pills a:focus-visible, .airlume-card-link:focus-visible { outline: 3px solid #5574f7; outline-offset: 3px; }
+
+@media (max-width: 760px) {
+  /* Cùng thang chữ và nhịp section với phần còn lại của trang */
+  .scalix-contact-stage .scalix-contact-title { font-size: 2.125rem; line-height: 1.1; }
+  .lp-section.scalix-contact-stage { padding: 3.5rem 0 4rem; }
+  .skills-panel .skills-panel-head h3 { font-size: 1.25rem; }
+}
+
+@media (pointer: coarse) {
+  .scalix-footer-pills a { min-height: 44px; display: inline-flex; align-items: center; }
+  .scalix-footer-center a, .scalix-footer-socials a, .direct-item a, .direct-links a, .airlume-card-link {
+    min-height: 44px; display: inline-flex; align-items: center;
+  }
+}
+
+/* ==========================================================================
+   ICON THƯ VIỆN LUCIDE (thay cho emoji / ký tự dùng làm icon)
+   Đặt ở file này vì nó tải sau cùng, đè được cỡ chữ emoji cũ.
+   ========================================================================== */
+.lucide { width: 1em; height: 1em; flex-shrink: 0; vertical-align: -0.125em; }
+.skill-tile-ico .lucide { width: 20px; height: 20px; color: #1631c9; stroke-width: 2; }
+.skill-row .skill-tile-ico .lucide { color: #4f46e5; }
+.btn-circle-icon .lucide { width: 14px; height: 14px; stroke-width: 2.6; }
+.exp-tape-star { display: inline-flex; align-items: center; }
+.exp-tape-star .lucide { width: .85em; height: .85em; fill: currentColor; stroke-width: 1.5; }
+.airlume-meta-list .lucide { width: 15px; height: 15px; margin-right: .3rem; color: #93b4ff; vertical-align: -0.15em; }
+.airlume-card-link span { display: inline-flex; }
+.airlume-card-link .lucide { width: 16px; height: 16px; }
+.airlume-mascot-caption .sparkle { display: inline-flex; }
+.airlume-mascot-caption .sparkle .lucide { width: 16px; height: 16px; color: #fde047; }
+.scalix-glass-pill-btn .lucide, .direct-links .lucide { width: .95em; height: .95em; margin-left: .15rem; }
+.vm-empty-icon .lucide { width: 40px; height: 40px; color: #1631c9; }
+.vm-lb-btn { display: inline-flex; align-items: center; gap: .4rem; }
+.vm-lb-btn .lucide { width: 16px; height: 16px; }
+.vm-lb-nav { display: inline-flex; align-items: center; justify-content: center; }
+.vm-lb-nav .lucide { width: 22px; height: 22px; }

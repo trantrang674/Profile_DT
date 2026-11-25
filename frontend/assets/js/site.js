@@ -7,6 +7,27 @@
 (function () {
   'use strict';
 
+  // ---------- Icon thư viện Lucide ----------
+  // Mọi icon giao diện là <i data-lucide="tên-icon">; Lucide đổi thành SVG.
+  // Theo dõi DOM để vẽ cả icon do JS thêm sau (thẻ bài đăng, trình xem ảnh...).
+  if (window.lucide) {
+    var iconTimer = 0;
+    var drawIcons = function () {
+      clearTimeout(iconTimer);
+      iconTimer = setTimeout(function () { window.lucide.createIcons(); }, 0);
+    };
+    window.lucide.createIcons();
+    new MutationObserver(function (records) {
+      for (var i = 0; i < records.length; i++) {
+        var added = records[i].addedNodes;
+        for (var j = 0; j < added.length; j++) {
+          var n = added[j];
+          if (n.nodeType === 1 && (n.matches('i[data-lucide]') || n.querySelector('i[data-lucide]'))) { drawIcons(); return; }
+        }
+      }
+    }).observe(document.body, { childList: true, subtree: true });
+  }
+
   var CONTACT_EMAIL = 'trantrang674@gmail.com';
 
   // Header

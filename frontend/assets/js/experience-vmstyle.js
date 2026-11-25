@@ -84,12 +84,13 @@
 
       <!-- Tiêu đề & Hướng dẫn input ảnh -->
       <text x="350" y="300" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="20" font-weight="800" fill="#0f172a">${label || 'Ảnh Bài Post Thực Tế'}</text>
-      <text x="350" y="332" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#64748b">📌 BẠN INPUT ẢNH TẠI ĐÂY (thay giá trị src)</text>
+      <text x="350" y="332" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="600" fill="#64748b">BẠN INPUT ẢNH TẠI ĐÂY (thay giá trị src)</text>
       <text x="350" y="356" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">Hỗ trợ JPG, PNG, WebP — Tự động căn chỉnh vừa khung</text>
 
       <!-- Pill xem chi tiết -->
       <rect x="250" y="400" width="200" height="38" rx="19" fill="${softBg}" stroke="${borderCol}"/>
-      <text x="350" y="424" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="${primary}">🔍 Bấm để phóng to xem ảnh</text>
+      <text x="350" y="424" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="${primary}">Bấm để phóng to xem ảnh</text>
+      <svg x="262" y="410" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="${primary}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
     </svg>`;
 
     return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
@@ -168,7 +169,7 @@
           },
           {
             value: 75,
-            prefix: '↑ ',
+            prefix: '+',
             suffix: '%',
             label: 'Tăng lượt xem sau 4 tháng',
             isAccent: true
@@ -718,7 +719,7 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
       if (!postsList || postsList.length === 0) {
         return `
           <div class="vm-empty-topic">
-            <div class="vm-empty-icon">📝</div>
+            <div class="vm-empty-icon"><i data-lucide="file-pen-line" aria-hidden="true"></i></div>
             <h4>Chủ đề đang được cập nhật</h4>
             <p>Nội dung và hình ảnh bài viết cho tuyến bài này sẽ sớm được bổ sung.</p>
           </div>
@@ -1276,23 +1277,23 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
           </div>
           <div class="vm-lightbox-actions">
             <button type="button" class="vm-lb-btn" id="vm-lb-zoom" aria-label="Phóng to hoặc thu nhỏ ảnh">
-              🔍 Phóng to (1.5x)
+              <i data-lucide="zoom-in" aria-hidden="true"></i> <span>Phóng to (1.5x)</span>
             </button>
             <button type="button" class="vm-lb-btn vm-lb-close" id="vm-lb-close" aria-label="Đóng khung xem ảnh">
-              ✕ Đóng (Esc)
+              <i data-lucide="x" aria-hidden="true"></i> <span>Đóng (Esc)</span>
             </button>
           </div>
         </div>
 
         <div class="vm-lightbox-stage" id="vm-lb-stage">
           <button type="button" class="vm-lb-nav vm-lb-prev" id="vm-lb-prev" aria-label="Ảnh trước">
-            ←
+            <i data-lucide="chevron-left" aria-hidden="true"></i>
           </button>
           <div class="vm-lightbox-img-wrap" id="vm-lb-img-wrap">
             <img src="" alt="" class="vm-lightbox-img" id="vm-lb-img">
           </div>
           <button type="button" class="vm-lb-nav vm-lb-next" id="vm-lb-next" aria-label="Ảnh tiếp theo">
-            →
+            <i data-lucide="chevron-right" aria-hidden="true"></i>
           </button>
         </div>
 
@@ -1318,7 +1319,9 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
     function setZoom(state) {
       isZoomed = state;
       imgWrap.classList.toggle('is-zoomed', isZoomed);
-      zoomBtn.textContent = isZoomed ? '🔍 Thu nhỏ (1x)' : '🔍 Phóng to (1.5x)';
+      zoomBtn.innerHTML = isZoomed
+        ? '<i data-lucide="zoom-out" aria-hidden="true"></i> <span>Thu nhỏ (1x)</span>'
+        : '<i data-lucide="zoom-in" aria-hidden="true"></i> <span>Phóng to (1.5x)</span>';
     }
 
     function showImage(index) {

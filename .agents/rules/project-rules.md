@@ -18,3 +18,9 @@ trigger: always_on
    - Luôn sử dụng giao diện sáng (Light mode).
    - Màu sắc: Trắng - Xanh Biển (`#0284c7`) - Cam (`#f97316`).
    - Font chữ: `Plus Jakarta Sans`.
+
+4. **Icon:**
+   - Không dùng emoji hay ký tự (🎯 ✍️ 📍 ★ ↗ → ↓ ✕ …) làm icon giao diện.
+   - Chỉ dùng icon trong thư viện Lucide: `<i data-lucide="tên-icon"></i>` (thư viện nạp từ CDN trong `index.html`, `assets/js/site.js` tự vẽ, kể cả phần tử JS thêm sau).
+   - Icon nằm trong hình SVG: nhúng path của icon Lucide (gói `lucide-static`).
+   - Emoji trong caption bài đăng mạng xã hội thật là nội dung, được giữ nguyên.
