@@ -619,15 +619,15 @@ html.hero-scrub .hero-scenes { display: none !important; }
   margin: 0.5rem auto 2.25rem; white-space: nowrap;
 }
 .scalix-footer-bar {
-  display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 2rem; align-items: center;
+  display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 2rem; align-items: start;
   padding-bottom: 2rem; border-bottom: 1px solid #e6ecf8;
 }
-.scalix-footer-pills { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.scalix-footer-pills { display: flex; flex-direction: column; align-items: flex-start; gap: 0.45rem; }
 .scalix-footer-pills a {
-  background: #e6e9f2; color: #070c22; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em;
-  padding: 0.55rem 1rem; border-radius: 999px; text-decoration: none; transition: background-color .2s ease, color .2s ease;
+  background: transparent; color: #070c22; font-size: 0.9rem; font-weight: 700; letter-spacing: 0;
+  padding: 0.1rem 0; border-radius: 0; text-decoration: none; transition: color .2s ease;
 }
-.scalix-footer-pills a:hover { background: #1631c9; color: #ffffff; }
+.scalix-footer-pills a:hover { background: transparent; color: #1631c9; }
 .scalix-footer-center { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.875rem; color: #070c22; font-weight: 600; }
 .scalix-footer-center a { color: #4b5878; text-decoration: none; }
 .scalix-footer-center a:hover { color: #1631c9; }
@@ -637,7 +637,8 @@ html.hero-scrub .hero-scenes { display: none !important; }
 .lp-copy { text-align: center; padding-top: 1.5rem; font-size: 0.8rem; color: #66748f; }
 @media (max-width: 1024px) {
   .scalix-footer-bar { grid-template-columns: 1fr; text-align: center; }
-  .scalix-footer-pills, .scalix-footer-socials { justify-content: center; }
+  .scalix-footer-pills { align-items: center; }
+  .scalix-footer-socials { justify-content: center; }
 }
 
 /* ==========================================================================
