@@ -893,15 +893,6 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
               <h4 class="vm-subcat-title">${sub.name}</h4>
               <span class="vm-report-source">${escapeHTML(rp.source)} · ${escapeHTML(rp.period)}</span>
             </div>
-            <button
-              type="button"
-              class="vm-proof-btn vm-img-trigger"
-              data-lb-index="${proofLbIndex}"
-              aria-label="Xem ảnh chụp báo cáo số liệu thực tế từ Meta Business Suite"
-            >
-              <i data-lucide="image" aria-hidden="true"></i>
-              <span>Xem minh chứng thực tế</span>
-            </button>
           </div>
 
           <div class="vm-report-kpis" role="tablist" aria-label="Chọn chỉ số hiển thị biểu đồ">
@@ -926,6 +917,18 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
                 ${tableRowsHTML}
               </tbody>
             </table>
+          </div>
+
+          <div class="vm-report-footer">
+            <button
+              type="button"
+              class="vm-proof-btn"
+              data-lb-index="${proofLbIndex}"
+              aria-label="Xem ảnh chụp báo cáo số liệu thực tế từ Meta Business Suite"
+            >
+              <i data-lucide="image" aria-hidden="true"></i>
+              <span>Xem minh chứng thực tế</span>
+            </button>
           </div>
         </div>
       `;
@@ -1731,7 +1734,7 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
 
     // Gắn sự kiện mở Lightbox cho tất cả ảnh trong Section
     root.addEventListener('click', (e) => {
-      const trigger = e.target.closest('.vm-img-trigger, .vm-post-img-trigger');
+      const trigger = e.target.closest('.vm-img-trigger, .vm-post-img-trigger, .vm-proof-btn');
       if (!trigger) return;
       const idx = parseInt(trigger.getAttribute('data-lb-index') || '0', 10);
       openLightbox(idx);

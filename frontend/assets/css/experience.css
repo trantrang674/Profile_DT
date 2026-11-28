@@ -1857,16 +1857,25 @@
   border-radius: 99px;
 }
 
+.vm-report-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.75rem;
+}
+
 .vm-proof-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.48rem 0.9rem;
-  border-radius: 9px;
+  gap: 0.4rem;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
   border: 1px solid var(--vm-primary-border);
   background: var(--vm-primary-soft);
   color: var(--vm-primary-dark);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
