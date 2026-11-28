@@ -771,7 +771,6 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
 
             if (hasTopics) {
               const topicTabsHTML = sub.topics.map((topic, tIdx) => {
-                const count = (topic.posts || []).length;
                 return `
                   <button
                     type="button"
@@ -781,7 +780,6 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
                     data-topic-id="${topic.id}"
                   >
                     <span>${escapeHTML(topic.title)}</span>
-                    ${count > 0 ? `<span class="vm-topic-badge">${count} bài</span>` : `<span class="vm-topic-badge empty">Trống</span>`}
                   </button>
                 `;
               }).join('');
@@ -806,7 +804,6 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
                 <div class="vm-subcat-block">
                   <div class="vm-subcat-header">
                     <div class="vm-subcat-title-wrap">
-                      <span class="vm-subcat-badge">${sub.badge}</span>
                       <h4 class="vm-subcat-title">${sub.name}</h4>
                     </div>
                   </div>
@@ -834,7 +831,6 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
               <div class="vm-subcat-block">
                 <div class="vm-subcat-header">
                   <div class="vm-subcat-title-wrap">
-                    <span class="vm-subcat-badge">${sub.badge}</span>
                     <h4 class="vm-subcat-title">${sub.name}</h4>
                   </div>
                 </div>

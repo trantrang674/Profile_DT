@@ -604,15 +604,15 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: #f8fafc;
+  padding: 0.55rem 1.05rem;
+  background: #ffffff;
   color: var(--vm-text-muted);
   border: 1px solid var(--vm-border);
-  border-radius: 99px;
+  border-radius: 9px;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: var(--vm-transition);
   line-height: 1.35;
   text-align: left;
 }
@@ -620,14 +620,14 @@
 .vm-topic-pill-btn:hover {
   background: var(--vm-primary-soft);
   color: var(--vm-primary-dark);
-  border-color: #bae6fd;
+  border-color: var(--vm-primary-border);
 }
 
 .vm-topic-pill-btn.is-active {
-  background: #0284c7;
+  background: var(--vm-primary);
   color: #ffffff;
-  border-color: #0284c7;
-  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+  border-color: var(--vm-primary);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
 }
 
 .vm-topic-badge {
