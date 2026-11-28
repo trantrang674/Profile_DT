@@ -138,21 +138,25 @@
         items: [
           {
             icon: 'share-2',
+            visual3d: 'social',
             title: 'Social Media',
             text: 'Quản trị & sáng tạo nội dung trên hệ thống Social Media chính (Facebook & Instagram).'
           },
           {
             icon: 'calendar-days',
+            visual3d: 'plan',
             title: 'Content Plan',
             text: 'Xây dựng Content Plan định kỳ hằng tháng và kế hoạch truyền thông tổng thể cho các đợt ra mắt BST mới.'
           },
           {
             icon: 'camera',
+            visual3d: 'media',
             title: 'Media & Lookbook',
             text: 'Phối hợp cùng đội ngũ Media/Design thực hiện chụp Lookbook, quay Reels phối đồ (Mix & Match).'
           },
           {
             icon: 'bar-chart-3',
+            visual3d: 'analytics',
             title: 'Đo lường & Báo cáo',
             text: 'Theo dõi chỉ số và lập báo cáo đo lường định kỳ.'
           }
@@ -1132,16 +1136,18 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
           </a>
         </div>
 
-        <div class="vm-bento-scope-grid" aria-label="${escapeHTML(overview.responsibilities.title)}">
+        <div class="vm-bento-scope-grid" data-vm-scope-3d aria-label="${escapeHTML(overview.responsibilities.title)}">
+          <canvas class="vm-scope-3d" aria-hidden="true"></canvas>
           ${overview.responsibilities.items
             .map(
               (item, idx) => `
-            <article class="vm-bento-scope-card vm-scope-v${(idx % 4) + 1}">
+            <article class="vm-bento-scope-card vm-scope-v${(idx % 4) + 1}" data-scope-card="${item.visual3d || idx}">
               <span class="vm-bento-scope-ico" aria-hidden="true">
                 <i data-lucide="${item.icon}" aria-hidden="true"></i>
               </span>
               <h4 class="vm-bento-scope-title">${escapeHTML(item.title)}</h4>
               <p class="vm-bento-scope-text">${escapeHTML(item.text)}</p>
+              <div class="vm-bento-scope-stage" data-scope-slot="${item.visual3d || idx}" aria-hidden="true"></div>
               <div class="vm-bento-scope-accent" aria-hidden="true"></div>
             </article>
           `
@@ -1168,8 +1174,7 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
 
         <div class="vm-bento-exec-content">
           <div class="vm-bento-exec-head">
-            <span class="vm-bento-kicker">${escapeHTML(overview.execution.title)}</span>
-            <h3 class="vm-bento-exec-title">Vận hành nội dung <span>đa kênh</span></h3>
+            <h3 class="vm-bento-exec-title">Cách vận hành <span>kênh Facebook</span></h3>
           </div>
 
           <div class="vm-bento-exec-list">

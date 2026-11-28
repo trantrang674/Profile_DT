@@ -435,5 +435,196 @@ function initStore() {
   store.classList.add('has-3d');
 }
 
+/* ========================================================================
+   3. 4 ICON 3D NỔI BÊN DƯỚI 4 THẺ PHẠM VI CÔNG VIỆC (VM STYLE)
+   ======================================================================== */
+function initScopeIcons() {
+  const grid = document.querySelector('[data-vm-scope-3d]');
+  const canvas = grid && grid.querySelector('.vm-scope-3d');
+  if (!grid || !canvas) return;
+  if (grid.dataset.scope3dInit === '1') return;
+  grid.dataset.scope3dInit = '1';
+
+  const renderer = makeRenderer(canvas);
+  if (!renderer) return;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.08;
+
+  const scene = new THREE.Scene();
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+  const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 100);
+  camera.position.set(0, 0, 18);
+  const key = new THREE.DirectionalLight(0xffffff, 1.45);
+  key.position.set(4, 6, 8);
+  scene.add(key);
+
+  const glossy = (color, o = {}) => new THREE.MeshPhysicalMaterial({ color, roughness: 0.24, metalness: 0, clearcoat: 0.85, clearcoatRoughness: 0.14, ...o });
+  const M = {
+    cobalt: glossy(0x2b4eff),
+    royal: glossy(0x1631c9),
+    peri: glossy(0x5574f7),
+    ice: glossy(0xc7d2fe),
+    white: glossy(0xf7f9ff),
+    red: glossy(0xff4d6d),
+    green: glossy(0x22c55e),
+    graphite: glossy(0x1e293b, { roughness: 0.45 }),
+    metal: new THREE.MeshStandardMaterial({ color: 0xd9dee8, metalness: 0.95, roughness: 0.22 }),
+    glass: new THREE.MeshPhysicalMaterial({ color: 0x93c5fd, transmission: 0.75, thickness: 0.35, roughness: 0.08, ior: 1.4, transparent: true, opacity: 0.85 }),
+  };
+  const mesh = (geo, mat, x = 0, y = 0, z = 0) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); return m; };
+
+  // 1. Social Media: Bong bóng chat 3D + chấm tương tác + tim đỏ nhỏ
+  function makeSocial() {
+    const g = new THREE.Group();
+    g.add(mesh(new RoundedBoxGeometry(2.05, 1.32, 0.48, 6, 0.36), M.cobalt));
+    const tail = mesh(new THREE.ConeGeometry(0.28, 0.58, 24), M.cobalt, -0.52, -0.78, 0);
+    tail.rotation.z = -0.55;
+    g.add(tail);
+    [-0.5, 0, 0.5].forEach((x) => g.add(mesh(new THREE.SphereGeometry(0.15, 24, 24), M.white, x, 0, 0.27)));
+    g.add(mesh(new THREE.SphereGeometry(0.28, 24, 24), M.red, 0.88, 0.58, 0.28));
+    g.rotation.set(0.16, 0.32, 0.06);
+    return g;
+  }
+
+  // 2. Content Plan: Lịch 3D bo tròn với thanh tiêu đề xanh + vòng kim loại + ô ngày
+  function makePlan() {
+    const g = new THREE.Group();
+    g.add(mesh(new RoundedBoxGeometry(1.95, 1.65, 0.36, 5, 0.16), M.white));
+    g.add(mesh(new RoundedBoxGeometry(1.96, 0.46, 0.38, 4, 0.12), M.royal, 0, 0.6, 0.01));
+    [-0.55, 0.55].forEach((x) => g.add(mesh(new THREE.CapsuleGeometry(0.08, 0.22, 6, 16), M.metal, x, 0.88, 0.06)));
+    const cols = [-0.52, 0, 0.52];
+    const rows = [0.08, -0.38];
+    rows.forEach((y, ri) => cols.forEach((x, ci) => {
+      const mat = (ri === 0 && ci === 1) || (ri === 1 && ci === 2) ? M.cobalt : M.ice;
+      g.add(mesh(new RoundedBoxGeometry(0.36, 0.3, 0.08, 3, 0.06), mat, x, y, 0.2));
+    }));
+    g.rotation.set(0.18, -0.32, -0.05);
+    return g;
+  }
+
+  // 3. Media & Lookbook: Máy ảnh 3D có ống kính kim loại & nút chụp đỏ
+  function makeMedia() {
+    const g = new THREE.Group();
+    g.add(mesh(new RoundedBoxGeometry(2.1, 1.38, 0.72, 6, 0.22), M.royal));
+    g.add(mesh(new RoundedBoxGeometry(0.75, 0.32, 0.48, 4, 0.1), M.cobalt, -0.35, 0.78, 0));
+    g.add(mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.16, 24), M.red, 0.68, 0.74, 0.05));
+    const ring = mesh(new THREE.TorusGeometry(0.46, 0.1, 18, 48), M.metal, 0.05, -0.02, 0.38);
+    g.add(ring);
+    const barrel = mesh(new THREE.CylinderGeometry(0.44, 0.48, 0.22, 36), M.graphite, 0.05, -0.02, 0.32);
+    barrel.rotation.x = Math.PI / 2;
+    g.add(barrel);
+    const lens = mesh(new THREE.CylinderGeometry(0.36, 0.36, 0.08, 36), M.glass, 0.05, -0.02, 0.43);
+    lens.rotation.x = Math.PI / 2;
+    g.add(lens);
+    g.rotation.set(0.15, 0.38, -0.06);
+    return g;
+  }
+
+  // 4. Đo lường & Báo cáo: Biểu đồ 3 cột tăng trưởng + mũi tên xanh lá
+  function makeAnalytics() {
+    const g = new THREE.Group();
+    g.add(mesh(new RoundedBoxGeometry(2.0, 0.18, 0.85, 4, 0.06), M.white, 0, -0.82));
+    [[-0.58, 0.65, M.ice], [0, 1.15, M.peri], [0.58, 1.65, M.cobalt]].forEach(([x, h, m]) => {
+      g.add(mesh(new RoundedBoxGeometry(0.4, h, 0.4, 4, 0.08), m, x, -0.73 + h / 2));
+    });
+    const arrow = mesh(new THREE.ConeGeometry(0.2, 0.42, 24), M.green, 0.92, 1.12);
+    arrow.rotation.z = -0.58;
+    g.add(arrow);
+    g.rotation.set(0.2, -0.45, 0);
+    return g;
+  }
+
+  const makers = {
+    social: makeSocial,
+    plan: makePlan,
+    media: makeMedia,
+    analytics: makeAnalytics,
+  };
+
+  const slots = Array.from(grid.querySelectorAll('[data-scope-slot]'));
+  const objects = slots.map((slot, i) => {
+    const keyName = slot.getAttribute('data-scope-slot');
+    const obj = (makers[keyName] || makeSocial)();
+    obj.userData = {
+      slot,
+      phase: i * 1.45,
+      base: obj.rotation.clone(),
+      pos: { x: 0, y: 0 },
+      unit: 1,
+      kick: 0,
+      spin: 0,
+    };
+    scene.add(obj);
+
+    const card = slot.closest('.vm-bento-scope-card');
+    if (card) {
+      card.addEventListener('pointerenter', () => {
+        obj.userData.kick = 1;
+      });
+    }
+    return obj;
+  });
+
+  const resize = () => {
+    const gr = grid.getBoundingClientRect();
+    if (!gr.width || !gr.height) return;
+    renderer.setSize(gr.width, gr.height, false);
+    camera.aspect = gr.width / gr.height;
+    camera.updateProjectionMatrix();
+
+    const visH = 2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.position.z;
+    const k = visH / gr.height;
+
+    objects.forEach((o) => {
+      const sr = o.userData.slot.getBoundingClientRect();
+      o.userData.pos.x = ((sr.left + sr.width / 2) - (gr.left + gr.width / 2)) * k;
+      o.userData.pos.y = -((sr.top + sr.height / 2) - (gr.top + gr.height / 2)) * k;
+      const pxSize = Math.min(sr.height * 0.78, sr.width * 0.56, 78);
+      o.userData.unit = (pxSize * k) / 2;
+      o.scale.setScalar(o.userData.unit);
+      o.position.set(o.userData.pos.x, o.userData.pos.y, 0);
+    });
+  };
+
+  resize();
+  new ResizeObserver(resize).observe(grid);
+  window.addEventListener('resize', resize, { passive: true });
+
+  const mouse = { x: 0, y: 0 };
+  window.addEventListener('pointermove', (e) => {
+    const r = grid.getBoundingClientRect();
+    mouse.x = THREE.MathUtils.clamp(((e.clientX - r.left) / r.width - 0.5) * 2, -1.2, 1.2);
+    mouse.y = THREE.MathUtils.clamp(((e.clientY - r.top) / r.height - 0.5) * 2, -1.2, 1.2);
+  }, { passive: true });
+
+  loopWhenVisible(grid, (dt, t) => {
+    objects.forEach((o) => {
+      const u = o.userData;
+      const bob = Math.sin(t * 1.15 + u.phase) * 0.14 * u.unit;
+      const tx = u.pos.x + mouse.x * 0.08 * u.unit;
+      const ty = u.pos.y + bob - mouse.y * 0.08 * u.unit;
+      o.position.x += (tx - o.position.x) * 0.1;
+      o.position.y += (ty - o.position.y) * 0.1;
+
+      if (u.kick > 0.001) {
+        u.spin += dt * 8.5 * u.kick;
+        u.kick *= 0.92;
+      }
+      o.rotation.x = u.base.x + Math.sin(t * 0.8 + u.phase) * 0.12 + mouse.y * 0.18;
+      o.rotation.y = u.base.y + Math.sin(t * 0.6 + u.phase) * 0.22 + mouse.x * 0.24 + u.spin;
+      o.rotation.z = u.base.z + Math.cos(t * 0.7 + u.phase) * 0.06;
+      o.scale.setScalar(u.unit * (1 + Math.sin(Math.min(u.kick, 1) * Math.PI) * 0.16));
+    });
+    renderer.render(scene, camera);
+  });
+}
+
 initShowcase();
 initStore();
+if (document.querySelector('[data-vm-scope-3d]')) {
+  initScopeIcons();
+} else {
+  document.addEventListener('DOMContentLoaded', initScopeIcons, { once: true });
+}
