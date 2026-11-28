@@ -849,19 +849,14 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
         `;
       }
 
-      const kpiCardsHTML = rp.metrics.map((m, mIdx) => `
+      const metricTabsHTML = rp.metrics.map((m, mIdx) => `
         <button
           type="button"
-          class="vm-report-kpi ${mIdx === 0 ? 'is-active' : ''}"
+          class="vm-topic-pill-btn vm-report-tab ${mIdx === 0 ? 'is-active' : ''}"
           data-report-metric="${m.id}"
           aria-pressed="${mIdx === 0 ? 'true' : 'false'}"
         >
-          <span class="vm-report-kpi-label">${escapeHTML(m.label)}</span>
-          <div class="vm-report-kpi-val-row">
-            <strong class="vm-report-kpi-val">${escapeHTML(m.latest)}</strong>
-            <span class="vm-delta-pill is-${m.latestDir}">${escapeHTML(m.latestDelta)}</span>
-          </div>
-          <span class="vm-report-kpi-note">${escapeHTML(m.note)}</span>
+          ${escapeHTML(m.label)}
         </button>
       `).join('');
 
@@ -893,10 +888,9 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
               <h4 class="vm-subcat-title">${sub.name}</h4>
               <span class="vm-report-source">${escapeHTML(rp.source)} · ${escapeHTML(rp.period)}</span>
             </div>
-          </div>
-
-          <div class="vm-report-kpis" role="tablist" aria-label="Chọn chỉ số hiển thị biểu đồ">
-            ${kpiCardsHTML}
+            <div class="vm-report-tabs" role="tablist" aria-label="Chọn chỉ số hiển thị biểu đồ">
+              ${metricTabsHTML}
+            </div>
           </div>
 
           <div class="vm-report-chart-stage">

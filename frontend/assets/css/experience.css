@@ -1895,65 +1895,15 @@
   flex-shrink: 0;
 }
 
-.vm-report-kpis {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.vm-report-kpi {
-  appearance: none;
-  font-family: inherit;
-  text-align: left;
+.vm-report-tabs {
   display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 0.85rem 1rem;
-  border-radius: 12px;
-  background: var(--vm-bg-subtle);
-  border: 1.5px solid var(--vm-border);
-  cursor: pointer;
-  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.vm-report-kpi:hover {
-  border-color: var(--vm-primary-border);
-  background: #ffffff;
-}
-
-.vm-report-kpi.is-active {
-  background: #ffffff;
-  border-color: var(--vm-primary);
-  box-shadow: 0 6px 18px rgba(16, 36, 158, 0.1);
-}
-
-.vm-report-kpi-label {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--vm-text-muted);
-}
-
-.vm-report-kpi-val-row {
-  display: flex;
-  align-items: baseline;
   flex-wrap: wrap;
   gap: 0.45rem;
 }
 
-.vm-report-kpi-val {
-  font-size: 1.42rem;
-  font-weight: 800;
-  color: var(--vm-primary-dark);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  font-variant-numeric: tabular-nums;
-}
-
-.vm-report-kpi-note {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--vm-text-light);
+.vm-report-tab {
+  padding: 0.4rem 0.78rem;
+  font-size: 0.8rem;
 }
 
 .vm-delta-pill {
