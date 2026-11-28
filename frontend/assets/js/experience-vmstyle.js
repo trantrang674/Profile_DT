@@ -282,12 +282,12 @@ TikTok: https://www.tiktok.com/@vmstyle.vn`
               },
               {
                 id: 'fb-topic-2',
-                title: 'Tuyến bài bắt trend & Tương tác cộng đồng (Đang cập nhật)',
+                title: 'Tuyến bài bắt trend và tương tác',
                 posts: []
               },
               {
                 id: 'fb-topic-3',
-                title: 'Tuyến bài Minigame & Chiến dịch Flash Sale (Đang cập nhật)',
+                title: 'Tuyến bài Minigame & Chiến dịch',
                 posts: []
               }
             ]

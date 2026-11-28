@@ -594,10 +594,10 @@
    ========================================================================== */
 .vm-topics-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0.6rem 1rem;
+  gap: 0.6rem 0.85rem;
   margin-bottom: 0.75rem;
 }
 
@@ -607,6 +607,7 @@
   align-items: center;
   gap: 0.5rem;
   flex: 1 1 auto;
+  min-width: 0;
 }
 
 .vm-topics-controls-wrap {
@@ -626,17 +627,18 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.55rem 1.05rem;
+  padding: 0.5rem 0.9rem;
   background: #ffffff;
   color: var(--vm-text-muted);
   border: 1px solid var(--vm-border);
   border-radius: 9px;
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   font-weight: 700;
   cursor: pointer;
   transition: var(--vm-transition);
   line-height: 1.35;
   text-align: left;
+  white-space: nowrap;
 }
 
 .vm-topic-pill-btn:hover {
@@ -1261,6 +1263,12 @@
 
 /* ---------- RESPONSIVE (Desktop / Tablet / Mobile) ---------- */
 @media (max-width: 992px) {
+  .vm-topics-row {
+    flex-wrap: wrap;
+  }
+  .vm-topic-pill-btn {
+    white-space: normal;
+  }
   .vm-meta-grid {
     grid-template-columns: repeat(2, 1fr);
   }
