@@ -439,7 +439,11 @@ function initStore() {
    3. 4 ICON 3D NỔI BÊN DƯỚI 4 THẺ PHẠM VI CÔNG VIỆC (VM STYLE)
    ======================================================================== */
 function initScopeIcons() {
-  const grid = document.querySelector('[data-vm-scope-3d]');
+  const grids = document.querySelectorAll('[data-vm-scope-3d]');
+  grids.forEach((grid) => initScopeIconsForGrid(grid));
+}
+
+function initScopeIconsForGrid(grid) {
   const canvas = grid && grid.querySelector('.vm-scope-3d');
   if (!grid || !canvas) return;
   if (grid.dataset.scope3dInit === '1') return;

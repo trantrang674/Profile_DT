@@ -672,17 +672,199 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
     ]
   };
 
+  const TNC_DATA = {
+    id: 'tnc',
+    company: {
+      logoUrl: 'assets/images/brands/tnc.webp',
+      logoAlt: 'Logo thương hiệu Thành Nhân TNC',
+      brandName: 'Thành Nhân TNC',
+      industry: 'Công nghệ & Bán lẻ IT',
+      period: '2025 – Hiện tại',
+      role: 'Content Marketing Specialist',
+      summary:
+        'Phụ trách chiến lược nội dung đa kênh (SEO Website, Social Media, Review công nghệ) cho hệ thống bán lẻ máy tính & thiết bị công nghệ Thành Nhân TNC. Ứng dụng quy trình AI tối ưu sản xuất nội dung và đo lường chuyển đổi theo dữ liệu thực tế.'
+    },
+    overview: {
+      responsibilities: {
+        title: 'Phạm vi công việc',
+        items: [
+          {
+            icon: 'share-2',
+            visual3d: 'social',
+            title: 'Social Media',
+            text: 'Quản trị & sáng tạo nội dung trên hệ thống kênh Social Media chính (Facebook, TikTok, Zalo OA).'
+          },
+          {
+            icon: 'calendar-days',
+            visual3d: 'plan',
+            title: 'SEO & Content Plan',
+            text: 'Lập kế hoạch nội dung chuẩn SEO cho website tnc.com.vn và chiến dịch bán hàng theo mùa.'
+          },
+          {
+            icon: 'camera',
+            visual3d: 'media',
+            title: 'Review & Media',
+            text: 'Phối hợp đội ngũ Media xây dựng kịch bản video ngắn, bài đánh giá sản phẩm công nghệ thực tế.'
+          },
+          {
+            icon: 'bar-chart-3',
+            visual3d: 'analytics',
+            title: 'Đo lường & Báo cáo',
+            text: 'Theo dõi chỉ số từ Search Console, Meta Business Suite và lập báo cáo tối ưu định kỳ.'
+          }
+        ]
+      },
+      execution: {
+        title: 'Cách triển khai',
+        headingPrefix: 'Cách vận hành',
+        headingAccent: 'nội dung đa kênh',
+        // Thay đường dẫn ảnh thật của Thành Nhân TNC tại đây
+        imageUrl: '',
+        imageAlt: 'Hình ảnh triển khai nội dung tại Thành Nhân TNC',
+        items: [
+          {
+            icon: 'calendar-check',
+            title: 'Quy trình chuẩn SEO & AI',
+            text: 'Chuẩn hóa quy trình nghiên cứu từ khóa, viết bài tin tức và review sản phẩm kết hợp AI Agent để đảm bảo tốc độ và độ chính xác.'
+          },
+          {
+            icon: 'layout-grid',
+            title: 'Đồng bộ Website & Social',
+            text: 'Triển khai nội dung nhất quán từ bài viết chuyên sâu trên web đến tuyến bài ngắn trên mạng xã hội và Broadcast Zalo OA.'
+          },
+          {
+            icon: 'trending-up',
+            title: 'Tối ưu theo dữ liệu tìm kiếm',
+            text: 'Bám sát xu hướng sản phẩm mới, phân tích hành vi tìm kiếm để tối ưu CTR và chuyển đổi tư vấn mua hàng.'
+          }
+        ]
+      },
+      deliverables: {
+        title: 'Số liệu',
+        stats: [
+          {
+            value: 60,
+            suffix: '+',
+            label: 'Bài viết SEO & Social trung bình/ tháng',
+            isAccent: false
+          },
+          {
+            value: 10,
+            suffix: '+',
+            label: 'Chiến dịch & tuyến nội dung sản phẩm',
+            isAccent: false
+          },
+          {
+            value: 50,
+            prefix: '+',
+            suffix: '%',
+            label: 'Tăng trưởng lượt tiếp cận & traffic',
+            isAccent: true
+          }
+        ]
+      }
+    },
+    categories: [
+      {
+        id: 'tnc-social',
+        tabTitle: 'Social Media',
+        description: 'Nội dung mạng xã hội cập nhật xu hướng công nghệ, giới thiệu sản phẩm và thu hút tương tác khách hàng.',
+        subcategories: [
+          {
+            id: 'tnc-sm-fb',
+            name: 'Facebook',
+            badge: 'FB',
+            topics: [
+              {
+                id: 'tnc-fb-product',
+                title: 'Tuyến bài giới thiệu sản phẩm',
+                posts: []
+              },
+              {
+                id: 'tnc-fb-trend',
+                title: 'Tuyến bài bắt trend & tương tác',
+                posts: []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'tnc-plan',
+        tabTitle: 'SEO & Content Plan',
+        description: 'Kế hoạch bài viết chuẩn SEO website tnc.com.vn và lịch triển khai chiến dịch định kỳ.',
+        subcategories: [
+          {
+            id: 'tnc-plan-monthly',
+            name: 'Kế hoạch nội dung định kỳ',
+            badge: '01',
+            posts: []
+          }
+        ]
+      },
+      {
+        id: 'tnc-report',
+        tabTitle: 'Báo cáo đo lường',
+        description: 'Theo dõi chỉ số từ Search Console, Meta Business Suite và tối ưu hiệu suất nội dung.',
+        subcategories: [
+          {
+            id: 'tnc-rp-overview',
+            name: 'Báo cáo hiệu suất kênh',
+            badge: 'RP',
+            posts: []
+          }
+        ]
+      }
+    ]
+  };
+
+  VM_STYLE_DATA.id = 'vmstyle';
+  VM_STYLE_DATA.overview.execution.headingPrefix = 'Cách vận hành';
+  VM_STYLE_DATA.overview.execution.headingAccent = 'kênh Facebook';
+
+  // Thứ tự hiển thị từ trên xuống: Thành Nhân TNC -> ngăn cách -> VM Style
+  const EXPERIENCE_COMPANIES = [TNC_DATA, VM_STYLE_DATA];
+
   /* ==========================================================================
-     2. HÀM RENDER GIAO DIỆN TỪ DỮ LIỆU JS
+     2. HÀM RENDER GIAO DIỆN TỪ DỮ LIỆU JS (HỖ TRỢ NHIỀU CÔNG TY)
      ========================================================================== */
   function renderVMStyleExperience() {
     const root = document.getElementById('vm-experience-mount');
     if (!root) return;
 
-    const { company, overview, categories } = VM_STYLE_DATA;
+    root.innerHTML = '';
+    document.querySelectorAll('.vm-work-modal').forEach((el) => el.remove());
 
-    // Danh sách phẳng tất cả bài viết để phục vụ điều hướng Lightbox (Trước / Sau)
+    // Danh sách phẳng tất cả ảnh của các công ty để phục vụ Lightbox phóng to
     const lightboxItems = [];
+    const workModals = [];
+
+    EXPERIENCE_COMPANIES.forEach((companyData, cIdx) => {
+      if (cIdx > 0) {
+        const divider = document.createElement('div');
+        divider.className = 'vm-company-divider';
+        divider.setAttribute('aria-hidden', 'true');
+        root.appendChild(divider);
+      }
+
+      const blockEl = document.createElement('div');
+      blockEl.className = 'vm-company-block';
+      blockEl.setAttribute('data-company-id', companyData.id);
+      root.appendChild(blockEl);
+
+      const modalEl = renderCompanyBlock(blockEl, companyData, lightboxItems);
+      workModals.push(modalEl);
+    });
+
+    initLightbox(workModals, lightboxItems);
+
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+  }
+
+  function renderCompanyBlock(root, companyData, lightboxItems) {
+    const { id: companyId, company, overview, categories } = companyData;
 
     // Tạo HTML cho 3 Tab nút bấm
     const tabsNavHTML = categories
@@ -693,8 +875,8 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
             class="vm-tab-btn ${idx === 0 ? 'active' : ''}"
             role="tab"
             aria-selected="${idx === 0 ? 'true' : 'false'}"
-            aria-controls="vm-panel-${cat.id}"
-            id="vm-tab-${cat.id}"
+            aria-controls="vm-panel-${companyId}-${cat.id}"
+            id="vm-tab-${companyId}-${cat.id}"
             data-tab-target="${cat.id}"
           >
             <span>${cat.tabTitle}</span>
@@ -1101,9 +1283,9 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
         return `
           <div
             class="vm-tab-panel ${idx === 0 ? 'active' : ''}"
-            id="vm-panel-${cat.id}"
+            id="vm-panel-${companyId}-${cat.id}"
             role="tabpanel"
-            aria-labelledby="vm-tab-${cat.id}"
+            aria-labelledby="vm-tab-${companyId}-${cat.id}"
             data-tab-panel="${cat.id}"
           >
             ${subcatsHTML}
@@ -1130,7 +1312,7 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
           <p class="vm-bento-role">${escapeHTML(company.role)}</p>
           <p class="vm-bento-summary">${escapeHTML(company.summary)}</p>
 
-          <a href="#vm-stats-counter-card" class="vm-bento-cta">
+          <a href="#vm-work-${companyId}" class="vm-bento-cta">
             <span>Xem minh chứng thực tế</span>
             <span class="vm-bento-cta-ico" aria-hidden="true"><i data-lucide="arrow-down" aria-hidden="true"></i></span>
           </a>
@@ -1157,7 +1339,7 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
       </section>
 
       <!-- ==================== 2. KHUNG NGANG 2: ẢNH MINH HỌA (TRÁI) + CÁCH TRIỂN KHAI (PHẢI) ==================== -->
-      <section class="vm-bento-band vm-bento-exec vm-reveal" aria-label="Cách triển khai tại VM Style">
+      <section class="vm-bento-band vm-bento-exec vm-reveal" aria-label="Cách triển khai tại ${escapeHTML(company.brandName)}">
         <div class="vm-bento-media ${overview.execution.imageUrl ? 'has-image' : ''}">
           ${
             overview.execution.imageUrl
@@ -1174,7 +1356,7 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
 
         <div class="vm-bento-exec-content">
           <div class="vm-bento-exec-head">
-            <h3 class="vm-bento-exec-title">Cách vận hành <span>kênh Facebook</span></h3>
+            <h3 class="vm-bento-exec-title">${escapeHTML(overview.execution.headingPrefix || 'Cách vận hành')} <span>${escapeHTML(overview.execution.headingAccent || 'nội dung đa kênh')}</span></h3>
           </div>
 
           <div class="vm-bento-exec-list">
@@ -1198,12 +1380,12 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
       </section>
 
       <!-- ==================== 3. HẠNG MỤC CÔNG VIỆC (3 Thẻ tổng quan kèm Số liệu -> Mở Modal chi tiết) ==================== -->
-      <div class="vm-work-wrapper vm-reveal" id="vm-stats-counter-card">
+      <div class="vm-work-wrapper vm-reveal" id="vm-work-${companyId}" data-counter-target="true">
         <div class="vm-work-top vm-showcase-top">
           <div class="vm-work-heading">
             <h3>Hạng mục công việc &amp; Minh chứng thực tế</h3>
           </div>
-          <p class="vm-showcase-sub">Tổng hợp các hạng mục thực chiến tại VM Style</p>
+          <p class="vm-showcase-sub">Tổng hợp các hạng mục thực chiến tại ${escapeHTML(company.brandName)}</p>
         </div>
 
         <div class="vm-showcase-grid">
@@ -1212,8 +1394,9 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
               const isFeatured = idx === 1;
               const stat = (overview.deliverables && overview.deliverables.stats && overview.deliverables.stats[idx]) || null;
               let visualHTML = '';
-              if (cat.id === 'social-media') {
-                visualHTML = `
+              if (idx === 0) {
+                visualHTML = companyId === 'vmstyle'
+                  ? `
                   <div class="vm-vis-social">
                     <div class="vm-vis-shot vm-vis-shot-back">
                       <img src="assets/images/posts/Screenshot_2.webp" alt="" loading="lazy">
@@ -1222,8 +1405,24 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
                       <img src="assets/images/posts/Screenshot_1.webp" alt="" loading="lazy">
                     </div>
                   </div>
+                `
+                  : `
+                  <div class="vm-vis-plan" aria-hidden="true">
+                    <div class="vm-vis-plan-bar">
+                      <span class="vm-vis-dot"></span><span class="vm-vis-dot"></span><span class="vm-vis-dot"></span>
+                      <span class="vm-vis-plan-title">Social Channels</span>
+                    </div>
+                    <div class="vm-vis-plan-grid">
+                      <div class="vm-vis-cell is-hi"><span>FB</span><em>Fanpage</em></div>
+                      <div class="vm-vis-cell"><span>TT</span><em>Short Video</em></div>
+                      <div class="vm-vis-cell is-hi"><span>Zalo</span><em>Broadcast</em></div>
+                      <div class="vm-vis-cell"><span>Web</span><em>SEO Blog</em></div>
+                      <div class="vm-vis-cell is-hi"><span>AI</span><em>Workflow</em></div>
+                      <div class="vm-vis-cell"><span>+60</span><em>Bài/tháng</em></div>
+                    </div>
+                  </div>
                 `;
-              } else if (cat.id === 'content-plan') {
+              } else if (idx === 1) {
                 visualHTML = `
                   <div class="vm-vis-plan" aria-hidden="true">
                     <div class="vm-vis-plan-bar">
@@ -1231,12 +1430,12 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
                       <span class="vm-vis-plan-title">Content Calendar</span>
                     </div>
                     <div class="vm-vis-plan-grid">
-                      <div class="vm-vis-cell is-hi"><span>T2</span><em>Lookbook</em></div>
-                      <div class="vm-vis-cell"><span>T4</span><em>Mix &amp; Match</em></div>
-                      <div class="vm-vis-cell is-hi"><span>T6</span><em>Reels BST</em></div>
-                      <div class="vm-vis-cell"><span>T7</span><em>Feedback</em></div>
-                      <div class="vm-vis-cell is-hi"><span>CN</span><em>Minigame</em></div>
-                      <div class="vm-vis-cell"><span>+80</span><em>Bài/tháng</em></div>
+                      <div class="vm-vis-cell is-hi"><span>T2</span><em>${companyId === 'vmstyle' ? 'Lookbook' : 'Tin công nghệ'}</em></div>
+                      <div class="vm-vis-cell"><span>T4</span><em>${companyId === 'vmstyle' ? 'Mix &amp; Match' : 'Review SP'}</em></div>
+                      <div class="vm-vis-cell is-hi"><span>T6</span><em>${companyId === 'vmstyle' ? 'Reels BST' : 'SEO Pillar'}</em></div>
+                      <div class="vm-vis-cell"><span>T7</span><em>${companyId === 'vmstyle' ? 'Feedback' : 'So sánh'}</em></div>
+                      <div class="vm-vis-cell is-hi"><span>CN</span><em>${companyId === 'vmstyle' ? 'Minigame' : 'Khuyến mãi'}</em></div>
+                      <div class="vm-vis-cell"><span>${stat ? `${stat.value}${stat.suffix || ''}` : 'Plan'}</span><em>${companyId === 'vmstyle' ? 'Bài/tháng' : 'Chiến dịch'}</em></div>
                     </div>
                   </div>
                 `;
@@ -1245,7 +1444,7 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
                   <div class="vm-vis-report" aria-hidden="true">
                     <div class="vm-vis-report-head">
                       <span>Performance</span>
-                      <strong>+75% Reach</strong>
+                      <strong>${stat ? `${stat.prefix || ''}${stat.value}${stat.suffix || ''}` : '+50%'} Growth</strong>
                     </div>
                     <div class="vm-vis-bars">
                       <span style="height:36%"></span>
@@ -1293,27 +1492,25 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
       </div>
     `;
 
-    // Tạo Modal Popup chi tiết cho 3 hạng mục lớn
-    let workModalEl = document.getElementById('vm-work-modal');
-    if (workModalEl) workModalEl.remove();
-    workModalEl = document.createElement('div');
-    workModalEl.id = 'vm-work-modal';
+    // Tạo Modal Popup chi tiết riêng cho từng công ty
+    const workModalEl = document.createElement('div');
+    workModalEl.id = `vm-work-modal-${companyId}`;
     workModalEl.className = 'vm-work-modal';
     workModalEl.setAttribute('role', 'dialog');
     workModalEl.setAttribute('aria-modal', 'true');
     workModalEl.setAttribute('aria-hidden', 'true');
-    workModalEl.setAttribute('aria-label', 'Chi tiết hạng mục công việc VM Style');
+    workModalEl.setAttribute('aria-label', `Chi tiết hạng mục công việc ${company.brandName}`);
     workModalEl.innerHTML = `
       <div class="vm-work-modal-dialog">
         <div class="vm-work-modal-header">
-          <div class="vm-tabs-nav" role="tablist" aria-label="Các nhóm hạng mục công việc tại VM Style">
+          <div class="vm-tabs-nav" role="tablist" aria-label="Các nhóm hạng mục công việc tại ${escapeHTML(company.brandName)}">
             ${tabsNavHTML}
           </div>
-          <button type="button" class="vm-work-modal-close" id="vm-work-modal-close" aria-label="Đóng chi tiết">
+          <button type="button" class="vm-work-modal-close" aria-label="Đóng chi tiết">
             <i data-lucide="x" aria-hidden="true"></i>
           </button>
         </div>
-        <div class="vm-work-modal-body" id="vm-work-modal-body">
+        <div class="vm-work-modal-body">
           <div class="vm-tabs-content">
             ${tabsPanelsHTML}
           </div>
@@ -1322,24 +1519,21 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
     `;
     document.body.appendChild(workModalEl);
 
-    // Khởi tạo tương tác Modal chi tiết, Tabs, Slider lướt ngang, Hiệu ứng cuộn, Counter và Lightbox
+    // Khởi tạo tương tác Modal chi tiết, Tabs, Slider lướt ngang, Hiệu ứng cuộn & Counter
     initTabs(workModalEl);
     initCarousels(workModalEl);
     initWorkModal(root, workModalEl);
     initScrollRevealAndCounters(root);
-    initLightbox(workModalEl, lightboxItems);
 
-    if (window.lucide && typeof window.lucide.createIcons === 'function') {
-      window.lucide.createIcons();
-    }
+    return workModalEl;
   }
 
   /* ==========================================================================
      2B. LOGIC MỞ / ĐÓNG MODAL CHI TIẾT HẠNG MỤC CÔNG VIỆC
      ========================================================================== */
   function initWorkModal(root, modalEl) {
-    const closeBtn = modalEl.querySelector('#vm-work-modal-close');
-    const bodyEl = modalEl.querySelector('#vm-work-modal-body');
+    const closeBtn = modalEl.querySelector('.vm-work-modal-close');
+    const bodyEl = modalEl.querySelector('.vm-work-modal-body');
     const cards = Array.from(root.querySelectorAll('.vm-showcase-card[data-open-category]'));
     const tabBtns = Array.from(modalEl.querySelectorAll('.vm-tab-btn'));
 
@@ -1361,7 +1555,7 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
       modalEl.classList.remove('is-open');
       modalEl.setAttribute('aria-hidden', 'true');
       const lb = document.getElementById('vm-lightbox-modal');
-      if (!lb || !lb.classList.contains('is-open')) {
+      if ((!lb || !lb.classList.contains('is-open')) && !document.querySelector('.vm-work-modal.is-open')) {
         document.body.style.overflow = '';
       }
     }
@@ -1664,7 +1858,7 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            if (entry.target.id === 'vm-stats-counter-card') {
+            if (entry.target.hasAttribute('data-counter-target')) {
               animateCounters();
             }
             observer.unobserve(entry.target);
@@ -1772,19 +1966,22 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
     function closeLightbox() {
       lightboxEl.classList.remove('is-open');
       lightboxEl.setAttribute('aria-hidden', 'true');
-      const workModal = document.getElementById('vm-work-modal');
-      if (!workModal || !workModal.classList.contains('is-open')) {
+      if (!document.querySelector('.vm-work-modal.is-open')) {
         document.body.style.overflow = '';
       }
       setZoom(false);
     }
 
-    // Gắn sự kiện mở Lightbox cho tất cả ảnh trong Section
-    root.addEventListener('click', (e) => {
-      const trigger = e.target.closest('.vm-img-trigger, .vm-post-img-trigger, .vm-proof-btn');
-      if (!trigger) return;
-      const idx = parseInt(trigger.getAttribute('data-lb-index') || '0', 10);
-      openLightbox(idx);
+    // Gắn sự kiện mở Lightbox cho tất cả ảnh trong các Modal công ty
+    const roots = Array.isArray(root) ? root : [root];
+    roots.forEach((r) => {
+      if (!r) return;
+      r.addEventListener('click', (e) => {
+        const trigger = e.target.closest('.vm-img-trigger, .vm-post-img-trigger, .vm-proof-btn');
+        if (!trigger) return;
+        const idx = parseInt(trigger.getAttribute('data-lb-index') || '0', 10);
+        openLightbox(idx);
+      });
     });
 
     closeBtn.addEventListener('click', closeLightbox);

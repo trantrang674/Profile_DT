@@ -35,8 +35,8 @@
 
   --wrap: 1320px;          /* bề rộng tối đa của nội dung */
   --gutter: clamp(1rem, 4vw, 2rem);
-  --radius: 14px;
-  --radius-sm: 8px;
+  --radius: 8px;
+  --radius-sm: 6px;
 
   /* Biến dùng chung với main.js / experience.css */
   --text-main: var(--ink);
@@ -523,7 +523,7 @@ html.hero-scrub .hero-scenes { display: none !important; }
 .cv-modal-backdrop.active { opacity: 1; visibility: visible; }
 .cv-modal-container {
   position: relative; width: 100%; max-width: 960px; height: 90vh; max-height: 860px;
-  background: #ffffff; border-radius: 20px;
+  background: #ffffff; border-radius: 10px;
   box-shadow: 0 25px 60px -15px rgba(2, 44, 98, 0.4), 0 0 0 1px rgba(147, 180, 255, 0.3);
   display: flex; flex-direction: column; overflow: hidden;
   transform: scale(0.96) translateY(12px);
@@ -565,7 +565,7 @@ html.hero-scrub .hero-scenes { display: none !important; }
 }
 @media (max-width: 640px) {
   .cv-modal-backdrop { padding: .5rem; }
-  .cv-modal-container { height: 94vh; border-radius: 14px; }
+  .cv-modal-container { height: 94vh; border-radius: 8px; }
   .cv-modal-header { padding: .75rem 1rem; }
   .cv-modal-title { font-size: .95rem; }
   .btn-cv-action span { display: none; }
@@ -722,7 +722,7 @@ html.hero-scrub .hero-scenes { display: none !important; }
 .deck-panel {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(147, 180, 255, 0.26);
-  border-radius: 18px;
+  border-radius: 8px;
   padding: 1.4rem 1.5rem;
   -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
 }
@@ -985,7 +985,7 @@ html.hero-scrub .hero {
     position: absolute; top: 100%; left: 1.25rem; right: 1.25rem; width: auto;
     margin-top: .6rem; flex-direction: column; display: none;
     background: rgba(7, 13, 45, 0.96); border: 1px solid rgba(147, 180, 255, 0.25);
-    border-radius: 20px; padding: .75rem; box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+    border-radius: 10px; padding: .75rem; box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
   }
   .lp-header .nav-menu.open { display: flex; }
   .lp-header .nav-link { padding: .8rem 1rem; border-bottom: 0; }
@@ -1146,7 +1146,7 @@ html.hero-scrub .hero {
 }
 .store-row.is-in { animation: storeRow .5s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(var(--i, 0) * 55ms); }
 .store-ico {
-  width: 2.75rem; height: 2.75rem; border-radius: 14px; display: grid; place-items: center;
+  width: 2.75rem; height: 2.75rem; border-radius: 8px; display: grid; place-items: center;
   background: linear-gradient(145deg, #ffffff, #eef3ff); border: 1px solid #e3ebfb;
   box-shadow: 0 6px 14px rgba(16, 36, 158, 0.08);
 }
@@ -1217,7 +1217,7 @@ html.hero-scrub .hero {
 /* Điện thoại: bớt padding các lớp khung lồng nhau để nội dung có đủ bề rộng */
 @media (max-width: 540px) {
   .vm-brand-card { padding: 1.25rem; }
-  .vm-work-wrapper { padding: 1rem .75rem; border-radius: 18px; }
+  .vm-work-wrapper { padding: 0; border-radius: 0; }
   .vm-subcat-block { padding: 1rem .75rem; }
   .vm-overview-card { padding: 1.25rem; }
 }
