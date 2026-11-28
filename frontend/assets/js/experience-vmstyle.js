@@ -714,8 +714,25 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
       `;
     }
 
+    // Hàm tạo thanh điều hướng Prev/Next & bộ đếm cho 1 danh sách bài viết
+    function renderSliderControlsHTML(totalPostsCount, extraClass = '', extraAttrs = '') {
+      if (totalPostsCount <= 1) return '';
+      const cls = extraClass ? `vm-slider-controls ${extraClass}` : 'vm-slider-controls';
+      return `
+        <div class="${cls}" ${extraAttrs}>
+          <span class="vm-slider-counter"><strong class="vm-slider-current">1</strong> / ${totalPostsCount}</span>
+          <button type="button" class="vm-slider-btn vm-slider-prev" aria-label="Bài trước" disabled>
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button type="button" class="vm-slider-btn vm-slider-next" aria-label="Bài tiếp theo">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      `;
+    }
+
     // Hàm tạo khối carousel lướt ngang cho 1 danh sách bài viết
-    function renderPostsCarousel(postsList, groupTitle) {
+    function renderPostsCarousel(postsList, groupTitle, showTopBar = true) {
       if (!postsList || postsList.length === 0) {
         return `
           <div class="vm-empty-topic">
@@ -727,25 +744,12 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
       }
 
       const totalPostsCount = postsList.length;
-      const carouselControlsHTML = totalPostsCount > 1 ? `
-        <div class="vm-slider-controls">
-          <span class="vm-slider-counter"><strong class="vm-slider-current">1</strong> / ${totalPostsCount}</span>
-          <button type="button" class="vm-slider-btn vm-slider-prev" aria-label="Bài trước" disabled>
-            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
-          </button>
-          <button type="button" class="vm-slider-btn vm-slider-next" aria-label="Bài tiếp theo">
-            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      ` : '';
-
+      const carouselControlsHTML = showTopBar ? renderSliderControlsHTML(totalPostsCount) : '';
       const postsHTML = postsList.map(p => renderSinglePostCard(p, groupTitle)).join('');
 
       return `
         <div class="vm-carousel-wrapper">
-          <div class="vm-carousel-top-bar">
-            ${carouselControlsHTML}
-          </div>
+          ${carouselControlsHTML ? `<div class="vm-carousel-top-bar">${carouselControlsHTML}</div>` : ''}
           <div class="vm-carousel-container" data-posts-count="${totalPostsCount}">
             <div class="vm-posts-list vm-posts-slider">
               ${postsHTML}
@@ -784,10 +788,21 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
                 `;
               }).join('');
 
+              const topicControlsHTML = sub.topics.map((topic, tIdx) => {
+                const count = (topic.posts || []).length;
+                if (count <= 1) return '';
+                return renderSliderControlsHTML(
+                  count,
+                  `vm-topic-controls ${tIdx === 0 ? 'is-active' : ''}`,
+                  `data-topic-controls="${topic.id}"`
+                );
+              }).join('');
+
               const topicPanelsHTML = sub.topics.map((topic, tIdx) => {
                 const carouselHTML = renderPostsCarousel(
                   topic.posts || [],
-                  `${cat.tabTitle.replace(/^\d+\.\s*/, '')} — ${sub.name} (${topic.title})`
+                  `${cat.tabTitle.replace(/^\d+\.\s*/, '')} — ${sub.name} (${topic.title})`,
+                  false
                 );
                 return `
                   <div
@@ -808,9 +823,12 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
                     </div>
                   </div>
 
-                  <!-- TAB CHỌN PHỤ (TOPICS) -->
-                  <div class="vm-topics-nav" role="tablist" aria-label="Chủ đề bài đăng ${sub.name}">
-                    ${topicTabsHTML}
+                  <!-- TAB CHỌN PHỤ (TOPICS) + NÚT LƯỚT CÙNG HÀNG -->
+                  <div class="vm-topics-row">
+                    <div class="vm-topics-nav" role="tablist" aria-label="Chủ đề bài đăng ${sub.name}">
+                      ${topicTabsHTML}
+                    </div>
+                    ${topicControlsHTML ? `<div class="vm-topics-controls-wrap">${topicControlsHTML}</div>` : ''}
                   </div>
 
                   <div class="vm-topics-container">
@@ -822,9 +840,11 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
 
             // Trường hợp subcategory thông thường (không có topics)
             const postsList = sub.posts || sub.images || [];
+            const headerControlsHTML = renderSliderControlsHTML(postsList.length);
             const carouselHTML = renderPostsCarousel(
               postsList,
-              `${cat.tabTitle.replace(/^\d+\.\s*/, '')} — ${sub.name}`
+              `${cat.tabTitle.replace(/^\d+\.\s*/, '')} — ${sub.name}`,
+              false
             );
 
             return `
@@ -833,6 +853,7 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
                   <div class="vm-subcat-title-wrap">
                     <h4 class="vm-subcat-title">${sub.name}</h4>
                   </div>
+                  ${headerControlsHTML}
                 </div>
                 ${carouselHTML}
               </div>
@@ -997,13 +1018,22 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
      3. LOGIC SLIDER LƯỚT NGANG BÀI VIẾT (CAROUSEL / HORIZONTAL SCROLL)
      ========================================================================== */
   function initCarousels(root) {
-    const carouselContainers = Array.from(root.querySelectorAll('.vm-carousel-wrapper, .vm-carousel-container'));
+    const carouselContainers = Array.from(root.querySelectorAll('.vm-carousel-wrapper'));
 
     carouselContainers.forEach((container) => {
       const slider = container.querySelector('.vm-posts-slider');
-      const prevBtn = container.querySelector('.vm-slider-prev') || container.parentElement.querySelector('.vm-slider-prev');
-      const nextBtn = container.querySelector('.vm-slider-next') || container.parentElement.querySelector('.vm-slider-next');
-      const counterEl = container.querySelector('.vm-slider-current') || container.parentElement.querySelector('.vm-slider-current');
+      const topicPanel = container.closest('.vm-topic-panel');
+      const subcatBlock = container.closest('.vm-subcat-block');
+      let controlsScope = container;
+      if (topicPanel && subcatBlock) {
+        const topicId = topicPanel.getAttribute('data-topic-panel');
+        controlsScope = subcatBlock.querySelector(`[data-topic-controls="${topicId}"]`) || container;
+      } else if (subcatBlock) {
+        controlsScope = subcatBlock.querySelector('.vm-subcat-header .vm-slider-controls') || container;
+      }
+      const prevBtn = controlsScope.querySelector('.vm-slider-prev');
+      const nextBtn = controlsScope.querySelector('.vm-slider-next');
+      const counterEl = controlsScope.querySelector('.vm-slider-current');
       const dots = Array.from(container.querySelectorAll('.vm-carousel-dot'));
       const cards = Array.from(container.querySelectorAll('.vm-post-card'));
 
@@ -1164,6 +1194,7 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
       const block = nav.closest('.vm-subcat-block');
       if (!block) return;
       const topicPanels = Array.from(block.querySelectorAll('.vm-topic-panel'));
+      const topicControls = Array.from(block.querySelectorAll('[data-topic-controls]'));
 
       topicBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -1178,6 +1209,11 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
           topicPanels.forEach((panel) => {
             const isMatch = panel.getAttribute('data-topic-panel') === topicId;
             panel.classList.toggle('is-active', isMatch);
+          });
+
+          topicControls.forEach((ctrl) => {
+            const isMatch = ctrl.getAttribute('data-topic-controls') === topicId;
+            ctrl.classList.toggle('is-active', isMatch);
           });
         });
       });
