@@ -158,20 +158,20 @@
           {
             value: 80,
             suffix: '+',
-            label: 'Bài đăng / tháng',
+            label: 'Số lượng trung bình bài đăng/ tháng',
             isAccent: false
           },
           {
             value: 5,
             suffix: '+',
-            label: 'Kế hoạch ra mắt bộ sưu tập',
+            label: 'Kế hoạch truyền thông ra mắt BST',
             isAccent: false
           },
           {
             value: 75,
             prefix: '+',
             suffix: '%',
-            label: 'Tăng lượt xem sau 4 tháng',
+            label: 'Tăng trưởng lượt xem sau 4 tháng làm việc',
             isAccent: true
           }
         ]
