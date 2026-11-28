@@ -989,29 +989,182 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
         </article>
       </div>
 
-      <!-- ==================== 3. HẠNG MỤC CÔNG VIỆC (Tabs & Gallery) ==================== -->
+      <!-- ==================== 3. HẠNG MỤC CÔNG VIỆC (3 Thẻ tổng quan -> Mở Modal chi tiết) ==================== -->
       <div class="vm-work-wrapper vm-reveal">
-        <div class="vm-work-top">
+        <div class="vm-work-top vm-showcase-top">
           <div class="vm-work-heading">
             <h3>Hạng mục công việc &amp; Minh chứng thực tế</h3>
           </div>
-
-          <div class="vm-tabs-nav" role="tablist" aria-label="Các nhóm hạng mục công việc tại VM Style">
-            ${tabsNavHTML}
-          </div>
+          <p class="vm-showcase-sub">Tổng hợp các hạng mục thực chiến tại VM Style. Nhấn vào từng thẻ để xem chi tiết minh chứng.</p>
         </div>
 
-        <div class="vm-tabs-content">
-          ${tabsPanelsHTML}
+        <div class="vm-showcase-grid">
+          ${categories
+            .map((cat, idx) => {
+              const isFeatured = idx === 1;
+              let visualHTML = '';
+              if (cat.id === 'social-media') {
+                visualHTML = `
+                  <div class="vm-vis-social">
+                    <div class="vm-vis-shot vm-vis-shot-back">
+                      <img src="assets/images/posts/Screenshot_2.webp" alt="" loading="lazy">
+                    </div>
+                    <div class="vm-vis-shot vm-vis-shot-front">
+                      <img src="assets/images/posts/Screenshot_1.webp" alt="" loading="lazy">
+                    </div>
+                  </div>
+                `;
+              } else if (cat.id === 'content-plan') {
+                visualHTML = `
+                  <div class="vm-vis-plan" aria-hidden="true">
+                    <div class="vm-vis-plan-bar">
+                      <span class="vm-vis-dot"></span><span class="vm-vis-dot"></span><span class="vm-vis-dot"></span>
+                      <span class="vm-vis-plan-title">Content Calendar</span>
+                    </div>
+                    <div class="vm-vis-plan-grid">
+                      <div class="vm-vis-cell is-hi"><span>T2</span><em>Lookbook</em></div>
+                      <div class="vm-vis-cell"><span>T4</span><em>Mix &amp; Match</em></div>
+                      <div class="vm-vis-cell is-hi"><span>T6</span><em>Reels BST</em></div>
+                      <div class="vm-vis-cell"><span>T7</span><em>Feedback</em></div>
+                      <div class="vm-vis-cell is-hi"><span>CN</span><em>Minigame</em></div>
+                      <div class="vm-vis-cell"><span>+80</span><em>Bài/tháng</em></div>
+                    </div>
+                  </div>
+                `;
+              } else {
+                visualHTML = `
+                  <div class="vm-vis-report" aria-hidden="true">
+                    <div class="vm-vis-report-head">
+                      <span>Performance</span>
+                      <strong>+75% Reach</strong>
+                    </div>
+                    <div class="vm-vis-bars">
+                      <span style="height:36%"></span>
+                      <span style="height:52%"></span>
+                      <span style="height:46%"></span>
+                      <span style="height:68%"></span>
+                      <span style="height:82%"></span>
+                      <span class="is-peak" style="height:100%"></span>
+                    </div>
+                  </div>
+                `;
+              }
+
+              return `
+                <button
+                  type="button"
+                  class="vm-showcase-card ${isFeatured ? 'is-featured' : ''}"
+                  data-open-category="${cat.id}"
+                  aria-label="Xem chi tiết ${escapeHTML(cat.tabTitle)}"
+                >
+                  <div class="vm-showcase-head">
+                    <span class="vm-showcase-title">${escapeHTML(cat.tabTitle)}</span>
+                    <span class="vm-showcase-arrow" aria-hidden="true">
+                      <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <div class="vm-showcase-divider" aria-hidden="true"></div>
+                  <p class="vm-showcase-desc">${escapeHTML(cat.description)}</p>
+                  <div class="vm-showcase-visual">${visualHTML}</div>
+                </button>
+              `;
+            })
+            .join('')}
         </div>
       </div>
     `;
 
-    // Khởi tạo tương tác Tabs, Slider lướt ngang, Hiệu ứng cuộn, Counter và Lightbox
-    initTabs(root);
-    initCarousels(root);
+    // Tạo Modal Popup chi tiết cho 3 hạng mục lớn
+    let workModalEl = document.getElementById('vm-work-modal');
+    if (workModalEl) workModalEl.remove();
+    workModalEl = document.createElement('div');
+    workModalEl.id = 'vm-work-modal';
+    workModalEl.className = 'vm-work-modal';
+    workModalEl.setAttribute('role', 'dialog');
+    workModalEl.setAttribute('aria-modal', 'true');
+    workModalEl.setAttribute('aria-hidden', 'true');
+    workModalEl.setAttribute('aria-label', 'Chi tiết hạng mục công việc VM Style');
+    workModalEl.innerHTML = `
+      <div class="vm-work-modal-dialog">
+        <div class="vm-work-modal-header">
+          <div class="vm-tabs-nav" role="tablist" aria-label="Các nhóm hạng mục công việc tại VM Style">
+            ${tabsNavHTML}
+          </div>
+          <button type="button" class="vm-work-modal-close" id="vm-work-modal-close" aria-label="Đóng chi tiết">
+            <i data-lucide="x" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="vm-work-modal-body" id="vm-work-modal-body">
+          <div class="vm-tabs-content">
+            ${tabsPanelsHTML}
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(workModalEl);
+
+    // Khởi tạo tương tác Modal chi tiết, Tabs, Slider lướt ngang, Hiệu ứng cuộn, Counter và Lightbox
+    initTabs(workModalEl);
+    initCarousels(workModalEl);
+    initWorkModal(root, workModalEl);
     initScrollRevealAndCounters(root);
-    initLightbox(root, lightboxItems);
+    initLightbox(workModalEl, lightboxItems);
+
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+  }
+
+  /* ==========================================================================
+     2B. LOGIC MỞ / ĐÓNG MODAL CHI TIẾT HẠNG MỤC CÔNG VIỆC
+     ========================================================================== */
+  function initWorkModal(root, modalEl) {
+    const closeBtn = modalEl.querySelector('#vm-work-modal-close');
+    const bodyEl = modalEl.querySelector('#vm-work-modal-body');
+    const cards = Array.from(root.querySelectorAll('.vm-showcase-card[data-open-category]'));
+    const tabBtns = Array.from(modalEl.querySelectorAll('.vm-tab-btn'));
+
+    function openWorkModal(categoryId) {
+      const targetBtn = tabBtns.find((b) => b.getAttribute('data-tab-target') === categoryId);
+      if (targetBtn) targetBtn.click();
+      if (bodyEl) bodyEl.scrollTop = 0;
+
+      modalEl.classList.add('is-open');
+      modalEl.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      requestAnimationFrame(() => {
+        window.dispatchEvent(new Event('resize'));
+      });
+    }
+
+    function closeWorkModal() {
+      modalEl.classList.remove('is-open');
+      modalEl.setAttribute('aria-hidden', 'true');
+      const lb = document.getElementById('vm-lightbox-modal');
+      if (!lb || !lb.classList.contains('is-open')) {
+        document.body.style.overflow = '';
+      }
+    }
+
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        openWorkModal(card.getAttribute('data-open-category'));
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeWorkModal);
+
+    modalEl.addEventListener('click', (e) => {
+      if (e.target === modalEl) closeWorkModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      const lb = document.getElementById('vm-lightbox-modal');
+      if (lb && lb.classList.contains('is-open')) return;
+      if (modalEl.classList.contains('is-open')) closeWorkModal();
+    });
   }
 
   /* ==========================================================================
@@ -1381,7 +1534,10 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
     function closeLightbox() {
       lightboxEl.classList.remove('is-open');
       lightboxEl.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+      const workModal = document.getElementById('vm-work-modal');
+      if (!workModal || !workModal.classList.contains('is-open')) {
+        document.body.style.overflow = '';
+      }
       setZoom(false);
     }
 
