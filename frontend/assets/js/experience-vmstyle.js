@@ -192,7 +192,7 @@
             topics: [
               {
                 id: 'fb-mixmatch',
-                title: 'Tuyến bài quảng bá sản phẩm kèm gợi ý Mix & Match tăng tỷ lệ khách quan tâm mua hàng',
+                title: 'Tuyến bài quảng bá sản phẩm',
                 posts: [
                   {
                     title: '[𝐇𝐎̂𝐌 𝐍𝐀𝐘 𝐌𝐀̣̆𝐂 𝐆𝐈̀?] — Gợi Ý Mix & Match Diện Lễ',
