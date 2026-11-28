@@ -228,12 +228,12 @@
   color: #ffffff;
 }
 
-/* ---------- 2. NỘI DUNG TỔNG QUAN (3 Mini-cards) ---------- */
+/* ---------- 2. NỘI DUNG TỔNG QUAN (2 Mini-cards: Phạm vi công việc & Cách triển khai) ---------- */
 .vm-overview-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .vm-overview-card {
@@ -1523,6 +1523,52 @@
 
 .vm-showcase-card.is-featured .vm-showcase-desc {
   color: rgba(226, 235, 255, 0.9);
+}
+
+.vm-showcase-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0 0 1.05rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 12px;
+  background: var(--vm-bg-subtle);
+  border: 1px solid var(--vm-border);
+  flex: 1;
+}
+
+.vm-showcase-card.is-featured .vm-showcase-stat {
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.vm-showcase-stat-num {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--vm-primary-dark);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.vm-showcase-card.is-featured .vm-showcase-stat-num {
+  color: #ffffff;
+}
+
+.vm-showcase-stat-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--vm-text-main);
+  padding-left: 0.85rem;
+  border-left: 1px solid var(--vm-border);
+}
+
+.vm-showcase-card.is-featured .vm-showcase-stat-label {
+  color: rgba(241, 245, 255, 0.95);
+  border-left-color: rgba(255, 255, 255, 0.28);
 }
 
 .vm-showcase-visual {

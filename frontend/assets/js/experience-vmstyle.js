@@ -1157,53 +1157,22 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
             ${overview.execution.items.map((item) => `<li>${item}</li>`).join('')}
           </ul>
         </article>
-
-        <!-- Cột 3: Số liệu (Counter nổi bật) -->
-        <article class="vm-overview-card vm-reveal" id="vm-stats-counter-card">
-          <div class="vm-overview-head">
-            <div class="vm-overview-icon" aria-hidden="true">
-              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-              </svg>
-            </div>
-            <div>
-              <h3 class="vm-overview-title">${overview.deliverables.title}</h3>
-            </div>
-          </div>
-
-          <div class="vm-stats-grid">
-            ${overview.deliverables.stats
-              .map(
-                (st) => `
-              <div class="vm-stat-box ${st.isAccent ? 'accent' : ''}">
-                <strong
-                  class="vm-stat-number"
-                  data-target="${st.value}"
-                  data-prefix="${st.prefix || ''}"
-                  data-suffix="${st.suffix || ''}"
-                >${st.prefix || ''}${st.value}${st.suffix || ''}</strong>
-                <span class="vm-stat-label">${st.label}</span>
-              </div>
-            `
-              )
-              .join('')}
-          </div>
-        </article>
       </div>
 
-      <!-- ==================== 3. HẠNG MỤC CÔNG VIỆC (3 Thẻ tổng quan -> Mở Modal chi tiết) ==================== -->
-      <div class="vm-work-wrapper vm-reveal">
+      <!-- ==================== 3. HẠNG MỤC CÔNG VIỆC (3 Thẻ tổng quan kèm Số liệu -> Mở Modal chi tiết) ==================== -->
+      <div class="vm-work-wrapper vm-reveal" id="vm-stats-counter-card">
         <div class="vm-work-top vm-showcase-top">
           <div class="vm-work-heading">
             <h3>Hạng mục công việc &amp; Minh chứng thực tế</h3>
           </div>
-          <p class="vm-showcase-sub">Tổng hợp các hạng mục thực chiến tại VM Style. Nhấn vào từng thẻ để xem chi tiết minh chứng.</p>
+          <p class="vm-showcase-sub">Tổng hợp các hạng mục thực chiến tại VM Style</p>
         </div>
 
         <div class="vm-showcase-grid">
           ${categories
             .map((cat, idx) => {
               const isFeatured = idx === 1;
+              const stat = (overview.deliverables && overview.deliverables.stats && overview.deliverables.stats[idx]) || null;
               let visualHTML = '';
               if (cat.id === 'social-media') {
                 visualHTML = `
@@ -1266,7 +1235,17 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
                     </span>
                   </div>
                   <div class="vm-showcase-divider" aria-hidden="true"></div>
-                  <p class="vm-showcase-desc">${escapeHTML(cat.description)}</p>
+                  ${stat ? `
+                    <div class="vm-showcase-stat">
+                      <strong
+                        class="vm-stat-number vm-showcase-stat-num"
+                        data-target="${stat.value}"
+                        data-prefix="${stat.prefix || ''}"
+                        data-suffix="${stat.suffix || ''}"
+                      >${stat.prefix || ''}${stat.value}${stat.suffix || ''}</strong>
+                      <span class="vm-showcase-stat-label">${escapeHTML(stat.label)}</span>
+                    </div>
+                  ` : `<p class="vm-showcase-desc">${escapeHTML(cat.description)}</p>`}
                   <div class="vm-showcase-visual">${visualHTML}</div>
                 </button>
               `;

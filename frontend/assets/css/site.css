@@ -1228,10 +1228,9 @@ html.hero-scrub .hero {
   .skills-panel .skill-grid.soft { grid-template-columns: 1fr; }
 }
 
-/* Kinh nghiệm: 3 thẻ tổng quan bị chật ở tablet ngang → 2 cột, thẻ cuối trải hết hàng */
+/* Kinh nghiệm: 2 thẻ tổng quan giữ 2 cột đều trên tablet ngang */
 @media (min-width: 993px) and (max-width: 1180px) {
   .vm-overview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .vm-overview-grid > :last-child { grid-column: 1 / -1; }
 }
 
 /* Màn hình rất hẹp (320px): cho chữ dài trong ô kỹ năng được ngắt dòng */
