@@ -1843,3 +1843,210 @@
     padding: 0.85rem;
   }
 }
+
+/* ==========================================================================
+   6. BIỂU ĐỒ BÁO CÁO ĐO LƯỜNG FACEBOOK & NÚT XEM MINH CHỨNG
+   ========================================================================== */
+.vm-report-source {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--vm-text-light);
+  background: var(--vm-bg-subtle);
+  border: 1px solid var(--vm-border);
+  padding: 0.22rem 0.65rem;
+  border-radius: 99px;
+}
+
+.vm-proof-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.48rem 0.9rem;
+  border-radius: 9px;
+  border: 1px solid var(--vm-primary-border);
+  background: var(--vm-primary-soft);
+  color: var(--vm-primary-dark);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.vm-proof-btn:hover {
+  background: var(--vm-primary);
+  border-color: var(--vm-primary);
+  color: #ffffff;
+}
+
+.vm-proof-btn svg,
+.vm-proof-btn i {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.vm-report-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.vm-report-kpi {
+  appearance: none;
+  font-family: inherit;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: var(--vm-bg-subtle);
+  border: 1.5px solid var(--vm-border);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vm-report-kpi:hover {
+  border-color: var(--vm-primary-border);
+  background: #ffffff;
+}
+
+.vm-report-kpi.is-active {
+  background: #ffffff;
+  border-color: var(--vm-primary);
+  box-shadow: 0 6px 18px rgba(16, 36, 158, 0.1);
+}
+
+.vm-report-kpi-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--vm-text-muted);
+}
+
+.vm-report-kpi-val-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.vm-report-kpi-val {
+  font-size: 1.42rem;
+  font-weight: 800;
+  color: var(--vm-primary-dark);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+
+.vm-report-kpi-note {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--vm-text-light);
+}
+
+.vm-delta-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.12rem 0.45rem;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.3;
+}
+
+.vm-delta-pill.is-up {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.vm-delta-pill.is-down {
+  background: #ffe4e6;
+  color: #be123c;
+}
+
+.vm-report-chart-stage {
+  background: #f8faff;
+  border: 1px solid var(--vm-border);
+  border-radius: 14px;
+  padding: 0.75rem 0.9rem 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.vm-report-chart-panel {
+  display: none;
+}
+
+.vm-report-chart-panel.is-active {
+  display: block;
+  animation: vmFadeIn 0.25s ease;
+}
+
+.vm-report-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+.vm-report-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--vm-border);
+  border-radius: 12px;
+}
+
+.vm-report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84rem;
+  text-align: left;
+  min-width: 520px;
+}
+
+.vm-report-table th,
+.vm-report-table td {
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--vm-border);
+  white-space: nowrap;
+}
+
+.vm-report-table thead th {
+  background: var(--vm-bg-subtle);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--vm-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.vm-report-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.vm-report-table tbody tr.is-latest {
+  background: var(--vm-primary-soft);
+}
+
+.vm-tbl-val {
+  font-weight: 700;
+  color: var(--vm-text-main);
+  margin-right: 0.35rem;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 720px) {
+  .vm-report-kpis {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+  .vm-report-kpi {
+    padding: 0.7rem 0.85rem;
+  }
+  .vm-report-kpi-val {
+    font-size: 1.25rem;
+  }
+}

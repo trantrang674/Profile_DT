@@ -508,65 +508,58 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
             id: 'rp-facebook',
             name: 'Facebook',
             badge: 'FB',
-            summary: 'Đo lường lượt tiếp cận (Reach), tương tác (Engagement), tin nhắn mới (Messaging) và phân tích nhóm bài viết mang lại chuyển đổi cao.',
-            posts: [
-              {
-                title: 'Báo Cáo Tăng Trưởng Reach & Engagement: Phân Tích Hiệu Suất Fanpage',
-                tag: 'Báo Cáo Facebook',
-                date: 'Báo cáo tháng',
-                src: createPostImagePlaceholder('Báo Cáo Tăng Trưởng Reach & ER', 'FACEBOOK REPORT', 'blue'),
-                alt: 'Báo cáo đo lường chỉ số Reach và Engagement kênh Facebook VM Style',
-                caption: `📈 ĐO LƯỜNG TĂNG TRƯỞNG LƯỢNG TIẾP CẬN TỰ NHIÊN (ORGANIC REACH)
-Theo dõi và đánh giá hiệu quả của các tuyến nội dung trên Fanpage:
-
-- Lượng tài khoản tiếp cận (Reach): Đạt hơn 180.000 lượt/tháng, trong đó tỷ lệ tiếp cận tự nhiên không trả phí chiếm 65%.
-- Tỷ lệ tương tác trung bình (ER): Đạt 5.8%, vượt mức trung bình ngành thời trang nữ (3.5% - 4.2%).
-- Nhóm nội dung dẫn đầu tương tác: Tuyến bài Tips phối đồ và Reels biến hình mang lại lượng tương tác thảo luận cao nhất.
-#AnalyticsReport #OrganicReach #EngagementRate #DataDriven`,
-                metrics: [
-                  { label: 'Lượt tiếp cận/tháng', value: '180K+ Reach' },
-                  { label: 'Tỷ lệ tương tác (ER)', value: '5.8%' }
-                ]
-              },
-              {
-                title: 'Phân Tích Top Bài Viết Hiệu Quả Nhất: Đúc Kết Công Thức Thành Công',
-                tag: 'Báo Cáo Nội Dung',
-                date: 'Báo cáo định kỳ',
-                src: createPostImagePlaceholder('Phân Tích Top Bài Viết Hiệu Quả', 'TOP POST ANALYSIS', 'orange'),
-                alt: 'Bảng phân tích các bài viết Facebook hiệu quả cao nhất tại VM Style',
-                caption: `🔍 BÓC TÁCH CÔNG THỨC VIRAL CỦA CÁC BÀI VIẾT NỔI BẬT
-Phân tích lý do giúp Top 5 bài viết đạt lượng tương tác và hỏi giá vượt trội:
-
-- Tiêu đề mở đầu (Hook): Sử dụng câu hỏi đồng cảm hoặc lời khen chân thành đánh trúng tâm lý tự ti về dáng người.
-- Bố cục hình ảnh: Ảnh Lookbook thật người mẫu chụp góc rộng tôn dáng, ảnh zoom cận chi tiết cúc áo và đường chỉ.
-- Kêu gọi hành động (CTA): Rõ ràng, dễ thực hiện (Ví dụ: "Chấm (.) nhận giá", "Inbox nhận bảng size").
-
-Đề xuất nhân rộng công thức này vào các kế hoạch nội dung của tháng tiếp theo.
-#ContentOptimization #ViralFormula #ActionableInsights`,
-                metrics: [
-                  { label: 'Tăng trưởng Inbox', value: '+45%' },
-                  { label: 'Tỷ lệ giữ chân', value: '82%' }
-                ]
-              },
-              {
-                title: 'Đánh Giá Chuyển Đổi Tin Nhắn: Tối Ưu Nội Dung Thúc Đẩy Mua Hàng',
-                tag: 'Báo Cáo Chuyển Đổi',
-                date: 'Báo cáo tháng',
-                src: createPostImagePlaceholder('Đánh Giá Chuyển Đổi Tin Nhắn', 'CONVERSION REPORT', 'blue'),
-                alt: 'Báo cáo tỷ lệ tin nhắn và đề xuất tối ưu nội dung Facebook VM Style',
-                caption: `💬 THEO DÕI HÀNH VI TỪ ĐỌC BÀI VIẾT ĐẾN NHẮN TIN TƯ VẤN
-Đo lường mức độ hiệu quả của nội dung trong việc hỗ trợ đội ngũ Sales chốt đơn:
-
-- Nguồn gốc tin nhắn: 68% khách hàng nhắn tin hỏi mua xuất phát từ các bài viết Lookbook sản phẩm có gắn giá công khai.
-- Khung giờ phát sinh nhiều tin nhắn nhất: 12h00 – 13h30 trưa và 20h00 – 22h00 tối.
-- Đề xuất cải thiện: Cung cấp trước các thông tin kích thước và số đo cơ thể chuẩn trong phần bình luận ghim để đẩy nhanh quyết định mua hàng của khách.
-#ConversionRate #MessageAds #InboundMarketing`,
-                metrics: [
-                  { label: 'Tin nhắn hỏi giá', value: '450+ mess/tháng' },
-                  { label: 'Tỷ lệ chốt đơn', value: '28.5%' }
-                ]
-              }
-            ]
+            summary: 'Báo cáo tăng trưởng chỉ số Fanpage từ Meta Business Suite giai đoạn 10/2024 – 01/2025.',
+            analyticsReport: {
+              period: '10/2024 – 01/2025',
+              source: 'Meta Business Suite',
+              proofSrc: 'assets/images/posts/fb-report-proof.jpg',
+              proofTitle: 'Minh chứng số liệu Facebook — Meta Business Suite (10/2024 – 01/2025)',
+              proofCaption: 'Ảnh chụp trực tiếp từ Meta Business Suite thể hiện Lượt xem, Số người tiếp cận và Lượt xem trong tối thiểu 3 giây qua 4 tháng liên tiếp (10/2024 – 01/2025).',
+              months: ['Tháng 10/2024', 'Tháng 11/2024', 'Tháng 12/2024', 'Tháng 01/2025'],
+              shortMonths: ['T10/2024', 'T11/2024', 'T12/2024', 'T01/2025'],
+              metrics: [
+                {
+                  id: 'views',
+                  label: 'Lượt xem',
+                  latest: '2,1 triệu',
+                  latestDelta: '+34%',
+                  latestDir: 'up',
+                  note: '+75% sau 4 tháng',
+                  unit: 'triệu',
+                  max: 2.4,
+                  values: [1.2, 1.2, 1.5, 2.1],
+                  displays: ['1,2 triệu', '1,2 triệu', '1,5 triệu', '2,1 triệu'],
+                  deltas: [null, { text: '+8,7%', dir: 'up' }, { text: '+27,6%', dir: 'up' }, { text: '+34%', dir: 'up' }]
+                },
+                {
+                  id: 'reach',
+                  label: 'Số người tiếp cận',
+                  latest: '191,3K',
+                  latestDelta: '+44,4%',
+                  latestDir: 'up',
+                  note: 'Phục hồi & vượt đỉnh T01',
+                  unit: 'K',
+                  max: 220,
+                  values: [182.2, 123.7, 132.5, 191.3],
+                  displays: ['182,2K', '123,7K', '132,5K', '191,3K'],
+                  deltas: [{ text: '-5%', dir: 'down' }, { text: '-27,6%', dir: 'down' }, { text: '+5,4%', dir: 'up' }, { text: '+44,4%', dir: 'up' }]
+                },
+                {
+                  id: 'views3s',
+                  label: 'Lượt xem tối thiểu 3 giây',
+                  latest: '24K',
+                  latestDelta: '+6,7%',
+                  latestDir: 'up',
+                  note: '+36,4% sau 4 tháng',
+                  unit: 'K',
+                  max: 28,
+                  values: [17.6, 17.9, 22.5, 24.0],
+                  displays: ['17,6K', '17,9K', '22,5K', '24K'],
+                  deltas: [{ text: '-46,3%', dir: 'down' }, { text: '+8,5%', dir: 'up' }, { text: '+22,9%', dir: 'up' }, { text: '+6,7%', dir: 'up' }]
+                }
+              ]
+            },
+            posts: []
           },
           {
             id: 'rp-instagram',
@@ -766,11 +759,187 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
       `;
     }
 
+    // Hàm render biểu đồ báo cáo số liệu trực quan (SVG Bar + Trendline + bảng tóm tắt)
+    function renderAnalyticsReportBlock(sub, catTitle) {
+      const rp = sub.analyticsReport;
+      const proofLbIndex = lightboxItems.length;
+      lightboxItems.push({
+        src: rp.proofSrc,
+        alt: rp.proofTitle,
+        title: rp.proofTitle,
+        caption: rp.proofCaption,
+        groupTitle: `${catTitle} — ${sub.name}`
+      });
+
+      function buildChartSVG(metric) {
+        const W = 680;
+        const H = 250;
+        const padL = 54;
+        const padR = 26;
+        const padT = 44;
+        const padB = 38;
+        const plotW = W - padL - padR;
+        const plotH = H - padT - padB;
+        const count = metric.values.length;
+        const slotW = plotW / count;
+        const barW = Math.min(72, slotW * 0.48);
+
+        const ticks = [0, 0.25, 0.5, 0.75, 1];
+        const gridHTML = ticks.map((ratio) => {
+          const y = padT + plotH * (1 - ratio);
+          const val = metric.max * ratio;
+          const label = metric.unit === 'triệu'
+            ? (val === 0 ? '0' : `${val.toFixed(1).replace('.', ',')}M`)
+            : (val === 0 ? '0' : `${Math.round(val)}K`);
+          return `
+            <line x1="${padL}" y1="${y.toFixed(1)}" x2="${W - padR}" y2="${y.toFixed(1)}" stroke="#e6ecf8" stroke-width="1" stroke-dasharray="${ratio === 0 ? '0' : '4 4'}" />
+            <text x="${padL - 10}" y="${(y + 4).toFixed(1)}" text-anchor="end" fill="#64748b" font-size="11" font-weight="600">${label}</text>
+          `;
+        }).join('');
+
+        const points = [];
+        const barsHTML = metric.values.map((v, i) => {
+          const cx = padL + slotW * i + slotW / 2;
+          const barH = Math.max(8, (v / metric.max) * plotH);
+          const x = cx - barW / 2;
+          const y = padT + plotH - barH;
+          const isPeak = i === count - 1;
+          points.push(`${cx.toFixed(1)},${y.toFixed(1)}`);
+
+          const d = metric.deltas[i];
+          const deltaColor = d ? (d.dir === 'up' ? '#15803d' : '#be123c') : '';
+          const deltaBg = d ? (d.dir === 'up' ? '#dcfce7' : '#ffe4e6') : '';
+
+          return `
+            <g class="vm-chart-col">
+              <rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barW.toFixed(1)}" height="${barH.toFixed(1)}" rx="10" fill="${isPeak ? 'url(#vmBarPeak)' : 'url(#vmBarSoft)'}" />
+              <text x="${cx.toFixed(1)}" y="${(y - (d ? 24 : 10)).toFixed(1)}" text-anchor="middle" fill="#070c22" font-size="12.5" font-weight="800">${metric.displays[i]}</text>
+              ${d ? `
+                <rect x="${(cx - 26).toFixed(1)}" y="${(y - 19).toFixed(1)}" width="52" height="16" rx="8" fill="${deltaBg}" />
+                <text x="${cx.toFixed(1)}" y="${(y - 7.5).toFixed(1)}" text-anchor="middle" fill="${deltaColor}" font-size="10.5" font-weight="700">${d.text}</text>
+              ` : ''}
+              <text x="${cx.toFixed(1)}" y="${(H - 12).toFixed(1)}" text-anchor="middle" fill="${isPeak ? '#10249e' : '#475569'}" font-size="12" font-weight="${isPeak ? '800' : '600'}">${rp.shortMonths[i]}</text>
+            </g>
+          `;
+        }).join('');
+
+        const dotsHTML = points.map((pt, i) => {
+          const [px, py] = pt.split(',');
+          const isPeak = i === count - 1;
+          return `<circle cx="${px}" cy="${py}" r="${isPeak ? '5.5' : '4.5'}" fill="#ffffff" stroke="${isPeak ? '#10249e' : '#3b5bfd'}" stroke-width="2.5" />`;
+        }).join('');
+
+        return `
+          <svg class="vm-report-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Biểu đồ ${escapeHTML(metric.label)} giai đoạn ${escapeHTML(rp.period)}">
+            <defs>
+              <linearGradient id="vmBarPeak" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2b4eff" />
+                <stop offset="100%" stop-color="#10249e" />
+              </linearGradient>
+              <linearGradient id="vmBarSoft" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#93b4ff" />
+                <stop offset="100%" stop-color="#dbe7ff" />
+              </linearGradient>
+            </defs>
+            ${gridHTML}
+            ${barsHTML}
+            <polyline fill="none" stroke="#1631c9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" points="${points.join(' ')}" />
+            ${dotsHTML}
+          </svg>
+        `;
+      }
+
+      const kpiCardsHTML = rp.metrics.map((m, mIdx) => `
+        <button
+          type="button"
+          class="vm-report-kpi ${mIdx === 0 ? 'is-active' : ''}"
+          data-report-metric="${m.id}"
+          aria-pressed="${mIdx === 0 ? 'true' : 'false'}"
+        >
+          <span class="vm-report-kpi-label">${escapeHTML(m.label)}</span>
+          <div class="vm-report-kpi-val-row">
+            <strong class="vm-report-kpi-val">${escapeHTML(m.latest)}</strong>
+            <span class="vm-delta-pill is-${m.latestDir}">${escapeHTML(m.latestDelta)}</span>
+          </div>
+          <span class="vm-report-kpi-note">${escapeHTML(m.note)}</span>
+        </button>
+      `).join('');
+
+      const chartPanelsHTML = rp.metrics.map((m, mIdx) => `
+        <div class="vm-report-chart-panel ${mIdx === 0 ? 'is-active' : ''}" data-report-panel="${m.id}">
+          ${buildChartSVG(m)}
+        </div>
+      `).join('');
+
+      const tableRowsHTML = rp.months.map((month, idx) => `
+        <tr class="${idx === rp.months.length - 1 ? 'is-latest' : ''}">
+          <td><strong>${escapeHTML(month)}</strong></td>
+          ${rp.metrics.map((m) => {
+            const d = m.deltas[idx];
+            return `
+              <td>
+                <span class="vm-tbl-val">${escapeHTML(m.displays[idx])}</span>
+                ${d ? `<span class="vm-delta-pill is-${d.dir}">${escapeHTML(d.text)}</span>` : ''}
+              </td>
+            `;
+          }).join('')}
+        </tr>
+      `).join('');
+
+      return `
+        <div class="vm-subcat-block vm-report-block">
+          <div class="vm-subcat-header">
+            <div class="vm-subcat-title-wrap">
+              <h4 class="vm-subcat-title">${sub.name}</h4>
+              <span class="vm-report-source">${escapeHTML(rp.source)} · ${escapeHTML(rp.period)}</span>
+            </div>
+            <button
+              type="button"
+              class="vm-proof-btn vm-img-trigger"
+              data-lb-index="${proofLbIndex}"
+              aria-label="Xem ảnh chụp báo cáo số liệu thực tế từ Meta Business Suite"
+            >
+              <i data-lucide="image" aria-hidden="true"></i>
+              <span>Xem minh chứng thực tế</span>
+            </button>
+          </div>
+
+          <div class="vm-report-kpis" role="tablist" aria-label="Chọn chỉ số hiển thị biểu đồ">
+            ${kpiCardsHTML}
+          </div>
+
+          <div class="vm-report-chart-stage">
+            ${chartPanelsHTML}
+          </div>
+
+          <div class="vm-report-table-wrap">
+            <table class="vm-report-table">
+              <thead>
+                <tr>
+                  <th>Thời gian</th>
+                  <th>Lượt xem</th>
+                  <th>Số người tiếp cận</th>
+                  <th>Lượt xem ≥ 3 giây</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${tableRowsHTML}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
     // Tạo HTML cho từng Tab Panel và các mục con bên trong
     const tabsPanelsHTML = categories
       .map((cat, idx) => {
         const subcatsHTML = cat.subcategories
           .map((sub) => {
+            if (sub.analyticsReport) {
+              return renderAnalyticsReportBlock(sub, cat.tabTitle.replace(/^\d+\.\s*/, ''));
+            }
+
             const hasTopics = sub.topics && Array.isArray(sub.topics) && sub.topics.length > 0;
 
             if (hasTopics) {
@@ -1367,6 +1536,25 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
           topicControls.forEach((ctrl) => {
             const isMatch = ctrl.getAttribute('data-topic-controls') === topicId;
             ctrl.classList.toggle('is-active', isMatch);
+          });
+        });
+      });
+    });
+    // Xử lý chuyển đổi các chỉ số trên Biểu đồ Báo cáo đo lường
+    const reportBlocks = Array.from(root.querySelectorAll('.vm-report-block'));
+    reportBlocks.forEach((block) => {
+      const metricBtns = Array.from(block.querySelectorAll('[data-report-metric]'));
+      const chartPanels = Array.from(block.querySelectorAll('[data-report-panel]'));
+      metricBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const targetMetric = btn.getAttribute('data-report-metric');
+          metricBtns.forEach((b) => {
+            const isCur = b === btn;
+            b.classList.toggle('is-active', isCur);
+            b.setAttribute('aria-pressed', isCur ? 'true' : 'false');
+          });
+          chartPanels.forEach((p) => {
+            p.classList.toggle('is-active', p.getAttribute('data-report-panel') === targetMetric);
           });
         });
       });
