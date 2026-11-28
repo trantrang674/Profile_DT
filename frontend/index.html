@@ -19,9 +19,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Playfair+Display:ital,wght@0,500;1,500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/experience.css">
-  <link rel="stylesheet" href="assets/css/site.css">
-  <link rel="stylesheet" href="assets/css/legacy-sections.css">
+  <link rel="stylesheet" href="assets/css/experience.css?v=1.2">
+  <link rel="stylesheet" href="assets/css/site.css?v=1.2">
+  <link rel="stylesheet" href="assets/css/legacy-sections.css?v=1.3">
 
   <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 </head>
@@ -39,7 +39,7 @@
       <nav aria-label="Điều hướng chính">
         <ul class="nav-menu" id="nav-menu">
           <li><a href="#home" class="nav-link active">Trang Chủ</a></li>
-          <li><a href="#about" class="nav-link">About Me</a></li>
+          <li><a href="#about" class="nav-link">Về Tôi</a></li>
           <li><a href="#experience" class="nav-link">Kinh Nghiệm</a></li>
           <li><a href="#projects" class="nav-link">Dự Án</a></li>
           <li><a href="#contact" class="nav-link">Liên Hệ</a></li>
@@ -49,7 +49,7 @@
       <div class="nav-cta">
         <a href="assets/cv/CV-Content-Marketing.pdf" download class="btn-pill-glow">
           <span>Tải CV</span>
-          <span class="btn-circle-icon" aria-hidden="true">↓</span>
+          <span class="btn-circle-icon" aria-hidden="true"><i data-lucide="arrow-down" aria-hidden="true"></i></span>
         </a>
         <button class="mobile-toggle" aria-label="Mở menu điều hướng" aria-controls="nav-menu" aria-expanded="false">
           <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
@@ -69,42 +69,43 @@
         <!-- Số cảnh lớn ở nền, đổi theo từng cảnh khi cuộn -->
         <div class="hero-scene-mark">
           <span class="hero-scene-num">01</span>
-          <span class="hero-scene-name">Bản nháp</span>
+          <span class="hero-scene-name">Phạm vi công việc</span>
         </div>
       </div>
 
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="hero-status"><span class="status-dot" aria-hidden="true"></span>Đang tìm vị trí Content Marketing mới</p>
-
           <h1 class="hero-title">
-            Tôi viết nội dung để khách hàng
+            Tôi triển khai nội dung để khách hàng
             <span class="edit-mark"><del>đọc<span class="strike" aria-hidden="true"></span></del><ins>mua</ins></span>.
           </h1>
 
           <p class="hero-lead">
-            Tôi là <strong>Dương Trang</strong>, Content Marketing Specialist tại TP. Hồ Chí Minh. Hơn 2 năm lên kế hoạch, viết và đo lường nội dung cho thương hiệu thời trang, F&amp;B và công nghệ, dựa trên số liệu thật từ Meta Business Suite, GA4 và Search Console.
+            Tôi là <strong>Dương Trang</strong>, Content Marketing Specialist tại TP. Hồ Chí Minh.<br>
+            Hơn 2 năm lập kế hoạch, triển khai và đo lường trong lĩnh vực ICT và thời trang,<br>
+            dựa trên số liệu thật từ Meta Business Suite, Search Console<br>
+            và tối ưu hiệu suất làm việc.
           </p>
 
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-light">Xem dự án</a>
-            <a href="assets/cv/Portfolio-Content-Marketing.pdf" download class="btn btn-outline-light">Tải portfolio (PDF)</a>
+            <a href="#experience" class="btn btn-light">Xem kinh nghiệm làm việc</a>
+            <button type="button" class="btn btn-outline-light open-cv-modal" id="open-cv-modal" aria-haspopup="dialog" aria-controls="cv-modal-backdrop">Xem CV</button>
           </div>
         </div>
 
         <!-- Bảng bên phải: đổi nội dung theo từng cảnh khi cuộn. Không có hiệu ứng cuộn thì chỉ hiện "Thông tin nhanh" -->
         <div class="hero-deck">
-          <article class="deck-panel deck-note" data-panel="note" aria-hidden="true">
-            <p class="deck-label">Ghi chú biên tập</p>
-            <p class="deck-quote">“Đọc” chưa nói lên mục tiêu. Đọc xong, khách hàng sẽ làm gì?</p>
-            <p class="deck-sub">Gợi ý: đổi động từ thành hành động tạo ra doanh số.</p>
-            <p class="deck-resolved"><span class="resolved-dot"></span>Đã sửa: “đọc” thành “mua”</p>
-          </article>
-
           <article class="deck-panel" data-panel="insight">
-            <p class="deck-label">Insight từ case EcoTea</p>
-            <blockquote class="deck-quote">Dân văn phòng trẻ kiệt sức vì deadline, trà sữa nhiều đường và stress. Họ muốn được chữa lành nhưng không có nhiều thời gian.</blockquote>
-            <p class="deck-sub">Big idea: “Uống Lành, Sống Nhẹ”, khoảng nghỉ 5 phút giữa ngày bận rộn.</p>
+            <p class="deck-label">Phạm vi công việc</p>
+            <ul class="scope-rows">
+              <li><span class="scope-dot" aria-hidden="true"></span><span>Social Media</span></li>
+              <li><span class="scope-dot" aria-hidden="true"></span><span>SEO Content</span></li>
+              <li><span class="scope-dot" aria-hidden="true"></span><span>Campaign</span></li>
+              <li><span class="scope-dot" aria-hidden="true"></span><span>Quản trị Website</span></li>
+              <li><span class="scope-dot" aria-hidden="true"></span><span>Event</span></li>
+              <li><span class="scope-dot" aria-hidden="true"></span><span>Branding Visual</span></li>
+              <li><span class="scope-dot" aria-hidden="true"></span><span>Báo cáo &amp; Đo lường</span></li>
+            </ul>
           </article>
 
           <article class="deck-panel" data-panel="channels">
@@ -120,10 +121,11 @@
           <aside class="deck-panel hero-facts" data-panel="facts" aria-label="Thông tin nhanh">
             <p class="deck-label">Thông tin nhanh</p>
             <dl>
-              <div><dt>Vị trí mong muốn</dt><dd>Content Marketing Executive, hướng tới Content Lead</dd></div>
-              <div><dt>Kinh nghiệm</dt><dd>2+ năm, gần nhất tại thương hiệu thời trang VM Style</dd></div>
-              <div><dt>Thế mạnh</dt><dd>Social Media, Content Plan, SEO Inbound, ứng dụng AI</dd></div>
-              <div><dt>Hình thức</dt><dd>Full-time hoặc Freelance, TP. Hồ Chí Minh</dd></div>
+              <div><dt>Vị trí mong muốn</dt><dd>Content Marketing | Product Marketing | Branding</dd></div>
+              <div><dt>Định hướng tương lai</dt><dd>Content Lead | Brand Lead</dd></div>
+              <div><dt>Kinh nghiệm</dt><dd>2+ năm, gần nhất tại thương hiệu Thành Nhân TNC (lĩnh vực ICT)</dd></div>
+              <div><dt>Thế mạnh</dt><dd>Social Media, Content Plan, SEO Inbound, AI Tools</dd></div>
+              <div><dt>Hình thức</dt><dd>Full-time TP. Hồ Chí Minh | Remote | Freelance</dd></div>
             </dl>
           </aside>
         </div>
@@ -131,22 +133,11 @@
 
       <div class="wrap">
         <ul class="hero-results" aria-label="Kết quả nổi bật">
-          <li><strong data-to="4.1" data-dec="1" data-suffix="M+">4.1M+</strong><span>lượt tiếp cận tự nhiên đa kênh trong 6 tháng</span></li>
-          <li><strong data-to="65" data-prefix="+" data-suffix="%">+65%</strong><span>tương tác và tin nhắn tự nhiên tại VM Style</span></li>
-          <li><strong data-to="360" data-suffix="+">360+</strong><span>bài viết và Reels đã lên kế hoạch, viết và xuất bản</span></li>
+          <li><strong data-to="9.6" data-dec="1" data-suffix="M+">9.6M+</strong><span>lượt xem tự nhiên trong 6 tháng (tại TNC)</span></li>
+          <li><strong data-to="140" data-prefix="+" data-suffix="%">+140%</strong><span>tương tác trong 6 tháng (tại TNC)</span></li>
+          <li><strong data-to="10">10</strong><span>thương hiệu đồng hành trong vòng 2 năm</span></li>
         </ul>
       </div>
-
-      <!-- Chỉ báo 6 cảnh của câu chuyện cuộn đầu trang (chỉ hiện khi hiệu ứng cuộn chạy) -->
-      <ol class="hero-scenes" aria-hidden="true">
-        <li class="is-active">Bản nháp</li>
-        <li>Biên tập</li>
-        <li>Insight</li>
-        <li>Kênh</li>
-        <li>Kết quả</li>
-        <li>Hồ sơ</li>
-      </ol>
-      <div class="hero-progress" aria-hidden="true"><span></span></div>
     </section>
 
     <!-- ========== CHÂN DUNG 3D: ảnh chân dung + vòng ảnh dự án xoay 3D (Three.js) ========== -->
@@ -155,44 +146,32 @@
       <div class="showcase-vignette" aria-hidden="true"></div>
 
       <div class="wrap showcase-top">
-        <p class="showcase-chip"><span class="status-dot" aria-hidden="true"></span>Đang tìm vị trí <strong>Content Marketing</strong></p>
+        <p class="showcase-chip"><span class="status-dot" aria-hidden="true"></span>Định hướng lĩnh vực <strong>ICT - Thời Trang</strong></p>
         <p class="showcase-chip">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
           Sống tại <strong>TP. Hồ Chí Minh</strong>
         </p>
       </div>
 
-      <!-- Ảnh chân dung đã tách nền (WebP, dự phòng PNG). Thay ảnh nét hơn: ghi đè 2 file duong-trang.* -->
-      <picture>
-        <source srcset="assets/images/duong-trang.webp" type="image/webp">
-        <img class="showcase-portrait" src="assets/images/duong-trang.png" alt="Chân dung Dương Trang trong tà áo dài, tay cầm nón lá" width="506" height="999">
-      </picture>
+      <!-- Ảnh chân dung đã tách nền -->
+      <img class="showcase-portrait" src="assets/images/duong-trang.webp?v=5" alt="Chân dung Dương Trang, Content Marketing Specialist" width="1024" height="1024">
 
       <div class="wrap showcase-bottom">
         <div class="showcase-intro">
           <p class="showcase-hi">Xin chào, tôi là Dương Trang</p>
-          <h2 id="showcase-title" class="showcase-title">Content Marketing<br>Specialist</h2>
-          <a href="#contact" class="showcase-cta">
-            <span class="showcase-cta-icon" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </span>
-            Bắt đầu dự án
-          </a>
+          <h2 id="showcase-title" class="showcase-title">Content<br>Marketing<br>Specialist</h2>
         </div>
         <figure class="showcase-quote">
-          <blockquote>“Tôi giúp thương hiệu kể đúng câu chuyện cho đúng người, để nội dung <strong>tạo ra doanh số</strong> chứ không chỉ thêm lượt xem.”</blockquote>
-          <figcaption class="showcase-sign">Dương Trang</figcaption>
+          <blockquote>“Tôi lấy sự sáng tạo làm kim chỉ nam và sự chỉ chu trong quy trình làm thước đo hiệu quả. Tôi mong muốn đồng hành cùng Quý Công ty xây dựng nội dung hữu ích, bứt phá chỉ số và tạo doanh thu thực.”</blockquote>
         </figure>
       </div>
     </section>
 
-    <!-- ========== NĂNG LỰC ========== -->
+    <!-- ========== VỀ TÔI ========== -->
     <section id="about" class="section">
       <div class="wrap">
-        <div class="split">
-          <div class="split-head">
-            <h2 class="h2">Chuyên môn</h2>
-          </div>
+        <div class="about-title-row">
+          <h2 class="h2 section-title">Về Tôi</h2>
         </div>
 
         <div class="skills-board legacy">
@@ -200,14 +179,114 @@
             <div class="airlume-card-icon">
               <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
-            <p>
-              Trong thời đại AI có thể sản xuất hàng loạt nội dung chỉ sau vài giây, tôi tìm ra giải pháp về quy trình làm việc tối ưu hơn, tạo sự liên kết giữa truyền thông thương hiệu và tạo ra doanh số. Tất cả nằm ở việc thấu cảm sâu sắc với nỗi đau khách hàng, sau đó giải quyết chúng.
-            </p>
-            <div class="airlume-meta-list">
-              <div><span>📍 Địa điểm:</span> <strong>TP. Hồ Chí Minh</strong></div>
-              <div><span>🎯 Định hướng:</span> <strong>Content Lead / Brand Manager</strong></div>
+            <ul class="airlume-bullet-list">
+              <li>
+                <strong>Tối ưu quy trình với AI:</strong> Tăng tốc sản xuất, giữ vững chiều sâu và bản sắc thương hiệu.
+              </li>
+              <li>
+                <strong>Gắn kết truyền thông &amp; doanh số:</strong> Tạo nội dung chuyển đổi trực tiếp thành doanh thu thực.
+              </li>
+              <li>
+                <strong>Thấu cảm nỗi đau khách hàng:</strong> Khai thác đúng insight để giải quyết trúng nhu cầu người dùng.
+              </li>
+            </ul>
+
+            <!-- Điểm nhấn hình hoạt họa sáng tạo (Animated Creative Accent) -->
+            <div class="airlume-mascot-box" aria-hidden="true">
+              <svg class="airlume-mascot-svg" viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="mascotAura" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.38"/>
+                    <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0"/>
+                  </radialGradient>
+                  <linearGradient id="rocketBodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ffffff"/>
+                    <stop offset="100%" stop-color="#cbd5e1"/>
+                  </linearGradient>
+                  <linearGradient id="rocketFlame" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#fdba74"/>
+                    <stop offset="50%" stop-color="#f97316"/>
+                    <stop offset="100%" stop-color="#ef4444"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Vầng hào quang chuyển động -->
+                <circle cx="120" cy="58" r="54" fill="url(#mascotAura)" class="anim-glow"/>
+
+                <!-- Ngôi sao lấp lánh -->
+                <path d="M 38 30 L 40 35 L 45 37 L 40 39 L 38 44 L 36 39 L 31 37 L 36 35 Z" fill="#fde047" class="anim-star"/>
+                <path d="M 205 26 L 206.5 30 L 211 31.5 L 206.5 33 L 205 37 L 203.5 33 L 199 31.5 L 203.5 30 Z" fill="#93c5fd" class="anim-star-2"/>
+                <circle cx="50" cy="74" r="2" fill="#ffffff" opacity="0.6"/>
+                <circle cx="192" cy="82" r="2.2" fill="#ffffff" opacity="0.5"/>
+
+                <!-- Floating Badge 1: Thương hiệu (Trái) -->
+                <g class="anim-orbit-left" transform="translate(14, 44)">
+                  <rect width="82" height="25" rx="12.5" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.28)" stroke-width="1"/>
+                  <circle cx="13" cy="12.5" r="7" fill="#fde047"/>
+                  <svg x="7.5" y="7" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#1e293b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></svg>
+                  <text x="26" y="16" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="700" fill="#ffffff">Thương hiệu</text>
+                </g>
+
+                <!-- Floating Badge 2: Doanh số (Phải) -->
+                <g class="anim-orbit-right" transform="translate(148, 40)">
+                  <rect width="76" height="25" rx="12.5" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.28)" stroke-width="1"/>
+                  <circle cx="13" cy="12.5" r="7" fill="#38bdf8"/>
+                  <svg x="7.5" y="7" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                  <text x="26" y="16" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="700" fill="#ffffff">Doanh số</text>
+                </g>
+
+                <!-- Nhân vật hoạt họa / Tên lửa sáng tạo (Center Mascot) -->
+                <g class="anim-mascot-body" transform="translate(120, 56)">
+                  <!-- Luồng lửa phản lực -->
+                  <path d="M -7 24 Q 0 42 0 44 Q 0 42 7 24 Z" fill="url(#rocketFlame)" class="anim-flame"/>
+                  <path d="M -3.5 24 Q 0 34 0 36 Q 0 34 3.5 24 Z" fill="#fef08a" class="anim-flame"/>
+
+                  <!-- Khói mây bồng bềnh -->
+                  <ellipse cx="-11" cy="28" rx="6.5" ry="3.8" fill="rgba(255,255,255,0.35)"/>
+                  <ellipse cx="11" cy="28" rx="6.5" ry="3.8" fill="rgba(255,255,255,0.35)"/>
+                  <ellipse cx="0" cy="30" rx="9" ry="4.5" fill="rgba(255,255,255,0.5)"/>
+
+                  <!-- Cánh tên lửa -->
+                  <path d="M -12 7 L -22 20 L -11 18 Z" fill="#f97316"/>
+                  <path d="M 12 7 L 22 20 L 11 18 Z" fill="#ea580c"/>
+
+                  <!-- Thân tên lửa bóng bẩy -->
+                  <path d="M 0 -32 C -17 -9 -15 15 -12 21 L 12 21 C 15 15 17 -9 0 -32 Z" fill="url(#rocketBodyGrad)"/>
+                  
+                  <!-- Mũi nhọn tên lửa màu cam điểm nhấn -->
+                  <path d="M 0 -32 C -7 -20 -10 -11 -10 -7 L 10 -7 C 10 -11 7 -20 0 -32 Z" fill="#f97316"/>
+
+                  <!-- Cửa sổ tròn của phi thuyền với gương mặt hoạt hình dễ thương -->
+                  <circle cx="0" cy="3" r="9.5" fill="#0c1d68" stroke="#3b82f6" stroke-width="1.8"/>
+                  <!-- Gương mặt chibi mascot -->
+                  <circle cx="0" cy="4" r="6.8" fill="#fde68a"/>
+                  <!-- Cặp kính tròn trí thức dễ thương -->
+                  <circle cx="-2.3" cy="3" r="2" fill="none" stroke="#0f172a" stroke-width="0.8"/>
+                  <circle cx="2.3" cy="3" r="2" fill="none" stroke="#0f172a" stroke-width="0.8"/>
+                  <line x1="-0.3" y1="3" x2="0.3" y2="3" stroke="#0f172a" stroke-width="0.7"/>
+                  <circle cx="-2.3" cy="3" r="0.7" fill="#0f172a"/>
+                  <circle cx="2.3" cy="3" r="0.7" fill="#0f172a"/>
+                  <!-- Đôi má hồng -->
+                  <ellipse cx="-4.2" cy="5" rx="0.9" ry="0.5" fill="#f43f5e" opacity="0.6"/>
+                  <ellipse cx="4.2" cy="5" rx="0.9" ry="0.5" fill="#f43f5e" opacity="0.6"/>
+                  <!-- Nụ cười tươi -->
+                  <path d="M -1 5.3 Q 0 6.5 1 5.3" fill="none" stroke="#0f172a" stroke-width="0.7" stroke-linecap="round"/>
+
+                  <!-- Vệt sáng phản quang trên vỏ tên lửa -->
+                  <path d="M -7 -3 Q -8 7 -6 16" stroke="rgba(255,255,255,0.75)" stroke-width="1.5" stroke-linecap="round"/>
+                </g>
+              </svg>
+              <div class="airlume-mascot-caption">
+                <span class="sparkle"><i data-lucide="sparkles" aria-hidden="true"></i></span>
+                <span>Content Sáng Tạo • Chuyển Đổi Thực</span>
+              </div>
             </div>
-            <a href="#experience" class="airlume-card-link">Xem kinh nghiệm thực tế <span>→</span></a>
+
+            <div class="airlume-meta-list">
+              <div><span><i data-lucide="map-pin" aria-hidden="true"></i> Địa điểm:</span> <strong>TP. Hồ Chí Minh</strong></div>
+              <div><span><i data-lucide="target" aria-hidden="true"></i> Định hướng:</span> <strong>Content Lead / Brand Manager</strong></div>
+            </div>
+            <a href="#experience" class="airlume-card-link">Xem kinh nghiệm thực tế <span><i data-lucide="arrow-right" aria-hidden="true"></i></span></a>
           </article>
           <div class="skills-board-right">
             <article class="skills-panel">
@@ -217,13 +296,13 @@
                 <p>Làm chủ toàn diện quy trình từ lập kế hoạch chiến lược đến sản xuất và đo lường số liệu.</p>
               </header>
               <div class="skill-grid hard">
-                <div class="skill-tile"><span class="skill-tile-ico">🎯</span><span class="skill-tile-name">Chiến lược Content</span></div>
-                <div class="skill-tile"><span class="skill-tile-ico">✍️</span><span class="skill-tile-name">Sáng tạo nội dung</span></div>
-                <div class="skill-tile"><span class="skill-tile-ico">🤖</span><span class="skill-tile-name">Ứng dụng AI Tools</span></div>
-                <div class="skill-tile"><span class="skill-tile-ico">📝</span><span class="skill-tile-name">Copywriting</span></div>
-                <div class="skill-tile"><span class="skill-tile-ico">📊</span><span class="skill-tile-name">Phân tích số liệu</span></div>
-                <div class="skill-tile"><span class="skill-tile-ico">🔍</span><span class="skill-tile-name">SEO Inbound</span></div>
-                <div class="skill-tile"><span class="skill-tile-ico">🎨</span><span class="skill-tile-name">Thiết kế đồ họa</span></div>
+                <div class="skill-tile"><span class="skill-tile-ico"><i data-lucide="target" aria-hidden="true"></i></span><span class="skill-tile-name">Chiến lược Content</span></div>
+                <div class="skill-tile"><span class="skill-tile-ico"><i data-lucide="pen-line" aria-hidden="true"></i></span><span class="skill-tile-name">Sáng tạo nội dung</span></div>
+                <div class="skill-tile"><span class="skill-tile-ico"><i data-lucide="bot" aria-hidden="true"></i></span><span class="skill-tile-name">Ứng dụng AI Tools</span></div>
+                <div class="skill-tile"><span class="skill-tile-ico"><i data-lucide="notebook-pen" aria-hidden="true"></i></span><span class="skill-tile-name">Copywriting</span></div>
+                <div class="skill-tile"><span class="skill-tile-ico"><i data-lucide="chart-column" aria-hidden="true"></i></span><span class="skill-tile-name">Phân tích số liệu</span></div>
+                <div class="skill-tile"><span class="skill-tile-ico"><i data-lucide="search" aria-hidden="true"></i></span><span class="skill-tile-name">SEO Inbound</span></div>
+                <div class="skill-tile"><span class="skill-tile-ico"><i data-lucide="palette" aria-hidden="true"></i></span><span class="skill-tile-name">Thiết kế đồ họa</span></div>
               </div>
             </article>
             <article class="skills-panel soft">
@@ -233,12 +312,12 @@
                 <p>Linh hoạt thích nghi xu hướng mới, phối hợp nhịp nhàng cùng đội ngũ Media, Design và Sales.</p>
               </header>
               <div class="skill-grid soft">
-                <div class="skill-row"><span class="skill-tile-ico">⏱️</span><span class="skill-tile-name">Quản lý thời gian</span></div>
-                <div class="skill-row"><span class="skill-tile-ico">🧩</span><span class="skill-tile-name">Giải quyết vấn đề</span></div>
-                <div class="skill-row"><span class="skill-tile-ico">👁️</span><span class="skill-tile-name">Tư duy thẩm mỹ</span></div>
-                <div class="skill-row"><span class="skill-tile-ico">💬</span><span class="skill-tile-name">Giao tiếp tốt</span></div>
-                <div class="skill-row"><span class="skill-tile-ico">🚀</span><span class="skill-tile-name">Bắt nhịp xu hướng</span></div>
-                <div class="skill-row"><span class="skill-tile-ico">👥</span><span class="skill-tile-name">Quản lý đội nhóm</span></div>
+                <div class="skill-row"><span class="skill-tile-ico"><i data-lucide="rocket" aria-hidden="true"></i></span><span class="skill-tile-name">Bắt nhịp xu hướng</span></div>
+                <div class="skill-row"><span class="skill-tile-ico"><i data-lucide="puzzle" aria-hidden="true"></i></span><span class="skill-tile-name">Giải quyết vấn đề</span></div>
+                <div class="skill-row"><span class="skill-tile-ico"><i data-lucide="timer" aria-hidden="true"></i></span><span class="skill-tile-name">Quản lý thời gian</span></div>
+                <div class="skill-row"><span class="skill-tile-ico"><i data-lucide="eye" aria-hidden="true"></i></span><span class="skill-tile-name">Tư duy thẩm mỹ</span></div>
+                <div class="skill-row"><span class="skill-tile-ico"><i data-lucide="message-circle" aria-hidden="true"></i></span><span class="skill-tile-name">Giao tiếp tốt</span></div>
+                <div class="skill-row"><span class="skill-tile-ico"><i data-lucide="users" aria-hidden="true"></i></span><span class="skill-tile-name">Quản lý đội nhóm</span></div>
               </div>
             </article>
           </div>
@@ -256,7 +335,6 @@
               <div class="store-hero">
                 <p class="store-kicker">Bộ công cụ chuyên môn</p>
                 <p class="store-big" aria-hidden="true">Mạng xã hội</p>
-                <p class="store-count"><strong>4</strong> công cụ dùng hằng ngày</p>
               </div>
               <div class="store-list">
                 <h3 class="store-title">Công cụ dùng hằng ngày</h3>
@@ -266,13 +344,13 @@
                 <li class="store-row" data-group="social"><span class="store-ico"><img src="assets/images/logos/tiktok.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">TikTok</span><span class="store-use">Kịch bản video ngắn, bắt trend</span></li>
                 <li class="store-row" data-group="social"><span class="store-ico"><img src="assets/images/logos/zalo.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Zalo OA</span><span class="store-use">Broadcast gửi khách hàng, thu thập insight</span></li>
                 <li class="store-row" data-group="social"><span class="store-ico"><img src="assets/images/logos/linkedin.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">LinkedIn</span><span class="store-use">Xây dựng thương hiệu</span></li>
-                <li class="store-row" data-group="seo" hidden><span class="store-ico"><img src="assets/images/logos/googlesearchconsole.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Search Console</span><span class="store-use">Theo dõi từ khóa và traffic</span></li>
+                <li class="store-row" data-group="seo" hidden><span class="store-ico"><img src="assets/images/logos/googlesearchconsole.webp?v=4" alt="Search Console" width="24" height="24" loading="lazy"></span><span class="store-name">Search Console</span><span class="store-use">Theo dõi từ khóa và traffic</span></li>
                 <li class="store-row" data-group="seo" hidden><span class="store-ico"><img src="assets/images/logos/semrush.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Semrush</span><span class="store-use">Nghiên cứu từ khóa, đối thủ</span></li>
                 <li class="store-row" data-group="seo" hidden><span class="store-ico"><img src="assets/images/logos/wordpress.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">WordPress</span><span class="store-use">Đăng bài chuẩn SEO</span></li>
                 <li class="store-row" data-group="seo" hidden><span class="store-ico"><img src="assets/images/logos/googletrends.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Google Trends</span><span class="store-use">Bắt xu hướng tìm kiếm</span></li>
-                <li class="store-row" data-group="creative" hidden><span class="store-ico"><img src="assets/images/logos/canva.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Canva</span><span class="store-use">Thiết kế ấn phẩm nhanh</span></li>
-                <li class="store-row" data-group="creative" hidden><span class="store-ico"><img src="assets/images/logos/adobeillustrator.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Illustrator</span><span class="store-use">Thiết kế ấn phẩm có độ phức tạp</span></li>
-                <li class="store-row" data-group="creative" hidden><span class="store-ico"><img src="assets/images/logos/capcut.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">CapCut</span><span class="store-use">Dựng video cơ bản</span></li>
+                <li class="store-row" data-group="creative" hidden><span class="store-ico"><img src="assets/images/logos/canva.webp?v=4" alt="Canva" width="24" height="24" loading="lazy"></span><span class="store-name">Canva</span><span class="store-use">Thiết kế ấn phẩm nhanh</span></li>
+                <li class="store-row" data-group="creative" hidden><span class="store-ico"><img src="assets/images/logos/adobeillustrator.webp?v=4" alt="Illustrator" width="24" height="24" loading="lazy"></span><span class="store-name">Illustrator</span><span class="store-use">Thiết kế ấn phẩm có độ phức tạp</span></li>
+                <li class="store-row" data-group="creative" hidden><span class="store-ico"><img src="assets/images/logos/capcut.webp?v=4" alt="CapCut" width="24" height="24" loading="lazy"></span><span class="store-name">CapCut</span><span class="store-use">Dựng video cơ bản</span></li>
                 <li class="store-row" data-group="creative" hidden><span class="store-ico"><img src="assets/images/logos/googledrive.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Google Drive</span><span class="store-use">Lưu trữ và cộng tác công việc</span></li>
                 <li class="store-row" data-group="ai" hidden><span class="store-ico"><img src="assets/images/logos/openai.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">ChatGPT</span><span class="store-use">Lên ý tưởng, sáng tạo hình ảnh</span></li>
                 <li class="store-row" data-group="ai" hidden><span class="store-ico"><img src="assets/images/logos/claude.svg" alt="" width="24" height="24" loading="lazy"></span><span class="store-name">Claude</span><span class="store-use">Claude Code: Xây dựng hệ thống tools/ AI agent</span></li>
@@ -322,10 +400,64 @@
 
     <!-- ========== KINH NGHIỆM ========== -->
     <section id="experience" class="section vm-exp-section">
-      <div class="wrap">
-        <div class="section-intro">
-          <h2 class="h2">Kinh nghiệm làm việc</h2>
+      <!-- Dải ngang chạy động thay thế tiêu đề text tĩnh -->
+      <div class="exp-tape-container" aria-label="Kinh nghiệm làm việc">
+        <h2 class="sr-only">Kinh nghiệm làm việc</h2>
+
+        <!-- Dải phụ: Cùng gradient xanh hero, giảm opacity nhẹ nhàng, chạy đủ tên 10 thương hiệu -->
+        <div class="exp-tape exp-tape-secondary" aria-hidden="true">
+          <div class="exp-tape-track exp-tape-reverse">
+            <div class="exp-tape-content">
+              <span>Thành Nhân TNC</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Dat Bike</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>VM Style</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>MELLA</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Lalie Pijama</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>MYUN Jeans</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Bylen</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Bảo Tín Express</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Local Tea</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Apollo</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+            </div>
+            <div class="exp-tape-content">
+              <span>Thành Nhân TNC</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Dat Bike</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>VM Style</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>MELLA</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Lalie Pijama</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>MYUN Jeans</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Bylen</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Bảo Tín Express</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Local Tea</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Apollo</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+            </div>
+          </div>
         </div>
+
+        <!-- Dải chính: Gradient Xanh Hero đồng bộ, dày dặn, lặp lại 'Kinh nghiệm làm việc' -->
+        <div class="exp-tape exp-tape-primary">
+          <div class="exp-tape-track">
+            <div class="exp-tape-content">
+              <span>Kinh nghiệm làm việc</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Kinh nghiệm làm việc</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Kinh nghiệm làm việc</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Kinh nghiệm làm việc</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Kinh nghiệm làm việc</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Kinh nghiệm làm việc</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+            </div>
+            <div class="exp-tape-content" aria-hidden="true">
+              <span>Kinh nghiệm làm việc</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Kinh nghiệm làm việc</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Kinh nghiệm làm việc</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Kinh nghiệm làm việc</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Kinh nghiệm làm việc</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+              <span>Kinh nghiệm làm việc</span><span class="exp-tape-star"><i data-lucide="star" aria-hidden="true"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap">
         <div id="vm-experience-mount"></div>
       </div>
     </section>
@@ -369,7 +501,7 @@
                 Tải CV Của Tôi
               </a>
               <a href="assets/cv/Portfolio-Content-Marketing.pdf" download class="scalix-glass-pill-btn">
-                Tải Portfolio PDF ↗
+                Tải Portfolio PDF <i data-lucide="arrow-up-right" aria-hidden="true"></i>
               </a>
             </div>
 
@@ -386,7 +518,7 @@
               <div class="direct-item">
                 <span class="direct-label">MẠNG XÃ HỘI</span>
                 <div class="direct-links">
-                  <a href="https://www.facebook.com/trangduong16082002" target="_blank" rel="noopener">Facebook ↗</a>
+                  <a href="https://www.facebook.com/trangduong16082002" target="_blank" rel="noopener">Facebook <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
                   <span>LinkedIn (Đang cập nhật)</span>
                 </div>
               </div>
@@ -441,6 +573,39 @@
     </div>
   </div>
 
+  <!-- ========== MODAL XEM CV TRỰC TIẾP ========== -->
+  <div id="cv-modal-backdrop" class="cv-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Curriculum Vitae Dương Trang">
+    <div class="cv-modal-container">
+      <div class="cv-modal-header">
+        <div class="cv-modal-title-group">
+          <span class="cv-modal-badge">Curriculum Vitae</span>
+          <h3 class="cv-modal-title">Dương Trang — Content Marketing Specialist</h3>
+        </div>
+        <div class="cv-modal-actions">
+          <a href="assets/cv/CV-Content-Marketing.pdf?v=2" download="CV-Content-Marketing-Duong-Trang.pdf" class="btn-cv-action btn-cv-download" title="Tải file CV PDF">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            <span>Tải PDF</span>
+          </a>
+          <a href="assets/cv/CV-Content-Marketing.pdf?v=2" target="_blank" rel="noopener" class="btn-cv-action btn-cv-external" title="Mở file CV trong tab mới">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span>Mở tab mới</span>
+          </a>
+          <button id="cv-modal-close" class="cv-modal-close-btn" aria-label="Đóng CV">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="cv-modal-body">
+        <iframe src="assets/cv/CV-Content-Marketing.pdf?v=2#toolbar=1" class="cv-iframe" title="CV Dương Trang">
+          <div class="cv-fallback">
+            <p>Trình duyệt của bạn không hỗ trợ xem trước PDF trực tiếp.</p>
+            <a href="assets/cv/CV-Content-Marketing.pdf?v=2" target="_blank" rel="noopener" class="btn btn-primary">Mở CV trong tab mới</a>
+          </div>
+        </iframe>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer giữ theo bản gốc: chữ chìm khổng lồ + nút pill điều hướng -->
   <footer class="site-footer scalix-footer">
     <div class="scalix-watermark" aria-hidden="true">CONTENTFOLIO</div>
@@ -473,13 +638,15 @@
     </div>
   </footer>
 
-  <script src="content/projects-manifest.js"></script>
-  <script src="assets/js/markdown-loader.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/experience-vmstyle.js"></script>
+  <script src="content/projects-manifest.js?v=1.1"></script>
+  <script src="assets/js/markdown-loader.js?v=1.1"></script>
+  <script src="assets/js/main.js?v=1.1"></script>
+  <script src="assets/js/experience-vmstyle.js?v=1.3"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="assets/js/site.js"></script>
+  <!-- Thư viện icon Lucide: mọi icon giao diện dùng <i data-lucide="tên-icon"> -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/site.js?v=1.3"></script>
   <!-- Three.js cho 2 section 3D (chân dung + bộ công cụ) -->
   <script type="importmap">
     {
@@ -489,6 +656,6 @@
       }
     }
   </script>
-  <script type="module" src="assets/js/three-scenes.js"></script>
+  <script type="module" src="assets/js/three-scenes.js?v=1.1"></script>
 </body>
 </html>

@@ -86,6 +86,40 @@
   color: rgba(226, 235, 255, 0.86);
 }
 
+.airlume-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.airlume-bullet-list li {
+  position: relative;
+  padding-left: 1.45rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(226, 235, 255, 0.92);
+}
+
+.airlume-bullet-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #93b4ff;
+  box-shadow: 0 0 8px rgba(147, 180, 255, 0.7);
+}
+
+.airlume-bullet-list li strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
 .airlume-meta-list {
   display: flex;
   flex-direction: column;
@@ -118,6 +152,118 @@
   transform: translateX(4px);
 }
 
+/* Điểm nhấn hình hoạt họa cho Airlume Card */
+.airlume-mascot-box {
+  margin: 0.85rem 0 1.15rem;
+  padding: 0.9rem 0.75rem 0.75rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 10px 24px rgba(7, 13, 45, 0.22);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.airlume-mascot-box:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 14px 30px rgba(7, 13, 45, 0.3);
+}
+
+.airlume-mascot-svg {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+}
+
+.airlume-mascot-caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.28rem 0.85rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.airlume-mascot-caption .sparkle {
+  color: #fde047;
+  font-size: 0.85rem;
+}
+
+@keyframes mascotFloat {
+  0%, 100% { transform: translate(120px, 60px); }
+  50% { transform: translate(120px, 53px); }
+}
+
+@keyframes mascotOrbitLeft {
+  0%, 100% { transform: translate(14px, 44px); }
+  50% { transform: translate(14px, 39px); }
+}
+
+@keyframes mascotOrbitRight {
+  0%, 100% { transform: translate(148px, 40px); }
+  50% { transform: translate(148px, 45px); }
+}
+
+@keyframes flamePulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.15, 1.3); opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.anim-mascot-body {
+  animation: mascotFloat 3.2s ease-in-out infinite;
+}
+
+.anim-orbit-left {
+  animation: mascotOrbitLeft 4s ease-in-out infinite;
+}
+
+.anim-orbit-right {
+  animation: mascotOrbitRight 4.5s ease-in-out infinite;
+}
+
+.anim-flame {
+  animation: flamePulse 0.4s ease-in-out infinite alternate;
+  transform-origin: 0 26px;
+}
+
+.anim-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+  transform-origin: 120px 62px;
+}
+
+.anim-star {
+  animation: starTwinkle 2.2s ease-in-out infinite;
+  transform-origin: 38px 39px;
+}
+
+.anim-star-2 {
+  animation: starTwinkle 2.8s ease-in-out infinite 0.7s;
+  transform-origin: 205px 33px;
+}
 
 .scalix-kicker {
   display: inline-block;
@@ -476,3 +622,47 @@
 /* Ô nhập dùng cùng font với trang (bản gốc lấy từ style.css cũ) */
 .scalix-pill-input { font-family: inherit; }
 .legacy a { text-decoration: none; }
+
+/* ==========================================================================
+   RESPONSIVE THEO SKILL FRONTEND-DESIGN cho 2 section bản gốc
+   ========================================================================== */
+/* Focus bàn phím rõ ràng trên ô nhập (bản gốc chỉ có quầng sáng 12%, rất khó thấy) */
+.scalix-pill-input:focus-visible { outline: 3px solid #5574f7; outline-offset: 2px; }
+.scalix-dark-submit-btn:focus-visible, .scalix-white-pill-btn:focus-visible, .scalix-glass-pill-btn:focus-visible,
+.scalix-footer-pills a:focus-visible, .airlume-card-link:focus-visible { outline: 3px solid #5574f7; outline-offset: 3px; }
+
+@media (max-width: 760px) {
+  /* Cùng thang chữ và nhịp section với phần còn lại của trang */
+  .scalix-contact-stage .scalix-contact-title { font-size: 2.125rem; line-height: 1.1; }
+  .lp-section.scalix-contact-stage { padding: 3.5rem 0 4rem; }
+  .skills-panel .skills-panel-head h3 { font-size: 1.25rem; }
+}
+
+@media (pointer: coarse) {
+  .scalix-footer-pills a { min-height: 44px; display: inline-flex; align-items: center; }
+  .scalix-footer-center a, .scalix-footer-socials a, .direct-item a, .direct-links a, .airlume-card-link {
+    min-height: 44px; display: inline-flex; align-items: center;
+  }
+}
+
+/* ==========================================================================
+   ICON THƯ VIỆN LUCIDE (thay cho emoji / ký tự dùng làm icon)
+   Đặt ở file này vì nó tải sau cùng, đè được cỡ chữ emoji cũ.
+   ========================================================================== */
+.lucide { width: 1em; height: 1em; flex-shrink: 0; vertical-align: -0.125em; }
+.skill-tile-ico .lucide { width: 20px; height: 20px; color: #1631c9; stroke-width: 2; }
+.skill-row .skill-tile-ico .lucide { color: #4f46e5; }
+.btn-circle-icon .lucide { width: 14px; height: 14px; stroke-width: 2.6; }
+.exp-tape-star { display: inline-flex; align-items: center; }
+.exp-tape-star .lucide { width: .85em; height: .85em; fill: currentColor; stroke-width: 1.5; }
+.airlume-meta-list .lucide { width: 15px; height: 15px; margin-right: .3rem; color: #93b4ff; vertical-align: -0.15em; }
+.airlume-card-link span { display: inline-flex; }
+.airlume-card-link .lucide { width: 16px; height: 16px; }
+.airlume-mascot-caption .sparkle { display: inline-flex; }
+.airlume-mascot-caption .sparkle .lucide { width: 16px; height: 16px; color: #fde047; }
+.scalix-glass-pill-btn .lucide, .direct-links .lucide { width: .95em; height: .95em; margin-left: .15rem; }
+.vm-empty-icon .lucide { width: 40px; height: 40px; color: #1631c9; }
+.vm-lb-btn { display: inline-flex; align-items: center; gap: .4rem; }
+.vm-lb-btn .lucide { width: 16px; height: 16px; }
+.vm-lb-nav { display: inline-flex; align-items: center; justify-content: center; }
+.vm-lb-nav .lucide { width: 22px; height: 22px; }

@@ -23,3 +23,9 @@
    - Writing should be data-backed, empathetic, sharp, and conversion-oriented.
    - Use concrete KPIs (Reach, Engagement Rate, MQLs, Organic Traffic, AOV growth).
    - Language: Tiếng Việt (Vietnamese).
+
+4. **Icons:**
+   - Never use emoji or unicode symbols (🎯 ✍️ 📍 ★ ↗ → ↓ ✕ …) as UI icons.
+   - Use only library icons: Lucide (`<i data-lucide="icon-name"></i>`, loaded from CDN in `index.html`; `assets/js/site.js` renders them, including elements added later by JS).
+   - Icons inside inline SVG artwork: embed the Lucide path data (from `lucide-static`).
+   - Emoji inside real social-media post captions are content, not icons, and may stay.

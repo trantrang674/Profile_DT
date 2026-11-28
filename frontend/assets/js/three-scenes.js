@@ -102,6 +102,45 @@ function statCard(value, label, tone) {
   });
 }
 
+function brandLogoCard(brand) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const c = roundedCanvas((ctx) => {
+        // Nền trắng tinh khôi chuẩn giao diện Light Mode
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, CARD_W, CARD_H);
+
+        // Ánh gradient nhẹ nhàng tạo chiều sâu nổi khối
+        const bgG = ctx.createLinearGradient(0, 0, 0, CARD_H);
+        bgG.addColorStop(0, '#ffffff');
+        bgG.addColorStop(1, '#f8fafc');
+        ctx.fillStyle = bgG;
+        ctx.fillRect(0, 0, CARD_W, CARD_H);
+
+        // Viền thẻ bo tròn sang trọng
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.lineWidth = 5;
+        ctx.strokeRect(3, 3, CARD_W - 6, CARD_H - 6);
+
+        // Hiển thị logo to rõ tối đa ra sát khung thẻ (chỉ giữ lề nhỏ tinh tế)
+        const maxW = 710;
+        const maxH = 420;
+        const scale = Math.min(maxW / img.width, maxH / img.height);
+        const dw = img.width * scale;
+        const dh = img.height * scale;
+        const dx = (CARD_W - dw) / 2;
+        const dy = (CARD_H - dh) / 2;
+
+        ctx.drawImage(img, dx, dy, dw, dh);
+      });
+      resolve(c);
+    };
+    img.onerror = () => resolve(null);
+    img.src = brand.src;
+  });
+}
+
 /* ========================================================================
    1. VÒNG ẢNH 3D QUANH CHÂN DUNG
    ======================================================================== */
@@ -120,22 +159,28 @@ async function initShowcase() {
   const ring = new THREE.Group();
   scene.add(ring);
 
-  // Ảnh bìa dự án (lấy từ các file .md) xen kẽ thẻ số liệu thật trên trang
+  // Danh sách 10 logo thương hiệu đồng hành (ảnh đã được cắt sát viền để phóng to rõ nét)
   if (document.fonts && document.fonts.ready) { try { await document.fonts.ready; } catch (e) { /* bỏ qua */ } }
-  const covers = ['assets/images/project-ecotea.svg', 'assets/images/project-seo.svg', 'assets/images/project-coffee.svg', 'assets/images/project-email.svg'];
-  const stats = [['4.1M+', 'lượt tiếp cận tự nhiên', 'dark'], ['+65%', 'tương tác tại VM Style', 'light'], ['360+', 'bài viết và Reels', 'dark'], ['41,5%', 'tỷ lệ mở email', 'light']];
-  const coverCanvases = await Promise.all(covers.map(imageCard));
-  const set = [];
-  coverCanvases.forEach((c, i) => {
-    if (c) set.push(c);
-    set.push(statCard(...stats[i]));
-  });
-  // Lặp bộ thẻ 2 lần để vòng dày, thẻ nhỏ gọn như mẫu (ít hơn trên điện thoại)
+  const brands = [
+    { src: 'assets/images/brands/tnc.webp' },
+    { src: 'assets/images/brands/datbike.webp' },
+    { src: 'assets/images/brands/vm-style.webp' },
+    { src: 'assets/images/brands/mella.webp' },
+    { src: 'assets/images/brands/lalie.webp' },
+    { src: 'assets/images/brands/myun.webp' },
+    { src: 'assets/images/brands/bylen.webp' },
+    { src: 'assets/images/brands/baotin-express.webp' },
+    { src: 'assets/images/brands/local-tea.webp' },
+    { src: 'assets/images/brands/apollo.webp' }
+  ];
+  const brandCanvases = await Promise.all(brands.map(brandLogoCard));
+  const set = brandCanvases.filter(Boolean);
+  // Lặp bộ thẻ để vòng quay 3D dày dặn và mượt mà
   const cards = isSmall() ? set : set.concat(set);
 
   const N = cards.length;
-  const R = 7.2;
-  const gap = 0.07; // khoảng hở giữa các thẻ (radian)
+  const R = 7.0;
+  const gap = 0.045; // Khoảng hở gọn hơn để thẻ to và liền mạch hơn
   const arc = (Math.PI * 2) / N - gap;
   const height = (arc * R) * (CARD_H / CARD_W);
   cards.forEach((c, i) => {
@@ -148,7 +193,7 @@ async function initShowcase() {
     const mat = new THREE.MeshBasicMaterial({ map: tex, side: THREE.BackSide, transparent: true });
     ring.add(new THREE.Mesh(geo, mat));
   });
-  ring.position.set(0, 1.15, -4.6);
+  ring.position.set(0, 1.25, -4.2);
   ring.rotation.x = 0.06;
 
   // Tương tác: chuột nghiêng vòng, tốc độ cuộn trang làm vòng quay nhanh hơn
