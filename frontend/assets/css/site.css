@@ -800,7 +800,7 @@ html.hero-scrub .deck-quote { font-size: clamp(1rem, 2.2vh, 1.15rem); }
 .vm-meta-grid { border-top-color: rgba(255, 255, 255, 0.18); }
 .vm-meta-label { color: rgba(191, 212, 255, 0.78); }
 .vm-meta-value { color: #ffffff; }
-.vm-meta-value.highlight { color: #93b4ff; }
+.vm-meta-value.highlight { color: #ffffff; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {

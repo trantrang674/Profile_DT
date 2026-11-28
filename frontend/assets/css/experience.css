@@ -66,7 +66,7 @@
 .vm-brand-card {
   display: grid;
   grid-template-columns: 205px 1fr;
-  gap: 2.25rem;
+  gap: 1.65rem 2.25rem;
   align-items: center;
   background: linear-gradient(135deg, #070d2d 0%, #10249e 58%, #2242e0 100%);
   color: #ffffff;
@@ -197,11 +197,12 @@
 
 /* Lưới 4 thông tin chuẩn theo yêu cầu */
 .vm-meta-grid {
+  grid-column: 1 / -1;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
-  padding-top: 1rem;
-  margin-top: 0.25rem;
+  padding-top: 1.25rem;
+  margin-top: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
@@ -224,7 +225,7 @@
 }
 
 .vm-meta-value.highlight {
-  color: #93b4ff;
+  color: #ffffff;
 }
 
 /* ---------- 2. NỘI DUNG TỔNG QUAN (3 Mini-cards) ---------- */
@@ -264,20 +265,10 @@
   height: 46px;
   border-radius: 12px;
   background: var(--vm-primary-soft);
-  color: var(--vm-primary);
+  color: var(--vm-primary-dark);
   display: grid;
   place-items: center;
   flex-shrink: 0;
-}
-
-.vm-overview-card:nth-child(2) .vm-overview-icon {
-  background: var(--vm-accent-soft);
-  color: var(--vm-accent);
-}
-
-.vm-overview-card:nth-child(3) .vm-overview-icon {
-  background: var(--vm-primary-soft);
-  color: var(--vm-primary-dark);
 }
 
 .vm-overview-title {
@@ -315,11 +306,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--vm-primary);
-}
-
-.vm-overview-card:nth-child(2) .vm-overview-list li::before {
-  background: var(--vm-accent);
+  background: var(--vm-primary-dark);
 }
 
 /* Danh sách chỉ số / Số liệu trong Card 3 */

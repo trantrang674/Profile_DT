@@ -877,29 +877,28 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
             <h3 class="vm-brand-name">${company.brandName}</h3>
             <div class="vm-brand-badges">
               <span class="vm-pill vm-pill-blue">Lĩnh vực: ${company.industry}</span>
-              <span class="vm-pill vm-pill-orange">${company.period}</span>
             </div>
           </div>
 
           <p class="vm-brand-summary">${company.summary}</p>
+        </div>
 
-          <div class="vm-meta-grid">
-            <div class="vm-meta-item">
-              <span class="vm-meta-label">Tên thương hiệu</span>
-              <span class="vm-meta-value">${company.brandName}</span>
-            </div>
-            <div class="vm-meta-item">
-              <span class="vm-meta-label">Lĩnh vực kinh doanh</span>
-              <span class="vm-meta-value">${company.industry}</span>
-            </div>
-            <div class="vm-meta-item">
-              <span class="vm-meta-label">Thời gian làm việc</span>
-              <span class="vm-meta-value">${company.period}</span>
-            </div>
-            <div class="vm-meta-item">
-              <span class="vm-meta-label">Vị trí đảm nhiệm</span>
-              <span class="vm-meta-value highlight">${company.role}</span>
-            </div>
+        <div class="vm-meta-grid">
+          <div class="vm-meta-item">
+            <span class="vm-meta-label">Tên thương hiệu</span>
+            <span class="vm-meta-value">${company.brandName}</span>
+          </div>
+          <div class="vm-meta-item">
+            <span class="vm-meta-label">Lĩnh vực kinh doanh</span>
+            <span class="vm-meta-value">${company.industry}</span>
+          </div>
+          <div class="vm-meta-item">
+            <span class="vm-meta-label">Thời gian làm việc</span>
+            <span class="vm-meta-value">${company.period}</span>
+          </div>
+          <div class="vm-meta-item">
+            <span class="vm-meta-label">Vị trí đảm nhiệm</span>
+            <span class="vm-meta-value highlight">${company.role}</span>
           </div>
         </div>
       </article>
