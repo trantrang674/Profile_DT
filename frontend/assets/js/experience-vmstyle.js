@@ -565,62 +565,72 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
             id: 'rp-instagram',
             name: 'Instagram',
             badge: 'IG',
-            summary: 'Phân tích lượt xem Reels, lượt lưu bài viết (Saves), lượt chia sẻ (Shares), lượng truy cập hồ sơ (Profile Visits) và tăng trưởng Follower.',
-            posts: [
-              {
-                title: 'Báo Cáo Instagram Insights Tổng Quan: Tăng Trưởng Tài Khoản Thật',
-                tag: 'Instagram Insights',
-                date: 'Báo cáo quý',
-                src: createPostImagePlaceholder('Báo Cáo Instagram Insights', 'INSTAGRAM INSIGHTS', 'orange'),
-                alt: 'Báo cáo tổng quan Instagram Insights của thương hiệu VM Style',
-                caption: `📊 ĐÁNH GIÁ CHỈ SỐ TĂNG TRƯỞNG TRÊN KÊNH HÌNH ẢNH INSTAGRAM
-Đo lường mức độ mở rộng thương hiệu trên tệp khách hàng trẻ:
-
-- Lượng tài khoản tiếp cận (Accounts Reached): Tăng 42% sau khi triển khai đều đặn 3 Reels/tuần.
-- Lượt ghé thăm hồ sơ (Profile Visits): Đạt hơn 15.000 lượt, tăng tỷ lệ bấm vào Link Bio đặt hàng lên 3.8%.
-- Tỷ lệ người theo dõi mới: Tăng trưởng đều đặn 800 - 1.200 Follower thật/tháng nhờ vào nội dung hữu ích.
-#InstagramGrowth #ProfileVisits #AudienceInsights`,
-                metrics: [
-                  { label: 'Tiếp cận Reels', value: '+42%' },
-                  { label: 'Follower mới/tháng', value: '1.000+' }
-                ]
-              },
-              {
-                title: 'Đo Lường Hiệu Suất Video Reels: Phân Tích Lượt Xem & Lưu Bài Viết',
-                tag: 'Reels Analytics',
-                date: 'Báo cáo tuần',
-                src: createPostImagePlaceholder('Đo Lường Hiệu Suất Reels', 'REELS METRICS', 'blue'),
-                alt: 'Báo cáo hiệu quả video Instagram Reels và lượt lưu bài viết VM Style',
-                caption: `🎥 CHỈ SỐ TIẾP CẬN VÀ LƯỢT LƯU (SAVES) CỦA SHORT-FORM VIDEO
-So sánh hiệu quả giữa các định dạng video ngắn:
-
-- Video phối đồ (Mix & Match): Đạt lượng Lưu (Saves) cao nhất (trung bình 350 saves/video), minh chứng cho giá trị tham khảo lâu dài của nội dung.
-- Video biến hình (Transitions): Đạt lượng Xem (Views) và Chia sẻ (Shares) cao nhất, giúp kênh được thuật toán Instagram đề xuất trên tab Khám Phá.
-#ReelsAnalytics #SavesRate #VideoPerformance`,
-                metrics: [
-                  { label: 'Lượt xem trung bình', value: '25K views' },
-                  { label: 'Tỷ lệ chia sẻ', value: '4.8%' }
-                ]
-              },
-              {
-                title: 'Phân Tích Nhân Khẩu Học & Khung Giờ: Định Hình Lịch Đăng Chuẩn Xác',
-                tag: 'Audience Demographics',
-                date: 'Phân tích tệp khách',
-                src: createPostImagePlaceholder('Nhân Khẩu Học & Khung Giờ', 'AUDIENCE DEMOGRAPHICS', 'orange'),
-                alt: 'Báo cáo phân tích tệp người theo dõi và khung giờ đăng bài Instagram VM Style',
-                caption: `🎯 HIỂU SÂU VỀ KHÁCH HÀNG MỤC TIÊU ĐỂ TỐI ƯU CHIẾN LƯỢC NỘI DUNG
-Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
-
-- Độ tuổi chủ đạo: 18 - 24 tuổi (48%) và 25 - 34 tuổi (36%), phần lớn là sinh viên năm cuối và nhân viên văn phòng trẻ.
-- Khu vực địa lý tập trung: TP. Hồ Chí Minh (55%), Hà Nội (22%), Đà Nẵng (10%).
-- Khung giờ hoạt động tích cực nhất: 11h30 – 13h00 và 20h30 – 22h30. Điều chỉnh lịch đăng bài rơi trúng các khung giờ này đã giúp tương tác 1 giờ đầu tăng 35%.
-#TargetAudience #Demographics #OptimalTiming`,
-                metrics: [
-                  { label: 'Khách hàng nữ', value: '92%' },
-                  { label: 'Tương tác giờ vàng', value: '+35%' }
-                ]
-              }
-            ]
+            summary: 'Báo cáo hiệu suất kênh Instagram từ Instagram Insights giai đoạn 12/2024 – 01/2025.',
+            analyticsReport: {
+              period: '12/2024 – 01/2025',
+              source: 'Instagram Insights',
+              proofSrc: 'assets/images/posts/ig-report-proof.jpg',
+              proofTitle: 'Minh chứng số liệu Instagram — Instagram Insights (12/2024 – 01/2025)',
+              proofCaption: 'Ảnh chụp trực tiếp từ Instagram Insights so sánh Tháng 12/2024 và Tháng 01/2025: Reach tự nhiên tăng 32% (từ 10.308 lên 13.543) và Lượt hiển thị tăng 3,8% (lên 68.864) dù giảm tỉ lệ chạy ads từ 56,5% xuống còn 8,6%.',
+              months: ['Tháng 12/2024', 'Tháng 01/2025'],
+              shortMonths: ['T12/2024', 'T01/2025'],
+              metrics: [
+                {
+                  id: 'ig-organic-reach',
+                  label: 'Reach tự nhiên',
+                  unit: 'K',
+                  max: 16,
+                  values: [10.308, 13.543],
+                  displays: ['10.308', '13.543'],
+                  deltas: [null, { text: '+32%', dir: 'up' }]
+                },
+                {
+                  id: 'ig-impressions',
+                  label: 'Lượt hiển thị',
+                  unit: 'K',
+                  max: 80,
+                  values: [66.336, 68.864],
+                  displays: ['66.336', '68.864'],
+                  deltas: [{ text: '+101%', dir: 'up' }, { text: '+3,8%', dir: 'up' }]
+                },
+                {
+                  id: 'ig-reels',
+                  label: 'Reels',
+                  unit: 'K',
+                  max: 14,
+                  values: [8.128, 11.1],
+                  displays: ['8.128', '11,1K'],
+                  deltas: [null, { text: '+36,6%', dir: 'up' }]
+                }
+              ],
+              extraColumns: [
+                {
+                  label: 'Bài viết',
+                  displays: ['3.287', '4.433']
+                },
+                {
+                  label: 'Tin (Story)',
+                  displays: ['798', '1.354']
+                },
+                {
+                  label: 'Tỉ lệ từ quảng cáo',
+                  displays: ['56,5%', '8,6%']
+                }
+              ],
+              insights: [
+                {
+                  badge: '+32%',
+                  title: 'Reach tự nhiên',
+                  desc: 'Tháng 12 lượng tiếp cận tự nhiên đạt 10.308; sang Tháng 1 tăng lên 13.543.'
+                },
+                {
+                  badge: '+3,8%',
+                  title: 'Lượt hiển thị',
+                  desc: 'Lượt hiển thị tăng 3,8% (lên 68.864) mặc dù giảm tỉ lệ chạy ads từ 56,5% (Tháng 12) xuống còn 8,6% (Tháng 1).'
+                }
+              ]
+            },
+            posts: []
           }
         ]
       }
@@ -797,6 +807,9 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
           `;
         }).join('');
 
+        const gradPeakId = `vmBarPeak-${sub.id}-${metric.id}`;
+        const gradSoftId = `vmBarSoft-${sub.id}-${metric.id}`;
+
         const points = [];
         const barsHTML = metric.values.map((v, i) => {
           const cx = padL + slotW * i + slotW / 2;
@@ -812,7 +825,7 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
 
           return `
             <g class="vm-chart-col">
-              <rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barW.toFixed(1)}" height="${barH.toFixed(1)}" rx="10" fill="${isPeak ? 'url(#vmBarPeak)' : 'url(#vmBarSoft)'}" />
+              <rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barW.toFixed(1)}" height="${barH.toFixed(1)}" rx="10" fill="${isPeak ? `url(#${gradPeakId})` : `url(#${gradSoftId})`}" />
               <text x="${cx.toFixed(1)}" y="${(y - (d ? 24 : 10)).toFixed(1)}" text-anchor="middle" fill="#070c22" font-size="12.5" font-weight="800">${metric.displays[i]}</text>
               ${d ? `
                 <rect x="${(cx - 26).toFixed(1)}" y="${(y - 19).toFixed(1)}" width="52" height="16" rx="8" fill="${deltaBg}" />
@@ -832,11 +845,11 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
         return `
           <svg class="vm-report-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Biểu đồ ${escapeHTML(metric.label)} giai đoạn ${escapeHTML(rp.period)}">
             <defs>
-              <linearGradient id="vmBarPeak" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="${gradPeakId}" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stop-color="#2b4eff" />
                 <stop offset="100%" stop-color="#10249e" />
               </linearGradient>
-              <linearGradient id="vmBarSoft" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="${gradSoftId}" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stop-color="#93b4ff" />
                 <stop offset="100%" stop-color="#dbe7ff" />
               </linearGradient>
@@ -866,6 +879,12 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
         </div>
       `).join('');
 
+      const extraCols = rp.extraColumns || [];
+      const tableHeadersHTML = [
+        ...rp.metrics.map((m) => `<th>${escapeHTML(m.label)}</th>`),
+        ...extraCols.map((c) => `<th>${escapeHTML(c.label)}</th>`)
+      ].join('');
+
       const tableRowsHTML = rp.months.map((month, idx) => `
         <tr class="${idx === rp.months.length - 1 ? 'is-latest' : ''}">
           <td><strong>${escapeHTML(month)}</strong></td>
@@ -878,8 +897,25 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
               </td>
             `;
           }).join('')}
+          ${extraCols.map((c) => `<td><span class="vm-tbl-val">${escapeHTML(c.displays[idx])}</span></td>`).join('')}
         </tr>
       `).join('');
+
+      const insightsHTML = (rp.insights && rp.insights.length)
+        ? `
+          <div class="vm-report-insights">
+            ${rp.insights.map((ins) => `
+              <div class="vm-report-insight-item">
+                <div class="vm-report-insight-head">
+                  <span class="vm-delta-pill is-up">${escapeHTML(ins.badge)}</span>
+                  <strong>${escapeHTML(ins.title)}</strong>
+                </div>
+                <p>${escapeHTML(ins.desc)}</p>
+              </div>
+            `).join('')}
+          </div>
+        `
+        : '';
 
       return `
         <div class="vm-subcat-block vm-report-block">
@@ -902,9 +938,7 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
               <thead>
                 <tr>
                   <th>Thời gian</th>
-                  <th>Lượt xem</th>
-                  <th>Số người tiếp cận</th>
-                  <th>Lượt xem ≥ 3 giây</th>
+                  ${tableHeadersHTML}
                 </tr>
               </thead>
               <tbody>
@@ -913,12 +947,14 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
             </table>
           </div>
 
+          ${insightsHTML}
+
           <div class="vm-report-footer">
             <button
               type="button"
               class="vm-proof-btn"
               data-lb-index="${proofLbIndex}"
-              aria-label="Xem ảnh chụp báo cáo số liệu thực tế từ Meta Business Suite"
+              aria-label="Xem ảnh chụp báo cáo số liệu thực tế ${escapeHTML(sub.name)}"
             >
               <i data-lucide="image" aria-hidden="true"></i>
               <span>Xem minh chứng thực tế</span>
