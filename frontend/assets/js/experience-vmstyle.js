@@ -132,23 +132,54 @@
 
     // --- PHẦN 2: NỘI DUNG TỔNG QUAN (3 CỘT) ---
     overview: {
-      // Cột 1: Phạm vi công việc
+      // Cột 1: Phạm vi công việc (4 nhiệm vụ -> 4 thẻ dọc bên phải khung 1)
       responsibilities: {
         title: 'Phạm vi công việc',
         items: [
-          'Quản trị & sáng tạo nội dung trên hệ thống Social Media chính (Facebook & Instagram).',
-          'Xây dựng Content Plan định kỳ hằng tháng và kế hoạch truyền thông tổng thể cho các đợt ra mắt BST mới.',
-          'Phối hợp cùng đội ngũ Media/Design thực hiện chụp Lookbook, quay Reels phối đồ (Mix & Match).',
-          'Theo dõi chỉ số và lập báo cáo đo lường định kỳ.'
+          {
+            icon: 'share-2',
+            title: 'Social Media',
+            text: 'Quản trị & sáng tạo nội dung trên hệ thống Social Media chính (Facebook & Instagram).'
+          },
+          {
+            icon: 'calendar-days',
+            title: 'Content Plan',
+            text: 'Xây dựng Content Plan định kỳ hằng tháng và kế hoạch truyền thông tổng thể cho các đợt ra mắt BST mới.'
+          },
+          {
+            icon: 'camera',
+            title: 'Media & Lookbook',
+            text: 'Phối hợp cùng đội ngũ Media/Design thực hiện chụp Lookbook, quay Reels phối đồ (Mix & Match).'
+          },
+          {
+            icon: 'bar-chart-3',
+            title: 'Đo lường & Báo cáo',
+            text: 'Theo dõi chỉ số và lập báo cáo đo lường định kỳ.'
+          }
         ]
       },
-      // Cột 2: Cách triển khai
+      // Cột 2: Cách triển khai (Khung ngang 2 — ảnh bên trái, nội dung bên phải)
       execution: {
         title: 'Cách triển khai',
+        // Thay đường dẫn ảnh thật của bạn tại đây (ví dụ: 'assets/images/vmstyle-execution.webp')
+        imageUrl: '',
+        imageAlt: 'Hình ảnh triển khai nội dung tại VM Style',
         items: [
-          'Duy trì bài đăng hàng ngày để giữ chân người theo dõi, củng cố hình ảnh thương hiệu.',
-          'Xây dựng nội dung đa dạng phù hợp ngành như: chia sẻ tips, feedback, mix & match, collection,...',
-          'Nghiên cứu xu hướng thời trang & tâm lý mua sắm của tệp khách hàng nữ trẻ theo thời điểm.'
+          {
+            icon: 'calendar-check',
+            title: 'Tần suất đều đặn',
+            text: 'Duy trì bài đăng hàng ngày để giữ chân người theo dõi, củng cố hình ảnh thương hiệu.'
+          },
+          {
+            icon: 'layout-grid',
+            title: 'Đa dạng định dạng',
+            text: 'Xây dựng nội dung đa dạng phù hợp ngành như: chia sẻ tips, feedback, mix & match, collection,...'
+          },
+          {
+            icon: 'trending-up',
+            title: 'Bám sát hành vi khách hàng',
+            text: 'Nghiên cứu xu hướng thời trang & tâm lý mua sắm của tệp khách hàng nữ trẻ theo thời điểm.'
+          }
         ]
       },
       // Cột 3: Số liệu (Counter nổi bật)
@@ -1077,87 +1108,89 @@ Xây dựng Big Idea và thông điệp chạm đến cảm xúc của phái n�
       })
       .join('');
 
-    // Render toàn bộ cấu trúc 3 phần theo đúng thứ tự yêu cầu
+    // Render toàn bộ cấu trúc 3 phần theo bố cục Bento gọn gàng
     root.innerHTML = `
-      <!-- ==================== 1. THÔNG TIN CHUNG (Brand Header Card) ==================== -->
-      <article class="vm-brand-card vm-reveal" aria-label="Thông tin chung công ty VM Style">
-        <div class="vm-logo-box">
-          <img
-            src="${company.logoUrl}"
-            alt="${company.logoAlt}"
-            class="vm-logo-img"
-            loading="lazy"
-          >
-          ${company.logoUrl && company.logoUrl.startsWith('data:') ? '<span class="vm-logo-note">Logo thương hiệu</span>' : ''}
+      <!-- ==================== 1. KHUNG NGANG 1: GIỚI THIỆU CÔNG TY (TRÁI) + 4 NHIỆM VỤ PHẠM VI CÔNG VIỆC (PHẢI) ==================== -->
+      <section class="vm-bento-band vm-bento-top vm-reveal" aria-label="Giới thiệu công ty VM Style và Phạm vi công việc">
+        <div class="vm-bento-intro">
+          <div class="vm-bento-brand-row">
+            <div class="vm-bento-logo">
+              <img src="${company.logoUrl}" alt="${company.logoAlt}" loading="lazy">
+            </div>
+            <div class="vm-bento-brand-meta">
+              <span class="vm-bento-kicker">${escapeHTML(company.industry)} · ${escapeHTML(company.period)}</span>
+              <h3 class="vm-bento-title">${escapeHTML(company.brandName)}</h3>
+            </div>
+          </div>
+
+          <p class="vm-bento-role">${escapeHTML(company.role)}</p>
+          <p class="vm-bento-summary">${escapeHTML(company.summary)}</p>
+
+          <a href="#vm-stats-counter-card" class="vm-bento-cta">
+            <span>Xem minh chứng thực tế</span>
+            <span class="vm-bento-cta-ico" aria-hidden="true"><i data-lucide="arrow-down" aria-hidden="true"></i></span>
+          </a>
         </div>
 
-        <div class="vm-brand-info">
-          <div class="vm-brand-top">
-            <h3 class="vm-brand-name">${company.brandName}</h3>
-            <div class="vm-brand-badges">
-              <span class="vm-pill vm-pill-blue">Lĩnh vực: ${company.industry}</span>
-            </div>
-          </div>
+        <div class="vm-bento-scope-grid" aria-label="${escapeHTML(overview.responsibilities.title)}">
+          ${overview.responsibilities.items
+            .map(
+              (item, idx) => `
+            <article class="vm-bento-scope-card vm-scope-v${(idx % 4) + 1}">
+              <span class="vm-bento-scope-ico" aria-hidden="true">
+                <i data-lucide="${item.icon}" aria-hidden="true"></i>
+              </span>
+              <h4 class="vm-bento-scope-title">${escapeHTML(item.title)}</h4>
+              <p class="vm-bento-scope-text">${escapeHTML(item.text)}</p>
+              <div class="vm-bento-scope-accent" aria-hidden="true"></div>
+            </article>
+          `
+            )
+            .join('')}
+        </div>
+      </section>
 
-          <p class="vm-brand-summary">${company.summary}</p>
+      <!-- ==================== 2. KHUNG NGANG 2: ẢNH MINH HỌA (TRÁI) + CÁCH TRIỂN KHAI (PHẢI) ==================== -->
+      <section class="vm-bento-band vm-bento-exec vm-reveal" aria-label="Cách triển khai tại VM Style">
+        <div class="vm-bento-media ${overview.execution.imageUrl ? 'has-image' : ''}">
+          ${
+            overview.execution.imageUrl
+              ? `<img src="${overview.execution.imageUrl}" alt="${escapeHTML(overview.execution.imageAlt || overview.execution.title)}" loading="lazy">`
+              : `
+                <div class="vm-bento-media-placeholder">
+                  <span class="vm-bento-media-ico" aria-hidden="true"><i data-lucide="image-plus" aria-hidden="true"></i></span>
+                  <strong>Khung ảnh minh họa</strong>
+                  <span>Chừa sẵn vị trí để cập nhật ảnh hoạt động / sản phẩm</span>
+                </div>
+              `
+          }
         </div>
 
-        <div class="vm-meta-grid">
-          <div class="vm-meta-item">
-            <span class="vm-meta-label">Tên thương hiệu</span>
-            <span class="vm-meta-value">${company.brandName}</span>
+        <div class="vm-bento-exec-content">
+          <div class="vm-bento-exec-head">
+            <span class="vm-bento-kicker">${escapeHTML(overview.execution.title)}</span>
+            <h3 class="vm-bento-exec-title">Vận hành nội dung <span>đa kênh</span></h3>
           </div>
-          <div class="vm-meta-item">
-            <span class="vm-meta-label">Lĩnh vực kinh doanh</span>
-            <span class="vm-meta-value">${company.industry}</span>
-          </div>
-          <div class="vm-meta-item">
-            <span class="vm-meta-label">Thời gian làm việc</span>
-            <span class="vm-meta-value">${company.period}</span>
-          </div>
-          <div class="vm-meta-item">
-            <span class="vm-meta-label">Vị trí đảm nhiệm</span>
-            <span class="vm-meta-value highlight">${company.role}</span>
+
+          <div class="vm-bento-exec-list">
+            ${overview.execution.items
+              .map(
+                (item) => `
+              <div class="vm-bento-exec-item">
+                <span class="vm-bento-exec-ico" aria-hidden="true">
+                  <i data-lucide="${item.icon}" aria-hidden="true"></i>
+                </span>
+                <div class="vm-bento-exec-text">
+                  <h4>${escapeHTML(item.title)}</h4>
+                  <p>${escapeHTML(item.text)}</p>
+                </div>
+              </div>
+            `
+              )
+              .join('')}
           </div>
         </div>
-      </article>
-
-      <!-- ==================== 2. NỘI DUNG TỔNG QUAN (3 Mini-Cards) ==================== -->
-      <div class="vm-overview-grid" aria-label="Nội dung tổng quan công việc tại VM Style">
-        <!-- Cột 1: Phạm vi công việc -->
-        <article class="vm-overview-card vm-reveal">
-          <div class="vm-overview-head">
-            <div class="vm-overview-icon" aria-hidden="true">
-              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-              </svg>
-            </div>
-            <div>
-              <h3 class="vm-overview-title">${overview.responsibilities.title}</h3>
-            </div>
-          </div>
-          <ul class="vm-overview-list">
-            ${overview.responsibilities.items.map((item) => `<li>${item}</li>`).join('')}
-          </ul>
-        </article>
-
-        <!-- Cột 2: Cách triển khai -->
-        <article class="vm-overview-card vm-reveal">
-          <div class="vm-overview-head">
-            <div class="vm-overview-icon" aria-hidden="true">
-              <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
-            </div>
-            <div>
-              <h3 class="vm-overview-title">${overview.execution.title}</h3>
-            </div>
-          </div>
-          <ul class="vm-overview-list">
-            ${overview.execution.items.map((item) => `<li>${item}</li>`).join('')}
-          </ul>
-        </article>
-      </div>
+      </section>
 
       <!-- ==================== 3. HẠNG MỤC CÔNG VIỆC (3 Thẻ tổng quan kèm Số liệu -> Mở Modal chi tiết) ==================== -->
       <div class="vm-work-wrapper vm-reveal" id="vm-stats-counter-card">

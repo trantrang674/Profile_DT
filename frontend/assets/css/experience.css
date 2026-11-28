@@ -2083,3 +2083,444 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   7. BỐ CỤC BENTO 2 KHUNG NGANG (GIỚI THIỆU + 4 PHẠM VI | ẢNH + CÁCH TRIỂN KHAI)
+   ========================================================================== */
+.vm-bento-band {
+  background: #f4f7fe;
+  border: 1px solid var(--vm-border);
+  border-radius: 22px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Khung ngang 1: Nền Royal Cobalt nổi bật + Giới thiệu (trái) + 4 thẻ Phạm vi (phải) --- */
+.vm-bento-top {
+  display: grid;
+  grid-template-columns: minmax(260px, 325px) 1fr;
+  gap: 1.65rem;
+  align-items: stretch;
+  background: linear-gradient(135deg, #070d2d 0%, #10249e 58%, #2242e0 100%);
+  border-color: rgba(147, 180, 255, 0.28);
+  box-shadow: 0 24px 52px rgba(7, 13, 45, 0.22);
+  color: #ffffff;
+}
+
+.vm-bento-top .vm-bento-kicker {
+  color: #93b4ff;
+}
+
+.vm-bento-top .vm-bento-title {
+  color: #ffffff;
+}
+
+.vm-bento-top .vm-bento-role {
+  color: #dbe7ff;
+}
+
+.vm-bento-top .vm-bento-summary {
+  color: rgba(226, 235, 255, 0.88);
+}
+
+.vm-bento-top .vm-bento-cta {
+  background: #ffffff;
+  color: #10249e;
+  box-shadow: 0 10px 24px rgba(7, 13, 45, 0.25);
+}
+
+.vm-bento-top .vm-bento-cta:hover {
+  background: #eef2ff;
+  color: #070d2d;
+}
+
+.vm-bento-top .vm-bento-cta-ico {
+  background: rgba(16, 36, 158, 0.12);
+  color: #10249e;
+}
+
+.vm-bento-top .vm-bento-scope-card {
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 26px rgba(7, 13, 45, 0.18);
+}
+
+.vm-bento-intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.vm-bento-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.vm-bento-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid var(--vm-border);
+  padding: 0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 6px 16px rgba(16, 36, 158, 0.08);
+}
+
+.vm-bento-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.vm-bento-brand-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.vm-bento-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vm-primary);
+}
+
+.vm-bento-title {
+  margin: 0;
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--vm-text-main);
+}
+
+.vm-bento-role {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--vm-primary);
+  letter-spacing: -0.015em;
+}
+
+.vm-bento-summary {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--vm-text-muted);
+}
+
+.vm-bento-cta {
+  margin-top: 0.35rem;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.65rem 0.55rem 1.1rem;
+  border-radius: 999px;
+  background: var(--vm-primary);
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(22, 49, 201, 0.22);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vm-bento-cta:hover {
+  background: var(--vm-primary-dark);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(16, 36, 158, 0.28);
+}
+
+.vm-bento-cta-ico {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-items: center;
+}
+
+.vm-bento-cta-ico svg,
+.vm-bento-cta-ico i {
+  width: 14px;
+  height: 14px;
+}
+
+/* 4 thẻ nhiệm vụ Phạm vi công việc */
+.vm-bento-scope-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.vm-bento-scope-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #e4ebf8;
+  border-radius: 16px;
+  padding: 1.15rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(7, 13, 45, 0.04);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.vm-bento-scope-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--vm-primary-border);
+  box-shadow: 0 14px 28px rgba(16, 36, 158, 0.1);
+}
+
+.vm-bento-scope-ico {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--vm-primary-soft);
+  color: var(--vm-primary-dark);
+  display: grid;
+  place-items: center;
+  margin-bottom: 0.2rem;
+  flex-shrink: 0;
+}
+
+.vm-bento-scope-ico svg,
+.vm-bento-scope-ico i {
+  width: 18px;
+  height: 18px;
+}
+
+.vm-bento-scope-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--vm-text-main);
+  line-height: 1.25;
+}
+
+.vm-bento-scope-text {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--vm-text-muted);
+  position: relative;
+  z-index: 1;
+}
+
+/* Mảng trang trí nhẹ ở đáy mỗi thẻ (đồng bộ xanh Royal Cobalt / Ice) */
+.vm-bento-scope-accent {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -26px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(147, 180, 255, 0.42), rgba(22, 49, 201, 0.16));
+  pointer-events: none;
+}
+
+.vm-scope-v2 .vm-bento-scope-accent {
+  background: linear-gradient(135deg, rgba(85, 116, 247, 0.35), rgba(147, 180, 255, 0.2));
+}
+
+.vm-scope-v3 .vm-bento-scope-accent {
+  background: linear-gradient(135deg, rgba(22, 49, 201, 0.25), rgba(147, 180, 255, 0.45));
+}
+
+.vm-scope-v4 .vm-bento-scope-accent {
+  background: linear-gradient(135deg, rgba(147, 180, 255, 0.5), rgba(85, 116, 247, 0.22));
+}
+
+/* --- Khung ngang 2: Ảnh minh họa (trái) + Cách triển khai (phải) --- */
+.vm-bento-exec {
+  display: grid;
+  grid-template-columns: minmax(280px, 4.3fr) minmax(0, 5.7fr);
+  gap: 1.75rem;
+  align-items: stretch;
+  margin-bottom: 2rem;
+}
+
+.vm-bento-media {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 250px;
+  background: #ffffff;
+  border: 1.5px dashed #bfd0f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vm-bento-media.has-image {
+  border: 1px solid var(--vm-border);
+  box-shadow: 0 10px 26px rgba(7, 13, 45, 0.08);
+}
+
+.vm-bento-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.vm-bento-media-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.45rem;
+  padding: 1.5rem;
+  color: var(--vm-text-muted);
+}
+
+.vm-bento-media-ico {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--vm-primary-soft);
+  color: var(--vm-primary-dark);
+  display: grid;
+  place-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.vm-bento-media-ico svg,
+.vm-bento-media-ico i {
+  width: 22px;
+  height: 22px;
+}
+
+.vm-bento-media-placeholder strong {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: var(--vm-text-main);
+}
+
+.vm-bento-media-placeholder span {
+  font-size: 0.8rem;
+  color: var(--vm-text-light);
+  max-width: 28ch;
+  line-height: 1.45;
+}
+
+.vm-bento-exec-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.vm-bento-exec-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.vm-bento-exec-title {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--vm-text-main);
+  line-height: 1.2;
+}
+
+.vm-bento-exec-title span {
+  color: var(--vm-primary);
+}
+
+.vm-bento-exec-list {
+  background: #ffffff;
+  border: 1px solid #e4ebf8;
+  border-radius: 16px;
+  padding: 0.45rem 1rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 18px rgba(7, 13, 45, 0.04);
+}
+
+.vm-bento-exec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eef2fb;
+}
+
+.vm-bento-exec-item:last-child {
+  border-bottom: none;
+}
+
+.vm-bento-exec-ico {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--vm-primary-soft);
+  color: var(--vm-primary-dark);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.vm-bento-exec-ico svg,
+.vm-bento-exec-ico i {
+  width: 17px;
+  height: 17px;
+}
+
+.vm-bento-exec-text h4 {
+  margin: 0 0 0.2rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--vm-text-main);
+}
+
+.vm-bento-exec-text p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--vm-text-muted);
+}
+
+/* Responsive cho bố cục Bento */
+@media (max-width: 1120px) {
+  .vm-bento-top {
+    grid-template-columns: 1fr;
+  }
+  .vm-bento-scope-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .vm-bento-exec {
+    grid-template-columns: 1fr;
+  }
+  .vm-bento-media {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 560px) {
+  .vm-bento-band {
+    padding: 1.15rem;
+    border-radius: 18px;
+  }
+  .vm-bento-scope-grid {
+    grid-template-columns: 1fr;
+  }
+}
