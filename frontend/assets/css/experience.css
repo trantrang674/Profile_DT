@@ -1008,13 +1008,15 @@
 .vm-lightbox {
   position: fixed;
   inset: 0;
+  height: 100vh;
+  height: 100dvh;
   z-index: 9999;
-  background: rgba(15, 23, 42, 0.88);
+  background: rgba(15, 23, 42, 0.9);
   backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 1.25rem;
+  gap: 0.85rem;
+  padding: 1rem 1.25rem;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -1031,11 +1033,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.85rem;
   color: #ffffff;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  flex-shrink: 0;
   z-index: 2;
 }
 
@@ -1045,25 +1048,37 @@
   gap: 0.75rem;
   font-size: 0.88rem;
   font-weight: 600;
+  min-width: 0;
+  flex: 1;
 }
 
 .vm-lightbox-counter {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 0.25rem 0.7rem;
+  background: rgba(255, 255, 255, 0.16);
+  padding: 0.28rem 0.75rem;
   border-radius: 99px;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.vm-lightbox-group {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: rgba(241, 245, 249, 0.92);
 }
 
 .vm-lightbox-actions {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .vm-lb-btn {
   background: rgba(255, 255, 255, 0.14);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 8px;
   padding: 0.45rem 0.8rem;
   font-size: 0.82rem;
@@ -1072,6 +1087,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: background 0.2s ease;
 }
 
@@ -1091,12 +1108,12 @@
 .vm-lightbox-stage {
   position: relative;
   flex: 1;
+  min-height: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: auto;
-  my: 0.75rem;
-  max-height: calc(100vh - 150px);
 }
 
 .vm-lightbox-img-wrap {
@@ -1104,8 +1121,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 92vw;
-  max-height: 78vh;
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
 }
 
 .vm-lightbox-img-wrap.is-zoomed {
@@ -1115,9 +1133,10 @@
 
 .vm-lightbox-img {
   max-width: 100%;
-  max-height: 78vh;
+  max-height: 100%;
   width: auto;
   height: auto;
+  object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
   background: #ffffff;
@@ -1132,17 +1151,19 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
   color: #ffffff;
   display: grid;
   place-items: center;
   cursor: pointer;
   z-index: 3;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .vm-lb-nav:hover {
@@ -1162,13 +1183,33 @@
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
   color: #ffffff;
-  padding: 0.5rem 1rem;
-  background: rgba(15, 23, 42, 0.65);
-  border-radius: 10px;
-  font-size: 0.92rem;
+  padding: 0.75rem 1.1rem;
+  background: rgba(15, 23, 42, 0.74);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  font-size: 0.9rem;
   font-weight: 500;
+  flex-shrink: 0;
+}
+
+.vm-lb-caption-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  margin-bottom: 0.3rem;
+  color: #ffffff;
+}
+
+.vm-lb-caption-body {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: rgba(241, 245, 249, 0.92);
+  max-height: 110px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+  word-break: break-word;
 }
 
 /* ---------- Hiệu ứng Fade-in & Blur Reveal khi cuộn ---------- */
@@ -1265,6 +1306,64 @@
   }
 }
 
+@media (max-width: 640px) {
+  .vm-lightbox {
+    padding: 0.75rem;
+    gap: 0.65rem;
+  }
+  .vm-lightbox-top {
+    flex-wrap: wrap;
+    gap: 0.45rem 0.6rem;
+  }
+  .vm-lightbox-meta {
+    display: contents;
+  }
+  .vm-lightbox-counter {
+    order: 1;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.65rem;
+  }
+  .vm-lightbox-actions {
+    order: 2;
+    margin-left: auto;
+    gap: 0.4rem;
+  }
+  .vm-lightbox-group {
+    order: 3;
+    flex-basis: 100%;
+    font-size: 0.8rem;
+    color: rgba(226, 232, 240, 0.85);
+  }
+  .vm-lb-btn {
+    padding: 0.42rem 0.72rem;
+    font-size: 0.8rem;
+    min-height: 36px;
+  }
+  .vm-lb-btn-hint {
+    display: none;
+  }
+  .vm-lb-nav {
+    width: 36px;
+    height: 36px;
+  }
+  .vm-lb-prev {
+    left: 0.4rem;
+  }
+  .vm-lb-next {
+    right: 0.4rem;
+  }
+  .vm-lightbox-bottom {
+    padding: 0.7rem 0.85rem;
+  }
+  .vm-lb-caption-title {
+    font-size: 0.88rem;
+  }
+  .vm-lb-caption-body {
+    font-size: 0.8rem;
+    max-height: 22dvh;
+  }
+}
+
 @media (max-width: 540px) {
   .vm-meta-grid {
     grid-template-columns: 1fr;
@@ -1272,9 +1371,5 @@
   }
   .vm-gallery-grid {
     grid-template-columns: 1fr;
-  }
-  .vm-lb-nav {
-    width: 38px;
-    height: 38px;
   }
 }

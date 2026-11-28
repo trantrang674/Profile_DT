@@ -195,12 +195,12 @@
                 title: 'Tuyến bài quảng bá sản phẩm',
                 posts: [
                   {
-                    title: '[𝐇𝐎̂𝐌 𝐍𝐀𝐘 𝐌𝐀̣̆𝐂 𝐆𝐈̀?] — Gợi Ý Mix & Match Diện Lễ',
+                    title: '[HÔM NAY MẶC GÌ?] — Gợi Ý Mix & Match Diện Lễ',
                     tag: 'Mix & Match',
                     date: 'Bài đăng Facebook',
                     src: 'assets/images/posts/Screenshot_1.webp',
                     alt: 'Hôm Nay Mặc Gì - Tuyến bài gợi ý Mix & Match thời trang VM Style',
-                    caption: `[𝐇𝐎̂𝐌 𝐍𝐀𝐘 𝐌𝐀̣̆𝐂 𝐆𝐈̀?] 🧐🧐
+                    caption: `[HÔM NAY MẶC GÌ?] 🧐🧐
 💫Gợi ý Mix & match cho các bestie thân yêu của VMStyle! Đa dạng từ kiểu dáng đến phong cách cho nàng lựa chọn diện mùa lễ sắp tới 
 💖Ghé store hoặc kênh shopping online của VM để được tư vấn mua sắm nha✨
 __________
@@ -1268,14 +1268,14 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
         <div class="vm-lightbox-top">
           <div class="vm-lightbox-meta">
             <span class="vm-lightbox-counter" id="vm-lb-counter">1 / 1</span>
-            <span id="vm-lb-group">Hạng mục</span>
+            <span class="vm-lightbox-group" id="vm-lb-group">Hạng mục</span>
           </div>
           <div class="vm-lightbox-actions">
             <button type="button" class="vm-lb-btn" id="vm-lb-zoom" aria-label="Phóng to hoặc thu nhỏ ảnh">
-              <i data-lucide="zoom-in" aria-hidden="true"></i> <span>Phóng to (1.5x)</span>
+              <i data-lucide="zoom-in" aria-hidden="true"></i> <span>Phóng to <span class="vm-lb-btn-hint">(1.5x)</span></span>
             </button>
             <button type="button" class="vm-lb-btn vm-lb-close" id="vm-lb-close" aria-label="Đóng khung xem ảnh">
-              <i data-lucide="x" aria-hidden="true"></i> <span>Đóng (Esc)</span>
+              <i data-lucide="x" aria-hidden="true"></i> <span>Đóng <span class="vm-lb-btn-hint">(Esc)</span></span>
             </button>
           </div>
         </div>
@@ -1315,8 +1315,8 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
       isZoomed = state;
       imgWrap.classList.toggle('is-zoomed', isZoomed);
       zoomBtn.innerHTML = isZoomed
-        ? '<i data-lucide="zoom-out" aria-hidden="true"></i> <span>Thu nhỏ (1x)</span>'
-        : '<i data-lucide="zoom-in" aria-hidden="true"></i> <span>Phóng to (1.5x)</span>';
+        ? '<i data-lucide="zoom-out" aria-hidden="true"></i> <span>Thu nhỏ <span class="vm-lb-btn-hint">(1x)</span></span>'
+        : '<i data-lucide="zoom-in" aria-hidden="true"></i> <span>Phóng to <span class="vm-lb-btn-hint">(1.5x)</span></span>';
     }
 
     function showImage(index) {
@@ -1328,8 +1328,8 @@ Số liệu từ hệ thống Meta Business Suite & Instagram Insights:
       imgEl.src = item.src;
       imgEl.alt = item.alt || item.title || 'Ảnh bài post';
       captionEl.innerHTML = `
-        <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; color: #ffffff;">${escapeHTML(item.title || item.groupTitle)}</div>
-        <div style="font-size: 0.85rem; opacity: 0.92; line-height: 1.5; color: #f1f5f9; max-height: 100px; overflow-y: auto;">${formatCaptionHTML(item.caption)}</div>
+        <div class="vm-lb-caption-title">${escapeHTML(item.title || item.groupTitle)}</div>
+        <div class="vm-lb-caption-body">${formatCaptionHTML(item.caption)}</div>
       `;
       counterEl.textContent = `${currentIndex + 1} / ${items.length}`;
       groupEl.textContent = item.groupTitle;
